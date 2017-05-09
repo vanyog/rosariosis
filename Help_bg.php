@@ -23,15 +23,12 @@
 if ( User( 'PROFILE' ) === 'admin' ) :
 
 	$help['default'] = <<<HTML
-<p>
-	As an administrator, you can setup the schools in this system, modify students and users, and access essential student reports.
-</p>
-<p>
-	You have access to any school in the system. To choose a school to work on, select the school from the pull-down menu on the left frame. The program will automatically refresh with the new school in the workspace. You can also change the school year and current marking period in a similar fashion.
-</p>
-<p>
-	As you use RosarioSIS, you will notice other items appear in your side menu. When you select a student to work on, the student's name will appear under the marking period pull-down menu preceded by a cross. As you move between programs, you will continue to work on this student. If you want to change the working student, click on the cross by the student's name. You can also quickly access the student's General Information screen by clicking on the student's name.
-</p>
+<p>Като администратор Вие можете да настройвате училищата в тази система, да променяте студентите и потребителите и да виждате важните отчети за студентите.</p>
+
+<p>Имате достъп до всяко училище в системата. За да изберете училище, над което да работите, използвайте падащото меню в лявата рамка. Софтуерът автоматично ще опресни данните за избраното училище на работния екран. Можете също да промените учебната година и текущия период за оценяване от другите две падащи менюта.</p>
+
+<p>Докато използвате RosarioSIS, ще забележите, че в страничното меню се показват различни неща. Когато изберете студент, за да работите с неговите данни, името на студента се показва под падащото меню с периода за оценяване с кръст пред него. Докато работите със софтуера, Вие ще продължите да работите с данните на този студент. Ако искате да смените студента, щракнете върху кръста пред името му. Можете също да отворите основната информация за студента, като щракнете върху името му.</p>
+
 <p>
 	If you select a user to work on, the user's name will also appear in the side menu. This will behave identically to the student's name.
 </p>

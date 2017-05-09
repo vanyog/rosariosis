@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-09 13:29+0300\n"
+"PO-Revision-Date: 2017-05-09 14:41+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -22,37 +22,37 @@ msgstr "Меню"
 #: Bottom.php:145 modules/Attendance/Administration.php:256
 #: modules/Eligibility/Menu.php:19 modules/Eligibility/Menu.php:36
 msgid "Student List"
-msgstr ""
+msgstr "Списък студенти"
 
 #: Bottom.php:150
 msgid "User List"
-msgstr ""
+msgstr "Списък потребители"
 
 #: Bottom.php:155
 msgid "Course List"
-msgstr ""
+msgstr "Списък курсове"
 
 #: Bottom.php:160
 #, php-format
 msgid "%s List"
-msgstr ""
+msgstr "%s Списък"
 
 #: Bottom.php:178
 msgid "Student Search"
-msgstr ""
+msgstr "Търсене студент"
 
 #: Bottom.php:183
 msgid "User Search"
-msgstr ""
+msgstr "Търсене потребител"
 
 #: Bottom.php:188
 msgid "Course Search"
-msgstr ""
+msgstr "Търсене курс"
 
 #: Bottom.php:193
 #, php-format
 msgid "%s Search"
-msgstr ""
+msgstr "%s Търсене"
 
 #: Bottom.php:206 Bottom.php:208 functions/PDF.php:98 functions/PDF.php:133
 msgid "Print"
@@ -170,20 +170,20 @@ msgstr "Студент"
 #: Help.php:73 Help.php:133
 #, php-format
 msgid "%s Handbook"
-msgstr ""
+msgstr "%s Учебник"
 
 #: Help.php:134
 #, php-format
 msgid "version %s"
-msgstr ""
+msgstr "версия %s"
 
 #: PasswordReset.php:173 PasswordReset.php:282
 msgid "Please enter your email again."
-msgstr ""
+msgstr "Въведете своя имейл пак."
 
 #: PasswordReset.php:269 modules/Users/Preferences.php:15
 msgid "Your new passwords did not match."
-msgstr ""
+msgstr "Новата Ви парола не съответства."
 
 #: PasswordReset.php:291
 msgid "Password reset is not activated for students."
@@ -866,7 +866,7 @@ msgstr ""
 #: Side.php:700 modules/Users/Menu.php:16 modules/Users/Menu.php:30
 #: modules/Users/Menu.php:37
 msgid "User Info"
-msgstr ""
+msgstr "Информация на потребител"
 
 #: database.inc.php:368
 msgid "We have a problem, please contact technical support ..."
@@ -7317,7 +7317,7 @@ msgstr ""
 #: modules/Users/Menu.php:19 modules/Users/Menu.php:31
 #: modules/Users/Menu.php:38
 msgid "My Preferences"
-msgstr ""
+msgstr "Моите предпочитания"
 
 #: modules/Users/Menu.php:21
 msgid "User Profiles"
@@ -8205,49 +8205,49 @@ msgid "This date is invalid and could not be saved."
 msgstr ""
 
 msgid "The Note can then only be modified and deleted via Moodle"
-msgstr "La Note ne pourra être modifiée ou supprimée seulement via Moodle"
+msgstr ""
 
 msgid "Families"
 msgstr ""
 
 msgid "Print Certificate of Goodstanding"
-msgstr "Imprimer Certificat de Bonne Conduite"
+msgstr ""
 
 msgid "Enable mailing address display"
-msgstr "Montrer l'Adresse de Courrier"
+msgstr ""
 
 msgid "Welcome to the Rosario School Information System!"
-msgstr "Bienvenue sur le Système d'Information Académique Rosario!"
+msgstr ""
 
 msgid "NIT"
 msgstr ""
 
 msgid "Resolution"
-msgstr "Résolution"
+msgstr ""
 
 msgid "Student Card"
-msgstr "Carte Etudiant"
+msgstr ""
 
 msgid "Certificate of Goodstanding"
-msgstr "Certificat de Bonne Conduite"
+msgstr ""
 
 msgid "Workshops Realized"
-msgstr "Ateliers Réalisés"
+msgstr ""
 
 msgid "Create Certificates of Goodstanding for Selected Students"
-msgstr "Créer les Certificats de Bonne Conduite pour les Élèves Sélectionnés"
+msgstr ""
 
 msgid "Student Card Template"
-msgstr "Patron de la Carte Etudiant"
+msgstr ""
 
 msgid "Create Student Cards for Selected Students"
-msgstr "Créer Cartes Etudiants pour les Élèves Sélectionnés"
+msgstr ""
 
 msgid "Video Help"
-msgstr "Aide Vidéo"
+msgstr ""
 
 msgid "User Forums"
-msgstr "Forums Utilisateur"
+msgstr ""
 
 msgid "Translation"
 msgstr ""
@@ -8262,7 +8262,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Identification Card"
-msgstr "Carte d'Identité"
+msgstr ""
 
 msgid "Unscheduled Request"
 msgid_plural "Unscheduled Requests"
@@ -8270,10 +8270,10 @@ msgstr[0] "Demande non Prise en Compte"
 msgstr[1] "Demandes non Prises en Compte"
 
 msgid "Birth Month Day"
-msgstr "Jour de Naissance"
+msgstr ""
 
 msgid "Download list"
-msgstr "Télécharger la liste"
+msgstr ""
 
 msgid ""
 "You have a <b>negative</b> food service balance of <font color=\"red\">%d</"
@@ -8283,32 +8283,31 @@ msgstr ""
 "font>"
 
 msgid "Error: Wrong file extension: %s (.jpg or .jpeg required)"
-msgstr "Erreur: Mauvaise extension de fichier: %s (.jpg ou .jpeg requis)"
+msgstr ""
 
 msgid "Votes"
 msgstr ""
 
 msgid "Total Votes"
-msgstr "Total des Votes"
+msgstr ""
 
 msgid "Select Multiple Choices"
-msgstr "Sélection à Choix Multiple"
+msgstr ""
 
 msgid "To Family"
-msgstr "Aux Familles"
+msgstr ""
 
-#, fuzzy
 msgid "Rosario ID"
-msgstr "ID RosarioSIS"
+msgstr ""
 
 msgid "Contact Info Rollover"
-msgstr "Info de Contact du Report Final"
+msgstr ""
 
 msgid "Jan"
 msgstr ""
 
 msgid "Feb"
-msgstr "Fév"
+msgstr ""
 
 msgid "Mar"
 msgstr ""
@@ -8335,17 +8334,17 @@ msgid "Dec"
 msgstr ""
 
 msgid "School / Year"
-msgstr "École / Année"
+msgstr ""
 
 # Month
 msgid "Mon"
 msgstr ""
 
 msgid "Fewer than 0"
-msgstr "Moins que 0"
+msgstr ""
 
 msgid "characters remaining."
-msgstr "caractères disponibles."
+msgstr ""
 
 msgid "Leave space for other teachers to enter their comments."
 msgstr ""
@@ -8353,25 +8352,25 @@ msgstr ""
 "commentaires."
 
 msgid "Half-Day"
-msgstr "Demi-Journée"
+msgstr ""
 
 msgid "Course Name"
-msgstr "Nom du Cours"
+msgstr ""
 
 msgid "First"
-msgstr "Prénom"
+msgstr ""
 
 msgid "Last"
-msgstr "Nom de Famille"
+msgstr ""
 
 msgid "Middle"
 msgstr ""
 
 msgid "The first translation string cannot be empty."
-msgstr "La première traduction ne peut être vide."
+msgstr ""
 
 msgid "Rosario School Software"
-msgstr "Logiciel de Gestion d'École Rosario"
+msgstr ""
 
 msgid "Teacher with missing attendance data"
 msgid_plural "Teachers with missing attendance data"
@@ -8379,73 +8378,73 @@ msgstr[0] "Enseignant avec des relevés d'absence manquants"
 msgstr[1] "Enseignants avec des relevés d'absence manquants"
 
 msgid "Rosario SIS"
-msgstr "Rosario SIS"
+msgstr ""
 
 msgid "Students with Anomalous Grades"
-msgstr "Élèves avec des Notes Anormales"
+msgstr ""
 
 msgid "Assignment Types"
-msgstr "Types de Devoir"
+msgstr ""
 
 msgid "Periods with missing %s attendance data"
-msgstr "Périodes avec des absences %s manquantes"
+msgstr ""
 
 msgid "Transcript"
-msgstr "Livret Scolaire"
+msgstr ""
 
 msgid "Credits MP/Total"
-msgstr "Crédits Période/Total"
+msgstr ""
 
 msgid "GPA Wtd"
-msgstr "Moyenne Pondérée"
+msgstr ""
 
 msgid "Rank"
 msgstr ""
 
 msgid "Referral Log"
-msgstr "Journal de Discipline"
+msgstr ""
 
 msgid "Include in Referral Log"
-msgstr "Inclure dans le Journal de Discipline"
+msgstr ""
 
 msgid "The grades for that marking period have been recalculated."
-msgstr "Les notes pour cette période scolaire ont été recalculées."
+msgstr ""
 
 msgid "Staff Member"
-msgstr "Membre du Personnel"
+msgstr ""
 
 msgid "We hereby recognize"
-msgstr "Par la présente, nous reconnaissons"
+msgstr ""
 
 msgid "Who has completed all the academic<br />requirements for"
-msgstr "Qui a atteint les prérequis<br />académiques pour"
+msgstr ""
 
 msgid "Academic Excellence in"
-msgstr "Excellence Académique en"
+msgstr ""
 
 msgid "GPA between"
-msgstr "Moyenne Entre"
+msgstr ""
 
 msgid "Cumulative"
 msgstr ""
 
 msgid "Referral Form Categories"
-msgstr "Categories du Formulaire de Discipline"
+msgstr ""
 
 msgid "Teachers with missing attendance data"
-msgstr "Enseignants avec des relevés d'absence manquants"
+msgstr ""
 
 msgid "Days With Upcoming Events"
-msgstr "Jours avec des Evénements"
+msgstr ""
 
 msgid "Events"
-msgstr "Evénements"
+msgstr ""
 
 msgid "Letter Grade"
-msgstr "Note Lettrée"
+msgstr ""
 
 msgid "Days of Week"
-msgstr "Jours de la Semaine"
+msgstr ""
 
 msgid "Course with Unscheduled Requests"
 msgid_plural "Courses with Unscheduled Requests"
@@ -8458,16 +8457,16 @@ msgstr[0] "Cours sans Disponibilités"
 msgstr[1] "Cours sans Disponibilités"
 
 msgid "Period - Teacher"
-msgstr "Période - Enseignant"
+msgstr ""
 
 msgid "Balance Report"
-msgstr "Report de Solde"
+msgstr ""
 
 msgid "Show Open Seats"
-msgstr "Montrer les Places Disponibles"
+msgstr ""
 
 msgid "Rolling Retention / Options"
-msgstr "Passage Maintient / Options"
+msgstr ""
 
 msgid ""
 "Since this is your first login, Rosario/SIS would like to tell our servers "
@@ -8477,16 +8476,16 @@ msgstr ""
 "installation a nos serveurs."
 
 msgid "Is this OK?"
-msgstr "Etes-vous d'accord?"
+msgstr ""
 
 msgid "You will not see this message again."
-msgstr "Ce message ne s'affichera plus jamais."
+msgstr ""
 
 msgid "Hebrew Name"
-msgstr "Nom Hébreu"
+msgstr ""
 
 msgid "Last, Common"
-msgstr "Nom de Famille, Surnom"
+msgstr ""
 
 msgid "Common"
 msgstr ""
@@ -8495,28 +8494,28 @@ msgid "Common Name"
 msgstr ""
 
 msgid "Common Last"
-msgstr "Surnom Nom de Famille"
+msgstr ""
 
 msgid "Given Name"
-msgstr "Nom de Famille"
+msgstr ""
 
 msgid "Other students associated with same account"
-msgstr "Autres élèves associés à ce compte"
+msgstr ""
 
 msgid "Titles Color"
-msgstr "Couleur des Titres"
+msgstr ""
 
 msgid "Auto Pull-down"
-msgstr "Menu Déroulant Automatique"
+msgstr ""
 
 msgid "Teacher with missing %s data"
-msgstr "Enseignant avec des données %s manquantes"
+msgstr ""
 
 msgid "Teachers with missing %s data"
-msgstr "Enseignants avec des données %s manquantes"
+msgstr ""
 
 msgid "Due date is earlier than assigned date!"
-msgstr "La date d'échéance est antérieure à la date assignée!"
+msgstr ""
 
 msgid "Pre-Defined Fee"
 msgid_plural "Pre-Defined Fees"
@@ -8529,7 +8528,7 @@ msgstr[0] "Frais Élève"
 msgstr[1] "Frais Élève"
 
 msgid "You must choose at least one student"
-msgstr "Vous devez choisir au moins un élève"
+msgstr ""
 
 msgid "Mail City"
 msgstr ""
@@ -8538,31 +8537,31 @@ msgid "Mail State"
 msgstr ""
 
 msgid "Mail Zipcode"
-msgstr "Code Postal"
+msgstr ""
 
 msgid "You must choose at least one student and one marking period"
-msgstr "Vous devez choisir au moins un élève et une période scolaire."
+msgstr ""
 
 msgid "You must choose at least one student and marking period"
-msgstr "Vous devez choisir au moins un élève et une période scolaire."
+msgstr ""
 
 msgid "Documentation"
 msgstr ""
 
 msgid "Get Key"
-msgstr "Obtenir la Clé"
+msgstr ""
 
 msgid "Not On"
-msgstr "Pas Les"
+msgstr ""
 
 msgid "Grade, Name"
-msgstr "Niveau Scolaire, Nom"
+msgstr ""
 
 msgid "List Color"
-msgstr "Couleur des Listes"
+msgstr ""
 
 msgid "Students with incomplete schedules"
-msgstr "Élèves avec Emplois du Temps Incomplets"
+msgstr ""
 
 msgid "Explanation"
 msgstr ""
@@ -8574,13 +8573,13 @@ msgstr[0] "Commentaire enseignant"
 msgstr[1] "Commentaire enseignant"
 
 msgid "Addresses & Contacts"
-msgstr "Adresses & Contacts"
+msgstr ""
 
 msgid "AKA First Name"
-msgstr "Prénom"
+msgstr ""
 
 msgid "AKA Last Name"
 msgstr ""
 
 msgid "AKA Middle Name"
-msgstr "Second Prénom"
+msgstr ""
