@@ -183,16 +183,15 @@ HTML;
 
 	$help['School_Setup/Periods.php'] = <<<HTML
 <p>
-	<i>Periods</i> allows you to setup your school's periods. Middle and high schools will likely have many periods, whereas elementary schools will probably have only one period (called All Day) or perhaps 3 (All Day, Morning, and Afternoon).
+        Страница <i>Периоди</i> Ви позволява да настроите учебните периоди (часове) на училището. Средните и висшите училища може да имат повече учебни часове, докато началните и основни училища е възможно да имат само един учебен период (наречен цял ден) или три (цял ден, предиобед и следобед).</p>
+<p>
+        За да добавите период попълнете полетата на последния ред с название, кратко име, номер за подреждане, продължителност в минути и щракнете бутона "Запазване".
 </p>
 <p>
-	To add a period, fill in the period's title, short name, sort order, and length in minutes in the empty fields at the bottom of the periods list and click the "Save" button.
+        За да промените период щракнете върху това, което искате да промените, променете го и щракнете бутона "Запазване".
 </p>
 <p>
-	To modify a period, click on any of the period's information, change the value, and click the "Save" button.
-</p>
-<p>
-	To delete a period, click the delete icon (-) next to the period you want to delete. You will be asked to confirm the deletion.
+        За да изтриете период, щракнете иконата за изтриване (-). Ще бъдете попитани да потвърдите, че искате да се изтрие.
 </p>
 HTML;
 
@@ -478,9 +477,7 @@ HTML;
 HTML;
 
 	$help['Students/General Information'] = <<<HTML
-<p>
-	<i>General Information</i> is a display of a student's fundamental information. This includes birth date, social security number, ethnicity, gender, birthplace, and grade. You can change any of this information by clicking on the value you want to change, changing the value, and clicking the "Save" button at the top of the page.
-</p>
+<p><i>Основна информация</i> на студента включва, дата на раждане, ЕГН, народност, пол, родно място и успех. Може да промените всяка информация като щракнете върху това, което искате да промените, и после щракнете бутона "Запазване".</p>
 HTML;
 
 	$help['Students/Addresses & Contacts'] = <<<HTML
@@ -705,9 +702,7 @@ HTML;
 else :
 
 	$help['Students/General Information'] = <<<HTML
-<p>
-	<i>General Information</i> is a display of a student's fundamental information. This includes birth date, social security number, ethnicity, gender, birthplace, and grade.
-</p>
+<p><i>Основна информация</i> на студента включва, дата на раждане, ЕГН, народност, пол, родно място и успех.</p>
 HTML;
 
 	$help['Students/Addresses & Contacts'] = <<<HTML
@@ -744,9 +739,7 @@ endif;
 if ( User( 'PROFILE' ) === 'admin' ) :
 
 	$help['Users/User.php'] = <<<HTML
-<p>
-	<i>General Information</i> is a display of a user's fundamental information. This includes his name, username, password, profile, school, email address, and phone number. If you are an administrator, you can change any of this information by clicking on the value you want to change, changing the value, and clicking the "Save" button at the top of the page. You can delete a user by clicking the "Delete" button at the top of the screen and confirming your action. Notice, you should never delete teachers after they have taught even one class, since the user record must remain for the teacher's name to appear correctly on student transcripts.
-</p>
+<p><i>Основна информация</i> на потребителя включва име, потребителско име, парола, профил, училище, имейл адрес и телефонен номер. Ако сте администратор, може да промените всяка информация като щракнете върху това, което искате да промените, направите промяна и после щракнете бутона "Запазване". Можете да изтриете потребителя като щракнете върху бутона "Изтриване" и потвърдите изтриването. Забележете, че не трябва да изтривате преподавател, който е провжда поне един курс, защото името на преподавателя трябва да остане да се вижда в информацията за студентите.</p>
 HTML;
 
 	$help['Users/User.php&staff_id=new'] = <<<HTML

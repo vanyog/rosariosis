@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-09 14:41+0300\n"
+"PO-Revision-Date: 2017-05-09 20:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -207,27 +207,27 @@ msgstr "Изпращане информация за възстановяван�
 
 #: PasswordReset.php:389
 msgid "Please visit the following link to reset your password"
-msgstr ""
+msgstr "Моля отворете този адрес, за да възстановите паролата си"
 
 #: PasswordReset.php:391
 msgid "Please permanently delete this email once you are done."
-msgstr ""
+msgstr "Моля, трайно изтрийте този имейл, слад като го направите."
 
 #: PasswordReset.php:393
 msgid "Password Reset"
-msgstr ""
+msgstr "Възстановяване на парола"
 
 #: PasswordReset.php:446 PasswordReset.php:453
 msgid "Reset your password"
-msgstr ""
+msgstr "Вазстановяване на Вашата парола"
 
 #: PasswordReset.php:456 modules/Users/Preferences.php:509
 msgid "New Password"
-msgstr ""
+msgstr "Нова парола"
 
 #: PasswordReset.php:460 modules/Users/Preferences.php:519
 msgid "Verify New Password"
-msgstr ""
+msgstr "Потвърдете новата парола"
 
 #: PasswordReset.php:463 ProgramFunctions/PortalPollsNotes.fnc.php:208
 #: modules/Discipline/MakeReferral.php:424
@@ -236,11 +236,11 @@ msgstr ""
 #: modules/Students/Search.inc.php:73 modules/Students/Search.inc.php:145
 #: modules/Users/Search.inc.php:108
 msgid "Submit"
-msgstr ""
+msgstr "Изпращане"
 
 #: ProgramFunctions/Charts.fnc.php:362
 msgid "Right Click to Save Image As..."
-msgstr ""
+msgstr "Щракнете с десен бутон за да сапазите изображението като..."
 
 #: ProgramFunctions/Fields.fnc.php:309 functions/Buttons.php:55
 #: functions/Prompts.php:32 modules/Accounting/functions.inc.php:8
@@ -256,7 +256,7 @@ msgstr ""
 #: modules/Student_Billing/functions.inc.php:13
 #: modules/Student_Billing/functions.inc.php:26 modules/Users/User.php:481
 msgid "Delete"
-msgstr ""
+msgstr "Изтриване"
 
 #: ProgramFunctions/Fields.fnc.php:314 modules/Accounting/Expenses.php:128
 #: modules/Accounting/Expenses.php:137 modules/Accounting/Incomes.php:124
@@ -343,11 +343,11 @@ msgstr ""
 #: modules/Users/User.php:554 plugins/Moodle/config.inc.php:54
 #: plugins/Moodle/config.inc.php:120
 msgid "Save"
-msgstr ""
+msgstr "Запазване"
 
 #: ProgramFunctions/Fields.fnc.php:326
 msgid "Field Name"
-msgstr ""
+msgstr "Намиране на име"
 
 #: ProgramFunctions/Fields.fnc.php:332 ProgramFunctions/Fields.fnc.php:354
 #: ProgramFunctions/Fields.fnc.php:422 ProgramFunctions/Fields.fnc.php:620
@@ -434,7 +434,7 @@ msgstr ""
 #: modules/misc/Portal.php:404 modules/misc/Portal.php:477
 #: modules/misc/Portal.php:613
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: ProgramFunctions/Fields.fnc.php:374 ProgramFunctions/Fields.fnc.php:382
 #: ProgramFunctions/Fields.fnc.php:557
@@ -446,9 +446,9 @@ msgstr ""
 
 #: ProgramFunctions/Fields.fnc.php:403 ProgramFunctions/Fields.fnc.php:583
 msgid "Field Category"
-msgid_plural "Field Categories"
-msgstr[0] "Catégorie de Champ"
-msgstr[1] "Catégories de Champ"
+msgid_plural ""
+msgstr[0] ""
+msgstr[1] ""
 
 #: ProgramFunctions/Fields.fnc.php:424
 msgid "One per line"
@@ -493,7 +493,7 @@ msgstr ""
 #: modules/School_Setup/PortalPolls.php:209
 #: modules/Students/EnrollmentCodes.php:88
 msgid "Sort Order"
-msgstr ""
+msgstr "Номер за подреждане"
 
 #: ProgramFunctions/Fields.fnc.php:468
 #: modules/Attendance/AttendanceCodes.php:122
@@ -529,14 +529,14 @@ msgstr ""
 #: modules/misc/Portal.php:462 modules/misc/Portal.php:583
 #: modules/misc/Portal.php:602
 msgid "Title"
-msgstr ""
+msgstr "Название"
 
 #: ProgramFunctions/Fields.fnc.php:550 ProgramFunctions/Fields.fnc.php:595
 #: modules/Users/Preferences.php:658 modules/Users/Preferences.php:667
 #: modules/Users/Preferences.php:813
 msgid "Field"
 msgid_plural "Fields"
-msgstr[0] "Champ"
+msgstr[0] "Поле"
 msgstr[1] "Champs"
 
 #: ProgramFunctions/Fields.fnc.php:550
@@ -716,7 +716,7 @@ msgstr ""
 #: modules/misc/Portal.php:443 modules/misc/Portal.php:462
 #: modules/misc/Portal.php:477 modules/misc/Portal.php:602
 msgid "School"
-msgstr ""
+msgstr "Училище"
 
 #: Side.php:447 modules/Discipline/CategoryBreakdownTime.php:439
 #: modules/Discipline/includes/ReferralLog.fnc.php:192
@@ -726,7 +726,7 @@ msgstr ""
 #: modules/Grades/Transcripts.php:287 modules/Grades/Transcripts.php:505
 #: modules/Grades/includes/ReportCards.fnc.php:572
 msgid "School Year"
-msgstr ""
+msgstr "Учебна година"
 
 #: Side.php:467 modules/Grades/EditReportCardGrades.php:19
 #: modules/Grades/HonorRoll.php:165 modules/Grades/HonorRollSubject.php:97
@@ -758,7 +758,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:75
 #: modules/Users/includes/Schedule.inc.php:81
 msgid "Sunday"
-msgstr ""
+msgstr "неделя"
 
 #: Side.php:577 modules/Attendance/AddAbsences.php:178
 #: modules/Eligibility/EnterEligibility.php:35
@@ -769,7 +769,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:75
 #: modules/Users/includes/Schedule.inc.php:81
 msgid "Monday"
-msgstr ""
+msgstr "понеделник"
 
 #: Side.php:578 modules/Attendance/AddAbsences.php:178
 #: modules/Eligibility/EnterEligibility.php:35
@@ -780,7 +780,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:75
 #: modules/Users/includes/Schedule.inc.php:81
 msgid "Tuesday"
-msgstr ""
+msgstr "вторник"
 
 #: Side.php:579 modules/Attendance/AddAbsences.php:178
 #: modules/Eligibility/EnterEligibility.php:35
@@ -791,7 +791,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:75
 #: modules/Users/includes/Schedule.inc.php:81
 msgid "Wednesday"
-msgstr ""
+msgstr "сряда"
 
 #: Side.php:580 modules/Attendance/AddAbsences.php:178
 #: modules/Eligibility/EnterEligibility.php:35
@@ -802,7 +802,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:75
 #: modules/Users/includes/Schedule.inc.php:81
 msgid "Thursday"
-msgstr ""
+msgstr "четвъртък"
 
 #: Side.php:581 modules/Attendance/AddAbsences.php:178
 #: modules/Eligibility/EnterEligibility.php:35
@@ -813,7 +813,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:75
 #: modules/Users/includes/Schedule.inc.php:81
 msgid "Friday"
-msgstr ""
+msgstr "петък"
 
 #: Side.php:582 modules/Attendance/AddAbsences.php:178
 #: modules/Eligibility/EnterEligibility.php:35
@@ -824,7 +824,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:75
 #: modules/Users/includes/Schedule.inc.php:81
 msgid "Saturday"
-msgstr ""
+msgstr "събота"
 
 #: Side.php:613 modules/Attendance/StudentSummary.php:192
 #: modules/Scheduling/Courses.php:246 modules/Scheduling/Courses.php:267
@@ -834,7 +834,7 @@ msgstr ""
 #: modules/misc/Portal.php:307 modules/misc/Portal.php:477
 #: modules/misc/Portal.php:613
 msgid "Day"
-msgstr ""
+msgstr "Ден"
 
 #: Side.php:613 modules/Scheduling/Courses.php:246
 #: modules/Scheduling/Courses.php:267 modules/Scheduling/Courses.php:389
@@ -843,7 +843,7 @@ msgstr ""
 #: modules/School_Setup/Calendar.php:688 modules/Users/TeacherPrograms.php:88
 #: modules/misc/Portal.php:217 modules/misc/Portal.php:404
 msgid "Days"
-msgstr ""
+msgstr "Дни"
 
 #: Side.php:638
 msgid "No courses found"
@@ -884,7 +884,7 @@ msgstr "Имейл адрес"
 #: modules/Users/Preferences.php:803
 #: modules/Users/includes/General_Info.inc.php:381
 msgid "Phone Number"
-msgstr ""
+msgstr "Телефонен номер"
 
 #: functions/CustomFields.fnc.php:127 functions/GetStaffList.fnc.php:279
 #: functions/GetStuList.fnc.php:263 functions/Search.fnc.php:320
@@ -1046,7 +1046,7 @@ msgstr "Неуспешно влизане"
 
 #: functions/GetStaffList.fnc.php:202 modules/Users/Search.inc.php:34
 msgid "User ID"
-msgstr ""
+msgstr "Ид. на потребител"
 
 #: functions/GetStaffList.fnc.php:214 functions/GetStuList.fnc.php:1153
 #: functions/Search.fnc.php:129 modules/Custom/Registration.php:343
@@ -1061,7 +1061,7 @@ msgstr ""
 #: modules/Users/includes/General_Info.inc.php:59 modules/misc/Export.php:132
 #: modules/misc/Export.php:436
 msgid "Last Name"
-msgstr ""
+msgstr "Фамилно име"
 
 #: functions/GetStaffList.fnc.php:229 functions/GetStuList.fnc.php:1168
 #: functions/Search.fnc.php:133 modules/Custom/Registration.php:339
@@ -1076,7 +1076,7 @@ msgstr ""
 #: modules/Users/includes/General_Info.inc.php:45 modules/misc/Export.php:130
 #: modules/misc/Export.php:434
 msgid "First Name"
-msgstr ""
+msgstr "Първо име"
 
 #: functions/GetStaffList.fnc.php:247 functions/GetStaffList.fnc.php:300
 #: modules/School_Setup/AccessLog.php:189 modules/Users/Search.inc.php:47
@@ -1084,14 +1084,14 @@ msgstr ""
 #: modules/Users/includes/General_Info.inc.php:166
 #: modules/Users/includes/General_Info.inc.php:187
 msgid "No Access"
-msgstr ""
+msgstr "Баз достъп"
 
 #: functions/GetStaffList.fnc.php:267 functions/StaffWidgets.fnc.php:163
 #: functions/StaffWidgets.fnc.php:171
 #: modules/Food_Service/Users/Reminders.php:138 modules/Users/Search.inc.php:64
 #: modules/Users/Search.inc.php:238
 msgid "Profile"
-msgstr ""
+msgstr "Профил"
 
 #: functions/GetStaffList.fnc.php:306
 msgid " w/Custom"
@@ -1112,7 +1112,7 @@ msgstr ""
 #: modules/Students/includes/Address.inc.php:804 modules/misc/Export.php:147
 #: modules/misc/Export.php:462 modules/misc/Export.php:474
 msgid "City"
-msgstr ""
+msgstr "Град"
 
 #: functions/GetStuList.fnc.php:126 functions/GetStuList.fnc.php:294
 #: modules/Custom/MyReport.php:111 modules/Custom/Registration.php:385
@@ -1121,30 +1121,30 @@ msgstr ""
 #: modules/Students/includes/Address.inc.php:806 modules/misc/Export.php:148
 #: modules/misc/Export.php:464 modules/misc/Export.php:475
 msgid "State"
-msgstr ""
+msgstr "Област"
 
 #: functions/GetStuList.fnc.php:127 functions/GetStuList.fnc.php:295
 #: modules/Custom/MyReport.php:112
 msgid "Zipcode"
-msgstr ""
+msgstr "Пощ.код"
 
 #: functions/GetStuList.fnc.php:292 functions/Search.fnc.php:142
 #: modules/Custom/Registration.php:415 modules/School_Setup/Schools.php:221
 #: modules/Students/includes/Address.inc.php:302
 #: modules/Students/includes/Address.inc.php:705 modules/misc/Export.php:460
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 #: functions/GetStuList.fnc.php:318 functions/GetStuList.fnc.php:705
 #: modules/misc/Export.php:150 modules/misc/Export.php:468
 #: modules/misc/Export.php:477
 msgid "Home Phone"
-msgstr ""
+msgstr "Домашен телефон"
 
 #: functions/GetStuList.fnc.php:328 modules/misc/Export.php:151
 #: modules/misc/Export.php:469 modules/misc/Export.php:478
 msgid "Contacts"
-msgstr ""
+msgstr "Контакти"
 
 #: functions/GetStuList.fnc.php:331 modules/Users/Preferences.php:602
 msgid "Guardians"
@@ -1198,7 +1198,7 @@ msgstr ""
 #: modules/School_Setup/AccessLog.php:96 modules/misc/Export.php:307
 #: modules/misc/Export.php:530
 msgid "Status"
-msgstr ""
+msgstr "Състояние"
 
 #: functions/GetStuList.fnc.php:549 modules/Grades/AnomalousGrades.php:118
 #: modules/Grades/Grades.php:266 modules/Grades/InputFinalGrades.php:1001
@@ -1313,7 +1313,7 @@ msgstr ""
 #: modules/misc/Export.php:440 modules/misc/Portal.php:244
 #: modules/misc/Portal.php:551
 msgid "Grade Level"
-msgstr ""
+msgstr "Ниво на обучение"
 
 #: functions/GetStuList.fnc.php:1199 functions/Widgets.fnc.php:763
 #: modules/Eligibility/Student.php:142 modules/Eligibility/StudentList.php:106
@@ -1393,12 +1393,12 @@ msgstr ""
 #, php-format
 msgid "%d %s was found."
 msgid_plural "%d %s were found."
-msgstr[0] "Résultat : %d %s."
-msgstr[1] "Résultat : %d %s."
+msgstr[0] "Намерен резултат: %d %s."
+msgstr[1] "Намерени резултати: %d %s."
 
 #: functions/ListOutput.fnc.php:529
 msgid "Export list"
-msgstr ""
+msgstr "Експортиране"
 
 #: functions/ListOutput.fnc.php:547 modules/Scheduling/Courses.php:23
 #: modules/Scheduling/Courses.php:25 modules/Scheduling/Courses.php:1153
@@ -1406,7 +1406,7 @@ msgstr ""
 #: modules/Users/Preferences.php:724 modules/Users/Preferences.php:814
 #: modules/Users/Preferences.php:849
 msgid "Search"
-msgstr ""
+msgstr "Търсене"
 
 #: functions/ListOutput.fnc.php:549 modules/Accounting/DailyTotals.php:68
 #: modules/Accounting/DailyTransactions.php:60
@@ -1431,23 +1431,23 @@ msgstr ""
 #: modules/Student_Billing/DailyTransactions.php:40
 #: modules/Students/AddDrop.php:40 modules/Students/StudentBreakdown.php:217
 msgid "Go"
-msgstr ""
+msgstr "Показване"
 
 #: functions/Prompts.php:48 functions/Prompts.php:100
 #: modules/Attendance/FixDailyAttendance.php:9
 #: modules/School_Setup/Rollover.php:46
 msgid "Confirm"
-msgstr ""
+msgstr "Потвърждаване"
 
 #: functions/Prompts.php:51
 #, php-format
 msgid "Are you sure you want to %s that %s?"
-msgstr ""
+msgstr "Сигурни ли сте, че искате  %s на обект %s?"
 
 #: functions/Prompts.php:53 functions/Prompts.php:113 index.php:151
 #: modules/School_Setup/CopySchool.php:77 modules/School_Setup/Rollover.php:90
 msgid "OK"
-msgstr ""
+msgstr "Да"
 
 #: functions/Prompts.php:54 functions/Prompts.php:114
 #: modules/Food_Service/Students/ServeMenus.php:12
@@ -1455,7 +1455,7 @@ msgstr ""
 #: modules/Food_Service/Users/ServeMenus.php:13
 #: modules/Food_Service/Users/Transactions.php:60
 msgid "Cancel"
-msgstr ""
+msgstr "Отмяна"
 
 #: functions/SaveData.fnc.php:55 functions/SaveData.fnc.php:58
 #, php-format
@@ -1508,7 +1508,7 @@ msgstr ""
 #: functions/Search.fnc.php:154 modules/School_Setup/CopySchool.php:11
 #: modules/School_Setup/Menu.php:21
 msgid "Grade Levels"
-msgstr ""
+msgstr "Нива на обучение"
 
 #: functions/Search.fnc.php:156 functions/Widgets.fnc.php:1496
 #: functions/Widgets.fnc.php:1508
@@ -1587,7 +1587,7 @@ msgstr ""
 #: modules/Users/Profiles.php:281
 #: modules/Users/includes/General_Info.inc.php:236
 msgid "Permissions"
-msgstr ""
+msgstr "Позволения"
 
 #: functions/StaffWidgets.fnc.php:163 functions/StaffWidgets.fnc.php:173
 #: modules/Users/includes/General_Info.inc.php:228
@@ -2499,7 +2499,7 @@ msgstr ""
 #: modules/Users/includes/Schedule.inc.php:113 modules/misc/Portal.php:217
 #: modules/misc/Portal.php:404
 msgid "Period"
-msgstr ""
+msgstr "Период"
 
 #: modules/Attendance/Administration.php:250
 #: modules/Attendance/Administration_fast.old.php:81
@@ -2572,12 +2572,12 @@ msgstr ""
 #: modules/Attendance/DailySummary.php:293
 #: modules/Attendance/StudentSummary.php:200 modules/Scheduling/Courses.php:975
 msgid "Half Day"
-msgstr ""
+msgstr "Полуден"
 
 #: modules/Attendance/Administration.php:463
 #: modules/Attendance/StudentSummary.php:202
 msgid "Full Day"
-msgstr ""
+msgstr "Цял ден"
 
 #: modules/Attendance/Administration_fast.old.php:81
 #: modules/Grades/FinalGrades.php:132 modules/Grades/FinalGrades.php:376
@@ -2627,7 +2627,7 @@ msgstr ""
 #: modules/Students/EnrollmentCodes.php:88 modules/misc/Portal.php:217
 #: modules/misc/Portal.php:404
 msgid "Short Name"
-msgstr ""
+msgstr "Кратко име"
 
 #: modules/Attendance/AttendanceCodes.php:122
 #: modules/Food_Service/MenuReports.php:204
@@ -2770,7 +2770,7 @@ msgstr ""
 #: modules/Eligibility/EntryTimes.php:82 modules/School_Setup/AccessLog.php:63
 #: modules/School_Setup/Calendar.php:124
 msgid "From"
-msgstr ""
+msgstr "От"
 
 #: modules/Attendance/FixDailyAttendance.php:9
 msgid "When do you want to recalculate the daily attendance?"
@@ -2902,8 +2902,8 @@ msgstr ""
 #: modules/Attendance/Percent.php:110
 msgid "School Day"
 msgid_plural "School Days"
-msgstr[0] "Jour d'École"
-msgstr[1] "Jours d'École"
+msgstr[0] "Учебен ден"
+msgstr[1] "Учебни дни"
 
 #: modules/Attendance/StudentSummary.php:68
 msgid "All Periods"
@@ -3039,12 +3039,12 @@ msgstr ""
 #: modules/Custom/CreateParents.php:226 modules/Custom/NotifyParents.php:83
 #: modules/School_Setup/AccessLog.php:161
 msgid "Success"
-msgstr ""
+msgstr "Успешно"
 
 #: modules/Custom/CreateParents.php:228 modules/Custom/CreateParents.php:231
 #: modules/Custom/NotifyParents.php:83 modules/School_Setup/AccessLog.php:164
 msgid "Fail"
-msgstr ""
+msgstr "Неуспешно"
 
 #: modules/Custom/CreateParents.php:234 modules/Custom/NotifyParents.php:87
 #: modules/Students/includes/Medical.inc.php:79
@@ -3138,7 +3138,7 @@ msgstr ""
 #: modules/School_Setup/Schools.php:247
 #: modules/Students/includes/Address.inc.php:747
 msgid "Phone"
-msgstr ""
+msgstr "Телефон"
 
 #: modules/Custom/MyReport.php:122
 msgid "Mailing Street"
@@ -3253,7 +3253,7 @@ msgstr ""
 #: modules/Custom/Registration.php:413 modules/Custom/Registration.php:456
 #: modules/Custom/Registration.php:468
 msgid "Cell Phone"
-msgstr ""
+msgstr "Мобилен телефон"
 
 #: modules/Custom/Registration.php:347 modules/Custom/Registration.php:367
 msgid "Workplace"
@@ -3540,7 +3540,7 @@ msgstr ""
 #: modules/Eligibility/EntryTimes.php:83 modules/School_Setup/AccessLog.php:64
 #: modules/School_Setup/Calendar.php:138
 msgid "To"
-msgstr ""
+msgstr "До"
 
 #: modules/Eligibility/Menu.php:16 modules/Eligibility/Menu.php:35
 msgid "Student Screen"
@@ -3707,8 +3707,8 @@ msgstr ""
 #: modules/Food_Service/AssignSchool.php:39
 msgid "Student Transaction w/o School"
 msgid_plural "Student Transactions w/o School"
-msgstr[0] "Transaction Élève sans École"
-msgstr[1] "Transactions Élève sans École"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Food_Service/AssignSchool.php:41
 msgid "User Transaction w/o School"
@@ -4339,7 +4339,7 @@ msgstr ""
 #: modules/Users/includes/General_Info.inc.php:87
 #: modules/Users/includes/General_Info.inc.php:96
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: modules/Grades/AnomalousGrades.php:116
 #: modules/Grades/Assignments-new.php:153
@@ -5269,12 +5269,12 @@ msgstr ""
 #: modules/Grades/Transcripts.php:197 modules/School_Setup/Schools.php:264
 #: modules/School_Setup/Schools.php:278
 msgid "Website"
-msgstr ""
+msgstr "Уебсайт"
 
 #: modules/Grades/Transcripts.php:200 modules/School_Setup/Schools.php:291
 #: modules/misc/Export.php:138 modules/misc/Export.php:442
 msgid "School Number"
-msgstr ""
+msgstr "Номер на училището"
 
 #: modules/Grades/Transcripts.php:210 modules/Grades/Transcripts.php:466
 msgid "Studies Certificate"
@@ -5789,7 +5789,7 @@ msgstr ""
 #: modules/Students/Search.inc.php:73 modules/Students/Search.inc.php:145
 #: modules/Users/Search.inc.php:108
 msgid "Reset"
-msgstr ""
+msgstr "Наново"
 
 #: modules/Scheduling/PrintClassPictures.php:166
 #: modules/Scheduling/PrintClassPictures.php:183
@@ -5829,7 +5829,7 @@ msgstr ""
 #: modules/Scheduling/PrintSchedules.php:85 modules/School_Setup/Menu.php:20
 #: modules/School_Setup/Menu.php:41 modules/Users/includes/Schedule.inc.php:101
 msgid "Periods"
-msgstr ""
+msgstr "Периоди"
 
 #: modules/Scheduling/PrintSchedules.php:144
 #, php-format
@@ -6012,32 +6012,32 @@ msgstr ""
 
 #: modules/School_Setup/AccessLog.php:88 modules/School_Setup/AccessLog.php:107
 msgid "Clear Log"
-msgstr ""
+msgstr "Изтриване"
 
 #: modules/School_Setup/AccessLog.php:95 modules/Users/Exceptions.php:63
 #: modules/Users/Exceptions.php:270 modules/Users/Profiles.php:128
 #: modules/Users/Profiles.php:417
 #: modules/Users/includes/General_Info.inc.php:205
 msgid "User Profile"
-msgstr ""
+msgstr "Профил на потребителя"
 
 #: modules/School_Setup/AccessLog.php:97
 msgid "IP Address"
-msgstr ""
+msgstr "IP адрес"
 
 #: modules/School_Setup/AccessLog.php:98
 msgid "Browser"
-msgstr ""
+msgstr "Браузър"
 
 #: modules/School_Setup/AccessLog.php:100
 msgid "Login record"
 msgid_plural "Login records"
-msgstr[0] "Connexion"
-msgstr[1] "Connexions"
+msgstr[0] "Влизане"
+msgstr[1] "Влизания"
 
 #: modules/School_Setup/AccessLog.php:131 modules/School_Setup/Menu.php:31
 msgid "Access Log"
-msgstr ""
+msgstr "Журнал за достъпа"
 
 #: modules/School_Setup/AccessLog.php:135
 msgid "Access Log cleared."
@@ -6306,15 +6306,15 @@ msgstr ""
 
 #: modules/School_Setup/DatabaseBackup.php:60 modules/School_Setup/Menu.php:23
 msgid "Database Backup"
-msgstr ""
+msgstr "Архивиране на базата данни"
 
 #: modules/School_Setup/DatabaseBackup.php:63
 msgid "Download backup files periodically in case of system failure."
-msgstr ""
+msgstr "Периодично запазвайте архиви от базата данни за случай на авария."
 
 #: modules/School_Setup/DatabaseBackup.php:65
 msgid "Download Backup File"
-msgstr ""
+msgstr "Запазване на архивен файл"
 
 #: modules/School_Setup/MarkingPeriods.php:22
 msgid "New Year"
@@ -6404,7 +6404,7 @@ msgstr ""
 #: modules/School_Setup/Menu.php:25 modules/School_Setup/Menu.php:37
 #: modules/School_Setup/Menu.php:47
 msgid "School Information"
-msgstr ""
+msgstr "Информация за училище"
 
 #: modules/School_Setup/Menu.php:26 modules/School_Setup/Schools.php:188
 msgid "Add a School"
@@ -6420,11 +6420,11 @@ msgstr ""
 
 #: modules/School_Setup/Menu.php:30
 msgid "Security"
-msgstr ""
+msgstr "Сигурност"
 
 #: modules/School_Setup/Periods.php:84
 msgid "Length (minutes)"
-msgstr ""
+msgstr "Продължителност (минути)"
 
 #: modules/School_Setup/Periods.php:84
 msgid "Block"
@@ -6565,11 +6565,11 @@ msgstr ""
 
 #: modules/School_Setup/Schools.php:214
 msgid "School Name"
-msgstr ""
+msgstr "Име на училището"
 
 #: modules/School_Setup/Schools.php:254
 msgid "Principal of School"
-msgstr ""
+msgstr "Директор на училището"
 
 #: modules/School_Setup/Schools.php:298
 msgid "Base Grading Scale"
@@ -7041,7 +7041,7 @@ msgstr ""
 
 #: modules/Students/Search.inc.php:117 modules/Users/Search.inc.php:166
 msgid "Advanced Search"
-msgstr ""
+msgstr "Сложно търсене"
 
 #: modules/Students/Search.inc.php:221 modules/Users/Preferences.php:660
 #: modules/Users/Preferences.php:668 modules/Users/Preferences.php:815
@@ -7304,7 +7304,7 @@ msgstr ""
 
 #: modules/Users/Exceptions.php:321
 msgid "General Info"
-msgstr ""
+msgstr "Основна информация"
 
 #: modules/Users/Menu.php:17 modules/Users/User.php:404
 msgid "Add a User"
@@ -7431,7 +7431,7 @@ msgstr ""
 
 #: modules/Users/Preferences.php:594
 msgid "Home Phone Number"
-msgstr ""
+msgstr "Номер на домашен телефон"
 
 #: modules/Users/Preferences.php:610
 msgid "All Contacts"
@@ -7479,11 +7479,11 @@ msgstr ""
 
 #: modules/Users/Search.inc.php:22
 msgid "Find a User"
-msgstr ""
+msgstr "Намиране на потребител"
 
 #: modules/Users/Search.inc.php:106
 msgid "Include Parents of Inactive Students"
-msgstr ""
+msgstr "Включително родителите на неактивни студенти"
 
 #: modules/Users/Search.inc.php:200
 msgid "Choose A User"
@@ -7532,7 +7532,7 @@ msgstr ""
 #: modules/Users/includes/General_Info.inc.php:7
 #: modules/Users/includes/General_Info.inc.php:11
 msgid "User Photo"
-msgstr ""
+msgstr "Снимка на потребителя"
 
 #: modules/Users/includes/General_Info.inc.php:111
 #, php-format
@@ -7920,7 +7920,7 @@ msgid "RosarioSIS Login"
 msgstr ""
 
 msgid "RosarioSIS ID"
-msgstr ""
+msgstr "Системен номер"
 
 # Print options
 msgid "Letter Size"
@@ -8135,7 +8135,7 @@ msgid "Mother"
 msgstr ""
 
 msgid "Work Phone"
-msgstr ""
+msgstr "Служебен телефон"
 
 msgid "Employer"
 msgstr ""
@@ -8566,10 +8566,9 @@ msgstr ""
 msgid "Explanation"
 msgstr ""
 
-#, fuzzy
 msgid "Teacher who enters "
 msgid_plural "Teachers who enter "
-msgstr[0] "Commentaire enseignant"
+msgstr[0] "Преподавател, който влиза "
 msgstr[1] "Commentaire enseignant"
 
 msgid "Addresses & Contacts"
