@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-09 12:35+0300\n"
+"PO-Revision-Date: 2017-05-09 13:29+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -56,15 +56,15 @@ msgstr ""
 
 #: Bottom.php:206 Bottom.php:208 functions/PDF.php:98 functions/PDF.php:133
 msgid "Print"
-msgstr ""
+msgstr "Печат"
 
 #: Bottom.php:210 Bottom.php:212
 msgid "Help"
-msgstr ""
+msgstr "Помощ"
 
 #: Bottom.php:214 Bottom.php:216
 msgid "Logout"
-msgstr ""
+msgstr "Изход"
 
 # 'user_profiles' table
 #: Help.php:45 functions/GetStaffList.fnc.php:244
@@ -73,7 +73,7 @@ msgstr ""
 #: modules/Users/Search.inc.php:44 modules/Users/UserFields.php:253
 #: modules/Users/includes/General_Info.inc.php:163
 msgid "Administrator"
-msgstr ""
+msgstr "Администратор"
 
 #: Help.php:50 functions/GetStaffList.fnc.php:245
 #: functions/GetStaffList.fnc.php:253 functions/GetStaffList.fnc.php:296
@@ -109,7 +109,7 @@ msgstr ""
 #: modules/misc/Portal.php:217 modules/misc/Portal.php:404
 #: modules/misc/Portal.php:521 modules/misc/Portal.php:657
 msgid "Teacher"
-msgstr ""
+msgstr "Преподавател"
 
 # 'user_profiles' table
 #: Help.php:55 functions/GetStaffList.fnc.php:246
@@ -122,7 +122,7 @@ msgstr ""
 #: modules/Users/includes/General_Info.inc.php:165
 #: modules/Users/includes/General_Info.inc.php:186
 msgid "Parent"
-msgstr ""
+msgstr "Родител"
 
 # 'user_profiles' table
 #: Help.php:60 Side.php:390 modules/Accounting/DailyTransactions.php:187
@@ -164,7 +164,7 @@ msgstr ""
 #: modules/misc/Export.php:421 modules/misc/Portal.php:244
 #: modules/misc/Portal.php:551
 msgid "Student"
-msgstr ""
+msgstr "Студент"
 
 # ex: Administrator Handbook
 #: Help.php:73 Help.php:133
@@ -7593,7 +7593,7 @@ msgstr ""
 #: modules/misc/Portal.php:22
 #, php-format
 msgid "Good Afternoon, %s."
-msgstr ""
+msgstr "Добър ден, %s."
 
 #: modules/misc/Portal.php:24
 #, php-format
@@ -7603,12 +7603,12 @@ msgstr ""
 #: modules/misc/Portal.php:28
 #, php-format
 msgid "Welcome to %s!"
-msgstr ""
+msgstr "Добре дошли в %s!"
 
 #: modules/misc/Portal.php:33
 #, php-format
 msgid "Your last login was <b>%s</b>."
-msgstr ""
+msgstr "Последното Ви влизане беше на <b>%s</b>."
 
 #: modules/misc/Portal.php:42
 #, php-format
@@ -7619,7 +7619,7 @@ msgstr ""
 
 #: modules/misc/Portal.php:53
 msgid "You are an <b>Administrator</b> on the system."
-msgstr ""
+msgstr "Вие сте <b>Администратор</b> на системата."
 
 #: modules/misc/Portal.php:59
 msgid "You are a <b>Teacher</b> on the system."
