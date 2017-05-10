@@ -159,13 +159,13 @@ HTML;
 
 	$help['School_Setup/Calendar.php'] = <<<HTML
 <p>
-	<i>Calendars</i> allows you to setup your school's calendar for the year. The calendar displays the current month by default. The month and year displayed can be changed by changing the month and year pull-down menus at the top of the screen.
+        Страница <i>Календари</i> Ви позволява да настроите Вашия училищен календар за годината. Календарът по подразбиране показва тикущия месец. Месецът и годината, които се показват може да се сменят чрез избиране от падащите минюта за месец и година, в горната част на екрана.
 </p>
 <p>
-	On full school days, the checkbox in the upper right-hand corner of the day's square should be checked. For partial days, the checkbox should be unchecked and the number of minutes school will be in attendance should be entered into the text box next to the checkbox. For days on which there will be no school, the checkbox should be unchecked and the text field should be blank. To uncheck the checkbox or change the number of minutes in the school day, you must first click on the value you want to change. After making any changes to the calendar, click the "Save" button at the top of the screen.
+        За цели учебни дни отметката в десния горен ъгъл на клетката за деня, трябва да е поставена. За дни, в които не се учи цял ден, отметката трябва да не е сложена, а в полето до отметката се попълва колко минути се учи през деня. В дните, в които не се учи, не се поставя отметка и полето се оставя празно. За да правите промени щракнете върху това, което искате да промените. След нанасяне на промени, щракнете бутон "Запазване".
 </p>
 <p>
-	To setup your calendar at the beginning of the year, you should use the "Create new calendar" or "Recreate this calendar" feature. By clicking on this link in the upper right-hand corner of the screen, you can setup all days in a specified timeframe as meeting all day. You can also select which days of the week that your school is in session. After selecting the beginning and ending dates of your school's school year and the day's of the week that your school meets, click the "OK" button. You can now go through the calendar and mark holidays and partial days.
+        За да съставите своя календар в началото на учебната година, трябва да щракнете "Създаване нов календар" или "Редактиране този календар". Тогава можете да зададете: датите на началото и края на учебната година и кои са учебните дни в седмицата. За да запаците данните, щракнете бутона "Да". Сега можете да обходите календара и да зададете непълните и неучебните дни.
 </p>
 <p>
 	The calendar is also a display of school events. This can include everything from teacher in-service days to sporting events. These events are visible by other administrators as well as parents and teachers at your school.
@@ -197,7 +197,7 @@ HTML;
 
 	$help['School_Setup/GradeLevels.php'] = <<<HTML
 <p>
-	<i>Grade Levels</i> allows you to setup your school's grade levels.
+        Страница "<i>Нива на обучение</i>" ви позволява да определите нивата на обучение в училището.
 </p>
 <p>
 	To add a grade level, fill in the grade level's title, short name, sort order, and next grade in the empty fields at the bottom of the grade levels list and click the "Save" button. The "Next Grade" field indicates the grade students in the current grade will proceed to in the next school year.

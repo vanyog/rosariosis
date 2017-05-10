@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-09 20:45+0300\n"
+"PO-Revision-Date: 2017-05-10 22:12+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -354,7 +354,7 @@ msgstr "Намиране на име"
 #: modules/Discipline/DisciplineForm.php:169
 #: modules/Discipline/DisciplineForm.php:189
 msgid "Pull-Down"
-msgstr ""
+msgstr "Падащо меню"
 
 #: ProgramFunctions/Fields.fnc.php:333 ProgramFunctions/Fields.fnc.php:355
 #: ProgramFunctions/Fields.fnc.php:422 ProgramFunctions/Fields.fnc.php:621
@@ -458,7 +458,7 @@ msgstr ""
 #: modules/School_Setup/Calendar.php:994
 #: modules/Users/includes/General_Info.inc.php:231
 msgid "Default"
-msgstr ""
+msgstr "По подразбиране"
 
 #: ProgramFunctions/Fields.fnc.php:438
 msgid "For dates: YYYY-MM-DD"
@@ -949,66 +949,66 @@ msgstr ""
 #: functions/Date.php:303 modules/Custom/AttendanceSummary.php:11
 #: modules/Students/AdvancedReport.php:21
 msgid "January"
-msgstr ""
+msgstr "Януари"
 
 #: functions/Date.php:304 modules/Custom/AttendanceSummary.php:12
 #: modules/Students/AdvancedReport.php:21
 msgid "February"
-msgstr ""
+msgstr "Февруари"
 
 #: functions/Date.php:305 modules/Custom/AttendanceSummary.php:13
 #: modules/Students/AdvancedReport.php:21
 msgid "March"
-msgstr ""
+msgstr "Март"
 
 #: functions/Date.php:306 modules/Custom/AttendanceSummary.php:14
 #: modules/Students/AdvancedReport.php:21
 msgid "April"
-msgstr ""
+msgstr "Април"
 
 #: functions/Date.php:307 modules/Custom/AttendanceSummary.php:15
 #: modules/Students/AdvancedReport.php:21
 msgid "May"
-msgstr ""
+msgstr "Май"
 
 #: functions/Date.php:308 modules/Custom/AttendanceSummary.php:16
 #: modules/Students/AdvancedReport.php:21
 msgid "June"
-msgstr ""
+msgstr "Юни"
 
 #: functions/Date.php:309 modules/Custom/AttendanceSummary.php:17
 #: modules/Students/AdvancedReport.php:21
 msgid "July"
-msgstr ""
+msgstr "Юли"
 
 #: functions/Date.php:310 modules/Custom/AttendanceSummary.php:18
 #: modules/Students/AdvancedReport.php:21
 msgid "August"
-msgstr ""
+msgstr "Август"
 
 #: functions/Date.php:311 modules/Custom/AttendanceSummary.php:19
 #: modules/Students/AdvancedReport.php:21
 msgid "September"
-msgstr ""
+msgstr "Септември"
 
 #: functions/Date.php:312 modules/Custom/AttendanceSummary.php:20
 #: modules/Students/AdvancedReport.php:21
 msgid "October"
-msgstr ""
+msgstr "Октомври"
 
 #: functions/Date.php:313 modules/Custom/AttendanceSummary.php:21
 #: modules/Students/AdvancedReport.php:21
 msgid "November"
-msgstr ""
+msgstr "Ноември"
 
 #: functions/Date.php:314 modules/Custom/AttendanceSummary.php:22
 #: modules/Students/AdvancedReport.php:21
 msgid "December"
-msgstr ""
+msgstr "Декември"
 
 #: functions/Date.php:395
 msgid "Open calendar"
-msgstr ""
+msgstr "Отваряне календар"
 
 #: functions/ErrorMessage.fnc.php:57 modules/Food_Service/Student.inc.php:52
 #: modules/Food_Service/Student.inc.php:69
@@ -1019,7 +1019,7 @@ msgstr ""
 #: modules/Food_Service/Users/Accounts.php:143
 #: modules/Food_Service/Users/Reminders.php:87
 msgid "Warning"
-msgstr ""
+msgstr "Внимание"
 
 #: functions/ErrorMessage.fnc.php:62 modules/School_Setup/PortalNotes.php:235
 #: modules/School_Setup/PortalNotes.php:269
@@ -1337,11 +1337,11 @@ msgstr ""
 
 #: functions/Inputs.php:497
 msgid "Write"
-msgstr ""
+msgstr "Писане"
 
 #: functions/Inputs.php:499
 msgid "Preview"
-msgstr ""
+msgstr "Преглед"
 
 #: functions/Inputs.php:501
 msgid "Mastering MarkDown"
@@ -1349,7 +1349,7 @@ msgstr ""
 
 #: functions/Inputs.php:504
 msgid "Nothing to preview."
-msgstr ""
+msgstr "Нищо за показване."
 
 #: functions/Inputs.php:890
 msgid "Select some Options"
@@ -1382,7 +1382,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:99
 #, php-format
 msgid "No %s were found."
-msgstr ""
+msgstr "Не са намерени %s."
 
 #: functions/ListOutput.fnc.php:429
 #, php-format
@@ -1975,7 +1975,7 @@ msgstr ""
 #: modules/Users/Preferences.php:689 modules/misc/Export.php:140
 #: modules/misc/Export.php:444
 msgid "Calendar"
-msgstr ""
+msgstr "Календар"
 
 #: functions/Widgets.fnc.php:1564 functions/Widgets.fnc.php:1575
 #: functions/Widgets.fnc.php:1585 modules/Scheduling/AddDrop.php:60
@@ -2690,7 +2690,7 @@ msgstr ""
 #: modules/Scheduling/AddDrop.php:38 modules/School_Setup/Calendar.php:805
 #: modules/Students/AddDrop.php:40
 msgid "Timeframe"
-msgstr ""
+msgstr "Интервал време"
 
 #: modules/Attendance/DailySummary.php:157
 msgid "Daily Attendance"
@@ -3759,7 +3759,7 @@ msgstr ""
 #: modules/misc/Portal.php:307 modules/misc/Portal.php:477
 #: modules/misc/Portal.php:613
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: modules/Food_Service/DailyMenus.php:224
 msgid "Generate Menu"
@@ -6045,11 +6045,11 @@ msgstr ""
 
 #: modules/School_Setup/Calendar.php:103
 msgid "Default Calendar for this School"
-msgstr ""
+msgstr "Подразбиращ се календар на училището"
 
 #: modules/School_Setup/Calendar.php:114
 msgid "Copy Calendar"
-msgstr ""
+msgstr "Копиране на календар"
 
 #: modules/School_Setup/Calendar.php:196
 msgid "Default is Full Day if Copy Calendar is N/A."
@@ -6065,16 +6065,16 @@ msgstr ""
 
 #: modules/School_Setup/Calendar.php:203 modules/School_Setup/Calendar.php:1227
 msgid "Minutes"
-msgstr ""
+msgstr "Минути"
 
 #: modules/School_Setup/Calendar.php:213
 #, php-format
 msgid "Recreate %s calendar"
-msgstr ""
+msgstr "Редактиране календар %s"
 
 #: modules/School_Setup/Calendar.php:214 modules/School_Setup/Calendar.php:1013
 msgid "Create new calendar"
-msgstr ""
+msgstr "Създаване нов календар"
 
 #: modules/School_Setup/Calendar.php:470
 msgid "There are no calendars setup yet."
@@ -6086,16 +6086,16 @@ msgstr ""
 #: modules/misc/Portal.php:613
 msgid "Event"
 msgid_plural "Events"
-msgstr[0] "Évènement"
-msgstr[1] "Évènements"
+msgstr[0] "Събитие"
+msgstr[1] "Събития"
 
 #: modules/School_Setup/Calendar.php:632 modules/School_Setup/Calendar.php:1280
 msgid "New Event"
-msgstr ""
+msgstr "Ново събитие"
 
 #: modules/School_Setup/Calendar.php:689
 msgid "Event Repeat"
-msgstr ""
+msgstr "Повтаряне на събитие"
 
 #: modules/School_Setup/Calendar.php:718
 msgid "Notes"
@@ -6103,19 +6103,19 @@ msgstr "Бележка"
 
 #: modules/School_Setup/Calendar.php:802
 msgid "Back to Calendar"
-msgstr ""
+msgstr "Обратно в календара"
 
 #: modules/School_Setup/Calendar.php:1016
 msgid "Recreate this calendar"
-msgstr ""
+msgstr "Редактиране този календар"
 
 #: modules/School_Setup/Calendar.php:1019
 msgid "Delete this calendar"
-msgstr ""
+msgstr "Изтриване този календар"
 
 #: modules/School_Setup/Calendar.php:1028
 msgid "List Events"
-msgstr ""
+msgstr "Списък сабития"
 
 #: modules/School_Setup/Calendar.php:1041
 msgid "This school has more than one default calendar!"
@@ -6395,7 +6395,7 @@ msgstr ""
 #: modules/School_Setup/Menu.php:19 modules/School_Setup/Menu.php:39
 #: modules/School_Setup/Menu.php:50 modules/School_Setup/Rollover.php:3
 msgid "Calendars"
-msgstr ""
+msgstr "Календари"
 
 #: modules/School_Setup/Menu.php:22 modules/School_Setup/Rollover.php:46
 msgid "Rollover"
@@ -8304,34 +8304,34 @@ msgid "Contact Info Rollover"
 msgstr ""
 
 msgid "Jan"
-msgstr ""
+msgstr "Яну"
 
 msgid "Feb"
-msgstr ""
+msgstr "Фев"
 
 msgid "Mar"
-msgstr ""
+msgstr "Мар"
 
 msgid "Apr"
-msgstr ""
+msgstr "Апр"
 
 msgid "Jun"
-msgstr ""
+msgstr "Юни"
 
 msgid "Jul"
-msgstr ""
+msgstr "Юли"
 
 msgid "Sep"
-msgstr ""
+msgstr "Сеп"
 
 msgid "Oct"
-msgstr ""
+msgstr "Окт"
 
 msgid "Nov"
-msgstr ""
+msgstr "Нов"
 
 msgid "Dec"
-msgstr ""
+msgstr "Дек"
 
 msgid "School / Year"
 msgstr ""
