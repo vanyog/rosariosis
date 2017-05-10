@@ -13,13 +13,20 @@ Changes in 3.3
 - CSS larger tooltip & fix FS menu calendar in stylesheet.css
 - Add  &student_id / &staff_id params to update form URL in Student.php & User.php
 - Do not display Contact Info tipmsg in Student List if no contacts in GetStuList.fnc.php
-- Remove eval(),  in DBGet.fnc.php
+- Remove eval(), up to 4x speed & memory gain in DBGet.fnc.php
 - Fix PHP error 'VALUE' index. Append % to Teacher grade scale breakoff in ReportCardGrades.php
 - Format ListOutput() code, rework nav HTML & logic in ListOutput.fnc.php
 - Do not submit form when LO_search in ListOutput.fnc.php & warehouse.js
 - CSS Rename .list-header to .list-nav & add .list-no-nav class in stylesheet.css
 - Add Grunt for automatic CSS & JS files concat & minify in package.json, Gruntfile.js, assets/js/ & assets/themes/WPadmin/
 - Relevance score inside bar (transparent) so value can be exported in stylesheet.css, colors.css & ListOutput.fnc.php
+- Check if Request exists before inserting in Requests.php
+- Check for PHP gd extension in diagnostic.php & INSTALL.md
+- Add $FileUploadsPath & $PNGQuantPath optional configuration variables in INSTALL.md & Warehouse.php
+- Add Image resize and compress class in classes/ImageResizeGD.php
+- Add ImageUpload() function in FileUpload.fnc.php
+- Use new ImageUpload() function in SanitizeHTML() & remove CheckBase64Image() in MarkDownHTML.fnc.php
+- Use new ImageUpload() function for student / user photo in Student.php & User.php
 
 Changes in 3.2
 --------------

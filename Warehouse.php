@@ -15,7 +15,7 @@
  * @package RosarioSIS
  */
 
-define( 'ROSARIO_VERSION', '3.2' );
+define( 'ROSARIO_VERSION', '3.3-beta' );
 
 /**
  * Include config.inc.php file.
@@ -61,6 +61,11 @@ if ( ! isset( $StudentPicturesPath ) )
 if ( ! isset( $UserPicturesPath ) )
 {
 	$UserPicturesPath = 'assets/UserPhotos/';
+}
+
+if ( ! isset( $FileUploadsPath ) )
+{
+	$FileUploadsPath = 'assets/FileUploads/';
 }
 
 if ( ! isset( $LocalePath ) )

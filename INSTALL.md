@@ -2,14 +2,14 @@
 
 ## RosarioSIS Student Information System
 
-Version 3.2
------------
+Version 3.3-beta
+----------------
 
 NOTE: Before Installing RosarioSIS, you must read and agree to the included [license](LICENSE).
 
 RosarioSIS is a web based application which relies on other facilities such as a web server, PHP server-side scripting, and PostgreSQL database server.
 
-For RosarioSIS to work you must first have your web server working, PostgreSQL working, PHP working (including the `pgsql`, `gettext`, `mbstring`, `curl`, `xmlrpc` & `xml` extensions). Setting these up varies a lot with platform, operating system, and distribution so it is well beyond to scope of this brief install document.
+For RosarioSIS to work you must first have your web server working, PostgreSQL working, PHP working (including the `pgsql`, `gettext`, `mbstring`, `gd`, `curl`, `xmlrpc` & `xml` extensions). Setting these up varies a lot with platform, operating system, and distribution so it is well beyond to scope of this brief install document.
 
 RosarioSIS was tested on:
 
@@ -56,7 +56,9 @@ Unzip the RosarioSIS distribution to a directory that is accessible to your web 
 - `$PortalNotesFilesPath` path to portal notes attached files
 - `$AssignmentsFilesPath` path to student assignments files
 - `$FS_IconsPath` path to food service icons
+- `$FileUploadsPath` path to file uploads
 - `$LocalePath` path were the language packs are stored. You need to restart Apache at each change in this directory.
+- `$PNGQuantPath` path to [PNGQuant](https://pngquant.org/) for PNG compression.
 - `$Timezone` sets the default time zone used by date/time functions. See [List of Supported Timezones](http://php.net/manual/en/timezones.php).
 - `$ETagCache` set to `false` to deactivate the [ETag cache](https://en.wikipedia.org/wiki/HTTP_ETag) and disable "private" session cache. See [Sessions and security](http://php.net/manual/it/session.security.php).
 
@@ -106,7 +108,7 @@ Installing PHP extensions
 -------------------------
 
 Install instructions for Ubuntu 16.04:
-	`server$ sudo apt-get install php-pgsql php-gettext php-mbstring php-curl php-xmlrpc php-xml`
+	`server$ sudo apt-get install php-pgsql php-gettext php-mbstring php-gd php-curl php-xmlrpc php-xml`
 
 
 Installing other languages
@@ -114,6 +116,7 @@ Installing other languages
 
 Install instructions for Ubuntu 16.04 and the _Spanish_ locale:
 	`server$ sudo apt-get install language-pack-es`
+Then restart the server.
 
 
 Installing [wkhtmltopdf](http://wkhtmltopdf.org/)
