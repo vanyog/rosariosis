@@ -437,39 +437,39 @@ HTML;
 
 	$help['Students/Letters.php'] = <<<HTML
 <p>
-	<i>Print Letters</i> allows you to print form letters for any number of students.
+        Страница <i>Печатане писма</i> ви позволява да печатате писма до произволен брой студенти.
 </p>
 <p>
-	First, search for students. From the search result, you can select any number of students. You can select all the students in the list by checking the checkbox in the column headings above the list. After selecting students, enter the letter text in the "Letter Text" text field above the student list.
+        Първо, потърсете студенти. От намерените студенти можете да изберете произволно число. Можете да изберете и всички, намерени студенти като щракнете върху отметката в реда с названия над списъка. След като сте избрали студентите в полето "Текст на писмото", въведете текста на писмото.
 </p>
 <p>
-	You can insert certain pieces of student information into your letter with special variables:
+        Можете да вмъкнете в текста на писмото някоя информация на студента чрез специални означения:
 </p>
 <ul>
 	<li>
-		<b>Full Name:</b> __FULL_NAME__
+	        <b>Пълно име:</b> __FULL_NAME__
 	</li>
 	<li>
-		<b>First Name:</b> __FIRST_NAME__
+	        <b>Първо име:</b> __FIRST_NAME__
 	</li>
 	<li>
-		<b>Middle Name:</b> __MIDDLE_NAME__
+	        <b>Второ име:</b> __MIDDLE_NAME__
 	</li>
 	<li>
-		<b>Last Name:</b> __LAST_NAME__
+	        <b>Фамилно име:</b> __LAST_NAME__
 	</li>
 	<li>
-		<b>RosarioSIS ID:</b> __STUDENT_ID__
+	        <b>Системен номер:</b> __STUDENT_ID__
 	</li>
 	<li>
-		<b>Grade Level:</b> __GRADE_ID__
+	        <b>Ниво на обучение:</b> __GRADE_ID__
 	</li>
 </ul>
 <p>
-	Also, you can choose to print the letters with mailing labels. The letters will have mailing labels positioned in such a way as to be visible in a windowed envelope when the sheet is folded in thirds. More than one letter may be printed per student if the student has guardians residing at more than one address.
+        Можете да изберете да отпечатате писмото с етикет за пощенския плик. Етикетът за пощенски плик, ще бъде отпечатан така, че да може да се вижда през прозорчето на плика, когато писмото се сгъни на три. Може да отпечетете повече от едно писмо за студент, ако трябва да му се изпрати на повече от един адрес.
 </p>
 <p>
-	The letters will be automatically downloaded to your computer in the printable PDF format when you click the "Submit" button.
+        Писмата ще бъдат автоматично изтеглени върху Вашия компютър в PDF формат, когато щракнете бутона "Изпращане".
 </p>
 HTML;
 
@@ -536,22 +536,22 @@ HTML;
 
 	$help['Students/AdvancedReport.php'] = <<<HTML
 <p>
-	<i>Advanced Report</i> is a tool that helps you create any report you want, easily.
+        <i>Сложен отчет</i> е инструмент, с който можете да направите какъвто искате отчет.
 </p>
 <p>
-	Select what you want to see on the report by checking the checkboxes next to the columns you wish to see on the report. The columns will appear in the list at the top of the screen in the order you have selected them.
+        Изберете какво искате да видите в отчета чрез щракване върху отметките пред колоните, които искате да се покажат в отчета. Колоните ще се покажат в списъка в реда, в който ги избирате.
 </p>
 <p>
-	To get the list of students who have their birthday on a specific date, select the date using the "Birth Month" and "Birth Day" pull-down menus in the "Find a Student" box.
+        За да получите списък на студентите, които имат рождан дан на определена дата, изберете датата, използвайки падащите минюта "Месец на раждане" и "Ден на раждане" в рамката "Намиране на студент".
 </p>
 HTML;
 
 	$help['Students/AddDrop.php'] = <<<HTML
 <p>
-	<i>Add / Drop Report</i> is a report of all the students who have enrolled or dropped their enrollment during the time period selected.
+        <i>Отчет Добавени / Отпаднали</i> е отчет за всички записани или отпаднали през избран период от време.
 </p>
 <p>
-	To consult other time periods, change the dates in the top part of the page and click the "Go" button on the right of the end date.
+        За да получите отчет за друг период от време, променете датите в горната част на страницата и щракнете бутона "Показване", вдясно от датите.
 </p>
 HTML;
 

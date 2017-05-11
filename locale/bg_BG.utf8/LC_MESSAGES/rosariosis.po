@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-11 07:54+0300\n"
+"PO-Revision-Date: 2017-05-11 10:25+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -537,7 +537,7 @@ msgstr "Название"
 msgid "Field"
 msgid_plural "Fields"
 msgstr[0] "Поле"
-msgstr[1] "Champs"
+msgstr[1] "Полета"
 
 #: ProgramFunctions/Fields.fnc.php:550
 #: modules/Attendance/AttendanceCodes.php:87
@@ -3488,12 +3488,12 @@ msgstr ""
 #: modules/Eligibility/Activities.php:89
 #: modules/School_Setup/MarkingPeriods.php:497
 msgid "Begins"
-msgstr ""
+msgstr "Започва"
 
 #: modules/Eligibility/Activities.php:90 modules/Eligibility/Student.php:130
 #: modules/School_Setup/MarkingPeriods.php:506
 msgid "Ends"
-msgstr ""
+msgstr "Свършва"
 
 #: modules/Eligibility/AddActivity.php:21
 msgid "This activity has been added to the selected students."
@@ -5307,7 +5307,7 @@ msgstr ""
 #: modules/School_Setup/Menu.php:38 modules/School_Setup/Menu.php:49
 #: modules/School_Setup/Rollover.php:3
 msgid "Marking Periods"
-msgstr ""
+msgstr "Периоди за оценяване"
 
 #: modules/Grades/Transcripts.php:443
 msgid "Other Options"
@@ -5751,7 +5751,7 @@ msgstr ""
 
 #: modules/Scheduling/Menu.php:32 modules/Students/Menu.php:22
 msgid "Add / Drop Report"
-msgstr ""
+msgstr "Очет Добавени / Опаднали"
 
 #: modules/Scheduling/Menu.php:35
 msgid "Run Scheduler"
@@ -5933,7 +5933,7 @@ msgstr ""
 
 #: modules/Scheduling/Schedule.php:451
 msgid "Full Year"
-msgstr ""
+msgstr "Цяла година"
 
 #: modules/Scheduling/ScheduleReport.php:10
 msgid "Show Child Marking Period Details"
@@ -6386,11 +6386,11 @@ msgstr ""
 
 #: modules/School_Setup/Menu.php:16
 msgid "Portal Notes"
-msgstr ""
+msgstr "Портални бележки"
 
 #: modules/School_Setup/Menu.php:17
 msgid "Portal Polls"
-msgstr ""
+msgstr "Портални анкети"
 
 #: modules/School_Setup/Menu.php:19 modules/School_Setup/Menu.php:39
 #: modules/School_Setup/Menu.php:50 modules/School_Setup/Rollover.php:3
@@ -6408,15 +6408,15 @@ msgstr "Информация за училище"
 
 #: modules/School_Setup/Menu.php:26 modules/School_Setup/Schools.php:188
 msgid "Add a School"
-msgstr ""
+msgstr "Добавяне училище"
 
 #: modules/School_Setup/Menu.php:27
 msgid "Copy School"
-msgstr ""
+msgstr "Копиране училище"
 
 #: modules/School_Setup/Menu.php:28
 msgid "School Fields"
-msgstr ""
+msgstr "Поле на училище"
 
 #: modules/School_Setup/Menu.php:30
 msgid "Security"
@@ -6727,8 +6727,8 @@ msgstr ""
 #: modules/Students/includes/Enrollment.inc.php:156
 msgid "Enrollment Record"
 msgid_plural "Enrollment Records"
-msgstr[0] "Dossier d'Inscription"
-msgstr[1] "Dossiers d'Inscription"
+msgstr[0] "Данни за записан"
+msgstr[1] "Данни за записани"
 
 #: modules/Students/AddUsers.php:21 modules/Users/AddStudents.php:22
 msgid ""
@@ -6807,13 +6807,13 @@ msgstr ""
 #: modules/Students/AdvancedReport.php:30
 #: modules/Students/AdvancedReport.php:33
 msgid "Birth Month"
-msgstr ""
+msgstr "Месец на раждане"
 
 #: modules/Students/AdvancedReport.php:48
 #: modules/Students/AdvancedReport.php:51
 #: modules/Students/AdvancedReport.php:54
 msgid "Birth Day"
-msgstr ""
+msgstr "Ден на раждане"
 
 #: modules/Students/AssignOtherInfo.php:90
 #: modules/Students/includes/SaveEnrollment.fnc.php:43
@@ -6952,7 +6952,7 @@ msgstr ""
 
 #: modules/Students/Menu.php:21 modules/Students/Menu.php:42
 msgid "Advanced Report"
-msgstr ""
+msgstr "Сложен отчет"
 
 #: modules/Students/Menu.php:24
 msgid "Student Breakdown"
@@ -6960,7 +6960,7 @@ msgstr ""
 
 #: modules/Students/Menu.php:25 modules/Students/Menu.php:44
 msgid "Print Letters"
-msgstr ""
+msgstr "Печатане писма"
 
 #: modules/Students/Menu.php:26
 msgid "Print Mailing Labels"
@@ -7585,7 +7585,7 @@ msgstr ""
 
 #: modules/misc/Export.php:568
 msgid "Fields"
-msgstr ""
+msgstr "Полета"
 
 #: modules/misc/Portal.php:20
 #, php-format
