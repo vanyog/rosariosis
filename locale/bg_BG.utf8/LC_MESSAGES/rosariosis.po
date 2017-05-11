@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-10 22:12+0300\n"
+"PO-Revision-Date: 2017-05-11 07:54+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -493,7 +493,7 @@ msgstr ""
 #: modules/School_Setup/PortalPolls.php:209
 #: modules/Students/EnrollmentCodes.php:88
 msgid "Sort Order"
-msgstr "Номер за подреждане"
+msgstr "Подреждане"
 
 #: ProgramFunctions/Fields.fnc.php:468
 #: modules/Attendance/AttendanceCodes.php:122
@@ -601,7 +601,7 @@ msgstr ""
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:330
 msgid "Visible Between"
-msgstr ""
+msgstr "Видимост от"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:331
 #: modules/Attendance/DailySummary.php:108
@@ -614,7 +614,7 @@ msgstr ""
 #: modules/Scheduling/AddDrop.php:38 modules/School_Setup/Calendar.php:807
 #: modules/Students/AddDrop.php:40
 msgid "to"
-msgstr ""
+msgstr "до"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:342
 msgid "Administrator w/Custom"
@@ -654,7 +654,7 @@ msgstr ""
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:482
 msgid "Embed Link"
-msgstr ""
+msgstr "Вграден линк"
 
 #: ProgramFunctions/StudentsUsersInfo.fnc.php:234
 #: ProgramFunctions/StudentsUsersInfo.fnc.php:329 functions/Search.fnc.php:556
@@ -665,7 +665,7 @@ msgstr ""
 #: modules/Students/includes/Address.inc.php:1259
 #: modules/Students/includes/Address.inc.php:1428
 msgid "Edit"
-msgstr ""
+msgstr "Редактиране"
 
 #: ProgramFunctions/StudentsUsersInfo.fnc.php:533
 msgid "%Y Years %m Months %d Days"
@@ -857,7 +857,7 @@ msgstr ""
 #: modules/Students/Menu.php:50 modules/Students/PrintStudentInfo.php:46
 #: modules/Students/PrintStudentInfo.php:48
 msgid "Student Info"
-msgstr ""
+msgstr "Информация за студент"
 
 #: Side.php:696
 msgid "Clear working user"
@@ -944,7 +944,7 @@ msgstr "Име"
 #: modules/Students/AdvancedReport.php:54 modules/Users/Search.inc.php:43
 #: modules/Users/Search.inc.php:53 modules/misc/Export.php:649
 msgid "N/A"
-msgstr ""
+msgstr "Н/З"
 
 #: functions/Date.php:303 modules/Custom/AttendanceSummary.php:11
 #: modules/Students/AdvancedReport.php:21
@@ -1529,7 +1529,7 @@ msgstr ""
 #: modules/Food_Service/Users/ActivityReport.php:72
 #: modules/Food_Service/Users/ActivityReport.php:79
 msgid "Not Specified"
-msgstr ""
+msgstr "Без значение"
 
 #: functions/Search.fnc.php:462 functions/Search.fnc.php:500
 #: functions/Search.fnc.php:575 functions/Search.fnc.php:692
@@ -3124,7 +3124,7 @@ msgstr ""
 #: modules/Custom/MyReport.php:93 modules/Students/Search.inc.php:56
 #: modules/Students/Search.inc.php:226 modules/misc/Export.php:407
 msgid "Group by Family"
-msgstr ""
+msgstr "Групиране по семейство"
 
 #: modules/Custom/MyReport.php:109 modules/Custom/Registration.php:379
 #: modules/Students/includes/Address.inc.php:711
@@ -4306,7 +4306,7 @@ msgstr ""
 #: modules/Scheduling/PrintClassPictures.php:175
 #: modules/Students/Search.inc.php:71 modules/Students/Search.inc.php:173
 msgid "Include Inactive Students"
-msgstr ""
+msgstr "Включително неактивните студенти"
 
 #: modules/Grades/AnomalousGrades.php:23
 msgid "Include"
@@ -6399,7 +6399,7 @@ msgstr "Календари"
 
 #: modules/School_Setup/Menu.php:22 modules/School_Setup/Rollover.php:46
 msgid "Rollover"
-msgstr ""
+msgstr "Пренасяне"
 
 #: modules/School_Setup/Menu.php:25 modules/School_Setup/Menu.php:37
 #: modules/School_Setup/Menu.php:47
@@ -6438,12 +6438,12 @@ msgstr ""
 #: modules/misc/Portal.php:272 modules/misc/Portal.php:443
 #: modules/misc/Portal.php:583
 msgid "File Attached"
-msgstr ""
+msgstr "Прикачен файл"
 
 #: modules/School_Setup/PortalNotes.php:269
 #: modules/School_Setup/PortalPolls.php:209
 msgid "Publishing Options"
-msgstr ""
+msgstr "Настройки за публикуване"
 
 #: modules/School_Setup/PortalPolls.php:178
 #: modules/School_Setup/PortalPolls.php:209
@@ -6533,6 +6533,8 @@ msgstr ""
 #, php-format
 msgid "Are you sure you want to roll the data for %s to the next school year?"
 msgstr ""
+"Сигурни ли сте, че искате да пренесете данните за %s към следващата учебна "
+"година?"
 
 #: modules/School_Setup/Rollover.php:68
 msgid ""
@@ -7023,7 +7025,7 @@ msgstr ""
 
 #: modules/Students/Search.inc.php:25
 msgid "Find a Student"
-msgstr ""
+msgstr "Намиране на студент"
 
 #: modules/Students/Search.inc.php:66 modules/Students/Search.inc.php:170
 #: modules/Users/Search.inc.php:101 modules/Users/Search.inc.php:196
@@ -7037,7 +7039,7 @@ msgstr ""
 
 #: modules/Students/Search.inc.php:114 modules/Users/Search.inc.php:163
 msgid "Basic Search"
-msgstr ""
+msgstr "Просто търсене"
 
 #: modules/Students/Search.inc.php:117 modules/Users/Search.inc.php:166
 msgid "Advanced Search"
