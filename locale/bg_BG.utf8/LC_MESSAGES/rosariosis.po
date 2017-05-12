@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-11 10:25+0300\n"
+"PO-Revision-Date: 2017-05-11 14:05+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -2979,7 +2979,7 @@ msgstr ""
 #: modules/School_Setup/MarkingPeriods.php:570
 #: modules/School_Setup/MarkingPeriods.php:581
 msgid "Year"
-msgstr ""
+msgstr "Година"
 
 #: modules/Custom/AttendanceSummary.php:110
 msgid "Demographics"
@@ -4681,7 +4681,7 @@ msgstr ""
 #: modules/School_Setup/MarkingPeriods.php:617
 #: modules/School_Setup/MarkingPeriods.php:627
 msgid "Semester"
-msgstr ""
+msgstr "Семестър"
 
 #: modules/Grades/EditHistoryMarkingPeriods.php:186
 #: modules/Grades/Transcripts.php:432
@@ -4689,7 +4689,7 @@ msgstr ""
 #: modules/School_Setup/MarkingPeriods.php:664
 #: modules/School_Setup/MarkingPeriods.php:674
 msgid "Quarter"
-msgstr ""
+msgstr "Четвърт"
 
 #: modules/Grades/EditReportCardGrades.php:130
 msgid "Student Grade"
@@ -4963,7 +4963,7 @@ msgstr ""
 #: modules/Grades/InputFinalGrades.php:965
 #, php-format
 msgid "Grade Posting dates: %s - %s"
-msgstr ""
+msgstr "Дни за оценяване: %s - %s"
 
 #: modules/Grades/InputFinalGrades.php:968
 msgid "These grades are complete."
@@ -6365,8 +6365,8 @@ msgstr ""
 #: modules/School_Setup/MarkingPeriods.php:718
 msgid "Progress Period"
 msgid_plural "Progress Periods"
-msgstr[0] "Période intermédiaire"
-msgstr[1] "Périodes intermédiaires"
+msgstr[0] "Текущ период"
+msgstr[1] "Текущи периоди"
 
 #: modules/School_Setup/MarkingPeriods.php:473
 msgid "Graded"
@@ -6374,11 +6374,11 @@ msgstr ""
 
 #: modules/School_Setup/MarkingPeriods.php:519
 msgid "Grade Posting Begins"
-msgstr ""
+msgstr "Начало на оценяване"
 
 #: modules/School_Setup/MarkingPeriods.php:528
 msgid "Grade Posting Ends"
-msgstr ""
+msgstr "Край на оценяване"
 
 #: modules/School_Setup/Menu.php:14
 msgid "School Setup"

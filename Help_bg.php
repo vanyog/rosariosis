@@ -135,22 +135,22 @@ HTML;
 
 	$help['School_Setup/MarkingPeriods.php'] = <<<HTML
 <p>
-	<i>Marking Periods</i> allows you to setup your school's marking periods. There are three tiers of marking periods: Something like Semesters, Quarters, and Progress Periods is suggested. Despite their names, there can be more or fewer than 2 semesters and more or fewer than 4 quarters. Similarly, there can be any number of progress periods in a given quarter.
+        Страница <i>Периоди на оценяване</i> Ви позволява да зададете периодите на оценяване във Вашето училище. Има три нива за отбелязване на периоди: семестри, четвърти и продължаващи периоди. Независимо от имената, може да има по-малко или повече от 2 семестъра и пивече или по-малко от 4 четвърти. Аналогично, може да име произволен брой продължаващи периоди.
 </p>
 <p>
-	To add a marking period, click on the Add icon (+) in the column corresponding to the type of marking period you want to add. Then, complete the marking period's information in the fields above the list of marking periods and click the "Save" button.
+        За да добавите период за оценяване, щракнете върху иконата (+) в колоната, съответстваща на периода за оценяване, който искате да добавите. После попълнете информацията за новия период в полетата над списъка с периодите за оценяване и щракнете бутона "Запазване".
 </p>
 <p>
-	The "Grade Posting Begins" and "Grade Posting Ends" dates define the first and last day of the period during which teachers can enter final grades.
+        Датите на "Начало на оценяване" и "Край на оценяване" определят периода пез който преподавателите могат да въвеждат крайните оценки.
 </p>
 <p>
-	To change a marking period, click on the marking period you want to change, and click on whatever value you want to change in the grey area above the marking period list. Then, change the value and click the "Save" button.
+        За да промените период на оценяване, щрекнете върху това, което искате да промените в сивия правоъгълник отгоре, показващ данните за избрания период. След като направите промена, щракнете бутона "Запазване".
 </p>
 <p>
-	To delete a marking period, select it by clicking on its title on the list and click the "Delete" button at the top of the screen. You will be asked to confirm the deletion.
+        За да изтриете период на оценяване, изберете периода щраквайки върху името му и после щракнете бутона "Изтриване", горе в дясно. Ще бъдете попитани за потвърждение.
 </p>
 <p>
-	Notice that neither two marking periods nor two posting periods in the same tier can overlap. Also, No two marking periods in any tier should have the same sort order.
+        Обарнете внимение, че времето от началото до края на периода и времето от началото до края на оценяването не могат да се припокриват. Също така два периода от едно и също ниво не трябва да имат еднакви места за подреждане.
 </p>
 HTML;
 
