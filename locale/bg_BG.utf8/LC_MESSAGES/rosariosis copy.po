@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-13 23:09+0300\n"
+"PO-Revision-Date: 2017-05-13 17:24+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -446,9 +446,9 @@ msgstr "Тип отговор"
 
 #: ProgramFunctions/Fields.fnc.php:403 ProgramFunctions/Fields.fnc.php:583
 msgid "Field Category"
-msgid_plural "Field Categories"
-msgstr[0] "Категория данни"
-msgstr[1] "Категории от данни"
+msgid_plural ""
+msgstr[0] ""
+msgstr[1] ""
 
 #: ProgramFunctions/Fields.fnc.php:424
 msgid "One per line"
@@ -549,7 +549,7 @@ msgstr[1] "Полета"
 #: modules/Grades/ReportCardComments.php:298
 #: modules/Grades/StudentGrades.php:285
 msgid "Category"
-msgstr "Категория"
+msgstr ""
 
 #: ProgramFunctions/FileUpload.fnc.php:43
 msgid "File not uploaded"
@@ -738,12 +738,12 @@ msgstr "Учебна година"
 #: modules/Scheduling/PrintSchedules.php:248
 #: modules/Users/includes/Schedule.inc.php:25
 msgid "Marking Period"
-msgstr "Период на оценяване"
+msgstr ""
 
 #: Side.php:492 functions/ErrorMessage.fnc.php:52
 #: modules/Scheduling/new_Requests.php:33
 msgid "Error"
-msgstr "Грешка"
+msgstr ""
 
 #: Side.php:492 functions/GetMP.php:83
 msgid "No quarters found"
@@ -1592,7 +1592,7 @@ msgstr "Позволения"
 #: functions/StaffWidgets.fnc.php:163 functions/StaffWidgets.fnc.php:173
 #: modules/Users/includes/General_Info.inc.php:228
 msgid "Custom"
-msgstr "Индидивуални"
+msgstr ""
 
 #: functions/StaffWidgets.fnc.php:206 functions/Widgets.fnc.php:1671
 #: modules/Users/Preferences.php:704 modules/Users/Preferences.php:838
@@ -1811,7 +1811,7 @@ msgstr ""
 #: modules/Users/includes/Schedule.inc.php:25
 #: modules/Users/includes/Schedule.inc.php:61 modules/misc/ChooseCourse.php:14
 msgid "Course Period"
-msgstr "Част на курс"
+msgstr ""
 
 #: functions/Widgets.fnc.php:287 functions/Widgets.fnc.php:350
 #: modules/Scheduling/Courses.php:1011 modules/Scheduling/functions.inc.php:32
@@ -2564,7 +2564,7 @@ msgstr ""
 #: modules/Scheduling/Courses.php:921 modules/Scheduling/Courses.php:1004
 #: modules/Users/Preferences.php:617
 msgid "None"
-msgstr "Няма"
+msgstr ""
 
 #: modules/Attendance/Administration.php:461
 #: modules/Attendance/AttendanceCodes.php:222
@@ -2597,7 +2597,7 @@ msgstr ""
 #: modules/Scheduling/Courses.php:1152 modules/Scheduling/Menu.php:34
 #: modules/School_Setup/Rollover.php:3
 msgid "Courses"
-msgstr "Курсове"
+msgstr ""
 
 #: modules/Attendance/AttendanceCodes.php:63
 #: modules/Discipline/DisciplineForm.php:99
@@ -2828,7 +2828,7 @@ msgstr ""
 #: modules/Scheduling/Menu.php:33 modules/Students/Menu.php:29
 #: modules/Users/Menu.php:20
 msgid "Setup"
-msgstr "Настройки"
+msgstr ""
 
 #: modules/Attendance/Menu.php:28 modules/School_Setup/CopySchool.php:10
 #: modules/School_Setup/Rollover.php:3
@@ -3084,7 +3084,7 @@ msgstr ""
 #: modules/Custom/CreateParents.php:290 modules/Custom/NotifyParents.php:133
 #: modules/Scheduling/Scheduler.php:14
 msgid "Test Mode"
-msgstr "Тестов режим"
+msgstr ""
 
 #: modules/Custom/CreateParents.php:310
 #: modules/Students/includes/Address.inc.php:283
@@ -4014,7 +4014,7 @@ msgstr ""
 #: modules/Food_Service/Users/Statements.php:30
 #: modules/Students/Search.inc.php:223 modules/Users/Search.inc.php:262
 msgid "Original View"
-msgstr "Предишен изглед"
+msgstr ""
 
 #: modules/Food_Service/Students/ActivityReport.php:116
 #: modules/Food_Service/Users/ActivityReport.php:116
@@ -4715,12 +4715,12 @@ msgstr ""
 #: modules/Grades/EditReportCardGrades.php:234
 #: modules/School_Setup/MarkingPeriods.php:30
 msgid "New Marking Period"
-msgstr "Нов период за оценяване"
+msgstr ""
 
 # 'user_profiles' table
 #: modules/Grades/EditReportCardGrades.php:268
 msgid "Percentage"
-msgstr "Проценти"
+msgstr ""
 
 #: modules/Grades/EditReportCardGrades.php:270
 msgid "Grade Points"
@@ -4937,7 +4937,7 @@ msgstr ""
 #: modules/Scheduling/ScheduleReport.php:121
 #: modules/Scheduling/ScheduleReport.php:122
 msgid "Subject"
-msgstr "Предмет"
+msgstr ""
 
 #: modules/Grades/InputFinalGrades.php:18
 #: modules/Grades/InputFinalGrades.php:27
@@ -5321,7 +5321,7 @@ msgstr ""
 
 #: modules/Grades/Transcripts.php:455 modules/Scheduling/Courses.php:946
 msgid "Credits"
-msgstr "Кредити"
+msgstr ""
 
 #: modules/Grades/Transcripts.php:458 modules/Scheduling/Courses.php:1070
 msgid "Credit Hours"
@@ -5482,11 +5482,11 @@ msgstr ""
 #: modules/Scheduling/Schedule.php:280
 #: modules/Scheduling/UnfilledRequests.php:45
 msgid "Available Seats"
-msgstr "Достъпни места"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:623
 msgid "New Course Period"
-msgstr "Нова част от курс"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:674
 #: modules/Scheduling/MasterScheduleReport.php:14
@@ -5499,13 +5499,13 @@ msgstr "Нова част от курс"
 #: modules/Users/includes/Schedule.inc.php:152 modules/misc/Export.php:178
 #: modules/misc/Export.php:549 modules/misc/Export.php:560
 msgid "Room"
-msgstr "Стая"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:710
 #: modules/Scheduling/MasterScheduleReport.php:14
 #: modules/Scheduling/RequestsReport.php:20
 msgid "Seats"
-msgstr "Места"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:795
 msgid "Meeting Days"
@@ -5513,11 +5513,11 @@ msgstr ""
 
 #: modules/Scheduling/Courses.php:822
 msgid "New Period"
-msgstr "Нова част"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:892
 msgid "Takes Attendance"
-msgstr "Изисква присъствие"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:899
 msgid "Affects Honor Roll"
@@ -5525,19 +5525,19 @@ msgstr ""
 
 #: modules/Scheduling/Courses.php:919
 msgid "Gender Restriction"
-msgstr "Ограничение за пол"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:922
 msgid "Male"
-msgstr "Мъжки"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:923
 msgid "Female"
-msgstr "Женски"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:937
 msgid "Grading Scale"
-msgstr "Скала за оценяване"
+msgstr ""
 
 #: modules/Scheduling/Courses.php:939
 msgid "Not Graded"
@@ -5755,11 +5755,11 @@ msgstr "Очет Добавени / Опаднали"
 
 #: modules/Scheduling/Menu.php:35
 msgid "Run Scheduler"
-msgstr "Съставяне разписания"
+msgstr ""
 
 #: modules/Scheduling/Menu.php:41 modules/Scheduling/Menu.php:51
 msgid "Schedule"
-msgstr "Разписание"
+msgstr ""
 
 #: modules/Scheduling/Menu.php:54
 msgid "Class Pictures"
@@ -5975,15 +5975,15 @@ msgstr[1] "Élèves non planifié"
 
 #: modules/Scheduling/Scheduler.php:17
 msgid "Delete Current Schedules"
-msgstr "Изтриване на настоящите графици"
+msgstr ""
 
 #: modules/Scheduling/Scheduler.php:22
 msgid "Confirm Scheduler Run"
-msgstr "Потвърждаване съставянето на разписания"
+msgstr ""
 
 #: modules/Scheduling/Scheduler.php:23
 msgid "Are you sure you want to run the scheduler?"
-msgstr "Сигурни ли сте, че искате да стартирате съставянето на графици?"
+msgstr ""
 
 #: modules/Scheduling/Scheduler.php:30
 msgid "Scheduler Progress"
@@ -6284,11 +6284,11 @@ msgstr ""
 
 #: modules/School_Setup/CopySchool.php:34
 msgid "New School"
-msgstr "Ново училище"
+msgstr ""
 
 #: modules/School_Setup/CopySchool.php:34
 msgid "New School's Title"
-msgstr "Ново название на училище"
+msgstr ""
 
 #: modules/School_Setup/CopySchool.php:39
 msgid "Confirm Copy School"
@@ -6318,25 +6318,25 @@ msgstr "Запазване на архивен файл"
 
 #: modules/School_Setup/MarkingPeriods.php:22
 msgid "New Year"
-msgstr "Нова година"
+msgstr ""
 
 #: modules/School_Setup/MarkingPeriods.php:26
 msgid "New Semester"
-msgstr "Нов семестър"
+msgstr ""
 
 #: modules/School_Setup/MarkingPeriods.php:34
 msgid "New Progress Period"
-msgstr "Нов текущ период"
+msgstr ""
 
 #: modules/School_Setup/MarkingPeriods.php:87
 #: modules/School_Setup/MarkingPeriods.php:184
 msgid "Not all of the dates were entered correctly."
-msgstr "Не всички данни са въведени коректно."
+msgstr ""
 
 #: modules/School_Setup/MarkingPeriods.php:126
 #: modules/School_Setup/MarkingPeriods.php:196
 msgid "Start date must be anterior to end date."
-msgstr "Началната дата трябва да е преди крайната."
+msgstr ""
 
 #: modules/School_Setup/MarkingPeriods.php:252
 #, php-format
@@ -6344,7 +6344,6 @@ msgid ""
 "The beginning and end dates you specified for this marking period overlap "
 "with those of \"%s\"."
 msgstr ""
-"Датите на началото и краня на този период се припокриват с тези на “%s”."
 
 #: modules/School_Setup/MarkingPeriods.php:255
 msgid "Only one marking period can be open at any time."
@@ -7278,8 +7277,6 @@ msgstr ""
 #: modules/Users/Exceptions.php:133
 msgid "Select the programs with which this user can use and save information."
 msgstr ""
-"Изберете програмите, които този потребител може да използва, и в кои да може "
-"да запазва данни."
 
 #: modules/Users/Exceptions.php:163 modules/Users/Profiles.php:310
 msgid "Can Use"
@@ -7331,12 +7328,12 @@ msgstr "Потребителски профили"
 #: modules/Users/Menu.php:22 modules/Users/Profiles.php:65
 #: modules/Users/includes/General_Info.inc.php:248
 msgid "User Permissions"
-msgstr "Позволения на потребителите"
+msgstr ""
 
 #: modules/Users/Menu.php:23 modules/Users/Preferences.php:176
 #: modules/Users/Search.inc.php:156
 msgid "User Fields"
-msgstr "Потребителски данни"
+msgstr ""
 
 #: modules/Users/Preferences.php:31
 msgid "Your current password was incorrect."
@@ -7388,7 +7385,7 @@ msgstr "Като формата за показване"
 
 #: modules/Users/Preferences.php:297
 msgid "Display student search screen"
-msgstr "Показване екран търсене студенти"
+msgstr ""
 
 #: modules/Users/Preferences.php:309
 msgid "Group by family by default"
@@ -7432,7 +7429,7 @@ msgstr "PDF Цвят заглавия в списък"
 
 #: modules/Users/Preferences.php:500
 msgid "Current Password"
-msgstr "Сегашна парола"
+msgstr ""
 
 #: modules/Users/Preferences.php:594
 msgid "Home Phone Number"
@@ -7498,7 +7495,7 @@ msgstr ""
 
 #: modules/Users/Search.inc.php:340
 msgid "No Users were found."
-msgstr "Не са намерени потребители."
+msgstr ""
 
 #: modules/Users/User.php:488 modules/Users/includes/General_Info.inc.php:25
 msgid "Mr"
@@ -7605,7 +7602,7 @@ msgstr "Добър ден, %s."
 #: modules/misc/Portal.php:24
 #, php-format
 msgid "Good Evening, %s."
-msgstr "Добър вечер, %s."
+msgstr ""
 
 #: modules/misc/Portal.php:28
 #, php-format
@@ -7765,126 +7762,827 @@ msgstr ""
 msgid "Publish Note in Moodle?"
 msgstr ""
 
-#, fuzzy
-#~| msgid "Student Fields"
-#~ msgid "%s Student email field ID"
-#~ msgstr "Студентски данни"
+msgid "Create Assignment for Selected Courses"
+msgstr ""
 
-#~ msgid "email"
-#~ msgstr "имейл"
+msgid "Last Name starts with"
+msgstr ""
 
-#~ msgid ""
-#~ "The date you specified is not valid, so was not used. The other data was "
-#~ "saved."
-#~ msgstr ""
-#~ "La date spécifiée n'est pas valide, donc inutilisée. Les autres données "
-#~ "ont été sauvegardées."
+msgid "First Name starts with"
+msgstr ""
 
-#~ msgid "You must set the <b>$email_column</b> variable to use this script."
-#~ msgstr ""
-#~ "Vous devez renseigner la variable <b>$email_column</b>pour pouvoir "
-#~ "utiliser ce script."
+msgid "UserName starts with"
+msgstr ""
 
-#~ msgid "You cannot re-roll Users or Courses"
-#~ msgstr ""
-#~ "Vous ne pouvez pas reporter les Utilisateurs ou les Cours une deuxième "
-#~ "fois."
+msgid "Assignment Type as well as its Assignments & associated Grades"
+msgstr ""
 
-#~ msgid ""
-#~ "Please add the administrator's ID (%s) to the <i>config.inc.php</i> file."
-#~ msgstr ""
-#~ "Ajoutez l'ID de l'administrateur (%s) au fichier <i>config.inc.php</i> "
-#~ "svp."
+msgid "Hold the CTRL key down to select multiple options"
+msgstr ""
 
-#~ msgid "RosarioSIS ID"
-#~ msgstr "Системен номер"
+msgid ""
+"We would appreciate it if you would enter just a little bit of information "
+"about you and your child to help us out this school year. Thanks!"
+msgstr ""
 
-#~ msgid "Gender"
-#~ msgstr "Пол"
+msgid "Information about your spouse or significant other residing with you"
+msgstr ""
 
-#~ msgid "Work Phone"
-#~ msgstr "Служебен телефон"
+msgid "Leave this section blank if you are separated."
+msgstr ""
 
-#~ msgid "Unscheduled Request"
-#~ msgid_plural "Unscheduled Requests"
-#~ msgstr[0] "Demande non Prise en Compte"
-#~ msgstr[1] "Demandes non Prises en Compte"
+msgid "Example Phone"
+msgstr ""
 
-#~ msgid ""
-#~ "You have a <b>negative</b> food service balance of <font color=\"red\">"
-#~ "%d</font>"
-#~ msgstr ""
-#~ "Le solde du compte cantine est <b>négatif</b> de <font color=\"red\">%d</"
-#~ "font>"
+msgid "Eligibility Activity Codes"
+msgstr ""
 
-#~ msgid "Jan"
-#~ msgstr "Яну"
+msgid "This course has been added to the selected students' schedules."
+msgstr ""
 
-#~ msgid "Feb"
-#~ msgstr "Фев"
+msgid "Add Course to Selected Students"
+msgstr ""
 
-#~ msgid "Mar"
-#~ msgstr "Мар"
+msgid "Course to Add"
+msgstr ""
 
-#~ msgid "Apr"
-#~ msgstr "Апр"
+msgid ""
+"You must have exactly one Rollover default enrollment code (of type Add)."
+msgstr ""
 
-#~ msgid "Jun"
-#~ msgstr "Юни"
+msgid ""
+"Moodle response is empty. Please check your Moodle and Moodle server "
+"configuration."
+msgstr ""
 
-#~ msgid "Jul"
-#~ msgstr "Юли"
+msgid "%s Student email field D"
+msgstr ""
 
-#~ msgid "Sep"
-#~ msgstr "Сеп"
+msgid "The Moodle URL is not valid."
+msgstr ""
 
-#~ msgid "Oct"
-#~ msgstr "Окт"
+msgid "Your new password was saved in Moodle too."
+msgstr ""
 
-#~ msgid "Nov"
-#~ msgstr "Нов"
+msgid "Save Report"
+msgstr ""
 
-#~ msgid "Dec"
-#~ msgstr "Дек"
+msgid "Tardy in %s"
+msgstr ""
 
-#~ msgid "Leave space for other teachers to enter their comments."
-#~ msgstr ""
-#~ "Laissez de la place pour que les autre enseignants puissent entrer leurs "
-#~ "commentaires."
+msgid "Tardy this year"
+msgstr ""
 
-#~ msgid "Teacher with missing attendance data"
-#~ msgid_plural "Teachers with missing attendance data"
-#~ msgstr[0] "Enseignant avec des relevés d'absence manquants"
-#~ msgstr[1] "Enseignants avec des relevés d'absence manquants"
+msgid "email"
+msgstr "имейл"
 
-#~ msgid "Course with Unscheduled Requests"
-#~ msgid_plural "Courses with Unscheduled Requests"
-#~ msgstr[0] "Cours avec Requêtes non Planifiées"
-#~ msgstr[1] "Cours avec Requêtes non Planifiées"
+msgid ""
+"The date you specified is not valid, so was not used. The other data was "
+"saved."
+msgstr ""
+"La date spécifiée n'est pas valide, donc inutilisée. Les autres données ont "
+"été sauvegardées."
 
-#~ msgid "Course with No Seats"
-#~ msgid_plural "Courses with No Seats"
-#~ msgstr[0] "Cours sans Disponibilités"
-#~ msgstr[1] "Cours sans Disponibilités"
+msgid "* for dates: YYYY-MM-DD"
+msgstr ""
 
-#~ msgid ""
-#~ "Since this is your first login, Rosario/SIS would like to tell our "
-#~ "servers that you have successfully installed the software."
-#~ msgstr ""
-#~ "Comme c'est votre première utilisation, Rosario SIS voudrait rapporter "
-#~ "cette installation a nos serveurs."
+msgid "Select Multiple"
+msgstr ""
 
-#~ msgid "Pre-Defined Fee"
-#~ msgid_plural "Pre-Defined Fees"
-#~ msgstr[0] "Tarif Pré-Etabli"
-#~ msgstr[1] "Tarifs Pré-Etablis"
+msgid "Automatically scroll to the top of the page"
+msgstr ""
 
-#~ msgid "Student Billing Fee"
-#~ msgid_plural "Student Billing Fees"
-#~ msgstr[0] "Frais Élève"
-#~ msgstr[1] "Frais Élève"
+msgid "and"
+msgstr ""
 
-#~ msgid "Teacher who enters "
-#~ msgid_plural "Teachers who enter "
-#~ msgstr[0] "Преподавател, който влиза "
-#~ msgstr[1] "Commentaire enseignant"
+msgid "Incident Entered"
+msgstr ""
+
+msgid "Subjects"
+msgstr ""
+
+msgid "MTD"
+msgstr ""
+
+msgid "Abs"
+msgstr ""
+
+msgid "Pos"
+msgstr ""
+
+msgid "YTD Totals"
+msgstr ""
+
+msgid "You must set the <b>$email_column</b> variable to use this script."
+msgstr ""
+"Vous devez renseigner la variable <b>$email_column</b>pour pouvoir utiliser "
+"ce script."
+
+msgid "You cannot re-roll Users or Courses"
+msgstr ""
+"Vous ne pouvez pas reporter les Utilisateurs ou les Cours une deuxième fois."
+
+msgid "Legal Size Paper"
+msgstr ""
+
+msgid "Errors"
+msgstr ""
+
+msgid "Display data using hidden fields"
+msgstr ""
+
+msgid "Warning!"
+msgstr ""
+
+msgid "All Course Periods"
+msgstr ""
+
+msgid "Years"
+msgstr ""
+
+msgid "Months"
+msgstr ""
+
+msgid "Tdy"
+msgstr ""
+
+msgid "New Registration %s %s (%d) has been registered by %s."
+msgstr ""
+
+msgid ""
+"Please add the administrator's ID (%s) to the <i>config.inc.php</i> file."
+msgstr ""
+"Ajoutez l'ID de l'administrateur (%s) au fichier <i>config.inc.php</i> svp."
+
+msgid "Search Criteria"
+msgstr ""
+
+msgid "Unauthorized file extension"
+msgstr ""
+
+msgid "RosarioSIS Login"
+msgstr ""
+
+msgid "RosarioSIS ID"
+msgstr "Системен номер"
+
+# Print options
+msgid "Letter Size"
+msgstr ""
+
+msgid "Gradescale"
+msgstr ""
+
+msgid "File attached size"
+msgstr ""
+
+msgid "Gender"
+msgstr "Пол"
+
+msgid "Ethnicity"
+msgstr ""
+
+msgid "Birthdate"
+msgstr ""
+
+# Social Security Number
+msgid "SSN"
+msgstr ""
+
+msgid "White, Non-Hispanic"
+msgstr ""
+
+msgid "Black, Non-Hispanic"
+msgstr ""
+
+msgid "Amer. Indian or Alaskan Native"
+msgstr ""
+
+msgid "Asian or Pacific Islander"
+msgstr ""
+
+msgid "Hispanic"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "Arabic"
+msgstr ""
+
+msgid "Armenian"
+msgstr ""
+
+msgid "Byelorussian"
+msgstr ""
+
+msgid "Bulgarian"
+msgstr ""
+
+msgid "Chinese"
+msgstr ""
+
+msgid "Czech"
+msgstr ""
+
+msgid "Danish"
+msgstr ""
+
+msgid "Dutch"
+msgstr ""
+
+msgid "Finnish"
+msgstr ""
+
+msgid "French"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "Greek"
+msgstr ""
+
+msgid "Hebrew"
+msgstr ""
+
+msgid "Hindi"
+msgstr ""
+
+msgid "Hungarian"
+msgstr ""
+
+msgid "Icelandic"
+msgstr ""
+
+msgid "Indonesian"
+msgstr ""
+
+msgid "Irish"
+msgstr ""
+
+msgid "Italian"
+msgstr ""
+
+msgid "Japanese"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Malay"
+msgstr ""
+
+msgid "Maltese"
+msgstr ""
+
+msgid "Mongolian"
+msgstr ""
+
+msgid "Nepali"
+msgstr ""
+
+msgid "Norwegian"
+msgstr ""
+
+msgid "Russian"
+msgstr ""
+
+msgid "Spanish"
+msgstr ""
+
+msgid "Thai"
+msgstr ""
+
+msgid "Turkish"
+msgstr ""
+
+msgid "Ukrainian"
+msgstr ""
+
+msgid "Vietnamese"
+msgstr ""
+
+msgid "Physician"
+msgstr ""
+
+msgid "Physician Phone"
+msgstr ""
+
+msgid "Preferred Hospital"
+msgstr ""
+
+msgid "Previous School"
+msgstr ""
+
+msgid "Next School"
+msgstr ""
+
+msgid "Birth Place"
+msgstr ""
+
+msgid "Calculating Daily Attendance"
+msgstr ""
+
+msgid "If more than one teacher will be adding comments for this student"
+msgstr ""
+
+msgid "Type your name above the comments you enter."
+msgstr ""
+
+msgid "Default School Year"
+msgstr ""
+
+msgid "Teachers who take attendance"
+msgstr ""
+
+msgid "Back to Student List"
+msgstr ""
+
+msgid "Back to User List"
+msgstr ""
+
+msgid "Back to Course List"
+msgstr ""
+
+msgid "Back to %s List"
+msgstr ""
+
+msgid "Back to %s Search"
+msgstr ""
+
+msgid "Half"
+msgstr ""
+
+msgid "Export %s fields as stored value"
+msgstr ""
+
+msgid "Some dates are not valid."
+msgstr ""
+
+msgid "Next Page"
+msgstr ""
+
+msgid "Go to Page %s"
+msgstr ""
+
+msgid "Include courses active as of %s"
+msgstr ""
+
+msgid "Father"
+msgstr ""
+
+msgid "Mother"
+msgstr ""
+
+msgid "Work Phone"
+msgstr "Служебен телефон"
+
+msgid "Employer"
+msgstr ""
+
+msgid "category from this school's referral form"
+msgstr ""
+
+msgid "Input Format"
+msgstr ""
+
+msgid "Letter Percent"
+msgstr ""
+
+msgid "Medical"
+msgstr ""
+
+msgid "Exam"
+msgstr ""
+
+msgid "%s Exam"
+msgstr ""
+
+msgid "You must choose at least one marking period"
+msgstr ""
+
+msgid "Number of Students Associated"
+msgstr ""
+
+msgid "Substitutions related to students"
+msgstr ""
+
+msgid "Dear"
+msgstr ""
+
+msgid ""
+"A parent account for the %s has been created to access school information "
+"and student information for the following students"
+msgstr ""
+
+msgid "Your account credentials are"
+msgstr ""
+
+msgid ""
+"A link to the SIS website and instructions for access are available on the "
+"school's website"
+msgstr ""
+
+msgid "The following students have been added to your parent account on the %s"
+msgstr ""
+
+msgid "Email failed"
+msgstr ""
+
+msgid "Parent Account"
+msgstr ""
+
+msgid "You must choose at least one user."
+msgstr ""
+
+msgid "A/B"
+msgstr ""
+
+msgid "All A"
+msgstr ""
+
+msgid "This date is invalid and could not be saved."
+msgstr ""
+
+msgid "The Note can then only be modified and deleted via Moodle"
+msgstr ""
+
+msgid "Families"
+msgstr ""
+
+msgid "Print Certificate of Goodstanding"
+msgstr ""
+
+msgid "Enable mailing address display"
+msgstr ""
+
+msgid "Welcome to the Rosario School Information System!"
+msgstr ""
+
+msgid "NIT"
+msgstr ""
+
+msgid "Resolution"
+msgstr ""
+
+msgid "Student Card"
+msgstr ""
+
+msgid "Certificate of Goodstanding"
+msgstr ""
+
+msgid "Workshops Realized"
+msgstr ""
+
+msgid "Create Certificates of Goodstanding for Selected Students"
+msgstr ""
+
+msgid "Student Card Template"
+msgstr ""
+
+msgid "Create Student Cards for Selected Students"
+msgstr ""
+
+msgid "Video Help"
+msgstr ""
+
+msgid "User Forums"
+msgstr ""
+
+msgid "Translation"
+msgstr ""
+
+msgid "Tutor"
+msgstr ""
+
+msgid "Profession"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
+msgid "Identification Card"
+msgstr ""
+
+msgid "Unscheduled Request"
+msgid_plural "Unscheduled Requests"
+msgstr[0] "Demande non Prise en Compte"
+msgstr[1] "Demandes non Prises en Compte"
+
+msgid "Birth Month Day"
+msgstr ""
+
+msgid "Download list"
+msgstr ""
+
+msgid ""
+"You have a <b>negative</b> food service balance of <font color=\"red\">%d</"
+"font>"
+msgstr ""
+"Le solde du compte cantine est <b>négatif</b> de <font color=\"red\">%d</"
+"font>"
+
+msgid "Error: Wrong file extension: %s (.jpg or .jpeg required)"
+msgstr ""
+
+msgid "Votes"
+msgstr ""
+
+msgid "Total Votes"
+msgstr ""
+
+msgid "Select Multiple Choices"
+msgstr ""
+
+msgid "To Family"
+msgstr ""
+
+msgid "Rosario ID"
+msgstr ""
+
+msgid "Contact Info Rollover"
+msgstr ""
+
+msgid "Jan"
+msgstr "Яну"
+
+msgid "Feb"
+msgstr "Фев"
+
+msgid "Mar"
+msgstr "Мар"
+
+msgid "Apr"
+msgstr "Апр"
+
+msgid "Jun"
+msgstr "Юни"
+
+msgid "Jul"
+msgstr "Юли"
+
+msgid "Sep"
+msgstr "Сеп"
+
+msgid "Oct"
+msgstr "Окт"
+
+msgid "Nov"
+msgstr "Нов"
+
+msgid "Dec"
+msgstr "Дек"
+
+msgid "School / Year"
+msgstr ""
+
+# Month
+msgid "Mon"
+msgstr ""
+
+msgid "Fewer than 0"
+msgstr ""
+
+msgid "characters remaining."
+msgstr ""
+
+msgid "Leave space for other teachers to enter their comments."
+msgstr ""
+"Laissez de la place pour que les autre enseignants puissent entrer leurs "
+"commentaires."
+
+msgid "Half-Day"
+msgstr ""
+
+msgid "Course Name"
+msgstr ""
+
+msgid "First"
+msgstr ""
+
+msgid "Last"
+msgstr ""
+
+msgid "Middle"
+msgstr ""
+
+msgid "The first translation string cannot be empty."
+msgstr ""
+
+msgid "Rosario School Software"
+msgstr ""
+
+msgid "Teacher with missing attendance data"
+msgid_plural "Teachers with missing attendance data"
+msgstr[0] "Enseignant avec des relevés d'absence manquants"
+msgstr[1] "Enseignants avec des relevés d'absence manquants"
+
+msgid "Rosario SIS"
+msgstr ""
+
+msgid "Students with Anomalous Grades"
+msgstr ""
+
+msgid "Assignment Types"
+msgstr ""
+
+msgid "Periods with missing %s attendance data"
+msgstr ""
+
+msgid "Transcript"
+msgstr ""
+
+msgid "Credits MP/Total"
+msgstr ""
+
+msgid "GPA Wtd"
+msgstr ""
+
+msgid "Rank"
+msgstr ""
+
+msgid "Referral Log"
+msgstr ""
+
+msgid "Include in Referral Log"
+msgstr ""
+
+msgid "The grades for that marking period have been recalculated."
+msgstr ""
+
+msgid "Staff Member"
+msgstr ""
+
+msgid "We hereby recognize"
+msgstr ""
+
+msgid "Who has completed all the academic<br />requirements for"
+msgstr ""
+
+msgid "Academic Excellence in"
+msgstr ""
+
+msgid "GPA between"
+msgstr ""
+
+msgid "Cumulative"
+msgstr ""
+
+msgid "Referral Form Categories"
+msgstr ""
+
+msgid "Teachers with missing attendance data"
+msgstr ""
+
+msgid "Days With Upcoming Events"
+msgstr ""
+
+msgid "Events"
+msgstr ""
+
+msgid "Letter Grade"
+msgstr ""
+
+msgid "Days of Week"
+msgstr ""
+
+msgid "Course with Unscheduled Requests"
+msgid_plural "Courses with Unscheduled Requests"
+msgstr[0] "Cours avec Requêtes non Planifiées"
+msgstr[1] "Cours avec Requêtes non Planifiées"
+
+msgid "Course with No Seats"
+msgid_plural "Courses with No Seats"
+msgstr[0] "Cours sans Disponibilités"
+msgstr[1] "Cours sans Disponibilités"
+
+msgid "Period - Teacher"
+msgstr ""
+
+msgid "Balance Report"
+msgstr ""
+
+msgid "Show Open Seats"
+msgstr ""
+
+msgid "Rolling Retention / Options"
+msgstr ""
+
+msgid ""
+"Since this is your first login, Rosario/SIS would like to tell our servers "
+"that you have successfully installed the software."
+msgstr ""
+"Comme c'est votre première utilisation, Rosario SIS voudrait rapporter cette "
+"installation a nos serveurs."
+
+msgid "Is this OK?"
+msgstr ""
+
+msgid "You will not see this message again."
+msgstr ""
+
+msgid "Hebrew Name"
+msgstr ""
+
+msgid "Last, Common"
+msgstr ""
+
+msgid "Common"
+msgstr ""
+
+msgid "Common Name"
+msgstr ""
+
+msgid "Common Last"
+msgstr ""
+
+msgid "Given Name"
+msgstr ""
+
+msgid "Other students associated with same account"
+msgstr ""
+
+msgid "Titles Color"
+msgstr ""
+
+msgid "Auto Pull-down"
+msgstr ""
+
+msgid "Teacher with missing %s data"
+msgstr ""
+
+msgid "Teachers with missing %s data"
+msgstr ""
+
+msgid "Due date is earlier than assigned date!"
+msgstr ""
+
+msgid "Pre-Defined Fee"
+msgid_plural "Pre-Defined Fees"
+msgstr[0] "Tarif Pré-Etabli"
+msgstr[1] "Tarifs Pré-Etablis"
+
+msgid "Student Billing Fee"
+msgid_plural "Student Billing Fees"
+msgstr[0] "Frais Élève"
+msgstr[1] "Frais Élève"
+
+msgid "You must choose at least one student"
+msgstr ""
+
+msgid "Mail City"
+msgstr ""
+
+msgid "Mail State"
+msgstr ""
+
+msgid "Mail Zipcode"
+msgstr ""
+
+msgid "You must choose at least one student and one marking period"
+msgstr ""
+
+msgid "You must choose at least one student and marking period"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Get Key"
+msgstr ""
+
+msgid "Not On"
+msgstr ""
+
+msgid "Grade, Name"
+msgstr ""
+
+msgid "List Color"
+msgstr ""
+
+msgid "Students with incomplete schedules"
+msgstr ""
+
+msgid "Explanation"
+msgstr ""
+
+msgid "Teacher who enters "
+msgid_plural "Teachers who enter "
+msgstr[0] "Преподавател, който влиза "
+msgstr[1] "Commentaire enseignant"
+
+msgid "Addresses & Contacts"
+msgstr ""
+
+msgid "AKA First Name"
+msgstr ""
+
+msgid "AKA Last Name"
+msgstr ""
+
+msgid "AKA Middle Name"
+msgstr ""

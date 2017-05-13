@@ -135,7 +135,7 @@ HTML;
 
 	$help['School_Setup/MarkingPeriods.php'] = <<<HTML
 <p>
-        Страница <i>Периоди на оценяване</i> Ви позволява да зададете периодите на оценяване във Вашето училище. Има три нива за отбелязване на периоди: семестри, четвърти и продължаващи периоди. Независимо от имената, може да има по-малко или повече от 2 семестъра и пивече или по-малко от 4 четвърти. Аналогично, може да име произволен брой продължаващи периоди.
+        Програмата <i>Периоди на оценяване</i> Ви позволява да зададете периодите на оценяване във Вашето училище. Има три нива за отбелязване на периоди: семестри, четвърти и продължаващи периоди. Независимо от имената, може да има по-малко или повече от 2 семестъра и пивече или по-малко от 4 четвърти. Аналогично, може да име произволен брой продължаващи периоди.
 </p>
 <p>
         За да добавите период за оценяване, щракнете върху иконата (+) в колоната, съответстваща на периода за оценяване, който искате да добавите. После попълнете информацията за новия период в полетата над списъка с периодите за оценяване и щракнете бутона "Запазване".
@@ -156,7 +156,7 @@ HTML;
 
 	$help['School_Setup/Calendar.php'] = <<<HTML
 <p>
-        Страница <i>Календари</i> Ви позволява да настроите Вашия училищен календар за годината. Календарът по подразбиране показва тикущия месец. Месецът и годината, които се показват може да се сменят чрез избиране от падащите минюта за месец и година, в горната част на екрана.
+        Програмата <i>Календари</i> Ви позволява да настроите Вашия училищен календар за годината. Календарът по подразбиране показва тикущия месец. Месецът и годината, които се показват може да се сменят чрез избиране от падащите минюта за месец и година, в горната част на екрана.
 </p>
 <p>
         За цели учебни дни отметката в десния горен ъгъл на клетката за деня, трябва да е поставена. За дни, в които не се учи цял ден, отметката трябва да не е сложена, а в полето до отметката се попълва колко минути се учи през деня. В дните, в които не се учи, не се поставя отметка и полето се оставя празно. За да правите промени щракнете върху това, което искате да промените. След нанасяне на промени, щракнете бутон "Запазване".
@@ -180,7 +180,7 @@ HTML;
 
 	$help['School_Setup/Periods.php'] = <<<HTML
 <p>
-        Страница <i>Периоди</i> Ви позволява да настроите учебните периоди (часове) на училището. Средните и висшите училища може да имат повече учебни часове, докато началните и основни училища е възможно да имат само един учебен период (наречен цял ден) или три (цял ден, предиобед и следобед).</p>
+        Програмата <i>Периоди</i> Ви позволява да настроите учебните периоди (часове) на училището. Средните и висшите училища може да имат повече учебни часове, докато началните и основни училища е възможно да имат само един учебен период (наречен цял ден) или три (цял ден, предиобед и следобед).</p>
 <p>
         За да добавите период попълнете полетата на последния ред с название, кратко име, номер за подреждане, продължителност в минути и щракнете бутона "Запазване".
 </p>
@@ -194,7 +194,7 @@ HTML;
 
 	$help['School_Setup/GradeLevels.php'] = <<<HTML
 <p>
-        Страница "<i>Нива на обучение</i>" ви позволява да определите нивата на обучение в училището.
+        Програмата "<i>Нива на обучение</i>" ви позволява да определите нивата на обучение в училището.
 </p>
 <p>
         За да добавите ниво на обучение, попълнете празните полета на последния ред на таблицата, съответно в колоните Название, Кратко име, Подреждане и Следващо ниво и щракнете бутона "Запазване". "Следващо ниво" означава нивото, в което ще приминат студентите след като завършат учебната година.
@@ -209,7 +209,7 @@ HTML;
 
 	$help['School_Setup/Rollover.php'] = <<<HTML
 <p>
-        Чрез страница <i>Пренасяне</i> се копират данните от текущата година към следващата учебна година. Студентите се записват в следващото ниво на обучение и цялата информация за училището се копира в следващата учебна година.
+        Чрез програмата <i>Пренасяне</i> се копират данните от текущата година към следващата учебна година. Студентите се записват в следващото ниво на обучение и цялата информация за училището се копира в следващата учебна година.
 </p>
 <p>
         Данните, които се копират включват периодите, периодите за оценяване, потребителите, курсовете, записването на студентите, кодовете за отчети на оценките, кодовете за присъствие, и дейностите за допускане.
@@ -437,7 +437,7 @@ HTML;
 
 	$help['Students/Letters.php'] = <<<HTML
 <p>
-        Страница <i>Печатане писма</i> ви позволява да печатате писма до произволен брой студенти.
+        Програмата <i>Печатане писма</i> ви позволява да печатате писма до произволен брой студенти.
 </p>
 <p>
         Първо, потърсете студенти. От намерените студенти можете да изберете произволно число. Можете да изберете и всички, намерени студенти като щракнете върху отметката в реда с названия над списъка. След като сте избрали студентите в полето "Текст на писмото", въведете текста на писмото.
@@ -741,7 +741,7 @@ HTML;
 
 	$help['Users/User.php&staff_id=new'] = <<<HTML
 <p>
-	<i>Add a User</i> allows you to add a user to the system. This includes administrators, teachers, and parents. Simply fill in the new user's name, username, password, profile, school, email address, and phone number. Click the "Save" button.
+        Програмата <i>Добавяне потребител</i> Ви позволява да добавите потребител в системата. Той може да е администратор, преподавател или родител. Просто попълнете: трите имена на потребителя, потребителското му име и паролата, имейл адреса и телефона, и щрекнете бутона "Запазване".
 </p>
 HTML;
 
@@ -759,31 +759,32 @@ HTML;
 
 	$help['Users/Preferences.php'] = <<<HTML
 <p>
-	<i>My Preferences</i> will let you personalize RosarioSIS to meet your own needs. You can also change your password, and setup RosarioSIS to show data that is important for your work.
+        Програмата <i>Моите предпочитания</i> ще Ви позволи да настроите RosarioSIS по свой личен вкус. Можете също да промените своята парола и да настроите RosarioSIS да показва информация, важна за Вашата работа.
 </p>
 <p>
-	Display Options tab
+        Подстраница Настройки изглед
 </p>
 <p>
-	It allows you to select your preferred RosarioSIS theme. You can change the theme (overall color scheme) or within a particular theme, the Highlight Color. You can also set the date format, like changing the month to "January", or "Jan" or "01". "Disable Login Alerts" will hide the alerts shown on the Portal (first page after login), like the Teachers missing attendance, the new discipline Referrals &amp; the Food Service balance alerts.
+        ви дава възможност да изберете предпочитана от Вас тема (набора от цветове) на RosarioSIS, а в избраната тема - Отбелязващия цвят. Във Формат на датата можете да изберете дали месеците да се показват като "януари", "яну" или "01". Отметката Изключване съобщения при влизане се поставя за да не се показват съобщения в Портала (първата страница след влизане), като съобщения за отсъствие на учител, the new discipline Referrals &amp; the Food Service balance alerts.
 </p>
 <p>
-	Student Listing tab
+        Подстраница Списъци студенти
 </p>
 <p>
-	"Student Sorting" lets you choose to have the students in listings listed by just their "Name" or by their Grade Level and Name. "File Export Type" lets you choose between Tabulation delimited files, designed for Excel, or CSV files (comma-separated values) designed for LibreOffice, or XML files. "Date Export Format" lets you choose between different date formats when date fields are exported using the "Download Icon". "Display Student Search Screen" should remain checked, unless instructed otherwise.
+        С "Подреждане" можете да изберете списъците на студентите дали да се показват подредени по име или по степен на обучение и име.
+        "Тип файл за експорт" може да бъде с Разделител табулатор, който е подходящ за отваряне с Excel; CSV файл (с разделител запетая), подходящ за OpenOffice/LibreOffice или XML файл. "Формат на дати при експорт" позволява да изберете формата на датите при експортиране с щракване на иконата за експортиране. Отметката "Показване екран търсене студенти" трябва да е винаги сложена, освен ако не се цели друго.
 </p>
 <p>
-	Password tab
+        Подстраница Парола
 </p>
 <p>
-	It will help you change your password. Simply enter your current password in the first text field, and your new password in the next two text fields. Finally, click "Save".
+        Ще Ви позволи да смените паролата си. Въведете сегашната парола и новата парола два пъти и щракнете бутон "Запазване".
 </p>
 <p>
-	Student Fields tab
+        Подстраница Студентски данни
 </p>
 <p>
-	The two columns on the right side of the page lets you choose data fields to show on either the "Find a Student" Page or when you click "Expanded View" in a student listing. Click the "Search" checkbox to add an often-used field to your "Find a Student" page, instead of having to click "Advanced Search" to use that often-used field. Click the "Expanded View" checkbox adds that field to your Expanded View report. You can add or remove fields as often as you want, customizing the Search page and the Expanded View report.
+        Двете колони от отметки Ви позволяват да изберете кои полета за данни на студенти да се показват на страниците "Търсене студент" и "Разширен изглед". Можете да слагате и премахване отметки, толкова често, колкото се налага, за да промените какви данни за студентите да виждате в списъците.
 </p>
 HTML;
 
@@ -843,22 +844,22 @@ HTML;
 
 	$help['Users/Exceptions.php'] = <<<HTML
 <p>
-	<i>User Permissions</i> allows you to deny access and/or write privileges to any program for any user.
+        Програмата <i>Позволения на потребителите</i> Ви позволява да забраните или позволите достъпа на всеки потребител до различните програми.
 </p>
 <p>
-	To assign privileges to a user, first select a user by searching and clicking on his name on the list. Then, use the checkboxes to define which programs the user can use and which programs he can use to modify information. If a user cannot use a particular program, the program will not be displayed on his menu. If he can use the program, but can't edit information with the program, the program will display the data, but won't let him change it. After you have completed the program checkboxes, click the "Save" button to save the user's permissions.
+        За да промените позволенията на отделни потребители първо трябва да намерите потребители и в техния списък да щракнете върху отделни имена. To assign privileges to a user, first select a user by searching and clicking on his name on the list. Then, use the checkboxes to define which programs the user can use and which programs he can use to modify information. If a user cannot use a particular program, the program will not be displayed on his menu. If he can use the program, but can't edit information with the program, the program will display the data, but won't let him change it. After you have completed the program checkboxes, click the "Save" button to save the user's permissions.
 </p>
 HTML;
 
 	$help['Users/UserFields.php'] = <<<HTML
 <p>
-	<i>User Fields</i> allows you to add new fields and tabs to the User Info screen.
+        Програмата <i>Потребителски данни</i> Ви позволява да добавите нови полета за данниa и подстраници към страницата с информация за потребителя.
 </p>
 <p>
-	User Field Categories
+        Категории данни за потребител
 </p>
 <p>
-	RosarioSIS allows you to add custom categories that will take the form of new "Tabs" of User Fields in the Users &gt; User Info program. To create a new category or "tab", just click on the "+" icon below the existing Categories.
+        RosarioSIS Ви позволява да добавяте категории, които ще се показват като подстраници с данни на потребител в програмата Потребител &gt; Данни на потребител. За да създадете нова подстраница щракнете знага (+) под колоната със съществуващите категории.
 </p>
 <p>
 	New Category
@@ -1188,22 +1189,22 @@ HTML;
 
 	$help['Scheduling/Courses.php'] = <<<HTML
 <p>
-	<i>Courses</i> allows you to setup your school's courses. There are three tiers of courses: Subjects, Courses, and Course Periods.
+        Програмата <i>Курсове</i> Ви позволява да настроите курсовете от Вашето училище. Име три нива на организация на курсовете: Предмети, Курсове и Части.
 </p>
 <p>
-	To add any of these three things, click on the Add icon (+) in the column corresponding to what you want to add. Then, fill in the information requested in the fields above the list of courses and click the "Save" button.
+        За да добавите, курсов елемент в което и да е ниво, щракнете знака (+) в колоната, в която ще добавите елемент. После попълнете информацията, изисквана в полетата над списъка от курсове и щрекнете бутон "Запазване".
 </p>
 <p>
-	To change any of these three things, click on the item you want to change, and click on whatever value you want to change in the grey area above the lists. Then, change the value and click the "Save" button.
+        За да промените, който и да е елемент, щрекнете върху елемента, който искате да промените и върху информацията, която искате да промените в сивата област над списъка курсове. Променете информацията и щракнете бутона "Запазване".
 </p>
 <p>
-	Finally, to delete something, select it by clicking on its title on the list and click the "Delete" button at the top of the screen. You will be asked to confirm the deletion.
+        Накрая, за да изтриете нещо, го изберете от списъка и щракнете бутона "Изтриване". Ще бъдете запитани за потвърждение.
 </p>
 HTML;
 
 	$help['Scheduling/Scheduler.php'] = <<<HTML
 <p>
-	<i>Run Scheduler</i> schedules every student at your school according to the requests entered for them.
+        Програмата <i>Съставяне разписания</i> съставя schedules every student at your school according to the requests entered for them.
 </p>
 <p>
 	You first must confirm the Scheduler run. Here, you can also choose to run the scheduler in "Test Mode" which will not save the student schedules.
