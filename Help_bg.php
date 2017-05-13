@@ -197,13 +197,13 @@ HTML;
         Страница "<i>Нива на обучение</i>" ви позволява да определите нивата на обучение в училището.
 </p>
 <p>
-	To add a grade level, fill in the grade level's title, short name, sort order, and next grade in the empty fields at the bottom of the grade levels list and click the "Save" button. The "Next Grade" field indicates the grade students in the current grade will proceed to in the next school year.
+        За да добавите ниво на обучение, попълнете празните полета на последния ред на таблицата, съответно в колоните Название, Кратко име, Подреждане и Следващо ниво и щракнете бутона "Запазване". "Следващо ниво" означава нивото, в което ще приминат студентите след като завършат учебната година.
 </p>
 <p>
-	To modify a grade level, click on any of the grade level's information, change the value, and click the "Save" button.
+        За да редактирате някое ниво на обучение, щрекнете върху това, което искате да промените, направете промяна на информацията и щракнете бутона "Запазване".
 </p>
 <p>
-	To delete a grade level, click the delete icon (-) next to the grade level you want to delete. You will be asked to confirm the deletion.
+        За да изтриете някое ниво на обучение, щракнете върху знака (-) на реда от таблицата с това ниво. Ще бъдете запитани да потвърдите изтриването.
 </p>
 HTML;
 

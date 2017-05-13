@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-11 14:05+0300\n"
+"PO-Revision-Date: 2017-05-13 12:11+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -382,7 +382,7 @@ msgstr ""
 #: modules/Discipline/DisciplineForm.php:189
 #: modules/School_Setup/PortalPolls.php:274
 msgid "Select Multiple from Options"
-msgstr ""
+msgstr "Няколко отговора"
 
 #: ProgramFunctions/Fields.fnc.php:338 ProgramFunctions/Fields.fnc.php:358
 #: ProgramFunctions/Fields.fnc.php:626
@@ -442,7 +442,7 @@ msgstr "Дата"
 #: modules/School_Setup/PortalPolls.php:345
 #: modules/School_Setup/PortalPolls.php:349
 msgid "Data Type"
-msgstr ""
+msgstr "Тип отговор"
 
 #: ProgramFunctions/Fields.fnc.php:403 ProgramFunctions/Fields.fnc.php:583
 msgid "Field Category"
@@ -630,7 +630,7 @@ msgstr ""
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:369
 msgid "Visible To"
-msgstr ""
+msgstr "Да се вижда от:"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:403
 msgid "Limit to Teacher"
@@ -3374,7 +3374,7 @@ msgstr ""
 #: modules/Discipline/DisciplineForm.php:189
 #: modules/School_Setup/PortalPolls.php:274
 msgid "Select One from Options"
-msgstr ""
+msgstr "Един от отговорите"
 
 #: modules/Discipline/DisciplineForm.php:176
 msgid "Referral Form Category"
@@ -5333,7 +5333,7 @@ msgstr ""
 
 #: modules/Grades/Transcripts.php:502 modules/School_Setup/GradeLevels.php:73
 msgid "Next Grade"
-msgstr ""
+msgstr "Следващо ниво"
 
 #: modules/Grades/Transcripts.php:507
 msgid "Text Block 2"
@@ -6382,7 +6382,7 @@ msgstr "Край на оценяване"
 
 #: modules/School_Setup/Menu.php:14
 msgid "School Setup"
-msgstr ""
+msgstr "Настройки училище"
 
 #: modules/School_Setup/Menu.php:16
 msgid "Portal Notes"
@@ -6452,43 +6452,43 @@ msgstr "Настройки за публикуване"
 #: modules/misc/Portal.php:602
 msgid "Poll"
 msgid_plural "Polls"
-msgstr[0] "Sondage"
-msgstr[1] "Sondages"
+msgstr[0] "Анкета"
+msgstr[1] "Анкети"
 
 #: modules/School_Setup/PortalPolls.php:209
 msgid "Results"
-msgstr ""
+msgstr "Резултати"
 
 #: modules/School_Setup/PortalPolls.php:290
 msgid "* one per line"
-msgstr ""
+msgstr "* по един на ред"
 
 #: modules/School_Setup/PortalPolls.php:345
 #: modules/School_Setup/PortalPolls.php:349
 msgid "Question"
-msgstr ""
+msgstr "Въпрос"
 
 #: modules/School_Setup/PortalPolls.php:345
 #: modules/School_Setup/PortalPolls.php:349
 msgid "Options"
-msgstr ""
+msgstr "Отговори за избиране"
 
 #: modules/School_Setup/PortalPolls.php:345
 msgid "New Question"
-msgstr ""
+msgstr "Нов въпрос"
 
 #: modules/School_Setup/PortalPolls.php:366
 #: modules/School_Setup/PortalPolls.php:368
 #: modules/School_Setup/PortalPolls.php:371
 msgid "Results Display"
-msgstr ""
+msgstr "Да се показват"
 
 #: modules/School_Setup/Rollover.php:3 modules/Users/Exceptions.php:67
 #: modules/Users/Exceptions.php:282 modules/Users/Profiles.php:132
 #: modules/Users/Profiles.php:429
 #: modules/Users/includes/General_Info.inc.php:323
 msgid "Schools"
-msgstr ""
+msgstr "Училища"
 
 #: modules/School_Setup/Rollover.php:3
 msgid "Student Enrollment Codes"
@@ -7590,7 +7590,7 @@ msgstr "Полета"
 #: modules/misc/Portal.php:20
 #, php-format
 msgid "Good Morning, %s."
-msgstr ""
+msgstr "Добро утро, %s."
 
 #: modules/misc/Portal.php:22
 #, php-format
@@ -7674,7 +7674,7 @@ msgstr ""
 
 #: modules/misc/Portal.php:249
 msgid "Happy administrating..."
-msgstr ""
+msgstr "Приятно администриране…"
 
 #: modules/misc/Portal.php:340 modules/misc/Portal.php:524
 #: modules/misc/Portal.php:660
