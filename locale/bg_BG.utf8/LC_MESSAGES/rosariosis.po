@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-13 23:09+0300\n"
+"PO-Revision-Date: 2017-05-16 07:50+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -389,22 +389,22 @@ msgstr "Няколко отговора"
 #: modules/Discipline/DisciplineForm.php:189 modules/Grades/HonorRoll.php:212
 #: modules/Grades/HonorRollSubject.php:133
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
 #: ProgramFunctions/Fields.fnc.php:339 ProgramFunctions/Fields.fnc.php:627
 #: modules/Discipline/DisciplineForm.php:189
 msgid "Long Text"
-msgstr ""
+msgstr "Дълъг текст"
 
 #: ProgramFunctions/Fields.fnc.php:340 ProgramFunctions/Fields.fnc.php:628
 #: modules/Discipline/DisciplineForm.php:189
 msgid "Checkbox"
-msgstr ""
+msgstr "Отметка"
 
 #: ProgramFunctions/Fields.fnc.php:341 ProgramFunctions/Fields.fnc.php:629
 #: modules/Discipline/DisciplineForm.php:189
 msgid "Number"
-msgstr ""
+msgstr "Число"
 
 #: ProgramFunctions/Fields.fnc.php:342 ProgramFunctions/Fields.fnc.php:630
 #: modules/Accounting/DailyTransactions.php:188
@@ -452,7 +452,7 @@ msgstr[1] "Категории от данни"
 
 #: ProgramFunctions/Fields.fnc.php:424
 msgid "One per line"
-msgstr ""
+msgstr "По едно на ред"
 
 #: ProgramFunctions/Fields.fnc.php:437 modules/School_Setup/Calendar.php:73
 #: modules/School_Setup/Calendar.php:994
@@ -462,15 +462,15 @@ msgstr "По подразбиране"
 
 #: ProgramFunctions/Fields.fnc.php:438
 msgid "For dates: YYYY-MM-DD"
-msgstr ""
+msgstr "За дати: YYYY-MM-DD"
 
 #: ProgramFunctions/Fields.fnc.php:439
 msgid "for checkboxes: Y"
-msgstr ""
+msgstr "за отметки: Y"
 
 #: ProgramFunctions/Fields.fnc.php:446
 msgid "Required"
-msgstr ""
+msgstr "Необходимо"
 
 #: ProgramFunctions/Fields.fnc.php:455 ProgramFunctions/Fields.fnc.php:475
 #: ProgramFunctions/Fields.fnc.php:551
@@ -553,51 +553,51 @@ msgstr "Категория"
 
 #: ProgramFunctions/FileUpload.fnc.php:43
 msgid "File not uploaded"
-msgstr ""
+msgstr "Фалът не е качен"
 
 #: ProgramFunctions/FileUpload.fnc.php:49
 #, php-format
 msgid "Wrong file type: %s (%s required)"
-msgstr ""
+msgstr "Неправилен тип файл: %s (изисква се %s)"
 
 #: ProgramFunctions/FileUpload.fnc.php:59
 #, php-format
 msgid "File size > %01.2fMb: %01.2fMb"
-msgstr ""
+msgstr "Размер на файла > %01.2fMb: %01.2fMb"
 
 #: ProgramFunctions/FileUpload.fnc.php:69
 #, php-format
 msgid "Folder not created"
-msgstr ""
+msgstr "Директорията не е създадена"
 
 #: ProgramFunctions/FileUpload.fnc.php:75
 #, php-format
 msgid "Folder not writable"
-msgstr ""
+msgstr "Директорията не е записваема"
 
 #: ProgramFunctions/FileUpload.fnc.php:91
 #, php-format
 msgid "File invalid or not moveable"
-msgstr ""
+msgstr "Невалиден или непреместваем файл"
 
 #: ProgramFunctions/HackingLog.fnc.php:63 plugins/Moodle/config.inc.php:126
 msgid "You're not allowed to use this program!"
-msgstr ""
+msgstr "Нямате позволение да ползвате тази програма!"
 
 #: ProgramFunctions/HackingLog.fnc.php:64
 msgid ""
 "This attempted violation has been logged and your IP address was captured."
-msgstr ""
+msgstr "Томзи опит за проникване е документиран и вашият IP адрес е уловен."
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:170
 #: ProgramFunctions/PortalPollsNotes.fnc.php:274
 msgid "Total Participants"
-msgstr ""
+msgstr "Общо участници"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:171
 #: ProgramFunctions/PortalPollsNotes.fnc.php:224
 msgid "Poll completed"
-msgstr ""
+msgstr "Анкетата е завършена"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:330
 msgid "Visible Between"
@@ -630,7 +630,7 @@ msgstr ""
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:369
 msgid "Visible To"
-msgstr "Да се вижда от:"
+msgstr "Да се вижда от"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:403
 msgid "Limit to Teacher"
@@ -683,17 +683,17 @@ msgstr ""
 #: modules/Students/AssignOtherInfo.php:312
 #: modules/Students/includes/Enrollment.inc.php:53
 msgid "Retain"
-msgstr ""
+msgstr "Запазва"
 
 #: ProgramFunctions/miscExport.fnc.php:32 functions/Widgets.fnc.php:1427
 #: modules/Students/AssignOtherInfo.php:313
 #: modules/Students/includes/Enrollment.inc.php:54
 msgid "Do not enroll after this school year"
-msgstr ""
+msgstr "Без записване след учебната година"
 
 #: ProgramFunctions/miscExport.fnc.php:44
 msgid "Next Grade at "
-msgstr ""
+msgstr "Следващо ниво в "
 
 #: Side.php:356 functions/GetStuList.fnc.php:508
 #: modules/Custom/AttendanceSummary.php:99 modules/Custom/CreateParents.php:286
@@ -866,7 +866,7 @@ msgstr ""
 #: Side.php:700 modules/Users/Menu.php:16 modules/Users/Menu.php:30
 #: modules/Users/Menu.php:37
 msgid "User Info"
-msgstr "Информация на потребител"
+msgstr "Информация за потребител"
 
 #: database.inc.php:368
 msgid "We have a problem, please contact technical support ..."
@@ -1103,7 +1103,7 @@ msgstr ""
 #: modules/Students/includes/Address.inc.php:814 modules/misc/Export.php:159
 #: modules/misc/Export.php:461
 msgid "Mailing Address"
-msgstr ""
+msgstr "Пощенски адрес"
 
 #: functions/GetStuList.fnc.php:125 functions/GetStuList.fnc.php:293
 #: modules/Custom/MyReport.php:110 modules/Custom/Registration.php:382
@@ -1148,7 +1148,7 @@ msgstr "Контакти"
 
 #: functions/GetStuList.fnc.php:331 modules/Users/Preferences.php:602
 msgid "Guardians"
-msgstr ""
+msgstr "Настойници"
 
 #: functions/GetStuList.fnc.php:452 functions/GetStuList.fnc.php:523
 #: functions/StaffWidgets.fnc.php:266 functions/Widgets.fnc.php:1771
@@ -1167,7 +1167,7 @@ msgstr ""
 #: modules/Food_Service/Users/Reminders.php:74
 #: modules/Food_Service/Users/Statements.php:7 modules/misc/Export.php:294
 msgid "Active"
-msgstr ""
+msgstr "Активен"
 
 #: functions/GetStuList.fnc.php:454 functions/GetStuList.fnc.php:525
 #: functions/StaffWidgets.fnc.php:267 functions/Widgets.fnc.php:1772
@@ -1177,7 +1177,7 @@ msgstr ""
 #: modules/Food_Service/User.inc.php:62
 #: modules/Food_Service/Users/Accounts.php:157
 msgid "Inactive"
-msgstr ""
+msgstr "Неактивен"
 
 #: functions/GetStuList.fnc.php:467 modules/Custom/AttendanceSummary.php:120
 #: modules/Food_Service/Student.inc.php:76
@@ -1575,12 +1575,12 @@ msgstr "Потребители"
 #: modules/misc/Export.php:307 modules/misc/Export.php:308
 #: modules/misc/Export.php:309
 msgid "Food Service"
-msgstr ""
+msgstr "Хранене"
 
 #: functions/StaffWidgets.fnc.php:105 modules/Accounting/Menu.php:14
 #: modules/Accounting/Menu.php:29
 msgid "Accounting"
-msgstr ""
+msgstr "Счетоводство"
 
 #: functions/StaffWidgets.fnc.php:162 functions/StaffWidgets.fnc.php:167
 #: modules/Users/Exceptions.php:135 modules/Users/Preferences.php:836
@@ -1597,7 +1597,7 @@ msgstr "Индидивуални"
 #: functions/StaffWidgets.fnc.php:206 functions/Widgets.fnc.php:1671
 #: modules/Users/Preferences.php:704 modules/Users/Preferences.php:838
 msgid "Food Service Balance"
-msgstr ""
+msgstr "Баланс за храна"
 
 #: functions/StaffWidgets.fnc.php:212 functions/Widgets.fnc.php:1043
 #: functions/Widgets.fnc.php:1677 modules/Accounting/Expenses.php:147
@@ -1642,17 +1642,17 @@ msgstr ""
 #: modules/misc/Export.php:542 modules/misc/Portal.php:244
 #: modules/misc/Portal.php:551
 msgid "Balance"
-msgstr ""
+msgstr "Баланс"
 
 #: functions/StaffWidgets.fnc.php:258 modules/Users/Preferences.php:704
 #: modules/Users/Preferences.php:838
 msgid "Food Service Status"
-msgstr ""
+msgstr "Статус за хранене"
 
 #: functions/StaffWidgets.fnc.php:263 functions/Widgets.fnc.php:1763
 #: functions/Widgets.fnc.php:1768
 msgid "Account Status"
-msgstr ""
+msgstr "Състояние на сметката"
 
 #: functions/StaffWidgets.fnc.php:268 functions/Widgets.fnc.php:1773
 #: modules/Food_Service/Student.inc.php:75
@@ -1794,7 +1794,7 @@ msgstr ""
 #: modules/misc/Portal.php:338 modules/misc/Portal.php:520
 #: modules/misc/Portal.php:656
 msgid "Course"
-msgstr ""
+msgstr "Курс"
 
 #: functions/Widgets.fnc.php:276 modules/Grades/MassCreateAssignments.php:531
 #: modules/Scheduling/AddDrop.php:60 modules/Scheduling/Courses.php:73
@@ -1816,7 +1816,7 @@ msgstr "Част на курс"
 #: functions/Widgets.fnc.php:287 functions/Widgets.fnc.php:350
 #: modules/Scheduling/Courses.php:1011 modules/Scheduling/functions.inc.php:32
 msgid "Choose"
-msgstr ""
+msgstr "Избиране"
 
 #: functions/Widgets.fnc.php:321 functions/Widgets.fnc.php:344
 #: modules/Scheduling/PrintRequests.php:53
@@ -1920,7 +1920,7 @@ msgstr ""
 #: modules/Eligibility/Student.php:130 modules/Eligibility/Student.php:131
 #: modules/Users/Preferences.php:701
 msgid "Activity"
-msgstr ""
+msgstr "Дейност"
 
 #: functions/Widgets.fnc.php:997
 msgid "Mailing Labels"
@@ -1958,15 +1958,15 @@ msgstr ""
 #: functions/Widgets.fnc.php:1425 modules/Students/AssignOtherInfo.php:311
 #: modules/Students/includes/Enrollment.inc.php:52
 msgid "Next grade at current school"
-msgstr ""
+msgstr "Следващо ниво в това училище"
 
 #: functions/Widgets.fnc.php:1448 functions/Widgets.fnc.php:1453
 msgid "Next Year"
-msgstr ""
+msgstr "Следваща година"
 
 #: functions/Widgets.fnc.php:1487
 msgid "Any Value"
-msgstr ""
+msgstr "Всяка стойност"
 
 #: functions/Widgets.fnc.php:1502 functions/Widgets.fnc.php:1506
 #: modules/Scheduling/Courses.php:960 modules/School_Setup/Calendar.php:411
@@ -1981,11 +1981,11 @@ msgstr "Календар"
 #: functions/Widgets.fnc.php:1585 modules/Scheduling/AddDrop.php:60
 #: modules/Scheduling/Schedule.php:224 modules/Students/AddDrop.php:56
 msgid "Enrolled"
-msgstr ""
+msgstr "Включен"
 
 #: functions/Widgets.fnc.php:1590
 msgid "Attendance Start"
-msgstr ""
+msgstr "Започва да посещава"
 
 #: functions/Widgets.fnc.php:1622 functions/Widgets.fnc.php:1627
 msgid "Previously Enrolled"
@@ -2121,12 +2121,12 @@ msgstr "Влизане"
 #: index.php:386 modules/School_Setup/Configuration.php:199
 #: modules/Users/User.php:414
 msgid "Create User Account"
-msgstr ""
+msgstr "Създаване профил потребител"
 
 #: index.php:396 modules/School_Setup/Configuration.php:212
 #: modules/Students/Student.php:351
 msgid "Create Student Account"
-msgstr ""
+msgstr "Създаване профил студент"
 
 #: index.php:408
 msgid "About"
@@ -2390,7 +2390,7 @@ msgstr ""
 #: modules/Student_Billing/Menu.php:20 modules/Student_Billing/Menu.php:36
 #: modules/Students/Menu.php:20 modules/Students/Menu.php:41
 msgid "Reports"
-msgstr ""
+msgstr "Отчети"
 
 #: modules/Accounting/Menu.php:22 modules/Student_Billing/Menu.php:22
 #: modules/Student_Billing/Menu.php:37
@@ -2645,7 +2645,7 @@ msgstr "Кратко име"
 #: modules/Students/EnrollmentCodes.php:88 modules/Users/Exceptions.php:312
 #: modules/Users/Profiles.php:261
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: modules/Attendance/AttendanceCodes.php:122
 msgid "Default for Teacher"
@@ -2816,7 +2816,7 @@ msgstr ""
 #: modules/Attendance/Menu.php:24 modules/Custom/Menu.php:17
 #: modules/Custom/Menu.php:42 modules/Grades/Menu.php:33
 msgid "Utilities"
-msgstr ""
+msgstr "Услуги"
 
 #: modules/Attendance/Menu.php:26
 msgid "Delete Duplicate Attendance"
@@ -2864,7 +2864,7 @@ msgstr ""
 #: modules/Students/StudentBreakdown.php:23
 #: modules/Students/StudentBreakdown.php:214
 msgid "Advanced"
-msgstr ""
+msgstr "Разширено"
 
 #: modules/Attendance/Percent.php:108 modules/Attendance/Percent.php:141
 #: modules/Food_Service/Accounts.php:13
@@ -3019,7 +3019,7 @@ msgstr "Студентски данни"
 
 #: modules/Custom/CreateParents.php:47 modules/Students/Menu.php:31
 msgid "Address Fields"
-msgstr ""
+msgstr "Адресни данни"
 
 #: modules/Custom/CreateParents.php:84 modules/Custom/NotifyParents.php:19
 msgid ""
@@ -3059,7 +3059,7 @@ msgstr[1] "Résultats Création"
 
 #: modules/Custom/CreateParents.php:255 modules/Custom/CreateParents.php:320
 msgid "Create Parent Accounts for Selected Students"
-msgstr ""
+msgstr "Създаване достъп за родители на избраните студенти"
 
 #: modules/Custom/CreateParents.php:267 modules/Custom/CreateParents.php:275
 #: modules/Custom/NotifyParents.php:118
@@ -3070,7 +3070,7 @@ msgstr "Текст на имейл"
 #: modules/Grades/HonorRoll.php:221 modules/Grades/HonorRollSubject.php:141
 #: modules/Grades/Transcripts.php:491 modules/Students/Letters.php:123
 msgid "Substitutions"
-msgstr ""
+msgstr "Замествания"
 
 #: modules/Custom/CreateParents.php:280 modules/Custom/NotifyParents.php:123
 msgid "Parent Name"
@@ -3093,20 +3093,20 @@ msgstr ""
 
 #: modules/Custom/Menu.php:18
 msgid "My Report"
-msgstr ""
+msgstr "Моят отчет"
 
 #: modules/Custom/Menu.php:19
 msgid "Create Parent Users"
-msgstr ""
+msgstr "Създаване достъп за родител"
 
 #: modules/Custom/Menu.php:28 modules/Custom/Registration.php:328
 #: modules/School_Setup/Configuration.php:194
 msgid "Registration"
-msgstr ""
+msgstr "Регистриране"
 
 #: modules/Custom/Menu.php:43
 msgid "Notify Parents"
-msgstr ""
+msgstr "Уведомяване на родители"
 
 #: modules/Custom/Menu.php:51
 msgid "Attendance Summary"
@@ -3119,7 +3119,7 @@ msgstr ""
 #: modules/Custom/MyReport.php:81 modules/Students/Search.inc.php:228
 #: modules/misc/Export.php:411
 msgid "Ungroup by Family"
-msgstr ""
+msgstr "Отгрупиране по семейства"
 
 #: modules/Custom/MyReport.php:93 modules/Students/Search.inc.php:56
 #: modules/Students/Search.inc.php:226 modules/misc/Export.php:407
@@ -3131,7 +3131,7 @@ msgstr "Групиране по семейство"
 #: modules/Students/includes/Address.inc.php:802 modules/misc/Export.php:146
 #: modules/misc/Export.php:473
 msgid "Street"
-msgstr ""
+msgstr "Улица"
 
 #: modules/Custom/MyReport.php:113 modules/Custom/Registration.php:390
 #: modules/Custom/Registration.php:425 modules/Grades/Transcripts.php:194
@@ -3181,15 +3181,15 @@ msgstr ""
 
 #: modules/Custom/NotifyParents.php:105 modules/Custom/NotifyParents.php:173
 msgid "Notify Selected Parents"
-msgstr ""
+msgstr "Уведомяване на избраните родители"
 
 #: modules/Custom/NotifyParents.php:165
 msgid "Find Parents who never logged in"
-msgstr ""
+msgstr "Намиране не влизали никога родители"
 
 #: modules/Custom/Registration.php:196
 msgid "Grandparent"
-msgstr ""
+msgstr "Дядо"
 
 #: modules/Custom/Registration.php:277
 #, php-format
@@ -3464,7 +3464,7 @@ msgstr ""
 #: modules/Discipline/StudentFieldBreakdown.php:244
 #: modules/Students/StudentBreakdown.php:186
 msgid "Please choose a student field"
-msgstr ""
+msgstr "Моля изберете тип данни за студент"
 
 #: modules/Discipline/includes/EmailReferral.fnc.php:117
 msgid "New discipline incident"
@@ -3544,15 +3544,15 @@ msgstr "До"
 
 #: modules/Eligibility/Menu.php:16 modules/Eligibility/Menu.php:35
 msgid "Student Screen"
-msgstr ""
+msgstr "Студентски екран"
 
 #: modules/Eligibility/Menu.php:17
 msgid "Add Activity"
-msgstr ""
+msgstr "Добавяне дейност"
 
 #: modules/Eligibility/Menu.php:22
 msgid "Activities"
-msgstr ""
+msgstr "Дейности"
 
 #: modules/Eligibility/Menu.php:23
 msgid "Entry Times"
@@ -3576,7 +3576,7 @@ msgstr ""
 #: modules/Food_Service/Users/ServeMenus.php:130
 #: modules/Students/EnrollmentCodes.php:150
 msgid "Add"
-msgstr ""
+msgstr "Записан"
 
 #: modules/Eligibility/Student.php:130
 msgid "Starts"
@@ -4306,7 +4306,7 @@ msgstr ""
 #: modules/Scheduling/PrintClassPictures.php:175
 #: modules/Students/Search.inc.php:71 modules/Students/Search.inc.php:173
 msgid "Include Inactive Students"
-msgstr "Включително неактивните студенти"
+msgstr "Включително неактивни студенти"
 
 #: modules/Grades/AnomalousGrades.php:23
 msgid "Include"
@@ -4580,7 +4580,7 @@ msgstr ""
 #: modules/School_Setup/includes/Plugins.inc.php:174
 #: modules/School_Setup/includes/Plugins.inc.php:203
 msgid "Configuration"
-msgstr ""
+msgstr "Конфигурация"
 
 #: modules/Grades/Configuration.php:41 modules/Grades/Menu.php:49
 #: modules/Grades/Menu.php:70
@@ -5046,11 +5046,11 @@ msgstr ""
 
 #: modules/Grades/Menu.php:20 modules/Grades/Menu.php:73
 msgid "Transcripts"
-msgstr ""
+msgstr "Справки"
 
 #: modules/Grades/Menu.php:22 modules/Grades/Menu.php:56
 msgid "Student Grades"
-msgstr ""
+msgstr "Оценки на студента"
 
 #: modules/Grades/Menu.php:26 modules/Grades/Menu.php:58
 msgid "GPA / Class Rank List"
@@ -5062,7 +5062,7 @@ msgstr ""
 
 #: modules/Grades/Menu.php:29 modules/Grades/Menu.php:61
 msgid "Grading Scales"
-msgstr ""
+msgstr "Скали за оценяване"
 
 #: modules/Grades/Menu.php:32
 msgid "History Marking Periods"
@@ -5291,15 +5291,15 @@ msgstr ""
 
 #: modules/Grades/Transcripts.php:375 modules/Grades/Transcripts.php:532
 msgid "Create Transcripts for Selected Students"
-msgstr ""
+msgstr "Създаване справка за избрания студент"
 
 #: modules/Grades/Transcripts.php:379
 msgid "Include on Transcript"
-msgstr ""
+msgstr "Включване в справката"
 
 #: modules/Grades/Transcripts.php:399
 msgid "School Years"
-msgstr ""
+msgstr "Учена година"
 
 #: modules/Grades/Transcripts.php:429
 #: modules/Grades/includes/ReportCards.fnc.php:105
@@ -5311,13 +5311,13 @@ msgstr "Периоди за оценяване"
 
 #: modules/Grades/Transcripts.php:443
 msgid "Other Options"
-msgstr ""
+msgstr "Други настройки"
 
 #: modules/Grades/Transcripts.php:449
 #: modules/Students/includes/General_Info.inc.php:7
 #: modules/Students/includes/General_Info.inc.php:11
 msgid "Student Photo"
-msgstr ""
+msgstr "Снимка на студента"
 
 #: modules/Grades/Transcripts.php:455 modules/Scheduling/Courses.php:946
 msgid "Credits"
@@ -5450,13 +5450,13 @@ msgstr ""
 #: modules/Resources/Menu.php:14 modules/Resources/Menu.php:16
 #: modules/Resources/Menu.php:20 modules/Resources/Menu.php:22
 msgid "Resources"
-msgstr ""
+msgstr "Ресурси"
 
 #: modules/Resources/Resources.php:52 modules/Resources/Resources.php:77
 msgid "Resource"
 msgid_plural "Resources"
-msgstr[0] "Ressource"
-msgstr[1] "Ressources"
+msgstr[0] "Ресурс"
+msgstr[1] "Ресурси"
 
 #: modules/Resources/Resources.php:69 modules/Resources/Resources.php:127
 msgid "Link"
@@ -5466,7 +5466,7 @@ msgstr ""
 #: modules/Students/AddDrop.php:56
 #: modules/Students/includes/Enrollment.inc.php:42
 msgid "Dropped"
-msgstr ""
+msgstr "Отстранен"
 
 #: modules/Scheduling/AddDrop.php:61
 msgid "Schedule Record"
@@ -5553,7 +5553,7 @@ msgstr ""
 
 #: modules/Scheduling/Courses.php:1041
 msgid "New Course"
-msgstr ""
+msgstr "Нов курс"
 
 #: modules/Scheduling/Courses.php:1101
 msgid "New Subject"
@@ -5561,7 +5561,7 @@ msgstr ""
 
 #: modules/Scheduling/Courses.php:1139 modules/Scheduling/Courses.php:1149
 msgid "Choose a"
-msgstr ""
+msgstr "Избиране"
 
 #: modules/Scheduling/Courses.php:1139 modules/Scheduling/Courses.php:1149
 #: modules/Scheduling/functions.inc.php:24
@@ -5618,20 +5618,20 @@ msgstr ""
 
 #: modules/Scheduling/MassDrops.php:105 modules/Scheduling/MassDrops.php:162
 msgid "Drop Course for Selected Students"
-msgstr ""
+msgstr "Напускане избрания курс от избраните студенти"
 
 #: modules/Scheduling/MassDrops.php:109
 msgid "Course to Drop"
-msgstr ""
+msgstr "Курс за напускане"
 
 #: modules/Scheduling/MassDrops.php:125 modules/Scheduling/MassRequests.php:61
 #: modules/Scheduling/MassSchedule.php:150
 msgid "Choose a Course"
-msgstr ""
+msgstr "Избиране курс"
 
 #: modules/Scheduling/MassDrops.php:127
 msgid "Drop Date"
-msgstr ""
+msgstr "Дата на отпадане"
 
 #: modules/Scheduling/MassRequests.php:19
 msgid "This course has been added as a request for the selected students."
@@ -5710,7 +5710,7 @@ msgstr ""
 
 #: modules/Scheduling/Menu.php:20
 msgid "Group Drops"
-msgstr ""
+msgstr "Групово напускане"
 
 #: modules/Scheduling/Menu.php:22 modules/Scheduling/Menu.php:43
 #: modules/Scheduling/Menu.php:53
@@ -5899,8 +5899,8 @@ msgstr ""
 #: modules/Scheduling/UnfilledRequests.php:48
 msgid "Unfilled Request"
 msgid_plural "Unfilled Requests"
-msgstr[0] "Demande non pourvue"
-msgstr[1] "Demandes non pourvues"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Scheduling/Schedule.php:323
 msgid "This section is already full."
@@ -6132,11 +6132,11 @@ msgstr ""
 
 #: modules/School_Setup/Configuration.php:17
 msgid "Modules"
-msgstr ""
+msgstr "Модули"
 
 #: modules/School_Setup/Configuration.php:21
 msgid "Plugins"
-msgstr ""
+msgstr "Добавки"
 
 #: modules/School_Setup/Configuration.php:112
 msgid "The school configuration has been modified."
@@ -6144,11 +6144,11 @@ msgstr ""
 
 #: modules/School_Setup/Configuration.php:154
 msgid "Program Title"
-msgstr ""
+msgstr "Заглавие на системата"
 
 #: modules/School_Setup/Configuration.php:156
 msgid "Program Name"
-msgstr ""
+msgstr "Название на програмата"
 
 #: modules/School_Setup/Configuration.php:180
 msgid "Default Theme"
@@ -6156,15 +6156,15 @@ msgstr "Подразбираща се тема"
 
 #: modules/School_Setup/Configuration.php:186
 msgid "Force"
-msgstr ""
+msgstr "Наложена"
 
 #: modules/School_Setup/Configuration.php:201
 msgid "New users will be added with the No Access profile"
-msgstr ""
+msgstr "Ще може да се създават профили на потребители без достъп"
 
 #: modules/School_Setup/Configuration.php:214
 msgid "New students will be added as Inactive students"
-msgstr ""
+msgstr "Ще може да се създават профили на неактивни студенти"
 
 #: modules/School_Setup/Configuration.php:237 plugins/Moodle/config.inc.php:113
 #, php-format
@@ -6173,20 +6173,20 @@ msgstr ""
 
 #: modules/School_Setup/Configuration.php:249
 msgid "School year over two calendar years"
-msgstr ""
+msgstr "Учебна године в две календарни години"
 
 #: modules/School_Setup/Configuration.php:252
 #: modules/School_Setup/Schools.php:208
 msgid "School logo"
-msgstr ""
+msgstr "Лого на училището"
 
 #: modules/School_Setup/Configuration.php:255
 msgid "Currency Symbol"
-msgstr ""
+msgstr "Валутен символ"
 
 #: modules/School_Setup/Configuration.php:263
 msgid "Display Mailing Address"
-msgstr ""
+msgstr "Показване пощенски адрес"
 
 #: modules/School_Setup/Configuration.php:268
 msgid "Check Bus Pickup / Dropoff by default"
@@ -6234,20 +6234,24 @@ msgstr ""
 
 #: modules/School_Setup/Configuration.php:373
 msgid "Minutes in a Full School Day"
-msgstr ""
+msgstr "Един цял учебен ден в минути"
 
 #: modules/School_Setup/Configuration.php:378
 msgid "Number of days before the school date teachers can edit attendance"
 msgstr ""
+"Брой дни преди учебния ден, в които преподавателите могат да редактират "
+"присъствието"
 
 #: modules/School_Setup/Configuration.php:380
 #: modules/School_Setup/Configuration.php:390
 msgid "Leave the field blank to always allow"
-msgstr ""
+msgstr "Оставете полето празно за да няма ограничание"
 
 #: modules/School_Setup/Configuration.php:388
 msgid "Number of days after the school date teachers can edit attendance"
 msgstr ""
+"Брой дни след учебния ден, в които преподавателите могат да редактират "
+"присъствието"
 
 #: modules/School_Setup/Configuration.php:405
 msgid "Food Service Balance minimum amount for warning"
@@ -6264,7 +6268,7 @@ msgstr ""
 #: modules/School_Setup/CopySchool.php:4 modules/School_Setup/Menu.php:29
 #: modules/School_Setup/Rollover.php:3
 msgid "School Configuration"
-msgstr ""
+msgstr "Настройки училище"
 
 #: modules/School_Setup/CopySchool.php:5 modules/School_Setup/Rollover.php:3
 msgid "School Periods"
@@ -6292,17 +6296,17 @@ msgstr "Ново название на училище"
 
 #: modules/School_Setup/CopySchool.php:39
 msgid "Confirm Copy School"
-msgstr ""
+msgstr "Потвърждаване копиране на училище"
 
 #: modules/School_Setup/CopySchool.php:41
 #, php-format
 msgid "Are you sure you want to copy the data for %s to a new school?"
-msgstr ""
+msgstr "Сигурни ли сте, че искате да копирате даннита зе %s в ново училище?"
 
 #: modules/School_Setup/CopySchool.php:76
 #, php-format
 msgid "The data have been copied to a new school called \"%s\"."
-msgstr ""
+msgstr "Данните бяха копирани към ново училище с име “%s”."
 
 #: modules/School_Setup/DatabaseBackup.php:60 modules/School_Setup/Menu.php:23
 msgid "Database Backup"
@@ -6348,7 +6352,7 @@ msgstr ""
 
 #: modules/School_Setup/MarkingPeriods.php:255
 msgid "Only one marking period can be open at any time."
-msgstr ""
+msgstr "Само един период за оценяване може да е отворен по всяко време."
 
 #: modules/School_Setup/MarkingPeriods.php:263
 #, php-format
@@ -6417,7 +6421,7 @@ msgstr "Копиране училище"
 
 #: modules/School_Setup/Menu.php:28
 msgid "School Fields"
-msgstr "Поле на училище"
+msgstr "Полета данни за училище"
 
 #: modules/School_Setup/Menu.php:30
 msgid "Security"
@@ -6564,7 +6568,7 @@ msgstr ""
 
 #: modules/School_Setup/Schools.php:98
 msgid "This school has been modified."
-msgstr ""
+msgstr "Училището беше пренастроено."
 
 #: modules/School_Setup/Schools.php:214
 msgid "School Name"
@@ -6576,24 +6580,24 @@ msgstr "Директор на училището"
 
 #: modules/School_Setup/Schools.php:298
 msgid "Base Grading Scale"
-msgstr ""
+msgstr "Основна скала за оценки"
 
 #: modules/School_Setup/Schools.php:307 modules/School_Setup/Schools.php:319
 msgid "Number of Days for the Rotation"
-msgstr ""
+msgstr "Брой дни в смяна"
 
 #: modules/School_Setup/Schools.php:309
 msgid ""
 "Leave the field blank if the school does not use a Rotation of Numbered Days"
-msgstr ""
+msgstr "Оставете полето празно ако училището не работи на смени."
 
 #: modules/School_Setup/includes/Modules.inc.php:43
 #: modules/School_Setup/includes/Modules.inc.php:76
 #: modules/School_Setup/includes/Modules.inc.php:189
 msgid "Module"
 msgid_plural "Modules"
-msgstr[0] "Module"
-msgstr[1] "Modules"
+msgstr[0] "Модул"
+msgstr[1] "Модули"
 
 #: modules/School_Setup/includes/Modules.inc.php:65
 #: modules/School_Setup/includes/Plugins.inc.php:58
@@ -6605,7 +6609,7 @@ msgstr ""
 #: modules/School_Setup/includes/Plugins.inc.php:69
 #: modules/School_Setup/includes/Plugins.inc.php:223
 msgid "Deactivate"
-msgstr ""
+msgstr "Деактивиране"
 
 #: modules/School_Setup/includes/Modules.inc.php:94
 #: modules/School_Setup/includes/Modules.inc.php:122
@@ -6616,12 +6620,12 @@ msgstr ""
 #: modules/School_Setup/includes/Modules.inc.php:185
 #: modules/School_Setup/includes/Plugins.inc.php:174
 msgid "Activated"
-msgstr ""
+msgstr "Активиране"
 
 #: modules/School_Setup/includes/Modules.inc.php:234
 #: modules/School_Setup/includes/Plugins.inc.php:231
 msgid "Activate"
-msgstr ""
+msgstr "Активиране"
 
 #: modules/School_Setup/includes/Modules.inc.php:253
 #: modules/School_Setup/includes/Plugins.inc.php:250
@@ -6759,8 +6763,8 @@ msgstr ""
 #: modules/Students/AddUsers.php:73
 msgid "Associated Parent"
 msgid_plural "Associated Parents"
-msgstr[0] "Parent Associé"
-msgstr[1] "Parents Associés"
+msgstr[0] "Асоцииран родител"
+msgstr[1] "Асоциирани родители"
 
 #: modules/Students/AddressFields.php:127
 msgid "Address Field"
@@ -6844,33 +6848,33 @@ msgstr ""
 #: modules/Students/includes/Enrollment.inc.php:139 modules/misc/Export.php:139
 #: modules/misc/Export.php:443
 msgid "Rolling / Retention Options"
-msgstr ""
+msgstr "Настройка включване / отпадане"
 
 #: modules/Students/AssignOtherInfo.php:353
 #: modules/Students/includes/Enrollment.inc.php:41
 msgid "Attendance Start Date this School Year"
-msgstr ""
+msgstr "Започва тази учебна година от дата"
 
 #: modules/Students/EnrollmentCodes.php:53
 #: modules/Students/EnrollmentCodes.php:96 modules/misc/Export.php:144
 #: modules/misc/Export.php:448
 msgid "Enrollment Code"
 msgid_plural "Enrollment Codes"
-msgstr[0] "Code d'Inscription"
-msgstr[1] "Codes d'Inscription"
+msgstr[0] "Код на записване"
+msgstr[1] "Кодове на записване"
 
 #: modules/Students/EnrollmentCodes.php:74
 msgid ""
 "There must be exactly one Rollover default enrollment code (of type Add)."
-msgstr ""
+msgstr "Трябва да има само един код за Нормално преминаване от тип Записан."
 
 #: modules/Students/EnrollmentCodes.php:88
 msgid "Rollover Default"
-msgstr ""
+msgstr "Нормално преминаване"
 
 #: modules/Students/EnrollmentCodes.php:150
 msgid "Drop"
-msgstr ""
+msgstr "Отписан"
 
 #: modules/Students/Letters.php:104 modules/Students/Letters.php:160
 msgid "Print Letters for Selected Students"
@@ -6941,15 +6945,15 @@ msgstr ""
 
 #: modules/Students/Menu.php:17 modules/Students/Student.php:342
 msgid "Add a Student"
-msgstr ""
+msgstr "Добавяне студент"
 
 #: modules/Students/Menu.php:18
 msgid "Group Assign Student Info"
-msgstr ""
+msgstr "Групово попълване на информация"
 
 #: modules/Students/Menu.php:19
 msgid "Associate Parents with Students"
-msgstr ""
+msgstr "Асоцииране родители - студенти"
 
 #: modules/Students/Menu.php:21 modules/Students/Menu.php:42
 msgid "Advanced Report"
@@ -6957,31 +6961,31 @@ msgstr "Сложен отчет"
 
 #: modules/Students/Menu.php:24
 msgid "Student Breakdown"
-msgstr ""
+msgstr "Разпределения на студентите"
 
 #: modules/Students/Menu.php:25 modules/Students/Menu.php:44
 msgid "Print Letters"
-msgstr "Печатане писма"
+msgstr "Печат писма"
 
 #: modules/Students/Menu.php:26
 msgid "Print Mailing Labels"
-msgstr ""
+msgstr "Печат етикети пощенски плик"
 
 #: modules/Students/Menu.php:27 modules/Students/Menu.php:43
 msgid "Print Student Labels"
-msgstr ""
+msgstr "Печат етикети папки студенти"
 
 #: modules/Students/Menu.php:28
 msgid "Print Student Info"
-msgstr ""
+msgstr "Печат информация студент"
 
 #: modules/Students/Menu.php:32
 msgid "Contact Fields"
-msgstr ""
+msgstr "Данни за контакт"
 
 #: modules/Students/Menu.php:33
 msgid "Enrollment Codes"
-msgstr ""
+msgstr "Кодове на записване"
 
 #: modules/Students/Menu.php:40
 msgid "Associated Parents"
@@ -7076,23 +7080,23 @@ msgstr ""
 
 #: modules/Students/StudentFields.php:157
 msgid "Student Field"
-msgstr ""
+msgstr "Поле студентска информация"
 
 #: modules/Students/StudentFields.php:169
 msgid "Student Field Category"
-msgstr ""
+msgstr "Категория поле студентска информация"
 
 #: modules/Students/StudentFields.php:222
 msgid "New Student Field"
-msgstr ""
+msgstr "Ново поле студентска информация"
 
 #: modules/Students/StudentFields.php:230
 msgid "New Student Field Category"
-msgstr ""
+msgstr "Нова категория поле студентска информация"
 
 #: modules/Students/StudentFields.php:241 modules/Users/UserFields.php:243
 msgid "Display Columns"
-msgstr ""
+msgstr "Показвани колони"
 
 #: modules/Students/StudentFields.php:252 modules/Users/UserFields.php:301
 msgid "Include (should be left blank for most categories)"
@@ -7112,51 +7116,51 @@ msgstr ""
 
 #: modules/Students/includes/Address.inc.php:472
 msgid "This student doesn't have an address."
-msgstr ""
+msgstr "Този студент няма адрес за контакт."
 
 #: modules/Students/includes/Address.inc.php:486
 msgid "Add a <b>New</b> Address"
-msgstr ""
+msgstr "Добавяне <b>нов</b> адрес"
 
 #: modules/Students/includes/Address.inc.php:497
 msgid "Add an <b>Existing</b> Address"
-msgstr ""
+msgstr "Домавяне <b>съществуващ</b> адрес"
 
 #: modules/Students/includes/Address.inc.php:511
 msgid "Add a <b>New</b> Contact<br />without an Address"
-msgstr ""
+msgstr "Добавяне <b>нов</b> контакт<br />без адрес"
 
 #: modules/Students/includes/Address.inc.php:524
 msgid "Add an <b>Existing</b> Contact<br />without an Address"
-msgstr ""
+msgstr "Добавяне <b>нов</b> контакт<br />с адрес"
 
 #: modules/Students/includes/Address.inc.php:540
 msgid "Contacts without an Address"
-msgstr ""
+msgstr "Контакт без адрес"
 
 #: modules/Students/includes/Address.inc.php:540
 msgid "Contacts at this Address"
-msgstr ""
+msgstr "Контакт с адрес"
 
 #: modules/Students/includes/Address.inc.php:599
 msgid "Other students associated with this person"
-msgstr ""
+msgstr "Друг студент асоцииран с този човек"
 
 #: modules/Students/includes/Address.inc.php:628
 msgid "There are no contacts without an address."
-msgstr ""
+msgstr "Няма контакти без адрес."
 
 #: modules/Students/includes/Address.inc.php:628
 msgid "There are no contacts at this address."
-msgstr ""
+msgstr "Няма контакти на този адрес."
 
 #: modules/Students/includes/Address.inc.php:640
 msgid "Add a <b>New</b> Contact"
-msgstr ""
+msgstr "Добавяне <b>нов</b> контакт"
 
 #: modules/Students/includes/Address.inc.php:651
 msgid "Add an <b>Existing</b> Contact"
-msgstr ""
+msgstr "Добавяне <b>съществуващ</b> контакт"
 
 #: modules/Students/includes/Address.inc.php:760
 msgid "Map It"
@@ -7193,37 +7197,37 @@ msgstr ""
 #: modules/Users/includes/General_Info.inc.php:66 modules/misc/Export.php:134
 #: modules/misc/Export.php:438
 msgid "Suffix"
-msgstr ""
+msgstr "Наставка"
 
 #: modules/Students/includes/General_Info.inc.php:55 modules/Users/User.php:489
 #: modules/Users/includes/General_Info.inc.php:26
 msgid "Jr"
-msgstr ""
+msgstr "Мл."
 
 #: modules/Students/includes/General_Info.inc.php:56 modules/Users/User.php:489
 #: modules/Users/includes/General_Info.inc.php:26
 msgid "Sr"
-msgstr ""
+msgstr "Ст."
 
 #: modules/Students/includes/General_Info.inc.php:57 modules/Users/User.php:489
 #: modules/Users/includes/General_Info.inc.php:26
 msgid "II"
-msgstr ""
+msgstr "II"
 
 #: modules/Students/includes/General_Info.inc.php:58 modules/Users/User.php:489
 #: modules/Users/includes/General_Info.inc.php:26
 msgid "III"
-msgstr ""
+msgstr "III"
 
 #: modules/Students/includes/General_Info.inc.php:59 modules/Users/User.php:489
 #: modules/Users/includes/General_Info.inc.php:26
 msgid "IV"
-msgstr ""
+msgstr "IV"
 
 #: modules/Students/includes/General_Info.inc.php:60 modules/Users/User.php:489
 #: modules/Users/includes/General_Info.inc.php:26
 msgid "V"
-msgstr ""
+msgstr "V"
 
 #: modules/Students/includes/General_Info.inc.php:130
 #: modules/Users/includes/General_Info.inc.php:141
@@ -7232,6 +7236,8 @@ msgid ""
 "lower case letter, at least 1 upper case letter, at least 1 non-alphanumeric "
 "character"
 msgstr ""
+"Паролата трябва да има поне 8 символа, от които поне 1 цифра, поне 1 малка "
+"буква, поне 1 главна буква, поне 1 друг знак"
 
 #: modules/Students/includes/Medical.inc.php:60
 #: modules/Students/includes/Medical.inc.php:63
@@ -7245,8 +7251,8 @@ msgstr[1] "Vaccinations ou Visites Médicales"
 #: modules/Students/includes/Medical.inc.php:72
 msgid "Medical Alert"
 msgid_plural "Medical Alerts"
-msgstr[0] "Alerte Médicale"
-msgstr[1] "Alertes Médicales"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Students/includes/Medical.inc.php:79
 msgid "Time In"
@@ -7269,7 +7275,7 @@ msgstr[1] "Visites Médicales"
 
 #: modules/Students/includes/Other_Info.inc.php:91
 msgid "Age"
-msgstr ""
+msgstr "Възраст"
 
 #: modules/Users/AddStudents.php:81 modules/Users/AddStudents.php:107
 msgid "Add Selected Students"
@@ -7446,7 +7452,7 @@ msgstr ""
 #: modules/Users/Preferences.php:632 modules/Users/Preferences.php:640
 #: modules/Users/Preferences.php:647
 msgid "Addresses"
-msgstr ""
+msgstr "Адреси"
 
 #: modules/Users/Preferences.php:689
 msgid "Next School Year"
@@ -7630,15 +7636,15 @@ msgstr "Вие сте <b>Администратор</b> на системата.
 
 #: modules/misc/Portal.php:59
 msgid "You are a <b>Teacher</b> on the system."
-msgstr ""
+msgstr "Вие сте <b>Преподавател</b> в тази система."
 
 #: modules/misc/Portal.php:65
 msgid "You are a <b>Parent</b> on the system."
-msgstr ""
+msgstr "Вие сте <b>Родител</b> в тази система."
 
 #: modules/misc/Portal.php:71
 msgid "You are a <b>Student</b> on the system."
-msgstr ""
+msgstr "Вие сте <b>Студент</b> в тази система."
 
 #: modules/misc/Portal.php:117 modules/misc/Portal.php:134
 #: modules/misc/Portal.php:272 modules/misc/Portal.php:291
@@ -7694,7 +7700,7 @@ msgstr ""
 
 #: modules/misc/Portal.php:420
 msgid "Happy teaching..."
-msgstr ""
+msgstr "Плодотворно преподаване…"
 
 #: modules/misc/Portal.php:549
 #, php-format
@@ -7709,11 +7715,11 @@ msgstr ""
 
 #: modules/misc/Portal.php:562
 msgid "Happy parenting..."
-msgstr ""
+msgstr "Щастливо родителство…"
 
 #: modules/misc/Portal.php:671
 msgid "Happy learning..."
-msgstr ""
+msgstr "Успешно учене…"
 
 #: modules/misc/ViewContact.php:47
 msgid "This person has no information in the system."

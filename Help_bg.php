@@ -466,7 +466,7 @@ HTML;
 	</li>
 </ul>
 <p>
-        Можете да изберете да отпечатате писмото с етикет за пощенския плик. Етикетът за пощенски плик, ще бъде отпечатан така, че да може да се вижда през прозорчето на плика, когато писмото се сгъни на три. Може да отпечетете повече от едно писмо за студент, ако трябва да му се изпрати на повече от един адрес.
+        Можете да изберете да отпечатате писмото с етикет за пощенския плик. Етикетът за пощенски плик, ще бъде отпечатан така, че да може да се вижда през прозорчето на плика, когато писмото се сгъне на три. Може да отпечетете повече от едно писмо за студент, ако трябва да му се изпрати на повече от един адрес.
 </p>
 <p>
         Писмата ще бъдат автоматично изтеглени върху Вашия компютър в PDF формат, когато щракнете бутона "Изпращане".
@@ -593,34 +593,35 @@ HTML;
 
 	$help['Custom/MyReport.php'] = <<<HTML
 <p>
-	<i>My Report</i> will generate a report that can be downloaded to your desktop as an excel spreadsheet, with complete contact information.
+        Програмата <i>Моят отчет</i> ще генерира отчет, съдържащ всички данни за контакт, който може да се изтегли на Вашия компютър във вид на таблица за Excel.
 </p>
 <p>
-	You must first select a student by using the "Find a Student" search screen.
+        Първо трябва чрез "Намиране на студент" да намерите студенти и да ги изберете.
 </p>
 <p>
-	This report will provide a printable listing, or more appropriately, a spreadsheet of students and their contact information you might use in a mail merge directory, or other.
+        Този отчет ще достави информация, която можете да разпечатате или по-точно да използвате като електронна таблица с денни за студентите и информацията им за контакт, които бихте могли да използвате в системи за изпращане на писма или друго.
 </p>
 <p>
-	Click on the Download icon at the top of the list to export the report to an Excel spreadsheet.
+        Кракнете върху иконата за изтегляне (изображение на дискета) за да експортирате отчета във файл за Excel.
 </p>
 HTML;
 
 	$help['Students/StudentFields.php'] = $help['Students/PeopleFields.php'] = $help['Students/AddressFields.php'] = <<<HTML
 <p>
-	<i>Data Fields</i> allows you to setup your school's custom data fields. These fields are used to store information about a student in the "General Info" tab / "Addresses &amp; Contacts" tab or a custom tab of the student screen.
+        Програмите <i>Студентски данни, Адресни данни и Данни за контакт</i> Ви позволяват да зададете специфични за Вашето училище данни. Тези данни се показват в подстраниците "Обща информация", "Адрес и контакт" или създадените от Вас подстраници на страницата с информация за студента.
 </p>
 <p>
-	Data Field Categories
+        Категории данни
 </p>
 <p>
-	RosarioSIS allows you to add custom categories that will take the form of new "Tabs" of Data Fields in the Students &gt; Student Info program. To create a new category or "tab", just click on the "+" icon below the existing Categories.
+        RosarioSIS Ви позволява да зададете специфични категории данни, които се показват като подстраници в програмите Студенти и Информация за студент.
 </p>
 <p>
-	New Category
+        Нова категория
 </p>
 <p>
-	You can now type in the name of the new Category in the "Title" field(s) provided. Add a sort order (order in which the tabs will appear in the Student Info program), and the number of columns the tab will display (optional). Click "Save" when you have finished.
+         За да създадете нова категория, щракнете знака (+) под съществуващите категории. После можете да напишете название на категорията, номер на подреждане (определя в какъв ред се подреждат подстраниците в програмата Информация за студент)
+         You can now type in the name of the new Category in the "Title" field(s) provided. Add a sort order (order in which the tabs will appear in the Student Info program), and the number of columns the tab will display (optional). Click "Save" when you have finished.
 </p>
 <p>
 	Add a new Field
@@ -862,7 +863,7 @@ HTML;
         RosarioSIS Ви позволява да добавяте категории, които ще се показват като подстраници с данни на потребител в програмата Потребител &gt; Данни на потребител. За да създадете нова подстраница щракнете знага (+) под колоната със съществуващите категории.
 </p>
 <p>
-	New Category
+        Нова категория
 </p>
 <p>
 	You can now type in the name of the new Category in the "Title" field(s) provided. Add a sort order (order in which the tabs will appear in the User Info program), and the number of columns the tab will display (optional). Click "Save" when you have finished.
