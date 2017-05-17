@@ -44,7 +44,7 @@ elseif ( User( 'PROFILE' ) === 'teacher' ) :
 
 	$help['default'] = <<<HTML
 <p>
-	As a teacher, you can view student information and schedules for students who you teach and input attendance, grades, and eligibility for these students. You also have a gradebook program to keep track of students' grades. The Gradebook is integrated into the Input Grades program as well as the Eligibility program. From the Gradebook, not only can you keep track of grades, but you can print progress reports for any of your students.
+        Като преподавател Вие можете да преглеждате информацията на студентите и графиците на занятията на студентите, на които преподавате, и можете да въвеждате присъствието, оценките и дописка на тези студенти. Имате достъп до програмата Дневник на оценките, за да се информирате за оценките на студентите. Програмата Дневник на оценките е интегрирана с програмата Въвеждане на оценки, както и с програмата Допускане. От Дневник на оценките може на само да се информирате за оценките, но и да отпечатате отчет за напредъка на всеки Ваш студент.
 </p>
 <p>
 	To choose a period to work on, select the period from the pull-down menu on the left frame. The program will automatically refresh with the new period in the workspace. You can also change the school year and current marking period in a similar fashion.
@@ -318,20 +318,20 @@ HTML;
 
 	$help['School_Setup/SchoolFields.php'] = <<<HTML
 <p>
-	<i>School Fields</i> allows you to add new fields to the School Information screen.
+        Програмата <i>Полета данни за училище</i> Ви позволява да добавите нови данни към екрана "Инфирмация за училище".
 </p>
 <p>
-	Add a new Field
+        Добавяне на ново поле за данни
 </p>
 <p>
-	Click on the "+" icon below the "No School Fields were found" text. Fill in the Field Name field(s), and then choose what type of field you wish with the "Data Type" pull-down.
+        Щракнете знака "+". Попълнете Име на полето данни, изберете топа на данните от падащото меню Тип отговор.
 </p>
 <ul>
 <li>
-	"Pull-Down" fields create menus from which you can select one option. To create this type of field, click on "Pull-Down" and then add your options (one per line) in the "Pull-Down/Auto Pull-down/Coded Pull-Down/Select Multiple from Options" text box.
+        Тъпът "Падащо меню" създава падащо меню, с което се избира една от възможностите: "Н/З" - не е зададена стойност или само една от няколко други стойности. Стойностите, между които ще се избира се попълват в полето по-долу - по една стойност на ред.
 </li>
 <li>
-	"Auto Pull-Down" fields create menus from which you can select one option, and add options. You add options by selecting the "-Edit-" option in the menu choices and click "Save". You can then edit the field by removing the red "-Edit-" from the field, entering the correct information. RosarioSIS gets all the options that have been added to this field to create the pull-down.
+        Типът "Падащо маню с добавяне" създава падащо меню, към което може да се добави и друга стойност. За да добавите стойност, избирате от падащото меню възможността -Редактиране- и щраквате бутона "Запазване". Тогава можете да щракнете върху -Редактиране-, да въведете на неговото място нова стойност и да я запазите с второ щракване на бутона "Запазване".
 </li>
 <li>
 	"Edit Pull-Down" fields are similar to Auto Pull-Down fields.

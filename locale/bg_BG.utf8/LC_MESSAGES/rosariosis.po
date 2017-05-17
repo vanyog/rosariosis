@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-16 07:50+0300\n"
+"PO-Revision-Date: 2017-05-17 10:17+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -347,7 +347,7 @@ msgstr "Запазване"
 
 #: ProgramFunctions/Fields.fnc.php:326
 msgid "Field Name"
-msgstr "Намиране на име"
+msgstr "Име на полето данни"
 
 #: ProgramFunctions/Fields.fnc.php:332 ProgramFunctions/Fields.fnc.php:354
 #: ProgramFunctions/Fields.fnc.php:422 ProgramFunctions/Fields.fnc.php:620
@@ -1325,7 +1325,7 @@ msgstr "Ниво на обучение"
 msgid "Grade"
 msgid_plural "Grades"
 msgstr[0] "Оценка"
-msgstr[1] "Notes"
+msgstr[1] "Оценки"
 
 #: functions/GetStuList.fnc.php:1200
 msgid "Excluded"
@@ -2062,11 +2062,11 @@ msgstr ""
 
 #: index.php:207
 msgid "Incorrect username or password."
-msgstr ""
+msgstr "Грешно потребителско ими или парола."
 
 #: index.php:208
 msgid "Please try logging in again."
-msgstr ""
+msgstr "Моля, опитайте да влезете отново."
 
 #: index.php:278
 #, php-format
@@ -2160,8 +2160,8 @@ msgstr ""
 #: modules/Accounting/Expenses.php:72 modules/Accounting/Expenses.php:134
 msgid "Expense"
 msgid_plural "Expenses"
-msgstr[0] "Dépense"
-msgstr[1] "Dépenses"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Accounting/DailyTotals.php:51
 #: modules/Accounting/DailyTransactions.php:43
@@ -2170,8 +2170,8 @@ msgstr[1] "Dépenses"
 #: modules/Accounting/Incomes.php:130
 msgid "Income"
 msgid_plural "Incomes"
-msgstr[0] "Recette"
-msgstr[1] "Recettes"
+msgstr[0] "Приход"
+msgstr[1] "Приходи"
 
 # 'user_profiles' table
 #: modules/Accounting/DailyTotals.php:55
@@ -2324,8 +2324,8 @@ msgstr ""
 #: modules/Student_Billing/DailyTransactions.php:75
 msgid "Transaction"
 msgid_plural "Transactions"
-msgstr[0] "Transaction"
-msgstr[1] "Transactions"
+msgstr[0] "Трансакция"
+msgstr[1] "Трансакции"
 
 #: modules/Accounting/Expenses.php:109 modules/Accounting/Incomes.php:104
 #: modules/Accounting/Salaries.php:105 modules/Accounting/StaffPayments.php:121
@@ -2431,8 +2431,8 @@ msgstr ""
 #: modules/Student_Billing/StudentPayments.php:170
 msgid "Payment"
 msgid_plural "Payments"
-msgstr[0] "Paiement"
-msgstr[1] "Paiement"
+msgstr[0] "Плащане"
+msgstr[1] "Плащания"
 
 #: modules/Accounting/Statements.php:29
 #: modules/Student_Billing/Statements.php:35
@@ -2950,8 +2950,8 @@ msgstr ""
 #: modules/Attendance/TeacherCompletion.php:111
 msgid "Teacher who takes attendance"
 msgid_plural "Teachers who take attendance"
-msgstr[0] "Enseignant qui prends les absences"
-msgstr[1] "Enseignants qui prennent les absences"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Attendance/TeacherCompletion.php:142
 #: modules/Grades/TeacherCompletion.php:110
@@ -3054,8 +3054,8 @@ msgstr ""
 #: modules/Custom/CreateParents.php:235
 msgid "Creation Result"
 msgid_plural "Creation Results"
-msgstr[0] "Résultat Création"
-msgstr[1] "Résultats Création"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Custom/CreateParents.php:255 modules/Custom/CreateParents.php:320
 msgid "Create Parent Accounts for Selected Students"
@@ -3171,8 +3171,8 @@ msgstr ""
 #: modules/Custom/NotifyParents.php:88
 msgid "Notification Result"
 msgid_plural "Notification Results"
-msgstr[0] "Résultat de la Notification"
-msgstr[1] "Résultats de la Notification"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Custom/NotifyParents.php:92
 #: modules/Food_Service/Users/Reminders.php:52 modules/Students/AddUsers.php:24
@@ -3348,8 +3348,8 @@ msgstr ""
 #: modules/Students/StudentBreakdown.php:282
 msgid "Option"
 msgid_plural "Options"
-msgstr[0] "Option"
-msgstr[1] "Option"
+msgstr[0] "Настройка"
+msgstr[1] "Настройки"
 
 #: modules/Discipline/CategoryBreakdown.php:323
 #: modules/Discipline/StudentFieldBreakdown.php:345
@@ -3379,8 +3379,8 @@ msgstr "Един от отговорите"
 #: modules/Discipline/DisciplineForm.php:176
 msgid "Referral Form Category"
 msgid_plural "Referral Form Categories"
-msgstr[0] "Categorie du Formulaire de Discipline"
-msgstr[1] "Categories du Formulaire de Discipline"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Discipline/DisciplineForm.php:284
 msgid "Use at this school"
@@ -3450,7 +3450,7 @@ msgstr ""
 #: modules/Discipline/Menu.php:22
 #: modules/Discipline/includes/ReferralLog.fnc.php:166
 msgid "Discipline Log"
-msgstr ""
+msgstr "Дневник дисциплина"
 
 #: modules/Discipline/Menu.php:24 modules/School_Setup/Rollover.php:14
 msgid "Referral Form"
@@ -3474,16 +3474,16 @@ msgstr ""
 #, php-format
 msgid "%d new referral"
 msgid_plural "%d new referrals"
-msgstr[0] "%d nouvel incident"
-msgstr[1] "%d nouveaux incidents"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Discipline/includes/ReferralLog.fnc.php:34
 msgid "Include in Discipline Log"
-msgstr ""
+msgstr "Включително дневник дисциплина"
 
 #: modules/Discipline/includes/ReferralLog.fnc.php:44
 msgid "Entry Date"
-msgstr ""
+msgstr "Дата на въвеждане"
 
 #: modules/Eligibility/Activities.php:89
 #: modules/School_Setup/MarkingPeriods.php:497
@@ -3713,8 +3713,8 @@ msgstr[1] ""
 #: modules/Food_Service/AssignSchool.php:41
 msgid "User Transaction w/o School"
 msgid_plural "User Transactions w/o School"
-msgstr[0] "Transaction Utilisateur sans École"
-msgstr[1] "Transactions Utilisateur sans École"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Food_Service/BalanceReport.php:80
 msgid "Total of Balances"
@@ -3833,8 +3833,8 @@ msgstr ""
 #: modules/Food_Service/MenuItems.php:244
 msgid "Meal Item"
 msgid_plural "Meal Items"
-msgstr[0] "Elément du Repas"
-msgstr[1] "Eléments du Repas"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Food_Service/MenuItems.php:115
 #: modules/Food_Service/Students/ServeMenus.php:92
@@ -3848,8 +3848,8 @@ msgstr[1] "Eléments du Repas"
 #: modules/Food_Service/Users/ServeMenus.php:142
 msgid "Item"
 msgid_plural "Items"
-msgstr[0] "Elément"
-msgstr[1] "Eléments"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Food_Service/MenuItems.php:180
 msgid "Menu Item"
@@ -3928,8 +3928,8 @@ msgstr ""
 #: modules/Food_Service/Menus.php:224
 msgid "Meal"
 msgid_plural "Meals"
-msgstr[0] "Repas"
-msgstr[1] "Repas"
+msgstr[0] "Храна"
+msgstr[1] "Храна"
 
 #: modules/Food_Service/Menus.php:156 modules/Food_Service/Menus.php:178
 #, php-format
@@ -4033,8 +4033,8 @@ msgstr ""
 #: modules/Food_Service/Users/ActivityReport.php:130
 msgid "Transaction Type"
 msgid_plural "Transaction Types"
-msgstr[0] "Type de transaction"
-msgstr[1] "Types de transaction"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Food_Service/Students/Reminders.php:18
 msgid ""
@@ -4176,8 +4176,8 @@ msgstr ""
 #: modules/Food_Service/Users/Transactions.php:108
 msgid "Earlier Transaction"
 msgid_plural "Earlier Transactions"
-msgstr[0] "Transaction Précédente"
-msgstr[1] "Transactions Précédentes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Food_Service/TakeMenuCounts.php:30
 #: modules/Food_Service/TakeMenuCounts.php:42
@@ -4207,8 +4207,8 @@ msgstr ""
 #: modules/Food_Service/TakeMenuCounts.php:198
 msgid "Ineligible Student"
 msgid_plural "Ineligible Students"
-msgstr[0] "Élève non éligible"
-msgstr[1] "Élèves non éligibles"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Food_Service/TeacherCompletion.php:134
 #, php-format
@@ -4227,8 +4227,8 @@ msgstr ""
 #: modules/Food_Service/TeacherCompletion.php:142
 msgid "Item Total"
 msgid_plural "Item Totals"
-msgstr[0] "Total Elément"
-msgstr[1] "Totaux Elément"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Food_Service/User.inc.php:45
 #: modules/Food_Service/Users/Accounts.php:142
@@ -4353,20 +4353,20 @@ msgstr "Име"
 #: modules/misc/Portal.php:654
 msgid "Assignment"
 msgid_plural "Assignments"
-msgstr[0] "Devoir"
-msgstr[1] "Devoir"
+msgstr[0] "Задание"
+msgstr[1] "Задания"
 
 #: modules/Grades/AnomalousGrades.php:141
 msgid "Anomalous Grade"
 msgid_plural "Anomalous Grades"
-msgstr[0] "Note non Conforme"
-msgstr[1] "Notes non Conformes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Grades/AnomalousGrades.php:143
 msgid "Student with Anomalous Grades"
 msgid_plural "Students with Anomalous Grades"
-msgstr[0] "Élève avec des Notes Anormales"
-msgstr[1] "Élèves avec des Notes Anormales"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Grades/AnomalousGrades.php:149
 msgid "Missing"
@@ -4403,8 +4403,8 @@ msgstr ""
 #: modules/Grades/includes/StudentAssignments.fnc.php:283
 msgid "Assignment Type"
 msgid_plural "Assignment Types"
-msgstr[0] "Type de Devoir"
-msgstr[1] "Types de Devoir"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Grades/Assignments-new.php:219 modules/Grades/Assignments.php:500
 #: modules/Grades/Assignments.php:703 modules/Grades/Grades.php:193
@@ -4668,8 +4668,8 @@ msgstr ""
 #: modules/Grades/EditHistoryMarkingPeriods.php:113
 msgid "History Marking Period"
 msgid_plural "History Marking Periods"
-msgstr[0] "Période Scolaire Antérieure"
-msgstr[1] "Périodes Scolaires Antérieures"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Grades/EditHistoryMarkingPeriods.php:96
 msgid "Grade Post Date"
@@ -5145,14 +5145,14 @@ msgstr ""
 #: modules/Grades/ReportCardCommentCodes.php:175
 msgid "Code"
 msgid_plural "Codes"
-msgstr[0] "Code"
-msgstr[1] "Codes"
+msgstr[0] "Код"
+msgstr[1] "Кодове"
 
 #: modules/Grades/ReportCardCommentCodes.php:177
 msgid "Comment Code Scale"
 msgid_plural "Comment Code Scales"
-msgstr[0] "Échelle de Codes de Commentaires"
-msgstr[1] "Échelles de Codes Commentaires"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Grades/ReportCardComments.php:71
 msgid "There are no courses setup yet."
@@ -5253,8 +5253,8 @@ msgstr ""
 #: modules/Grades/TeacherCompletion.php:93
 msgid "Teacher who enters grades"
 msgid_plural "Teachers who enter grades"
-msgstr[0] "Enseignant qui saisi les notes"
-msgstr[1] "Enseignants qui saisissent les notes"
+msgstr[0] "Преподавател, въвеждащ оценки"
+msgstr[1] "Преподаватели, въвеждащи оценки"
 
 #: modules/Grades/TeacherCompletion.php:110
 #, php-format
@@ -5471,8 +5471,8 @@ msgstr "Отстранен"
 #: modules/Scheduling/AddDrop.php:61
 msgid "Schedule Record"
 msgid_plural "Schedule Records"
-msgstr[0] "Entrée de l'Emploi du Temps"
-msgstr[1] "Entrées de l'Emploi du Temps"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Scheduling/Courses.php:86 modules/Scheduling/Courses.php:1258
 msgid "MP"
@@ -5589,8 +5589,8 @@ msgstr ""
 #: modules/Scheduling/IncompleteSchedules.php:70
 msgid "Student with an incomplete schedule"
 msgid_plural "Students with incomplete schedules"
-msgstr[0] "Élève avec Emploi du Temps Incomplet"
-msgstr[1] "Élèves avec Emploi du Temps Incomplet"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Scheduling/MassDrops.php:47
 msgid "Students' Absences and Grades"
@@ -6638,8 +6638,8 @@ msgstr ""
 #: modules/School_Setup/includes/Plugins.inc.php:178
 msgid "Plugin"
 msgid_plural "Plugins"
-msgstr[0] "Plugin"
-msgstr[1] "Plugins"
+msgstr[0] "Добавка"
+msgstr[1] "Добавки"
 
 #: modules/School_Setup/includes/Plugins.inc.php:84
 #: modules/School_Setup/includes/Plugins.inc.php:112
@@ -7243,8 +7243,8 @@ msgstr ""
 #: modules/Students/includes/Medical.inc.php:63
 msgid "Immunization or Physical"
 msgid_plural "Immunizations or Physicals"
-msgstr[0] "Vaccination ou Visite Médicale"
-msgstr[1] "Vaccinations ou Visites Médicales"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Students/includes/Medical.inc.php:67
 #: modules/Students/includes/Medical.inc.php:69
@@ -7270,8 +7270,8 @@ msgstr ""
 #: modules/Students/includes/Medical.inc.php:83
 msgid "Nurse Visit"
 msgid_plural "Nurse Visits"
-msgstr[0] "Visite Médicale"
-msgstr[1] "Visites Médicales"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Students/includes/Other_Info.inc.php:91
 msgid "Age"
@@ -7651,14 +7651,14 @@ msgstr "Вие сте <b>Студент</b> в тази система."
 #: modules/misc/Portal.php:443 modules/misc/Portal.php:462
 #: modules/misc/Portal.php:583 modules/misc/Portal.php:602
 msgid "Date Posted"
-msgstr ""
+msgstr "Дата публикуване"
 
 #: modules/misc/Portal.php:151 modules/misc/Portal.php:307
 #: modules/misc/Portal.php:477 modules/misc/Portal.php:613
 msgid "Day With Upcoming Events"
 msgid_plural "Days With Upcoming Events"
-msgstr[0] "Jour avec des Évènements"
-msgstr[1] "Jours avec des Évènements"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/misc/Portal.php:215
 msgid "Teachers have missing attendance data"
@@ -7667,8 +7667,8 @@ msgstr ""
 #: modules/misc/Portal.php:217 modules/misc/Portal.php:404
 msgid "Course Period with missing attendance data"
 msgid_plural "Course Periods with missing attendance data"
-msgstr[0] "Classe avec des absences non renseignées"
-msgstr[1] "Classes avec des absences non renseignées"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/misc/Portal.php:231 modules/misc/Portal.php:417
 #: modules/misc/Portal.php:559
@@ -7691,8 +7691,8 @@ msgstr "Приятно администриране…"
 #: modules/misc/Portal.php:660
 msgid "Upcoming Assignment"
 msgid_plural "Upcoming Assignments"
-msgstr[0] "Prochain Devoir"
-msgstr[1] "Prochains Devoirs"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/misc/Portal.php:402
 msgid "You have missing attendance data"
@@ -7811,11 +7811,6 @@ msgstr ""
 #~ msgid "Work Phone"
 #~ msgstr "Служебен телефон"
 
-#~ msgid "Unscheduled Request"
-#~ msgid_plural "Unscheduled Requests"
-#~ msgstr[0] "Demande non Prise en Compte"
-#~ msgstr[1] "Demandes non Prises en Compte"
-
 #~ msgid ""
 #~ "You have a <b>negative</b> food service balance of <font color=\"red\">"
 #~ "%d</font>"
@@ -7858,21 +7853,6 @@ msgstr ""
 #~ "Laissez de la place pour que les autre enseignants puissent entrer leurs "
 #~ "commentaires."
 
-#~ msgid "Teacher with missing attendance data"
-#~ msgid_plural "Teachers with missing attendance data"
-#~ msgstr[0] "Enseignant avec des relevés d'absence manquants"
-#~ msgstr[1] "Enseignants avec des relevés d'absence manquants"
-
-#~ msgid "Course with Unscheduled Requests"
-#~ msgid_plural "Courses with Unscheduled Requests"
-#~ msgstr[0] "Cours avec Requêtes non Planifiées"
-#~ msgstr[1] "Cours avec Requêtes non Planifiées"
-
-#~ msgid "Course with No Seats"
-#~ msgid_plural "Courses with No Seats"
-#~ msgstr[0] "Cours sans Disponibilités"
-#~ msgstr[1] "Cours sans Disponibilités"
-
 #~ msgid ""
 #~ "Since this is your first login, Rosario/SIS would like to tell our "
 #~ "servers that you have successfully installed the software."
@@ -7880,17 +7860,7 @@ msgstr ""
 #~ "Comme c'est votre première utilisation, Rosario SIS voudrait rapporter "
 #~ "cette installation a nos serveurs."
 
-#~ msgid "Pre-Defined Fee"
-#~ msgid_plural "Pre-Defined Fees"
-#~ msgstr[0] "Tarif Pré-Etabli"
-#~ msgstr[1] "Tarifs Pré-Etablis"
-
-#~ msgid "Student Billing Fee"
-#~ msgid_plural "Student Billing Fees"
-#~ msgstr[0] "Frais Élève"
-#~ msgstr[1] "Frais Élève"
-
 #~ msgid "Teacher who enters "
 #~ msgid_plural "Teachers who enter "
 #~ msgstr[0] "Преподавател, който влиза "
-#~ msgstr[1] "Commentaire enseignant"
+#~ msgstr[1] ""
