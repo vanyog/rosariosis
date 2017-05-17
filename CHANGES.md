@@ -6,6 +6,8 @@ Changes in 3.3.1
 - Fix wkhtmltopdf error on Windows: prepend file:/// in PDF.php
 - Fix PHP error removed s.*, select each student field in Export.php
 - Optimize _makeNextSchool & _makeTeachers functions in miscExport.fnc.php
+- Fix GD bug with transparent background PNG in ImageResizeGD.php
+- Fix TinyMCE using relative URLs in Inputs.php
 
 Changes in 3.3
 --------------
