@@ -30,6 +30,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 	if ( $options['sort'] )
 	{
 		//FJ bugfix ListOutput sorting when more than one list in a page
+		if( !isset($_REQUEST['LO_sort']) ) $_REQUEST['LO_sort'] = '';
 		$LO_sort = $_REQUEST['LO_sort'];
 	}
 
@@ -374,7 +375,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 	// HANDLE SAVING THE LIST ---.
 	if ( $options['save']
-		&& $_REQUEST['LO_save'] == $options['save']
+	        && ( isset($_REQUEST['LO_save']) && ($_REQUEST['LO_save'] == $options['save']) )
 		&& ! headers_sent() )
 	{
 		_listSave( $result, $column_names, $singular, $plural, Preferences( 'DELIMITER' ) );
@@ -549,6 +550,8 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 			// Do not remove search URL due to document.URL = 'index.php' in old IE browsers.
 			$search_URL = PreparePHP_SELF( $_REQUEST, array( 'LO_search' ) );
+
+                        if( ! isset($_REQUEST['LO_search']) ) $_REQUEST['LO_search'] = '';
 
 			echo '<input type="text" id="LO_search" name="LO_search" value="' .
 				htmlspecialchars( $_REQUEST['LO_search'], ENT_QUOTES ) .

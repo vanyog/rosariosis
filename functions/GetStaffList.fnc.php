@@ -4,6 +4,8 @@ function GetStaffList(& $extra)
 {	global $profiles_RET;
 
 	$functions = array('PROFILE' => 'makeProfile');
+	if( !isset($extra['SELECT']) ) $extra['SELECT'] = '';
+	if( !isset($extra['FROM']) )   $extra['FROM']   = '';
 	switch (User('PROFILE'))
 	{
 		case 'admin':
@@ -16,6 +18,7 @@ function GetStaffList(& $extra)
 				StaffWidgets( 'all', $extra );
 			}
 
+                        if(!isset($extra['WHERE']) ) $extra['WHERE'] = '';
 			$extra['WHERE'] .= appendStaffSQL( '', $extra );
 
 			$extra['WHERE'] .= CustomFields( 'where', 'staff', $extra );
@@ -77,12 +80,12 @@ function GetStaffList(& $extra)
 			}
 			else
 			{
-				if ( ! $extra['columns_after'] )
+			        if ( empty($extra['columns_after']) )
 				{
 					$extra['columns_after'] = array();
 				}
 
-				if ( $extra['staff_fields']['view'] )
+                                if ( !empty($extra['staff_fields']['view']) )
 				{
 					$view_fields_RET = DBGet( DBQuery( "SELECT cf.ID,cf.TYPE,cf.TITLE
 						FROM STAFF_FIELDS cf
@@ -141,7 +144,7 @@ function GetStaffList(& $extra)
 			// it would be easier to sort on full_name but postgres sometimes yields strange results
 			$sql .= 'ORDER BY s.LAST_NAME,s.FIRST_NAME,s.MIDDLE_NAME';
 
-			if ( $extra['functions'])
+                        if ( !empty($extra['functions']) )
 				$functions += $extra['functions'];
 
 			return DBGet(DBQuery($sql),$functions);
@@ -176,7 +179,7 @@ function appendStaffSQL( $sql, $extra = array() )
 
 	$no_search_terms = isset( $extra['NoSearchTerms'] ) && $extra['NoSearchTerms'];
 
-	if ( $_REQUEST['usrid'] )
+        if ( !empty($_REQUEST['usrid']) )
 	{
 		// FJ allow comma separated list of staff IDs
 		$usrid_array = explode( ',', $_REQUEST['usrid'] );

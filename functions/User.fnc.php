@@ -142,6 +142,8 @@ function Preferences( $item, $program = 'Preferences' )
 		'PAGE_SIZE' => 'A4',
 		'HIDE_ALERTS' => 'N',
 		'DEFAULT_FAMILIES' => 'N',
+		'EMAIL' => '',
+		'PHONE' => ''
 	);
 
 	if ( ! isset( $_ROSARIO['Preferences'][ $program ][ $item ][1]['VALUE'] ) )

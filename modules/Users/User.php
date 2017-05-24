@@ -415,13 +415,14 @@ Remote IP: %s', $admin_username, User('NAME'), $ip);
 
 if (basename($_SERVER['PHP_SELF'])!='index.php')
 {
-	if ( $_REQUEST['staff_id']=='new')
+        if ( isset($_REQUEST['staff_id']) && ( $_REQUEST['staff_id']=='new') )
 	{
 		$_ROSARIO['HeaderIcon'] = 'modules/Users/icon.png';
 		DrawHeader(_('Add a User'));
 	}
 	else
 		DrawHeader(ProgramTitle());
+		if(!isset($extra)) $extra = null;
 		Search('staff_id',$extra);
 }
 //FJ create account
@@ -472,7 +473,7 @@ if ( $_REQUEST['modfunc'] === 'delete'
 	}
 }
 
-if ((UserStaffID() || $_REQUEST['staff_id']=='new') && $_REQUEST['modfunc']!='delete')
+if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='new'))) && $_REQUEST['modfunc']!='delete')
 {
 	if ( $_REQUEST['staff_id']!='new')
 	{

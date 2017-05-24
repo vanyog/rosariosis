@@ -76,7 +76,7 @@ function GetStuList( &$extra = array() )
 	{
 		$extra['MP'] = GetCurrentMP( 'QTR', $extra['DATE'], false );
 	}
-	elseif ( ! $extra['DATE'] )
+	elseif ( empty($extra['DATE']) )
 	{
 		$extra['DATE'] = DBDate();
 	}
