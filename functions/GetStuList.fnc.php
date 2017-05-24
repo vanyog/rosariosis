@@ -647,7 +647,7 @@ function GetStuList( &$extra = array() )
 		// It would be easier to sort on full_name but postgres sometimes yields strange results.
 		$sql .= 's.LAST_NAME,s.FIRST_NAME,s.MIDDLE_NAME';
 
-		$sql .= $extra['ORDER'];
+		if( isset($extra['ORDER']) ) $sql .= $extra['ORDER'];
 	}
 	elseif ( isset( $extra['ORDER_BY'] ) )
 	{
@@ -662,6 +662,7 @@ function GetStuList( &$extra = array() )
 	}
 
 	// Execute Query & return.
+    if( !isset($extra['group']) ) $extra['group'] = array();
 	return DBGet( DBQuery( $sql ), $functions, $extra['group'] );
 }
 
