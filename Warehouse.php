@@ -115,7 +115,7 @@ session_set_cookie_params( 0, $cookie_path, '', false, true );
 
 session_cache_limiter( 'nocache' );
 
-session_start();
+if(!session_id()) session_start();
 
 // Logout if no Staff or Student session ID.
 if ( empty( $_SESSION['STAFF_ID'] )
