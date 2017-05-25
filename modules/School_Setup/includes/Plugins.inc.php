@@ -259,6 +259,7 @@ function _makeDelete($plugin_title,$activated=null)
 function _makeReadMe($plugin_title,$activated=null)
 {
 	global $RosarioCorePlugins;
+	$return = '';
 
 	//format & translate plugin title
 	if ( !in_array($plugin_title, $RosarioCorePlugins) && $activated)

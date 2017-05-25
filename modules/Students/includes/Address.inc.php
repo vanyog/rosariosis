@@ -5,6 +5,9 @@ require_once 'ProgramFunctions/TipMessage.fnc.php';
 // Set this to false to disable auto-pull-downs for the contact info Description field.
 $info_apd = true;
 
+if( ! isset($_REQUEST['address_id']) ) $_REQUEST['address_id'] = '';
+if( ! isset($_REQUEST['person_id']) )  $_REQUEST['person_id'] = '';
+
 if ( isset( $_POST['day_values'], $_POST['month_values'], $_POST['year_values'] ) )
 {
 	$requested_dates = RequestedDates(
@@ -353,7 +356,10 @@ if ( ! $_REQUEST['modfunc'] )
 
 	echo '<table><tr class="address st"><td class="valign-top">';
 	echo '<table class="widefat">';
-	if (count($addresses_RET) || $_REQUEST['address_id']=='new' || $_REQUEST['address_id']=='0')
+
+        $this_address = array('CITY'=>'', 'MAIL_CITY'=>'', 'STATE'=>'', 'MAIL_STATE'=>'', 'ZIPCODE'=>'', 'MAIL_ZIPCODE'=>'', 'ADDRESS'=>'', 'PHONE'=>'',
+                              'PHONE'=>'', 'RESIDENCE'=>'', 'BUS_PICKUP'=>'', 'BUS_DROPOFF'=>'', 'MAILING'=>'');
+        if (count($addresses_RET) || $_REQUEST['address_id']=='new' || $_REQUEST['address_id']=='0')
 	{
 		$i = 1;
 		if ( $_REQUEST['address_id']=='')
@@ -533,6 +539,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	echo '</table></td>';
 
+        $this_contact = array('STUDENT_RELATION'=>'');
 	if (isset($_REQUEST['address_id']))
 	{
 		echo '<td class="valign-top">';
@@ -772,6 +779,7 @@ if ( ! $_REQUEST['modfunc'] )
 			}
 			echo '</table>';
 
+                        $new = false;
 			if ( $_REQUEST['address_id']=='new')
 			{
 				$new = true;
@@ -1196,6 +1204,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 function _makePeopleInput($value,$column,$title='')
 {
+        $options = '';
 	if ( $column === 'LAST_NAME'
 		|| $column === 'FIRST_NAME' )
 	{

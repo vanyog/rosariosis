@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-25 10:24+0300\n"
+"PO-Revision-Date: 2017-05-25 13:16+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -359,12 +359,12 @@ msgstr "Падащо меню"
 #: ProgramFunctions/Fields.fnc.php:333 ProgramFunctions/Fields.fnc.php:355
 #: ProgramFunctions/Fields.fnc.php:422 ProgramFunctions/Fields.fnc.php:621
 msgid "Auto Pull-Down"
-msgstr ""
+msgstr "Падащо меню с добавяне"
 
 #: ProgramFunctions/Fields.fnc.php:334 ProgramFunctions/Fields.fnc.php:356
 #: ProgramFunctions/Fields.fnc.php:622
 msgid "Edit Pull-Down"
-msgstr ""
+msgstr "Падащо меню с редактиране"
 
 #: ProgramFunctions/Fields.fnc.php:335 ProgramFunctions/Fields.fnc.php:422
 #: ProgramFunctions/Fields.fnc.php:623

@@ -263,6 +263,7 @@ function _makeDelete($module_title,$activated=null)
 function _makeReadMe($module_title,$activated=null)
 {
 	global $RosarioCoreModules;
+	$return = '';
 
 	//format & translate module title
 	if ( !in_array($module_title, $RosarioCoreModules) && $activated)

@@ -15,7 +15,7 @@ if ( AllowEdit()
 	</div>
 <?php endif;
 
-if ( $_REQUEST['student_id']!='new' && ($file = @fopen($picture_path=$StudentPicturesPath.UserSyear().'/'.UserStudentID().'.jpg','r')) || ($file = @fopen($picture_path=$StudentPicturesPath.(UserSyear()-1).'/'.UserStudentID().'.jpg','r'))):
+if ( ( !isset($_REQUEST['student_id'])||($_REQUEST['student_id']!='new') ) && ($file = @fopen($picture_path=$StudentPicturesPath.UserSyear().'/'.UserStudentID().'.jpg','r')) || ($file = @fopen($picture_path=$StudentPicturesPath.(UserSyear()-1).'/'.UserStudentID().'.jpg','r'))):
 	fclose($file);
 ?>
 	<img src="<?php echo $picture_path.(!empty($new_photo_file)? '?cacheKiller='.rand():''); ?>" class="user-photo" />
@@ -24,6 +24,8 @@ if ( $_REQUEST['student_id']!='new' && ($file = @fopen($picture_path=$StudentPic
 
 echo '</td><td colspan="2">';
 
+if( ! isset($student) ) $student = array('FIRST_NAME'=>'', 'MIDDLE_NAME'=>'', 'LAST_NAME'=>'', 'NAME_SUFFIX'=>'', 'USERNAME'=>'', 'PASSWORD'=>'',
+                                         'LAST_LOGIN'=>'');
 if (AllowEdit() && !isset($_REQUEST['_ROSARIO_PDF']))
 {
 	$div = false;
@@ -68,8 +70,8 @@ if (AllowEdit() && !isset($_REQUEST['_ROSARIO_PDF']))
 	) . '</td></tr></table>';
 
 	//FJ Moodle integrator
-	if ( $_REQUEST['student_id'] === 'new'
-		|| $_REQUEST['moodle_create_student'] )
+	if ( ( isset($_REQUEST['student_id']) && ($_REQUEST['student_id'] === 'new') )
+	        || !empty($_REQUEST['moodle_create_student']) )
 	{
 		echo $student_name_html;
 	}
@@ -97,7 +99,7 @@ else
 
 echo '</td></tr><tr class="st"><td>';
 
-if ( $_REQUEST['student_id']=='new')
+if ( isset($_REQUEST['student_id']) && ($_REQUEST['student_id']=='new') )
 	echo TextInput('','assign_student_id',sprintf(_('%s ID'),Config('NAME')),'maxlength=10 size=10');
 else
 	echo NoInput(UserStudentID(),sprintf(_('%s ID'),Config('NAME')));
@@ -107,7 +109,9 @@ echo '</td><td>';
 //FJ Moodle integrator
 //username, password required
 
-$required = $_REQUEST['moodle_create_student'] || $old_student_in_moodle || basename( $_SERVER['PHP_SELF'] ) == 'index.php';
+if( ! isset($old_student_in_moodle) ) $old_student_in_moodle = false;
+
+$required = ! empty($_REQUEST['moodle_create_student']) || $old_student_in_moodle || basename( $_SERVER['PHP_SELF'] ) == 'index.php';
 
 echo TextInput(
 	$student['USERNAME'],
@@ -117,24 +121,24 @@ echo TextInput(
 		( Config( 'STUDENTS_EMAIL_FIELD' ) === 'USERNAME' ?
 			'type="email" pattern="[^ @]*@[^ @]*" placeholder="' . _( 'Email' ) . '"' :
 			'' ),
-	! $_REQUEST['moodle_create_student']
+	empty($_REQUEST['moodle_create_student'])
 );
 
 echo '</td></tr><tr class="st"><td>';
 
 echo TextInput(
 	( ! $student['PASSWORD']
-		|| $_REQUEST['moodle_create_student'] ? '' : str_repeat( '*', 8 ) ),
+	        || ! empty($_REQUEST['moodle_create_student']) ? '' : str_repeat( '*', 8 ) ),
 	'students[PASSWORD]',
 	_( 'Password' ) .
-		( $_REQUEST['moodle_create_student']
+	        ( ! empty($_REQUEST['moodle_create_student'])
 			|| $old_student_in_moodle ?
 		'<div class="tooltip"><i>' .
 			_( 'The password must have at least 8 characters, at least 1 digit, at least 1 lower case letter, at least 1 upper case letter, at least 1 non-alphanumeric character' ) .
 		'</i></div>' :
 		'' ),
 	'autocomplete=off' . ( $required ? ' required' : '' ),
-	( $_REQUEST['moodle_create_student'] ? false : true )
+	( empty($_REQUEST['moodle_create_student']) )
 );
 
 echo '</td><td>';
@@ -149,7 +153,7 @@ $separator = '<hr />';
 
 include 'modules/Students/includes/Other_Info.inc.php';
 
-if ( $_REQUEST['student_id']!='new' && $student['SCHOOL_ID']!=UserSchool() && $student['SCHOOL_ID'])
+if ( @$_REQUEST['student_id']!='new' && @$student['SCHOOL_ID']!=UserSchool() && @$student['SCHOOL_ID'])
 	$_ROSARIO['AllowEdit'][$_REQUEST['modname']] = $_ROSARIO['allow_edit'] = false;
 
 if (basename($_SERVER['PHP_SELF'])!='index.php')

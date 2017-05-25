@@ -20,18 +20,18 @@ if ( isset( $_POST['day_values'], $_POST['month_values'], $_POST['year_values'] 
 
 if ( $_REQUEST['modfunc'] === 'update' )
 {
-	if ( $_REQUEST['button'] === _( 'Save' )
+        if ( isset($_REQUEST['button']) && ($_REQUEST['button'] === _( 'Save' ) )
 		&& AllowEdit() )
 	{
 		if ( $_REQUEST['values']
 			&& $_POST['values'] )
 		{
 			// FJ other fields required.
-			$required_error = CheckRequiredCustomFields( 'PEOPLE_FIELDS', $_REQUEST['values']['PEOPLE'] );
+//			$required_error = CheckRequiredCustomFields( 'PEOPLE_FIELDS', $_REQUEST['values']['PEOPLE'] );
 
-			if ( $required_error )
+//			if ( $required_error )
 			{
-				$error[] = _( 'Please fill in the required fields' );
+//				$error[] = _( 'Please fill in the required fields' );
 			}
 
 			// FJ textarea fields MarkDown sanitize.
@@ -60,7 +60,9 @@ if ( $_REQUEST['modfunc'] === 'update' )
 						if ( ! is_array( $value ) )
 						{
 							//FJ check numeric fields
-							if ( $fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric' && $value!='' && !is_numeric($value))
+							if ( isset( $fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] )
+							     && ($fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric')
+							     && $value!='' && !is_numeric($value))
 							{
 								$error[] = _( 'Please enter valid Numeric data.' );
 								continue;
@@ -142,7 +144,7 @@ if ( $_REQUEST['modfunc'] === 'update' )
 		// Unset modfunc & redirect URL.
 		RedirectURL( 'modfunc' );
 	}
-	elseif ( ( $_REQUEST['button'] === _( 'Delete' )
+	elseif ( ( isset($_REQUEST['button']) && ($_REQUEST['button'] === _( 'Delete' ) )
 			|| isset( $_POST['delete_ok'] ) )
 		&& User( 'PROFILE' ) === 'admin'
 		&& AllowEdit() )

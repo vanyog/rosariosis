@@ -334,7 +334,7 @@ HTML;
         Типът "Падащо маню с добавяне" създава падащо меню, към което може да се добави и друга стойност. За да добавите стойност, избирате от падащото меню възможността -Редактиране- и щраквате бутона "Запазване". Тогава можете да щракнете върху -Редактиране-, да въведете на неговото място нова стойност и да я запазите с второ щракване на бутона "Запазване".
 </li>
 <li>
-	"Edit Pull-Down" fields are similar to Auto Pull-Down fields.
+        Типът "Падащо меню с редактиране" е подобен на "Падащо маню с добавяне".
 </li>
 <li>
 	"Coded Pull-Down" fields are created by adding options to the large text box respecting the following pattern: "option shown"|"option stored in database" (where | is the "pipe" character). For example: "Two|2", where "Two" is displayed on screen to the user, or in a downloaded spreadsheet, and "2" is stored in the database.

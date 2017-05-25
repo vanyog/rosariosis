@@ -363,7 +363,7 @@ if ( $_REQUEST['modfunc'] === 'update'
 
 if (basename($_SERVER['PHP_SELF'])!='index.php')
 {
-	if ( $_REQUEST['student_id']=='new')
+        if ( isset($_REQUEST['student_id']) && ($_REQUEST['student_id']=='new') )
 	{
 		$_ROSARIO['HeaderIcon'] = 'modules/Students/icon.png';
 		DrawHeader(_('Add a Student'));
@@ -393,7 +393,7 @@ echo ErrorMessage( $error );
 Search( 'student_id' );
 
 if ( UserStudentID()
-	|| $_REQUEST['student_id'] === 'new' )
+        || isset($_REQUEST['student_id']) && ($_REQUEST['student_id'] === 'new') )
 {
 	// MODNAME LIKE 'Students/Student.php%'.
 	if ( User( 'PROFILE_ID' )
@@ -424,11 +424,12 @@ if ( UserStudentID()
 
 	//FJ General_Info only for new student
 	//$categories_RET = DBGet(DBQuery("SELECT ID,TITLE,INCLUDE FROM STUDENT_FIELD_CATEGORIES ORDER BY SORT_ORDER,TITLE"));
-	$categories_RET = DBGet(DBQuery("SELECT ID,TITLE,INCLUDE FROM STUDENT_FIELD_CATEGORIES WHERE ".($_REQUEST['student_id']!='new'?'TRUE':'ID=\'1\'')." ORDER BY SORT_ORDER,TITLE"));
+	$categories_RET = DBGet(DBQuery("SELECT ID,TITLE,INCLUDE FROM STUDENT_FIELD_CATEGORIES WHERE ".
+	                  (!isset($_REQUEST['student_id'])||($_REQUEST['student_id']!='new')?'TRUE':'ID=\'1\'')." ORDER BY SORT_ORDER,TITLE"));
 
 	if ( $_REQUEST['modfunc']!='delete' || $_REQUEST['delete_ok'])
 	{
-		if ( $_REQUEST['student_id']!='new')
+	        if ( !isset($_REQUEST['student_id'])||($_REQUEST['student_id']!='new') )
 		{
 			$sql = "SELECT s.STUDENT_ID,s.FIRST_NAME,s.LAST_NAME,s.MIDDLE_NAME,s.NAME_SUFFIX,s.USERNAME,s.PASSWORD,s.LAST_LOGIN,
 			(SELECT ID FROM STUDENT_ENROLLMENT WHERE SYEAR='".UserSyear()."' AND STUDENT_ID=s.STUDENT_ID ORDER BY START_DATE DESC,END_DATE DESC LIMIT 1) AS ENROLLMENT_ID
@@ -454,7 +455,8 @@ if ( UserStudentID()
 		echo '<form name="student" id="student"	action="' . $form_action . '"
 			method="POST" enctype="multipart/form-data">';
 
-		if ( $_REQUEST['student_id']!='new')
+                $name = '';
+                if ( !isset($_REQUEST['student_id'])||($_REQUEST['student_id']!='new') )
 			$name = $student['FIRST_NAME'].' '.$student['MIDDLE_NAME'].' '.$student['LAST_NAME'].' '.$student['NAME_SUFFIX'].' - '.$student['STUDENT_ID'];
 
 		DrawHeader($name,SubmitButton(_('Save')));
@@ -464,7 +466,7 @@ if ( UserStudentID()
 
 		foreach ( (array) $categories_RET as $category)
 		{
-			if ( $can_use_RET['Students/Student.php&category_id='.$category['ID']])
+		        if ( ! empty($can_use_RET['Students/Student.php&category_id='.$category['ID']]) )
 			{
 				//FJ Remove $_REQUEST['include']
 				/*if ( $category['ID']=='1')
@@ -482,7 +484,7 @@ if ( UserStudentID()
 
 				$tabs[] = array(
 					'title' => $category['TITLE'],
-					'link' => ( $_REQUEST['student_id'] !== 'new' ?
+					'link' => ( !isset($_REQUEST['student_id']) || ($_REQUEST['student_id'] !== 'new') ?
 						'Modules.php?modname=' . $_REQUEST['modname'] . '&category_id=' . $category['ID'] . '&student_id=' . UserStudentID() :
 						'' ),
 				);

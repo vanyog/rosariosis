@@ -143,7 +143,8 @@ function Preferences( $item, $program = 'Preferences' )
 		'HIDE_ALERTS' => 'N',
 		'DEFAULT_FAMILIES' => 'N',
 		'EMAIL' => '',
-		'PHONE' => ''
+		'PHONE' => '',
+		'USERNAME' => ''
 	);
 
 	if ( ! isset( $_ROSARIO['Preferences'][ $program ][ $item ][1]['VALUE'] ) )

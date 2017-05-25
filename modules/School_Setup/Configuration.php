@@ -42,7 +42,7 @@ else
 	if ( $_REQUEST['modfunc'] === 'update' )
 	{
 		//FJ upload school logo
-		if ( $_FILES['LOGO_FILE'] && AllowEdit())
+		if ( ! empty($_FILES['LOGO_FILE']) && AllowEdit())
 			FileUpload('LOGO_FILE', 'assets'.'/', array('.jpg', '.jpeg'), 2, $error, '.jpg', 'school_logo_'.UserSchool());
 
 		if ( $_REQUEST['values']
@@ -161,6 +161,7 @@ else
 
 		$themes = glob( 'assets/themes/*', GLOB_ONLYDIR );
 
+                $count = 0;
 		foreach ( (array) $themes as $theme )
 		{
 			$theme_name = str_replace( 'assets/themes/', '', $theme );

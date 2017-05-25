@@ -1,6 +1,8 @@
 <?php
 
-if ( ! $_REQUEST['search_modfunc'])
+if( !isset($_REQUEST['advanced']) ) $_REQUEST['advanced'] = '';
+
+if ( empty( $_REQUEST['search_modfunc'] ) )
 {
 	//if (UserStudentID() && User('PROFILE')!='parent' && User('PROFILE')!='student' && ($_REQUEST['modname']!='Students/Search.php' || $_REQUEST['student_id']=='new'))
 	switch (User('PROFILE'))
@@ -15,7 +17,7 @@ if ( ! $_REQUEST['search_modfunc'])
 			}
 
 			$_SESSION['Search_PHP_SELF'] = PreparePHP_SELF($_SESSION['_REQUEST_vars'],array('bottom_back','advanced'));
-			if ( $_SESSION['Back_PHP_SELF']!='student')
+			if ( isset($_SESSION['Back_PHP_SELF']) && ($_SESSION['Back_PHP_SELF']!='student') )
 			{
 				$_SESSION['Back_PHP_SELF'] = 'student';
 				unset($_SESSION['List_PHP_SELF']);
@@ -41,13 +43,13 @@ if ( ! $_REQUEST['search_modfunc'])
 
 			Search(
 				'student_fields',
-				is_array( $extra['student_fields'] ) ? $extra['student_fields'] : array()
+				isset($extra['student_fields']) && is_array( $extra['student_fields'] ) ? $extra['student_fields'] : array()
 			);
 
 
 			echo '</table><div class="center">';
 
-			if ( $extra['search_second_col'] )
+                        if ( ! empty($extra['search_second_col']) )
 			{
 				echo $extra['search_second_col'];
 			}
@@ -75,9 +77,9 @@ if ( ! $_REQUEST['search_modfunc'])
 
 			echo '<br />' . Buttons( _( 'Submit' ), _( 'Reset' ) ) . '</div><br />';
 
-			if ( $extra['search']
-				|| $extra['extra_search']
-				|| $extra['second_col'] )
+                        if ( ! empty($extra['search'])
+                                || ! empty($extra['extra_search'])
+                                || ! empty($extra['second_col']) )
 			{
 				echo '<table class="widefat width-100p col1-align-right">';
 
@@ -167,16 +169,16 @@ else
 		Widgets('user',$extra);
 	}
 
-	if ( ! $extra['NoSearchTerms'])
+        if ( empty($extra['NoSearchTerms']) )
 	{
-		if ( $_REQUEST['_search_all_schools']=='Y')
+	        if ( isset($_REQUEST['_search_all_schools']) && ($_REQUEST['_search_all_schools']=='Y') )
 			$_ROSARIO['SearchTerms'] .= '<b>'._('Search All Schools').'</b><br />';
 
-		if ( $_REQUEST['include_inactive']=='Y')
+                if ( isset($_REQUEST['include_inactive']) && ($_REQUEST['include_inactive']=='Y') )
 			$_ROSARIO['SearchTerms'] .= '<b>'._('Include Inactive Students').'</b><br />';
 	}
 
-	if ( $_REQUEST['address_group'])
+        if ( !empty($_REQUEST['address_group']) )
 	{
 		$extra['SELECT'] .= ",coalesce((SELECT ADDRESS_ID FROM STUDENTS_JOIN_ADDRESS WHERE STUDENT_ID=ssm.STUDENT_ID AND RESIDENCE='Y' LIMIT 1),-ssm.STUDENT_ID) AS FAMILY_ID";
 		$extra['group'] = $extra['LO_group'] = array('FAMILY_ID');
@@ -184,7 +186,7 @@ else
 
 	$students_RET = GetStuList($extra);
 
-	if ( $extra['array_function'] && function_exists($extra['array_function']))
+        if ( ! empty($extra['array_function']) && function_exists($extra['array_function']))
 		if ( $_REQUEST['address_group'])
 			foreach ( (array) $students_RET as $id => $student_RET)
 				$students_RET[ $id ] = $extra['array_function']($student_RET);
@@ -216,7 +218,11 @@ else
 	if (isset($extra['columns_after']) && is_array($extra['columns_after']))
 		$columns += $extra['columns_after'];
 
-	if (count($students_RET)>1 || $link['add'] || ! $link['FULL_NAME'] || $extra['columns_before'] || $extra['columns'] || $extra['columns_after'] || ($extra['BackPrompt']==false && count($students_RET)==0) || (($extra['Redirect']===false || $_REQUEST['address_group']) && count($students_RET)==1))
+        if(count($students_RET)>1 || ! empty($link['add']) || ! $link['FULL_NAME'] || ! empty($extra['columns_before'])
+           || ! empty($extra['columns']) || ! empty($extra['columns_after'])
+           || (empty($extra['BackPrompt']) && count($students_RET)==0)
+           || ( ((isset($extra['Redirect'])&&($extra['Redirect']===false)) || ! empty($_REQUEST['address_group'])) && count($students_RET)==1)
+           )
 	{
 		if ( !isset($_REQUEST['_ROSARIO_PDF']))
 		{

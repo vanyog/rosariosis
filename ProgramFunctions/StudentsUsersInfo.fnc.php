@@ -521,7 +521,7 @@ function _makeStudentAge( $column, $name )
 {
 	global $value;
 
-	if ( $_REQUEST['student_id'] !== 'new'
+        if ( isset($_REQUEST['student_id']) && ($_REQUEST['student_id'] !== 'new')
 		&& date_create( $value[ $column ] ) )
 	{
 		$datetime1 = date_create( $value[ $column ] );
@@ -642,6 +642,7 @@ function _makeStartInput( $value, $column )
 	global $THIS_RET;
 
 	static $add_codes = false;
+	$add = '';
 
 	if ( $THIS_RET['ID'] )
 	{
@@ -687,7 +688,7 @@ function _makeStartInput( $value, $column )
 		}
 	}
 
-	if ( $_REQUEST['student_id'] === 'new' )
+        if ( isset($_REQUEST['student_id']) && ($_REQUEST['student_id'] === 'new') )
 	{
 		$div = false;
 	}
@@ -806,7 +807,7 @@ function _makeSchoolInput( $value, $column )
 	}
 
 	// Mab - allow school to be edited if illegal value.
-	if ( $_REQUEST['student_id'] != 'new' )
+	if ( ! isset($_REQUEST['student_id']) || ($_REQUEST['student_id'] != 'new') )
 	{
 		if ( $id != 'new' )
 		{

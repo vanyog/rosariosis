@@ -47,9 +47,11 @@ function GetStuList( &$extra = array() )
 		Widgets( 'all', $extra );
 	}
 
-	$extra['WHERE'] .= appendSQL( '', $extra );
+        $extra['WHERE'] = appendSQL( '', $extra );
 
 	$extra['WHERE'] .= CustomFields( 'where', 'student', $extra );
+
+        $extra['FROM'] = '';
 
 	if ( ( ! isset( $extra['SELECT_ONLY'] )
 			|| mb_strpos( $extra['SELECT_ONLY'], 'GRADE_ID' ) !== false )
@@ -82,6 +84,7 @@ function GetStuList( &$extra = array() )
 	}
 
 	// Expanded View.
+	$extra['SELECT'] = '';
 	if ( isset( $_REQUEST['expanded_view'] )
 		&& $_REQUEST['expanded_view'] == 'true' )
 	{

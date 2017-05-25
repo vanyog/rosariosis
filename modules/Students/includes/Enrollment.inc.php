@@ -16,7 +16,8 @@ $enrollment_RET = DBGet( DBQuery( "SELECT e.ID,e.ENROLLMENT_CODE,e.START_DATE,e.
 	AND e.SYEAR='" . UserSyear() . "'
 	ORDER BY e.START_DATE" ), $functions );
 
-$add = true;
+$add  = true;
+$link = array();
 
 foreach ( (array) $enrollment_RET as $value )
 {
@@ -84,7 +85,7 @@ foreach ( (array) $gradelevels_RET as $gradelevel )
 	$gradelevel_options[ $gradelevel['ID'] ] = $gradelevel['TITLE'];
 }
 
-if ( $_REQUEST['student_id']!='new' && count($enrollment_RET))
+if ( ( ! isset($_REQUEST['student_id']) || ($_REQUEST['student_id']!='new')) && count($enrollment_RET))
 {
 	$id = $enrollment_RET[count($enrollment_RET)]['ID'];
 

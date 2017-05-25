@@ -53,7 +53,7 @@ function ProperDate( $date, $length = 'long' )
 		return '';
 	}
 
-	$date_exploded = ExplodeDate( (string) $date );
+        $date_exploded = ExplodeDate( (string) $date );
 
 	$comment = '<!-- ' . $date . ' -->';
 
@@ -84,9 +84,9 @@ function ProperDate( $date, $length = 'long' )
 		$pref_month = '%b';
 	}
 	else
-		$pref_month = Preferences( 'MONTH' );
+	        $pref_month = Preferences( 'MONTH' );
 
-	$pref_date = $pref_month . $sep . Preferences( 'DAY' ) . $sep . Preferences( 'YEAR' );
+        $pref_date = $pref_month . $sep . Preferences( 'DAY' ) . $sep . Preferences( 'YEAR' );
 
 	$time = mktime(
 		0,
@@ -131,9 +131,9 @@ function ProperDateTime( $datetime, $length = 'long' )
 		mb_substr( $time, 6, 2 ) + 0
 	);
 
-	$locale_time = strftime( '%X', $time );
+        $locale_time = strftime( '%X', $time );
 
-	$date = mb_substr( $datetime, 0, 10 );
+        $date = mb_substr( $datetime, 0, 10 );
 
 	if ( $length === 'short'
 		&& DBDate() === $date )

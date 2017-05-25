@@ -747,7 +747,7 @@ function CheckRequiredCustomFields( $table, $request_values )
 		WHERE CATEGORY_ID='" . $category_id . "'
 		AND REQUIRED='Y'" ) );
 
-	foreach ( (array) $required_RET as $required )
+        foreach ( (array) $required_RET as $required )
 	{
 		if ( isset( $request_values['CUSTOM_' . $required['ID'] ] )
 			&& empty( $request_values[ 'CUSTOM_' . $required['ID'] ] )
