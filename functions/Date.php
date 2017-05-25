@@ -197,7 +197,7 @@ function PrepareDate( $date, $name_attr = '', $allow_na = true, $options = array
 		return ProperDate( (string) $date );
 	}
 
-	$return = $extraY = $extraM = $extraD = '';
+        $return = $extraY = $extraM = $extraD = '';
 
 	$defaults = array(
 		'Y' => false, // Year.
@@ -213,10 +213,10 @@ function PrepareDate( $date, $name_attr = '', $allow_na = true, $options = array
 	 * If none of the Y|M|D|C options are true
 	 * set them all to true.
 	 */
-	if ( ! $options['Y']
-		&& ! $options['M']
-		&& ! $options['D']
-		&& ! $options['C'] )
+	if ( empty( $options['Y'] )
+	        && empty( $options['M'] )
+		&& empty( $options['D'] )
+		&& empty( $options['C'] ) )
 	{
 		$defaults = array_merge(
 			$defaults,

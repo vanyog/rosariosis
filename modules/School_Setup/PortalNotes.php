@@ -300,6 +300,8 @@ function _makeTextInput( $value, $name )
 		$id = 'new';
 	}
 
+        $extra = '';
+
 	if ( $name !== 'TITLE' )
 	{
 		$extra = 'size=5 maxlength=10';
@@ -327,7 +329,7 @@ function _makeContentInput($value,$name)
 	else
 		$id = 'new';
 
-	$return .= '<div id="divNoteContent' . $id . '" class="rt2colorBox">' .
+        $return = '<div id="divNoteContent' . $id . '" class="rt2colorBox">' .
 		TextAreaInput( $value, "values[" . $id . "][" . $name . "]", '', 'rows=5' ) .
 	'</div>';
 

@@ -184,7 +184,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	echo ErrorMessage( $error, 'error' );
 
-	if ( ! $_REQUEST['new_school'])
+        if ( empty($_REQUEST['new_school']) )
 	{
 		$schooldata = DBGet(DBQuery("SELECT ID,TITLE,ADDRESS,CITY,STATE,ZIPCODE,PHONE,PRINCIPAL,WWW_ADDRESS,SCHOOL_NUMBER,REPORTING_GP_SCALE,SHORT_NAME,NUMBER_DAYS_ROTATION FROM SCHOOLS WHERE ID='".UserSchool()."' AND SYEAR='".UserSyear()."'"));
 		$schooldata = $schooldata[1];
@@ -193,11 +193,11 @@ if ( ! $_REQUEST['modfunc'] )
 	else
 		$school_name = _('Add a School');
 
-	echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=update&new_school='.$_REQUEST['new_school'].'" method="POST">';
+        echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=update&new_school='.@$_REQUEST['new_school'].'" method="POST">';
 
 	//FJ delete school only if more than one school
 	$delete_button = false;
-	if ( $_REQUEST['new_school']!='true' && $_SESSION['SchoolData']['SCHOOLS_NB'] > 1)
+	if ( (!isset($_REQUEST['new_school']) || ($_REQUEST['new_school']!='true')) && $_SESSION['SchoolData']['SCHOOLS_NB'] > 1)
 		$delete_button = true;
 
 	//FJ fix bug: no save button if no admin
@@ -210,52 +210,52 @@ if ( ! $_REQUEST['modfunc'] )
 
 	echo '<table>';
 
-	if ( $_REQUEST['new_school']!='true')
+        if ( !isset($_REQUEST['new_school']) || ($_REQUEST['new_school']!='true') )
 		echo '<tr><td colspan="3">'.(file_exists('assets/school_logo_'.UserSchool().'.jpg') ? '<img src="assets/school_logo_'.UserSchool().'.jpg" style="max-width:225px; max-height:225px;" /><br /><span class="legend-gray">'._('School logo').'</span>' : '').'</td></tr>';
 
 	//FJ school name field required
 	echo '<tr><td colspan="3">' . TextInput(
-		$schooldata['TITLE'],
+	        @$schooldata['TITLE'],
 		'values[TITLE]',
 		_( 'School Name' ),
 		'required maxlength=100'
 	) . '</td></tr>';
 
 	echo '<tr><td colspan="3">' . TextInput(
-		$schooldata['ADDRESS'],
+	        @$schooldata['ADDRESS'],
 		'values[ADDRESS]',
 		_( 'Address' ),
 		'maxlength=100'
 	) . '</td></tr>';
 
 	echo '<tr><td>' . TextInput(
-		$schooldata['CITY'],
+	        @$schooldata['CITY'],
 		'values[CITY]',
 		_( 'City' ),
 		'maxlength=100'
 	) . '</td><td>' .
 	TextInput(
-		$schooldata['STATE'],
+	        @$schooldata['STATE'],
 		'values[STATE]',
 		_( 'State' ),
 		'maxlength=10'
 	) . '</td><td>' .
 	TextInput(
-		$schooldata['ZIPCODE'],
+	        @$schooldata['ZIPCODE'],
 		'values[ZIPCODE]',
 		_( 'Zip' ),
 		'maxlength=10'
 	) . '</td></tr>';
 
 	echo '<tr><td colspan="3">' . TextInput(
-		$schooldata['PHONE'],
+	        @$schooldata['PHONE'],
 		'values[PHONE]',
 		_( 'Phone' ),
 		'maxlength=30'
 	) . '</td></tr>';
 
 	echo '<tr><td colspan="3">' . TextInput(
-		$schooldata['PRINCIPAL'],
+	        @$schooldata['PRINCIPAL'],
 		'values[PRINCIPAL]',
 		_( 'Principal of School' ),
 		'maxlength=100'
@@ -265,7 +265,7 @@ if ( ! $_REQUEST['modfunc'] )
 		|| ! $schooldata['WWW_ADDRESS'] )
 	{
 		echo '<tr><td colspan="3">' . TextInput(
-			$schooldata['WWW_ADDRESS'],
+		        @$schooldata['WWW_ADDRESS'],
 			'values[WWW_ADDRESS]',
 			_( 'Website' ),
 			'maxlength=100'
@@ -274,32 +274,32 @@ if ( ! $_REQUEST['modfunc'] )
 	else
 	{
 		$school_link = mb_strpos( $schooldata['WWW_ADDRESS'], 'http' ) === 0 ?
-			$schooldata['WWW_ADDRESS'] :
+		        @$schooldata['WWW_ADDRESS'] :
 			'http://' . $schooldata['WWW_ADDRESS'];
 
 		echo '<tr><td colspan="3">
 			<a href="' . $school_link . '" target="_blank">' .
-			$schooldata['WWW_ADDRESS'] .
+			@$schooldata['WWW_ADDRESS'] .
 			'</a><br />
 			<span class="legend-gray">' . _( 'Website' ) . '</span></td></tr>';
 	}
 
 	echo '<tr><td colspan="3">' . TextInput(
-		$schooldata['SHORT_NAME'],
+	        @$schooldata['SHORT_NAME'],
 		'values[SHORT_NAME]',
 		_( 'Short Name' ),
 		'maxlength=25'
 	) . '</td></tr>';
 
 	echo '<tr><td colspan="3">' . TextInput(
-		$schooldata['SCHOOL_NUMBER'],
+	        @$schooldata['SCHOOL_NUMBER'],
 		'values[SCHOOL_NUMBER]',
 		_( 'School Number' ),
 		'maxlength=100'
 	) . '</td></tr>';
 
 	echo '<tr><td colspan="3">' . TextInput(
-		$schooldata['REPORTING_GP_SCALE'],
+	        @$schooldata['REPORTING_GP_SCALE'],
 		'values[REPORTING_GP_SCALE]',
 		_( 'Base Grading Scale' ),
 		'maxlength=10 required'
@@ -308,7 +308,7 @@ if ( ! $_REQUEST['modfunc'] )
 	if ( AllowEdit() )
 	{
 		echo '<tr><td colspan="3">' . TextInput(
-			$schooldata['NUMBER_DAYS_ROTATION'],
+		        @$schooldata['NUMBER_DAYS_ROTATION'],
 			'values[NUMBER_DAYS_ROTATION]',
 			_( 'Number of Days for the Rotation' ) .
 				'<div class="tooltip"><i>' .
@@ -342,8 +342,9 @@ if ( ! $_REQUEST['modfunc'] )
 	foreach ( (array) $fields_RET as $field )
 	{
 		$value_custom = '';
+		$div = false;
 
-		if ( $_REQUEST['new_school'] !== 'true' )
+                if ( !isset($_REQUEST['new_school']) || ($_REQUEST['new_school'] !== 'true') )
 		{
 			$value_custom = DBGet( DBQuery( "SELECT CUSTOM_" . $field['ID'] . "
 				FROM SCHOOLS

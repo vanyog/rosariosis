@@ -977,6 +977,7 @@ if ( ! $_REQUEST['modfunc'] )
 			AND SYEAR='" . UserSyear() . "'
 			ORDER BY DEFAULT_CALENDAR ASC,TITLE" ) );
 
+                $defaults = 0;
 		foreach ( (array) $title_RET as $title )
 		{
 			$options[$title['CALENDAR_ID']] = $title['TITLE'] . ( $title['DEFAULT_CALENDAR']=='Y' ? ' (' . _( 'Default' ) . ')' : '' );
@@ -1083,7 +1084,7 @@ if ( ! $_REQUEST['modfunc'] )
 </script>
 <?php
 
-	if ( $_REQUEST['_ROSARIO_PDF'] )
+        if ( !empty($_REQUEST['_ROSARIO_PDF']) )
 	{
 		// Landscape PDF.
 		$_SESSION['orientation'] = 'landscape';
@@ -1137,7 +1138,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$day_classes = '';
 
-		if ( $calendar_RET[ $date ][1]['MINUTES'] )
+                if ( !empty($calendar_RET[ $date ][1]['MINUTES']) )
 		{
 			// Full School Day.
 			if ( $calendar_RET[ $date ][1]['MINUTES'] === '999' )
@@ -1176,7 +1177,7 @@ if ( ! $_REQUEST['modfunc'] )
 		$day_number_classes = 'number';
 
 		// Bold class
-		if ( count( $events_RET[ $date ] )
+		if ( ( isset($events_RET[ $date ]) && count( $events_RET[ $date ] ) )
 			|| count( $assignments_RET[ $date ] ) )
 		{
 			$day_number_classes .= ' bold';
@@ -1189,7 +1190,7 @@ if ( ! $_REQUEST['modfunc'] )
 		if ( AllowEdit() )
 		{
 			// Minutes
-			if ( $calendar_RET[ $date ][1]['MINUTES'] === '999' )
+			if ( isset($calendar_RET[ $date ][1]['MINUTES']) && ($calendar_RET[ $date ][1]['MINUTES'] === '999') )
 			{
 				//FJ icons
 				echo CheckboxInput(
@@ -1204,7 +1205,7 @@ if ( ! $_REQUEST['modfunc'] )
 					'title="' . _( 'All Day' ) . '"'
 				);
 			}
-			elseif ( $calendar_RET[ $date ][1]['MINUTES'] )
+			elseif ( !empty($calendar_RET[ $date ][1]['MINUTES']) )
 			{
 				echo TextInput( $calendar_RET[ $date ][1]['MINUTES'], "minutes[" . $date . "]", '', 'size=3' );
 			}
@@ -1234,7 +1235,7 @@ if ( ! $_REQUEST['modfunc'] )
 		<tr><td colspan="2" class="calendar-event valign-top">';
 
 		// Events.
-		foreach ( (array) $events_RET[ $date ] as $event )
+		if(isset($events_RET[ $date ])) foreach ( (array) $events_RET[ $date ] as $event )
 		{
 			$title = ( $event['TITLE'] ? $event['TITLE'] : '***' );
 

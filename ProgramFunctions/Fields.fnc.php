@@ -293,6 +293,7 @@ function GetFieldsForm( $table, $title, $RET, $extra_category_fields = array(), 
 
 	$form .= '&table=' . $full_table . '" method="POST">';
 
+        $delete_button = '';
 	if ( AllowEdit()
 		&& ! $new
 		&& ( $id
@@ -316,6 +317,13 @@ function GetFieldsForm( $table, $title, $RET, $extra_category_fields = array(), 
 	$form .= ob_get_clean();
 
 	$header = '<table class="width-100p valign-top fixed-col"><tr class="st">';
+
+        if( ! isset($RET['TITLE']) )           $RET['TITLE'] = '';
+        if( ! isset($RET['TYPE']) )            $RET['TYPE'] = '';
+        if( ! isset($RET['SELECT_OPTIONS']) )  $RET['SELECT_OPTIONS'] = '';
+        if( ! isset($RET['DEFAULT_SELECTION']) )  $RET['DEFAULT_SELECTION'] = '';
+        if( ! isset($RET['REQUIRED']) )        $RET['REQUIRED'] = '';
+        if( ! isset($RET['SORT_ORDER']) )      $RET['SORT_ORDER'] = '';
 
 	if ( $id )
 	{

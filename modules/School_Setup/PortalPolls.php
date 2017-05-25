@@ -229,6 +229,7 @@ if ( ! $_REQUEST['modfunc'] )
 function _makeTextInput( $value, $name )
 {
 	global $THIS_RET;
+	$extra = '';
 
 	if ( $THIS_RET['ID'] )
 	{
@@ -272,6 +273,7 @@ function _makeOptionsInput($value,$name)
 		$portal_poll_id = 'new';
 		$id = 'new'.$OptionNb;
 	}
+	$old_portal_poll_id = '';
 	if ( $portal_poll_id == $old_portal_poll_id)
 		$OptionNb++;
 	$old_portal_poll_id = $portal_poll_id;
@@ -304,6 +306,7 @@ function _makeOptionsInput($value,$name)
 
 function _makeOptionsInputs($value,$name)
 {	global $THIS_RET,$questions_RET;
+        $return = '';
 
 	$value = '';
 	if ( $THIS_RET['ID'])

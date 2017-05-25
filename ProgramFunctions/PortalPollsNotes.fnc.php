@@ -436,6 +436,7 @@ function makePublishingVisibleTo($profiles, $THIS_RET, $id)
 function makeFileAttached($value,$name)
 {	global $THIS_RET, $PortalNotesFilesPath;
 	static $filesAttachedCount = 0;
+	$return = '';
 
 	if ( $THIS_RET['ID'])
 	{

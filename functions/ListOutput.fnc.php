@@ -544,7 +544,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 		if ( $options['search']
 			&& ! isset( $_REQUEST['_ROSARIO_PDF'] )
 			&& ( $result_count > 0
-				|| $_REQUEST['LO_search'] ) )
+			        || !empty($_REQUEST['LO_search']) ) )
 		{
 			echo '<td class="align-right">';
 
@@ -567,7 +567,9 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 	}
 	// END SEARCH BOX & MORE HEADERS ---.
 
-	if ( $result_count > 0 )
+        if( ! isset($link['add']['title']) ) $link['add']['title'] = '';
+
+        if ( $result_count > 0 )
 	{
 		echo '<div style="overflow-x:auto;"><table class="list widefat' .
 			( $options['responsive'] && ! isset( $_REQUEST['_ROSARIO_PDF'] ) ? ' rt' : '' ) .
@@ -675,7 +677,10 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 			if ( $remove && !isset($_REQUEST['_ROSARIO_PDF']))
 			{
-				$button_title = $link['remove']['title'];
+			        if(isset($link['remove']['title']))
+				    $button_title = $link['remove']['title'];
+				else
+				    $button_title = '';
 				$button_link = $link['remove']['link'];
 				if (count($link['remove']['variables']))
 				{
@@ -759,7 +764,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 			elseif (isset($link['add']['html']) && $cols)
 			{
 				echo '<tr>';
-				if ( $remove && !isset($_REQUEST['_ROSARIO_PDF']) && $link['add']['html']['remove'])
+				if ( $remove && !isset($_REQUEST['_ROSARIO_PDF']) && !empty($link['add']['html']['remove']))
 					echo '<td>'.$link['add']['html']['remove'].'</td>';
 				elseif ( $remove && !isset($_REQUEST['_ROSARIO_PDF']))
 					echo '<td>'.button('add').'</td>';
@@ -784,7 +789,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 	// NO RESULTS, BUT HAS ADD FIELDS ---.
 	if ( $result_count == 0 )
 	{
-		if ( $link['add']['link']
+	        if ( !empty($link['add']['link'])
 			&& ! isset( $_REQUEST['_ROSARIO_PDF'] ) )
 		{
 			echo '<div class="center">' .
@@ -818,7 +823,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 				echo '<tbody><tr>';
 
-				if ( $link['add']['html']['remove'])
+                                if ( !empty($link['add']['html']['remove']) )
 					echo '<td>'.$link['add']['html']['remove'].'</td>';
 				else
 					echo '<td>'.button('add').'</td>';

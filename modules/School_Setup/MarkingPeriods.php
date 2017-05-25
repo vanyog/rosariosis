@@ -11,6 +11,10 @@ if ( ! isset( $_REQUEST['marking_period_id'] )
 	$_REQUEST['mp_term'] = 'FY';
 }
 
+if( ! isset($_REQUEST['year_id']) )     $_REQUEST['year_id'] = '';
+if( ! isset($_REQUEST['semester_id']) ) $_REQUEST['semester_id'] = '';
+if( ! isset($_REQUEST['quarter_id']) )  $_REQUEST['quarter_id'] = '';
+
 //unset($_SESSION['_REQUEST_vars']['marking_period_id']);
 //unset($_SESSION['_REQUEST_vars']['mp_term']);
 
@@ -437,6 +441,8 @@ if ( ! $_REQUEST['modfunc'] )
 	echo '<form action="' . $mp_href . '" method="POST">';
 
 	DrawHeader( $title, $delete_button . SubmitButton( _( 'Save' ) ) );
+
+        if( ! isset($header) ) $header = '';
 
 	$header .= '<table class="width-100p valign-top fixed-col"><tr class="st">';
 

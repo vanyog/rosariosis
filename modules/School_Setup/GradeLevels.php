@@ -101,6 +101,7 @@ function _makeTextInput( $value, $name )
 		$id = 'new';
 	}
 
+        $extra = '';
 	if ( $name !== 'TITLE' )
 	{
 		$extra = 'size=5 maxlength=2';
@@ -118,7 +119,7 @@ function _makeTextInput( $value, $name )
 	}
 
 	return $comment .
-		TextInput( $value, 'values[' . $id . '][' . $name . ']', '', $extra );
+	        TextInput( $value, 'values[' . $id . '][' . $name . ']', '', $extra );
 }
 
 function _makeGradeInput( $value, $name )

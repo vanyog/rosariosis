@@ -112,8 +112,9 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	echo ErrorMessage( $error );
 
-	// ADDING & EDITING FORM.
-	if ( $_REQUEST['id']
+        // ADDING & EDITING FORM.
+        $RET = array('ID'=>0, 'CATEGORY_ID'=>0);
+        if ( !empty($_REQUEST['id'])
 		&& $_REQUEST['id'] !== 'new' )
 	{
 		$RET = DBGet( DBQuery( "SELECT ID,(SELECT NULL) AS CATEGORY_ID,TITLE,TYPE,
@@ -125,7 +126,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$title = ParseMLField( $RET['TITLE'] );
 	}
-	elseif ( $_REQUEST['id'] === 'new' )
+	elseif ( isset($_REQUEST['id']) && ($_REQUEST['id'] === 'new') )
 	{
 		$title = _( 'New School Field' );
 
@@ -147,7 +148,8 @@ if ( ! $_REQUEST['modfunc'] )
 
 	echo '<div class="st">';
 
-	FieldsMenuOutput( $fields_RET, $_REQUEST['id'], false );
+        if( ! isset($_REQUEST['id']) ) $_REQUEST['id'] = '';
+        FieldsMenuOutput( $fields_RET, $_REQUEST['id'], false );
 
 	echo '</div>';
 }
