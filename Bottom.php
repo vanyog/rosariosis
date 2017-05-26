@@ -171,6 +171,7 @@ else : ?>
 			&& ( User( 'PROFILE' ) === 'admin'
 				|| User( 'PROFILE' ) === 'teacher' ) ) :
 
+                        if( ! isset( $_SESSION['Back_PHP_SELF']) )  $_SESSION['Back_PHP_SELF'] = '';
 			switch ( $_SESSION['Back_PHP_SELF'] )
 			{
 				case 'student':

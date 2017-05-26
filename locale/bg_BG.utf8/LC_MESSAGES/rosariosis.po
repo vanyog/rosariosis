@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-25 13:16+0300\n"
+"PO-Revision-Date: 2017-05-26 18:18+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -1289,7 +1289,7 @@ msgstr ""
 #: modules/misc/Export.php:439
 #, php-format
 msgid "%s ID"
-msgstr ""
+msgstr "%s Ид. номера"
 
 #: functions/GetStuList.fnc.php:1186 functions/Search.fnc.php:187
 #: modules/Attendance/Percent.php:108 modules/Attendance/Percent.php:141
@@ -1503,7 +1503,7 @@ msgstr ""
 #: modules/Grades/ReportCardCommentCodes.php:159
 #: modules/Students/EnrollmentCodes.php:91
 msgid "ID"
-msgstr ""
+msgstr "Ид.номер"
 
 #: functions/Search.fnc.php:154 modules/School_Setup/CopySchool.php:11
 #: modules/School_Setup/Menu.php:21
@@ -1513,7 +1513,7 @@ msgstr "Нива на обучение"
 #: functions/Search.fnc.php:156 functions/Widgets.fnc.php:1496
 #: functions/Widgets.fnc.php:1508
 msgid "Not"
-msgstr ""
+msgstr "Не"
 
 #: functions/Search.fnc.php:158
 msgid "Check All"
