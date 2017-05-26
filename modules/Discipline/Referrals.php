@@ -101,7 +101,7 @@ Widgets( 'discipline_fields' );
 
 $extra['SELECT'] = ',dr.*';
 
-if (mb_strpos($extra['FROM'],'DISCIPLINE_REFERRALS')===false)
+if (isset($extra['FROM']) && (mb_strpos($extra['FROM'],'DISCIPLINE_REFERRALS')===false) )
 {
 	$extra['FROM'] .= ',DISCIPLINE_REFERRALS dr ';
 	$extra['WHERE'] .= ' AND dr.STUDENT_ID=ssm.STUDENT_ID AND dr.SYEAR=ssm.SYEAR AND dr.SCHOOL_ID=ssm.SCHOOL_ID ';
@@ -130,8 +130,8 @@ $extra['link']['remove']['variables'] = array('id' => 'ID');
 // Parent: associated students.
 $extra['ASSOCIATED'] = User( 'STAFF_ID' );
 
-if ( ! $_REQUEST['modfunc']
-	&& $_REQUEST['referral_id'] )
+if ( false || ! $_REQUEST['modfunc']
+        && ! empty($_REQUEST['referral_id']) )
 {
 
 	// FJ prevent referral ID hacking.
@@ -426,10 +426,10 @@ if ( ! $_REQUEST['modfunc']
 
 echo ErrorMessage( $error );
 
-if ( ! $_REQUEST['referral_id']
+if ( empty($_REQUEST['referral_id'])
 	&& ! $_REQUEST['modfunc'] )
 {
-	Search( 'student_id', $extra );
+        Search( 'student_id', $extra );
 }
 
 function _make( $value, $column )

@@ -54,6 +54,7 @@ function Widgets( $item, &$myextra = null )
 		return false;
 	}
 
+        if( ! isset($extra['search']) ) $extra['search'] = '';
 	switch ( $item )
 	{
 		// All Widgets (or almost).
@@ -1063,7 +1064,7 @@ function Widgets( $item, &$myextra = null )
 				AND (PROFILE='admin' OR PROFILE='teacher')
 				ORDER BY LAST_NAME,FIRST_NAME,MIDDLE_NAME"), array(), array( 'STAFF_ID' ) );
 
-			if ( $_REQUEST['discipline_reporter'] )
+                        if ( ! empty($_REQUEST['discipline_reporter']) )
 			{
 				if ( mb_strpos( $extra['FROM'], 'DISCIPLINE_REFERRALS' ) === false )
 				{
@@ -1277,9 +1278,9 @@ function Widgets( $item, &$myextra = null )
 				}*/
 			}
 
-			if ( ( count( $_REQUEST['discipline'] )
-					|| count( $_REQUEST['discipline_begin'] )
-					|| count( $_REQUEST['discipline_end'] ) )
+                        if ( ( (isset($_REQUEST['discipline']) && count($_REQUEST['discipline']))
+                                        || (isset($_REQUEST['discipline_begin']) && count($_REQUEST['discipline_begin']))
+                                        || (isset($_REQUEST['discipline_end'])   && count($_REQUEST['discipline_end'])) )
 				&& mb_strpos( $extra['FROM'], 'DISCIPLINE_REFERRALS' ) === false )
 			{
 				$extra['WHERE'] .= ' AND dr.STUDENT_ID=ssm.STUDENT_ID
@@ -1307,7 +1308,7 @@ function Widgets( $item, &$myextra = null )
 
 						$extra['search'] .= '<input type="text" name="discipline[' . $category['ID'] . ']" size="24" maxlength="255" />';
 
-						if ( $_REQUEST['discipline'][$category['ID']] )
+                                                if ( ! empty($_REQUEST['discipline'][$category['ID']]) )
 						{
 							$extra['WHERE'] .= " AND dr.CATEGORY_" . $category['ID'] .
 								" LIKE '" . $_REQUEST['discipline'][$category['ID']] . "%' ";
@@ -1325,7 +1326,7 @@ function Widgets( $item, &$myextra = null )
 
 						$extra['search'] .= '<input type="checkbox" name="discipline[' . $category['ID'] . ']" value="Y" />';
 
-						if ( $_REQUEST['discipline'][$category['ID']] )
+                                                if ( !empty($_REQUEST['discipline'][$category['ID']]) )
 						{
 							$extra['WHERE'] .= " AND dr.CATEGORY_" . $category['ID'] . "='Y' ";
 
@@ -1377,7 +1378,7 @@ function Widgets( $item, &$myextra = null )
 
 						$extra['search'] .= '</select>';
 
-						if ( $_REQUEST['discipline'][$category['ID']] )
+                                                if ( ! empty($_REQUEST['discipline'][$category['ID']]) )
 						{
 							if ( $category['DATA_TYPE'] == 'multiple_radio'
 								|| $category['DATA_TYPE'] == 'select' )
@@ -1694,7 +1695,7 @@ function Widgets( $item, &$myextra = null )
 				break;
 			}
 
-			if ( $_REQUEST['fsa_discount'] )
+                        if ( ! empty($_REQUEST['fsa_discount']) )
 			{
 				if ( ! mb_strpos($extra['FROM'], 'fssa' ) )
 				{
@@ -1717,6 +1718,7 @@ function Widgets( $item, &$myextra = null )
 				}
 			}
 
+                        if( ! isset($extra['search']) ) $extra['search'] = '';
 			$extra['search'] .= '<tr class="st"><td>' . _( 'Discount' ) . '</td><td>
 			<select name="fsa_discount">
 			<option value="">' . _( 'Not Specified' ) . '</option>
@@ -1742,7 +1744,7 @@ function Widgets( $item, &$myextra = null )
 				break;
 			}
 
-			if ( $_REQUEST['fsa_status'] )
+                        if ( ! empty($_REQUEST['fsa_status']) )
 			{
 				if ( ! mb_strpos( $extra['FROM'], 'fssa' ) )
 				{
@@ -1768,7 +1770,7 @@ function Widgets( $item, &$myextra = null )
 			$extra['search'] .= '<tr class="st"><td>' . _( 'Account Status' ) . '</td><td>
 			<select name="fsa_status">
 			<option value="">' . _( 'Not Specified' ) . '</option>
-			<option value="Active"' . ( $value == 'active' ? ' selected' : '' ) . '>' . _( 'Active' ) . '</option>
+			<option value="Active"' . ( isset($value) && ($value == 'active') ? ' selected' : '' ) . '>' . _( 'Active' ) . '</option>
 			<option value="Inactive">' . _( 'Inactive' ) . '</option>
 			<option value="Disabled">' . _( 'Disabled' ) . '</option>
 			<option value="Closed">' . _( 'Closed' ) . '</option>
@@ -1785,7 +1787,7 @@ function Widgets( $item, &$myextra = null )
 				break;
 			}
 
-			if ( $_REQUEST['fsa_barcode'] )
+                        if ( ! empty($_REQUEST['fsa_barcode']) )
 			{
 				if ( !mb_strpos( $extra['FROM'], 'fssa' ) )
 				{
@@ -1819,7 +1821,7 @@ function Widgets( $item, &$myextra = null )
 				break;
 			}
 
-			if ( is_numeric( $_REQUEST['fsa_account_id'] ) )
+                        if ( isset($_REQUEST['fsa_account_id']) && is_numeric( $_REQUEST['fsa_account_id'] ) )
 			{
 				if ( ! mb_strpos( $extra['FROM'], 'fssa' ) )
 				{

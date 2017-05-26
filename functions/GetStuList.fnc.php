@@ -47,11 +47,11 @@ function GetStuList( &$extra = array() )
 		Widgets( 'all', $extra );
 	}
 
-        $extra['WHERE'] = appendSQL( '', $extra );
+        $extra['WHERE'] .= appendSQL( '', $extra );
 
 	$extra['WHERE'] .= CustomFields( 'where', 'student', $extra );
 
-        $extra['FROM'] = '';
+        if( ! isset($extra['FROM']) ) $extra['FROM'] = '';
 
 	if ( ( ! isset( $extra['SELECT_ONLY'] )
 			|| mb_strpos( $extra['SELECT_ONLY'], 'GRADE_ID' ) !== false )
@@ -84,7 +84,7 @@ function GetStuList( &$extra = array() )
 	}
 
 	// Expanded View.
-	$extra['SELECT'] = '';
+	if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 	if ( isset( $_REQUEST['expanded_view'] )
 		&& $_REQUEST['expanded_view'] == 'true' )
 	{
@@ -430,11 +430,11 @@ function GetStuList( &$extra = array() )
 
 	switch ( User( 'PROFILE' ) )
 	{
-		case 'admin':
+	        case 'admin':
 
 			// Get Search All Schools option.
 			$is_search_all_schools = isset( $_REQUEST['_search_all_schools'] )
-				&& $_REQUEST['_search_all_schools'] == 'Y';
+			        && ($_REQUEST['_search_all_schools'] == 'Y');
 
 			// Normal SELECT.
 			if ( ! $is_select_only )
@@ -664,8 +664,8 @@ function GetStuList( &$extra = array() )
 		echo '<!--' . $sql . '-->';
 	}
 
-	// Execute Query & return.
-    if( !isset($extra['group']) ) $extra['group'] = array();
+        // Execute Query & return.
+        if( !isset($extra['group']) ) $extra['group'] = array();
 	return DBGet( DBQuery( $sql ), $functions, $extra['group'] );
 }
 

@@ -742,8 +742,8 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 							echo '<td class="highlight">';
 						else
 							echo '<td>';
-						echo $item[ $key ];
-						if ( ! $item[ $key ])
+						if( isset($item[ $key ]) ) echo $item[ $key ];
+						if ( empty($item[ $key ]) )
 							echo '&nbsp;';
 						echo '</td>';
 					}

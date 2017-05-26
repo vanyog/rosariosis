@@ -69,6 +69,10 @@ Widgets('fsa_status');
 Widgets('fsa_barcode');
 Widgets('fsa_account_id');
 
+if( ! isset( $extra['SELECT'] ) ) $extra['SELECT'] = '';
+if( ! isset( $extra['FROM'] ) )   $extra['FROM'] = '';
+if( ! isset( $extra['WHERE'] ) )  $extra['WHERE'] = '';
+
 $extra['SELECT'] .= ",coalesce(fssa.STATUS,'" . DBEscapeString( _( 'Active' ) ) . "') AS STATUS";
 $extra['SELECT'] .= ",(SELECT BALANCE FROM FOOD_SERVICE_ACCOUNTS WHERE ACCOUNT_ID=fssa.ACCOUNT_ID) AS BALANCE";
 if ( !mb_strpos($extra['FROM'],'fssa'))
@@ -95,7 +99,7 @@ if (UserStudentID() && ! $_REQUEST['modfunc'])
 	WHERE fssa.ACCOUNT_ID='".$student['ACCOUNT_ID']."'
 	AND s.STUDENT_ID=fssa.STUDENT_ID
 	AND s.STUDENT_ID!='".UserStudentID()."'".
-	($_REQUEST['include_inactive']?'':" AND exists(SELECT '' FROM STUDENT_ENROLLMENT WHERE STUDENT_ID=s.STUDENT_ID AND SYEAR='".UserSyear()."' AND (START_DATE<=CURRENT_DATE AND (END_DATE IS NULL OR CURRENT_DATE<=END_DATE)))")));
+	(! empty( $_REQUEST['include_inactive'] )?'':" AND exists(SELECT '' FROM STUDENT_ENROLLMENT WHERE STUDENT_ID=s.STUDENT_ID AND SYEAR='".UserSyear()."' AND (START_DATE<=CURRENT_DATE AND (END_DATE IS NULL OR CURRENT_DATE<=END_DATE)))")));
 
 	echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=update" method="POST">';
 

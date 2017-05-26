@@ -75,7 +75,7 @@ DrawHeader( $welcome );
 // Discipline alerts.
 if ( $RosarioModules['Discipline'] )
 {
-	require_once 'modules/Discipline/includes/PortalAlerts.fnc.php';
+        require_once 'modules/Discipline/includes/PortalAlerts.fnc.php';
 }
 
 // Do portal_alerts hook.
@@ -95,7 +95,7 @@ switch ( User( 'PROFILE' ) )
 			echo ErrorMessage( $PHPCheck, 'warning' );
 		}
 
-		require_once 'ProgramFunctions/PortalPollsNotes.fnc.php';
+                require_once 'ProgramFunctions/PortalPollsNotes.fnc.php';
 //FJ file attached to portal notes
 //FJ fix bug Portal Notes not displayed when pn.START_DATE IS NULL
 //        $notes_RET = DBGet(DBQuery("SELECT s.TITLE AS SCHOOL,date(pn.PUBLISHED_DATE) AS PUBLISHED_DATE,'<b>'||pn.TITLE||'</b>' AS TITLE,pn.CONTENT FROM PORTAL_NOTES pn,SCHOOLS s,STAFF st WHERE pn.SYEAR='".UserSyear()."' AND pn.START_DATE<=CURRENT_DATE AND (pn.END_DATE>=CURRENT_DATE OR pn.END_DATE IS NULL) AND st.STAFF_ID='".User('STAFF_ID')."' AND (st.SCHOOLS IS NULL OR position(','||pn.SCHOOL_ID||',' IN st.SCHOOLS)>0) AND (st.PROFILE_ID IS NULL AND position(',admin,' IN pn.PUBLISHED_PROFILES)>0 OR st.PROFILE_ID IS NOT NULL AND position(','||st.PROFILE_ID||',' IN pn.PUBLISHED_PROFILES)>0) AND s.ID=pn.SCHOOL_ID AND s.SYEAR=pn.SYEAR ORDER BY pn.SORT_ORDER,pn.PUBLISHED_DATE DESC"),array('PUBLISHED_DATE' => 'ProperDate','CONTENT' => '_formatContent'));
@@ -215,7 +215,7 @@ switch ( User( 'PROFILE' ) )
 
 				ListOutput($RET,array('SCHOOL_DATE' => _('Date'),'TITLE' => _('Period').' '._('Days').' - '._('Short Name').' - '._('Teacher'),'SCHOOL' => _('School')),'Course Period with missing attendance data','Course Periods with missing attendance data',array(),array('COURSE_PERIOD_ID'),array('save'=>false,'search'=>false));
 //				echo '';
-			}
+                        }
 		}
 		}
 
@@ -245,12 +245,12 @@ switch ( User( 'PROFILE' ) )
 			}
 		}
 
-		echo '<p>&nbsp;'._('Happy administrating...').'</p>';
+                echo '<p>&nbsp;'._('Happy administrating...').'</p>';
 	break;
 
 	case 'teacher':
 
-		require_once 'ProgramFunctions/PortalPollsNotes.fnc.php';
+                require_once 'ProgramFunctions/PortalPollsNotes.fnc.php';
 //FJ fix bug Portal Notes not displayed when pn.START_DATE IS NULL
 //        $notes_RET = DBGet(DBQuery("SELECT s.TITLE AS SCHOOL,date(pn.PUBLISHED_DATE) AS PUBLISHED_DATE,'<b>'||pn.TITLE||'</b>' AS TITLE,pn.CONTENT FROM PORTAL_NOTES pn,SCHOOLS s,STAFF st WHERE pn.SYEAR='".UserSyear()."' AND pn.START_DATE<=CURRENT_DATE AND (pn.END_DATE>=CURRENT_DATE OR pn.END_DATE IS NULL) AND st.STAFF_ID='".User('STAFF_ID')."' AND (st.SCHOOLS IS NULL OR position(','||pn.SCHOOL_ID||',' IN st.SCHOOLS)>0) AND (st.PROFILE_ID IS NULL AND position(',teacher,' IN pn.PUBLISHED_PROFILES)>0 OR st.PROFILE_ID IS NOT NULL AND position(','||st.PROFILE_ID||',' IN pn.PUBLISHED_PROFILES)>0) AND s.ID=pn.SCHOOL_ID AND s.SYEAR=pn.SYEAR ORDER BY pn.SORT_ORDER,pn.PUBLISHED_DATE DESC"),array('PUBLISHED_DATE' => 'ProperDate','CONTENT' => '_formatContent'));
         $notes_RET = DBGet(DBQuery("SELECT s.TITLE AS SCHOOL,date(pn.PUBLISHED_DATE) AS PUBLISHED_DATE,'<b>'||pn.TITLE||'</b>' AS TITLE,pn.CONTENT,pn.FILE_ATTACHED,pn.ID

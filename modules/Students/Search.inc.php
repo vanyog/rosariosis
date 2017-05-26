@@ -7,7 +7,7 @@ if ( empty( $_REQUEST['search_modfunc'] ) )
 	//if (UserStudentID() && User('PROFILE')!='parent' && User('PROFILE')!='student' && ($_REQUEST['modname']!='Students/Search.php' || $_REQUEST['student_id']=='new'))
 	switch (User('PROFILE'))
 	{
-		case 'admin':
+	        case 'admin':
 		case 'teacher':
 			//if ( $_SESSION['student_id'] && ($_REQUEST['modname']!='Students/Search.php' || $_REQUEST['student_id']=='new'))
 			if ( UserStudentID()
@@ -27,14 +27,15 @@ if ( empty( $_REQUEST['search_modfunc'] ) )
 
 			PopTable(
 				'header',
-				$extra['search_title'] ? $extra['search_title'] : _( 'Find a Student' )
+				! empty($extra['search_title']) ? $extra['search_title'] : _( 'Find a Student' )
 			);
 
+                        if( ! isset( $extra['action'] ) ) $extra['action'] = '';
 			echo '<form name="search" id="search" action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc='.$_REQUEST['modfunc'].'&search_modfunc=list&next_modname='.$_REQUEST['next_modname'].'&advanced='.$_REQUEST['advanced'].$extra['action'].'" method="GET">';
 
 			echo '<table class="width-100p col1-align-right" id="general_table">';
 
-			Search( 'general_info', $extra['grades'] );
+                        Search( 'general_info', @$extra['grades'] );
 
 			if ( !isset( $extra ) )
 				$extra = array();
@@ -86,10 +87,10 @@ if ( empty( $_REQUEST['search_modfunc'] ) )
 				if ( $extra['search'] )
 					echo $extra['search'];
 
-				if ( $extra['extra_search'] )
+                                if ( ! empty($extra['extra_search']) )
 					echo $extra['extra_search'];
 
-				if ( $extra['second_col'] )
+                                if ( ! empty($extra['second_col']) )
 					echo $extra['second_col'];
 
 				echo '</table><br />';
@@ -184,7 +185,7 @@ else
 		$extra['group'] = $extra['LO_group'] = array('FAMILY_ID');
 	}
 
-	$students_RET = GetStuList($extra);
+        $students_RET = GetStuList($extra);
 
         if ( ! empty($extra['array_function']) && function_exists($extra['array_function']))
 		if ( $_REQUEST['address_group'])

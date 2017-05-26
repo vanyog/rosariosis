@@ -28,7 +28,7 @@ function Search( $type, $extra = null )
 
 	switch ( (string) $type )
 	{
-		case 'student_id':
+	        case 'student_id':
 
 			if ( ( isset( $_REQUEST['bottom_back'] )
 					&& $_REQUEST['bottom_back'] == true )
@@ -60,7 +60,7 @@ function Search( $type, $extra = null )
 				}
 			}
 			elseif ( ! UserStudentID()
-				|| $extra['new'] == true )
+			        || (isset($extra['new']) && ($extra['new'] == true) ) )
 			{
 				if ( UserStudentID() )
 				{
