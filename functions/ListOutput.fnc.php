@@ -771,7 +771,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 				foreach ( (array) $column_names as $key => $value)
 				{
-					echo '<td>'.$link['add']['html'][ $key ].'</td>';
+				        echo '<td>'.(isset($link['add']['html'][ $key ])?$link['add']['html'][ $key ]:'').'</td>';
 				}
 				echo '</tr>';
 			}
@@ -830,7 +830,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 				foreach ( (array) $column_names as $key => $value)
 				{
-					echo '<td>'.$link['add']['html'][ $key ].'</td>';
+				        echo '<td>'.(isset($link['add']['html'][ $key ])?$link['add']['html'][ $key ]:'').'</td>';
 				}
 				echo '</tr></tbody>';
 				echo '</table></div>';

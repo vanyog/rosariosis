@@ -513,7 +513,7 @@ function Search( $type, $extra = null )
 				}
 
 				// Numeric.
-				foreach ( (array) $category['numeric'] as $col )
+				if( isset($category['numeric']) ) foreach ( (array) $category['numeric'] as $col )
 				{
 					echo '<tr class="' . $TR_classes . '"><td>' . $col['TITLE'] . '</td><td>
 					<span class="sizep2">&ge;</span>
@@ -528,11 +528,11 @@ function Search( $type, $extra = null )
 				// Merge select, autos, edits, exports & codeds
 				// (same or similar SELECT output).
 				$category['select_autos_edits_exports_codeds'] = array_merge(
-					(array) $category['select'],
-					(array) $category['autos'],
-					(array) $category['edits'],
-					(array) $category['exports'],
-					(array) $category['codeds']
+				        @(array) $category['select'],
+					@(array) $category['autos'],
+					@(array) $category['edits'],
+					@(array) $category['exports'],
+					@(array) $category['codeds']
 				);
 
 				// Select.
@@ -630,7 +630,7 @@ function Search( $type, $extra = null )
 				}
 
 				// Date.
-				foreach ( (array) $category['date'] as $col )
+				if( isset($category['date']) ) foreach ( (array) $category['date'] as $col )
 				{
 					echo '<tr class="' . $TR_classes . '"><td>' . $col['TITLE'] . '<br />
 					<label>' . _( 'No Value' ) .
@@ -655,7 +655,7 @@ function Search( $type, $extra = null )
 				}
 
 				// Radio.
-				foreach ( (array) $category['radio'] as $col )
+				if( isset($category['radio']) ) foreach ( (array) $category['radio'] as $col )
 				{
 					$name = 'cust[' . $col['COLUMN_NAME'] . ']';
 

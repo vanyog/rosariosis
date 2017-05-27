@@ -47,19 +47,19 @@ elseif ( User( 'PROFILE' ) === 'teacher' ) :
         Като преподавател Вие можете да преглеждате информацията на студентите и графиците на занятията на студентите, на които преподавате, и можете да въвеждате присъствието, оценките и дописка на тези студенти. Имате достъп до програмата Дневник на оценките, за да се информирате за оценките на студентите. Програмата Дневник на оценките е интегрирана с програмата Въвеждане на оценки, както и с програмата Допускане. От Дневник на оценките може на само да се информирате за оценките, но и да отпечатате отчет за напредъка на всеки Ваш студент.
 </p>
 <p>
-	To choose a period to work on, select the period from the pull-down menu on the left frame. The program will automatically refresh with the new period in the workspace. You can also change the school year and current marking period in a similar fashion.
+        За да изберете период над който да работите, посочете го от падащото меню в ляво. Екрана автоматично ще се опресни с данните от посочения период. Можете също де смените учебната година и текущия учебен период.
 </p>
 <p>
-	As you use RosarioSIS, you will notice other items appear in your side menu. When you select a student to work on, the student's name will appear under the marking period pull-down menu preceded by a cross. As you move between programs, you will continue to work on this student. If you want to change the working student, click on the cross by the student's name. You can also quickly access the student's General Information screen by clicking on the student's name.
+        Докато имползвате RosarioSIS, ще забележите, че в лявото меню се появяват резлични неща. Когато изберете студент, името на студента ще се появи с кръст пред него, под падащото меню за учибншя период. Когато сменяте програмите, ще продължите да работите с данните за този студент. Ако искаде да го смените, щракнете кръста пред името му. Щракването върху именто на студента ще отвори страницата с основната информация за студента.
 </p>
 <p>
-	Also, when you click on any of the module icons in the side menu, you will see a list of programs available to you in that module. Clicking on any program title will launch the program in the main frame, and it will update the help frame to display help for that program.
+        Когато щракнете върху иконата на който и да е модул в страничното меню, ще видите списък на достъпните за Вас програми, от този модул. Щракването върху името на програма стартира тази програма в централната област на екрана и зарежда помощната информация за нея, която може да се покаже в областта за помощ, когато щракнете бутона "Помощ" отдолу на екрана.
 </p>
 <p>
-	In the gradebook, you will see lists of modifiable data. Oftentimes, you will have to first click the value you want to change to have access to an input field. Then, when you change the value and save, the value will return to its previous state.
+        В програмата "Оценки", ще видите списък от данни, които може да променяте. В повечето случаи ще трябва щраквате върху това, което искате да промените, за да получите достъп за редактиране. Щом промените стойността и щрекнете бутона "Запазване", новата стойност ще се покаже по нормалния за страницата начин.
 </p>
 <p>
-	You can logout of RosarioSIS at any time by clicking the "Logout" button in the bottom menu.
+        Можете да излезете от RosarioSIS във всеки момент, щраквайки бутона "Изход".
 </p>
 HTML;
 
@@ -84,16 +84,16 @@ elseif ( User( 'PROFILE' ) === 'student' ) :
 
 	$help['default'] = <<<HTML
 <p>
-	As a student, you can view your demographic information, schedule, assignments, grades, eligibility, and attendance.
+        Като студент Вие можете да преглеждате своята информация, разписания, задания, оценки, eligibility, and attendance.
 </p>
 <p>
-	You can change the school year and current marking period with the pull-down menus in the left frame.
+        Можете да смените учебната година и текущия учебен период от падащото меню в ляво.
 </p>
 <p>
-	As you use RosarioSIS, you will notice other items appear in your side menu. When you click on any of the module icons in the side menu, you will see a list of programs available in that module. Clicking on any program title will launch the program in the main frame, and it will update the help frame to display help for that program.
+        Докато имползвате RosarioSIS, ще забележите, че в лявото меню се появяват резлични неща. Когато щракнете върху иконата на който и да е модул в страничното меню, ще видите списък на достъпните за Вас програми, от този модул. Щракването върху името на програма стартира тази програма в централната област на екрана и зарежда помощната информация за нея, която може да се покаже в областта за помощ, когато щракнете бутона "Помощ" отдолу на екрана.
 </p>
 <p>
-	You can logout of RosarioSIS at any time by clicking the "Logout" link in the bottom menu.
+        Можете да излезете от RosarioSIS във всеки момент, щраквайки бутона "Изход".
 </p>
 HTML;
 
@@ -105,31 +105,31 @@ if ( User( 'PROFILE' ) === 'admin' ) :
 
 	$help['School_Setup/Schools.php'] = <<<HTML
 <p>
-	<i>School Information</i> allows you to change the name, address, and principal of the current school. Click on any of the school's information to change it. After you have made the necessary modifications to your school, click "Save" to save your changes.
+        Програмата <i>Информация за училище</i> Ви позволява да промените, името, адреса и директора на избраното училище. За да промените нещо, щракнете върху него, а след като го промените, щракнете бутона "Запазване".
 </p>
 HTML;
 
 	$help['School_Setup/Schools.php&new_school=true'] = <<<HTML
 <p>
-	<i>Add a School</i> allows you to add a school to the system. Complete the school's information, and hit the "Save" button.
+        Програмата <i>Добавяне училище</i> Ви позволява да добавите училище в системата. Попълнете информацията за новото училище и щракнете бутона "Запазване".
 </p>
 <p>
-	To switch to the new school, change the school pull-down menu in the left frame from your current school to the new one.
+        За да превключите от показваното училище към новото, изберете новото училище от падащото меню в лявата страна на екрана.
 </p>
 HTML;
 
 	$help['School_Setup/CopySchool.php'] = <<<HTML
 <p>
-	<i>Copy School</i> is a good way to add another school to RosarioSIS, where the Periods, Marking Periods, Grade levels, Grading Scales and Attendance Codes are similar to the school you copy. You will be able, of course, to make changes in the configuration after you have "copied" the school.
+        Програмата <i>Копиране училище</i> е добър начин да добавите ново училище в RosarioSIS, в което учебните периоди, периодите за оценяване, оценките, нивата на обучение, скалите за оценяване и кодовете за присъствие са като в училището от което копирате. Разбира се, ще можете да направите, специфични за новото училище промени, след като създадете копието.
 </p>
 <p>
-	If you don't want to copy one or more of these items, click on the checkbox corresponding to the item.
+        Ако не искате да копирате някои от елементите, щракнете и махнете отметките пред имената им.
 </p>
 <p>
-	Then enter the name of the new school in the "New School's Title" text box.
+        Въведете името на новото училище в полето "Ново название на училище".
 </p>
 <p>
-	Finally, click "OK" to create the new school with the values of the existing school.
+        Накрая, щракнете бутона "Да" за да се създаде ново училище с настройки, като на копираното.
 </p>
 HTML;
 
@@ -165,16 +165,16 @@ HTML;
         За да съставите своя календар в началото на учебната година, трябва да щракнете "Създаване нов календар" или "Редактиране този календар". Тогава можете да зададете: датите на началото и края на учебната година и кои са учебните дни в седмицата. За да запаците данните, щракнете бутона "Да". Сега можете да обходите календара и да зададете непълните и неучебните дни.
 </p>
 <p>
-	The calendar is also a display of school events. This can include everything from teacher in-service days to sporting events. These events are visible by other administrators as well as parents and teachers at your school.
+        Календарът е място за показване на събития. Това може да включва всякакви събития, от отцъствието на някой преподавател до спортни събития. Тези събития са видими от другите администратори, както и от родителите и учителите от училището.
 </p>
 <p>
-	To add a school event, click on the add icon (+) in the lower left-hand corner of the event's date. In the popup window that appears, enter the event's information and click the "Save" button. The popup window will close, and the calendar will be automatically refreshed to display the added event.
+        За да добавите събитие, щракнете бутон (+) в долния ляв ъгъл на датата на събитието. В изскачащия прозорец, който се показва, въведете информацият за събитието и щракнете бутона "Запазване". Изскочилия прозорец се скрива и календарът автоматично се опреснява, за да покаже добавеното събитие.
 </p>
 <p>
-	To modify an event, click on the event you want to modify, and change the event's information in the popup window that appears after clicking on the values you want to change. Click the "Save" button. The window will close and the calendar will automatically refresh to display the change.
+        За да промените събитие, щракнете върху името на събитието и променете информацията за събитието в изскачащия прозорец, чрез щракване върху съответната информация. Щракнете бутона "Запазване". Изскачилия прозорец ще се затвори и календарът автоматично ще се опресни, за да покаже промяната.
 </p>
 <p>
-	If the school uses a Rotation of Numbered Days, the day's number is displayed in the day's box.
+        Ако училището използва смени или номерирани дни, номерата на днити се показват в правоъгълниците на дните.
 </p>
 HTML;
 
@@ -218,69 +218,69 @@ HTML;
 
 	$help['School_Setup/Configuration.php'] = <<<HTML
 <p>
-	<i>School Configuration</i> offers various groups of configuration options to help you configure:
+        Програмата <i>Настройки училище</i> предлага различни групи от възможности за настройване:
 </p>
 <ul>
-	<li>RosarioSIS itself:
+        <li>За системата RosarioSIS:
 		<ul>
 			<li>
-				<i>Program Title</i> &amp; <i>Program Name</i>: rebrand RosarioSIS
+			        <i>Заглавие на системата</i> и <i>Название на програмата</i>: за индивидуализиране на RosarioSIS
 			</li>
-			<li>Set the <i>Default Theme</i>, and eventually <i>Force</i> it to override users' preferred theme.
-			</li>
-			<li>
-				<i>Create User Account</i> &amp; <i>Create Student Account</i>: activate online registration. "Create User / Student Account" links will be displayed on the login page.
+			<li>Задаване на <i>Подразбираща се тема</i>, и евентуално да поставите отметка <i>Наложена</i> за да не могат потребителите да избират за себе си различна от тази тема.
 			</li>
 			<li>
-				<i>Student email field</i>: choose the field which you will use to store your students emails. This can be the Username field or any other text field from the General Info tab. Setting this field will enable new features for or related to students within RosarioSIS such as "Password Reset".
+			        <i>Създаване профил потребител</i> и <i>Създаване профил студент</i>: позволява регистриране онлайн. Ще се покажат съответни хипервръзки върху страницата за влизане.
+			</li>
+			<li>
+			        <i>Поле с имейл на студент</i>: определя кое поле за данни ще използвате, за съхранение на имейлите на студентите. Това може да бъде полето Потребителско име всяко друго текстово поле от подстраница Обща информация за студента. Задаването на това поле ще активира нови възможности на RosarioSIS за студентите като "Възстановяване на парола".
 			</li>
 		</ul>
 	</li>
-	<li>The School:
+	<li>Училище:
 		<ul>
 			<li>
-				<i>School year over two calendar years</i>: whether the school year should be displayed as "2014" or "2014-2015"
+			        <i>Учебна године в две календарни години</i>: определя дали учебната година ще се показва като "2017" или "2017-2018"
 			</li>
 			<li>
-				<i>School logo (.jpg)</i>: upload the school logo (displayed in Report Cards, Transcripts, School Information &amp; Print student Info)
+			        <i>Лого на училището (.jpg)</i>: е възможност да качите файл с лого на училището (показва се в Report Cards, Справки, Информация за училище и Печат информация студенти)
 			</li>
 			<li>
-				<i>Currency Symbol</i>: the currency / monetary symbol used in Accounting &amp; Student Billing modules
+			        <i>Валутен символ</i>:  е означението на паричната идиница, използвано при показване на суми в Счетоводство и модул Сметки студенти
 			</li>
 		</ul>
 	</li>
-	<li>The Students module:
+	<li>Студенти:
 		<ul>
 			<li>
-				<i>Display Mailing Address</i>: whether to record and display the student's mailing address as a different address.
+			        <i>Показване пощенски адрес</i>: означава дали да се записва и показва студентския пощенски адрес, като различен адрес.
 			</li>
 			<li>
 				<i>Check Bus Pickup / Dropoff by default</i>: whether to check Bus Pickup / Dropoff checkboxes by default when entering the student address
 			</li>
 			<li>
-				<i>Enable Legacy Contact Information</i>: the ability to add information to the student contacts
+			        <i>Позволяване допълнителна информация за контакт</i>: дава възможност за въвеждане на допълнителна информация за контакт на студентите
 			</li>
 			<li>
-				<i>Use Semester Comments instead of Quarter Comments</i>: have a new student comments field each semester instead of each quarter
+			        <i>Използване коментари към семестри вместо към четвърти</i>: означава да имате нови полета за коментари към семестрите вместо към четвъртите
 			</li>
 			<li>
-				<i>Limit Existing Contacts &amp; Addresses to current school</i>: global setting (applies to all schools) that will limit the lists of Persons &amp; Addresses to the ones associated with the user's current school when Adding an Existing Contact or Address
+			        <i>Ограничаване съществуващите контакти и адреси до училището</i>: глобална настройка (прилагана към всички училища), която ще ограничи списъците от потребители и адреси до тези асоциирани с текущото училище на потребителите, когато се въвежда съществуващ контакт или адрес
 			</li>
 		</ul>
 	</li>
-	<li>The Grades module:
+	<li>Оценки:
 		<ul>
 			<li>
-				<i>Grades</i>: whether your school uses percent grades, letter grades or both. Will then hide the percent or letter grades accordingly.
+			        <i>Оценки</i>: определя дали Вашето училище използва само оценки в проценти, оценки в проценти и букви, или само оценки с букви
 			</li>
 			<li>
-				<i>Hide grade comment except for attendance period courses</i>: whether to hide grade comment for non attendance period courses
+			        <i>Скриване коментари на оценки освен през период на посещаване</i>: означава да не се показват коментари на оценките в периодите, когато не се посещава училище
 			</li>
 			<li>
-				<i>Allow Teachers to edit grades after grade posting period</i>: the grade posting period for each marking period is set in the School Setup &gt; Marking Periods program
+			        <i>Позволяване преподавателите да променят оценки след период на оценяване</i>, който се задава в настройките Периоди за оценяване в Настройки училище
 			</li>
 			<li>
-				<i>Enable Anonymous Grade Statistics for Parents and Students / Administrators and Teachers</i>: the Anonymous Grade Statistics are displayed in the Student Grades program
+			        <i>Позволяване анонимна статистика на оценките за родители и студенти / Administrators and Teachers</i>: анонимна статистика на оценките ще се пиказва на родителите и студентите / администраторите и преподавателите
 			</li>
 		</ul>
 	</li>

@@ -94,7 +94,7 @@ else
 	}
 	else
 	{
-        $connectstring = '';
+		$connectstring = '';
 		if ( $DatabaseServer !== 'localhost' )
 		{
 			$connectstring .= 'host=' . $DatabaseServer . ' ';

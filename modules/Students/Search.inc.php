@@ -112,7 +112,7 @@ if ( empty( $_REQUEST['search_modfunc'] ) )
 
 				Search(
 					'student_fields_all',
-					is_array( $extra['student_fields'] ) ? $extra['student_fields'] : array()
+					isset($extra['student_fields']) && is_array( $extra['student_fields'] ) ? $extra['student_fields'] : array()
 				);
 
 				echo PopTable( 'footer' ) . '<br />';

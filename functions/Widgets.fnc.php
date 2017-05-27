@@ -301,7 +301,7 @@ function Widgets( $item, &$myextra = null )
 			}
 
 			// PART OF THIS IS DUPLICATED IN PrintRequests.php.
-			if ( $_REQUEST['request_course_id'] )
+			if ( ! empty($_REQUEST['request_course_id']) )
 			{
 				$course = DBGet( DBQuery( "SELECT c.TITLE
 					FROM COURSES c

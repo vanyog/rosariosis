@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-26 18:18+0300\n"
+"PO-Revision-Date: 2017-05-27 11:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -382,7 +382,7 @@ msgstr ""
 #: modules/Discipline/DisciplineForm.php:189
 #: modules/School_Setup/PortalPolls.php:274
 msgid "Select Multiple from Options"
-msgstr "Няколко отговора"
+msgstr "Избиране няколко възможности"
 
 #: ProgramFunctions/Fields.fnc.php:338 ProgramFunctions/Fields.fnc.php:358
 #: ProgramFunctions/Fields.fnc.php:626
@@ -1753,7 +1753,7 @@ msgstr ""
 #: modules/Student_Billing/Menu.php:14 modules/Student_Billing/Menu.php:32
 #: modules/misc/Export.php:329
 msgid "Student Billing"
-msgstr ""
+msgstr "Сметки студенти"
 
 #: functions/Widgets.fnc.php:251 functions/Widgets.fnc.php:282
 #: modules/Attendance/Administration.php:250
@@ -5975,7 +5975,7 @@ msgstr[1] "Élèves non planifié"
 
 #: modules/Scheduling/Scheduler.php:17
 msgid "Delete Current Schedules"
-msgstr "Изтриване на настоящите графици"
+msgstr "Изтриване на настоящите разписания"
 
 #: modules/Scheduling/Scheduler.php:22
 msgid "Confirm Scheduler Run"
@@ -6128,7 +6128,7 @@ msgstr ""
 #: modules/School_Setup/Calendar.php:1215
 #: modules/School_Setup/Calendar.php:1224
 msgid "All Day"
-msgstr ""
+msgstr "Цял ден"
 
 #: modules/School_Setup/Configuration.php:17
 msgid "Modules"
@@ -6140,7 +6140,7 @@ msgstr "Добавки"
 
 #: modules/School_Setup/Configuration.php:112
 msgid "The school configuration has been modified."
-msgstr ""
+msgstr "Настройките на училището бяха променени."
 
 #: modules/School_Setup/Configuration.php:154
 msgid "Program Title"
@@ -6169,7 +6169,7 @@ msgstr "Ще може да се създават профили на неакт�
 #: modules/School_Setup/Configuration.php:237 plugins/Moodle/config.inc.php:113
 #, php-format
 msgid "Student email field"
-msgstr ""
+msgstr "Поле с имейл на студент"
 
 #: modules/School_Setup/Configuration.php:249
 msgid "School year over two calendar years"
@@ -6194,43 +6194,45 @@ msgstr ""
 
 #: modules/School_Setup/Configuration.php:278
 msgid "Enable Legacy Contact Information"
-msgstr ""
+msgstr "Позволяване допълнителна информация за контакт"
 
 #: modules/School_Setup/Configuration.php:288
 msgid "Use Semester Comments instead of Quarter Comments"
-msgstr ""
+msgstr "Използване коментари към семестри вместо към четвърти"
 
 #: modules/School_Setup/Configuration.php:298
 msgid "Limit Existing Contacts & Addresses to current school"
-msgstr ""
+msgstr "Ограничаване съществуващите контакти и адреси до училището"
 
 #: modules/School_Setup/Configuration.php:313
 msgid "Use letter grades only"
-msgstr ""
+msgstr "Използване само на оценки с букви"
 
 #: modules/School_Setup/Configuration.php:314
 msgid "Use letter and percent grades"
-msgstr ""
+msgstr "Използване оценки с букви и проценти"
 
 #: modules/School_Setup/Configuration.php:315
 msgid "Use percent grades only"
-msgstr ""
+msgstr "Използване само на оценки с проценти"
 
 #: modules/School_Setup/Configuration.php:329
 msgid "Hide grade comment except for attendance period courses"
-msgstr ""
+msgstr "Скриване коментари на оценки освен през период на посещаване"
 
 #: modules/School_Setup/Configuration.php:339
 msgid "Allow Teachers to edit grades after grade posting period"
 msgstr ""
+"Позволяване преподавателите да променят оценки след период на оценяване"
 
 #: modules/School_Setup/Configuration.php:349
 msgid "Enable Anonymous Grade Statistics for Parents and Students"
-msgstr ""
+msgstr "Позволяване анонимна статистика на оценките за родители и студенти"
 
 #: modules/School_Setup/Configuration.php:359
 msgid "Enable Anonymous Grade Statistics for Administrators and Teachers"
 msgstr ""
+"Позволяване анонимна статистика на оценките за администратори и преподаватели"
 
 #: modules/School_Setup/Configuration.php:373
 msgid "Minutes in a Full School Day"
@@ -6268,11 +6270,11 @@ msgstr ""
 #: modules/School_Setup/CopySchool.php:4 modules/School_Setup/Menu.php:29
 #: modules/School_Setup/Rollover.php:3
 msgid "School Configuration"
-msgstr "Настройки училище"
+msgstr "Конфигурация училище"
 
 #: modules/School_Setup/CopySchool.php:5 modules/School_Setup/Rollover.php:3
 msgid "School Periods"
-msgstr ""
+msgstr "Учебни периоди"
 
 #: modules/School_Setup/CopySchool.php:7 modules/School_Setup/Rollover.php:3
 msgid "Report Card Grade Codes"
@@ -6620,7 +6622,7 @@ msgstr ""
 #: modules/School_Setup/includes/Modules.inc.php:185
 #: modules/School_Setup/includes/Plugins.inc.php:174
 msgid "Activated"
-msgstr "Активиране"
+msgstr "Активен"
 
 #: modules/School_Setup/includes/Modules.inc.php:234
 #: modules/School_Setup/includes/Plugins.inc.php:231
@@ -6977,7 +6979,7 @@ msgstr "Печат етикети папки студенти"
 
 #: modules/Students/Menu.php:28
 msgid "Print Student Info"
-msgstr "Печат информация студент"
+msgstr "Печат информация студенти"
 
 #: modules/Students/Menu.php:32
 msgid "Contact Fields"
