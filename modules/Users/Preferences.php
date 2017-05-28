@@ -3,7 +3,7 @@ require_once 'ProgramFunctions/Theme.fnc.php';
 
 DrawHeader(ProgramTitle());
 
-if ( $_REQUEST['values'] && $_POST['values'])
+if ( ! empty($_REQUEST['values']) && $_POST['values'])
 {
 	if ( $_REQUEST['tab']=='password')
 	{
@@ -130,7 +130,7 @@ if ( ! $_REQUEST['modfunc'] )
 			'WidgetsSearch','StaffFieldsSearch','StaffFieldsView','StaffWidgetsSearch')" ),
 		array(), array( 'PROGRAM','TITLE' ) );
 
-	if ( ! $_REQUEST['tab'])
+        if ( empty($_REQUEST['tab']) )
 	//FJ enable password change for students
 		//$_REQUEST['tab'] = 'display_options';
 		$_REQUEST['tab'] = 'password';
@@ -873,35 +873,36 @@ function _make($value,$name)
 		return '';
 	}
 
+        $checked = '';
 	switch ( $name )
 	{
 		case 'SEARCH':
-			if ( $current_RET['StudentFieldsSearch'][ $THIS_RET['ID'] ] )
+		        if ( ! empty( $current_RET['StudentFieldsSearch'][ $THIS_RET['ID'] ] ) )
 				$checked = ' checked';
 			return '<input type="checkbox" name="values[StudentFieldsSearch][' . $THIS_RET['ID'] . ']" value="Y"'.$checked.' />';
 
 		case 'DISPLAY':
-			if ( $current_RET['StudentFieldsView'][ $THIS_RET['ID'] ] )
+		        if ( ! empty( $current_RET['StudentFieldsView'][ $THIS_RET['ID'] ] ) )
 				$checked = ' checked';
 			return '<input type="checkbox" name="values[StudentFieldsView][' . $THIS_RET['ID'] . ']" value="Y"'.$checked.' />';
 
 		case 'WIDGET':
-			if ( $current_RET['WidgetsSearch'][ $THIS_RET['ID'] ] )
+		        if ( ! empty( $current_RET['WidgetsSearch'][ $THIS_RET['ID'] ] ) )
 				$checked = ' checked';
 			return '<input type="checkbox" name="values[WidgetsSearch][' . $THIS_RET['ID'] . ']" value="Y"'.$checked.' />';
 
 		case 'STAFF_SEARCH':
-			if ( $current_RET['StaffFieldsSearch'][ $THIS_RET['ID'] ] )
+		        if ( ! empty( $current_RET['StaffFieldsSearch'][ $THIS_RET['ID'] ] ) )
 				$checked = ' checked';
 			return '<input type="checkbox" name="values[StaffFieldsSearch][' . $THIS_RET['ID'] . ']" value="Y"'.$checked.' />';
 
 		case 'STAFF_DISPLAY':
-			if ( $current_RET['StaffFieldsView'][ $THIS_RET['ID'] ] )
+		        if ( ! empty( $current_RET['StaffFieldsView'][ $THIS_RET['ID'] ] ) )
 				$checked = ' checked';
 			return '<input type="checkbox" name="values[StaffFieldsView][' . $THIS_RET['ID'] . ']" value="Y"'.$checked.' />';
 
 		case 'STAFF_WIDGET':
-			if ( $current_RET['StaffWidgetsSearch'][ $THIS_RET['ID'] ] )
+		        if ( ! empty( $current_RET['StaffWidgetsSearch'][ $THIS_RET['ID'] ] ) )
 				$checked = ' checked';
 			return '<input type="checkbox" name="values[StaffWidgetsSearch][' . $THIS_RET['ID'] . ']" value="Y"'.$checked.' />';
 	}
@@ -910,7 +911,9 @@ function _make($value,$name)
 function _makeAddress($value)
 {	global $current_RET;
 
-	if ( $current_RET['StudentFieldsView']['ADDRESS'][1]['VALUE']==$value || (! $current_RET['StudentFieldsView']['ADDRESS'][1]['VALUE'] && $value==''))
+        $checked = '';
+        if ( isset($current_RET['StudentFieldsView']['ADDRESS'][1]['VALUE']) && ($current_RET['StudentFieldsView']['ADDRESS'][1]['VALUE']==$value) ||
+             ( empty($current_RET['StudentFieldsView']['ADDRESS'][1]['VALUE']) && $value==''))
 		$checked = ' checked';
 	return '<input type="radio" name="values[StudentFieldsView][ADDRESS]" value="'.$value.'"'.$checked.'>';
 }

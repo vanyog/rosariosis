@@ -555,7 +555,7 @@ if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='
 
 			$tabs[] = array(
 				'title' => $category['TITLE'],
-				'link' => ( $_REQUEST['staff_id'] !== 'new' ?
+				'link' => ( isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id'] !== 'new') ?
 					'Modules.php?modname=' . $_REQUEST['modname'] . '&category_id=' . $category['ID'] . '&staff_id=' . UserStaffID() :
 					'' ),
 			);

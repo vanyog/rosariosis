@@ -97,7 +97,8 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 		foreach ( (array) $group_result as $item1 )
 		{
-			$i = 0;
+		        $i = 0;
+			$column = '';
 
 			foreach ( (array) $item1 as $item2 )
 			{
@@ -113,7 +114,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 						$group[0] = $column;
 
-						$item2[ $column ] = str_replace(
+                                                if( isset($item2[ $column ]) ) $item2[ $column ] = str_replace(
 							'<!-- <!--',
 							'<!--',
 							'<!-- ' . str_replace( '-->', '--><!--', $item2[ $column ] )

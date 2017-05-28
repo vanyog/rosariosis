@@ -15,7 +15,7 @@ if ( AllowEdit()
 	</div>
 <?php endif;
 
-if ( $_REQUEST['staff_id']!='new' && ($file = @fopen($picture_path=$UserPicturesPath.UserSyear().'/'.UserStaffID().'.jpg','r')) || ($file = @fopen($picture_path=$UserPicturesPath.(UserSyear()-1).'/'.UserStaffID().'.jpg','r'))):
+if ( isset($_REQUEST['staff_id']) && $_REQUEST['staff_id']!='new' && ($file = @fopen($picture_path=$UserPicturesPath.UserSyear().'/'.UserStaffID().'.jpg','r')) || ($file = @fopen($picture_path=$UserPicturesPath.(UserSyear()-1).'/'.UserStaffID().'.jpg','r'))):
 	fclose($file);
 ?>
 	<img src="<?php echo $picture_path.(!empty($new_photo_file)? '?cacheKiller='.rand():''); ?>" class="user-photo" />
@@ -216,7 +216,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 
 	$permissions_options = array();
 
-	if ( $_REQUEST['staff_id'] !== 'new' )
+        if ( ! isset($_REQUEST['staff_id']) || ($_REQUEST['staff_id'] !== 'new') )
 	{
 		$permissions_RET = DBGet( DBQuery( "SELECT ID,TITLE
 			FROM USER_PROFILES
