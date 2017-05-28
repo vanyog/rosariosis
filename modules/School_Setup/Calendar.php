@@ -735,7 +735,7 @@ if ( $_REQUEST['modfunc'] === 'detail' )
 // List Events
 if ( $_REQUEST['modfunc'] === 'list_events' )
 {
-	if ( $_REQUEST['day_start']
+        if ( ! empty($_REQUEST['day_start'])
 		&& $_REQUEST['month_start']
 		&& $_REQUEST['year_start'] )
 	{
@@ -760,7 +760,7 @@ if ( $_REQUEST['modfunc'] === 'list_events' )
 			$start_date = date( 'Y-m' ) . '-01';
 	}
 
-	if ( $_REQUEST['day_end']
+        if ( ! empty($_REQUEST['day_end'])
 		&& $_REQUEST['month_end']
 		&& $_REQUEST['year_end'] )
 	{
@@ -1019,7 +1019,7 @@ if ( ! $_REQUEST['modfunc'] )
 		SubmitButton( _( 'Save' ) )
 	);
 
-	if ( $links )
+        if ( ! empty($links) )
 		DrawHeader( $links );
 
 	if ( AllowEdit()
@@ -1164,9 +1164,9 @@ if ( ! $_REQUEST['modfunc'] )
 
 		// Hover CSS class.
 		if ( AllowEdit()
-			|| $calendar_RET[ $date ][1]['MINUTES']
-			|| count( $events_RET[ $date ] )
-			|| count( $assignments_RET[ $date ] ) )
+		        || ! empty($calendar_RET[ $date ][1]['MINUTES'])
+			|| ( isset($events_RET[ $date ]) && count( $events_RET[ $date ] ) )
+			|| ( isset($assignments_RET[ $date ]) && count( $assignments_RET[ $date ] ) ) )
 		{
 			$day_inner_classes .= ' hover';
 		}
@@ -1178,7 +1178,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		// Bold class
 		if ( ( isset($events_RET[ $date ]) && count( $events_RET[ $date ] ) )
-			|| count( $assignments_RET[ $date ] ) )
+		        || ( isset($assignments_RET[ $date ]) && count( $assignments_RET[ $date ] ) ) )
 		{
 			$day_number_classes .= ' bold';
 		}
@@ -1249,7 +1249,7 @@ if ( ! $_REQUEST['modfunc'] )
 		}
 
 		// Assignments.
-		foreach ( (array) $assignments_RET[ $date ] as $assignment )
+		if( isset($assignments_RET[ $date ]) )foreach ( (array) $assignments_RET[ $date ] as $assignment )
 		{
 			echo '<div class="calendar-event assignment' . ( $assignment['ASSIGNED'] == 'Y' ? ' assigned' : '' ) . '">' .
 				'<a href="#" onclick="CalEventPopup(popupURL + \'&assignment_id=' . $assignment['ID'] . '\'); return false;" title="' . htmlentities( $assignment['TITLE'] ) . '">' .

@@ -3,7 +3,7 @@
 require_once 'ProgramFunctions/FileUpload.fnc.php';
 require_once 'ProgramFunctions/Fields.fnc.php';
 
-if (User('PROFILE')!='admin' && User('PROFILE')!='teacher' && $_REQUEST['staff_id'] && $_REQUEST['staff_id']!=User('STAFF_ID') && $_REQUEST['staff_id']!='new')
+if (User('PROFILE')!='admin' && User('PROFILE')!='teacher' && ! empty($_REQUEST['staff_id']) && $_REQUEST['staff_id']!=User('STAFF_ID') && $_REQUEST['staff_id']!='new')
 {
 	if (User('USERNAME'))
 	{
@@ -186,6 +186,7 @@ if ( $_REQUEST['modfunc'] === 'update'
 		if ( $required_error)
 			$error[] = _('Please fill in the required fields');
 
+                if(! isset( $_REQUEST['staff']['USERNAME'] ) ) $_REQUEST['staff']['USERNAME'] = '';
 		//check username unicity
 		$existing_username = DBGet(DBQuery("SELECT 'exists' FROM STAFF WHERE USERNAME='".$_REQUEST['staff']['USERNAME']."' AND SYEAR='".UserSyear()."' AND STAFF_ID!='".UserStaffID()."' UNION SELECT 'exists' FROM STUDENTS WHERE USERNAME='".$_REQUEST['staff']['USERNAME']."'"));
 		if (count($existing_username))
@@ -211,7 +212,7 @@ if ( $_REQUEST['modfunc'] === 'update'
 					$_REQUEST['staff']['PROFILE_ID'] = '3';
 			}
 
-			if ( $_REQUEST['staff']['PROFILE_ID'])
+                        if ( ! empty($_REQUEST['staff']['PROFILE_ID']) )
 				DBQuery("DELETE FROM STAFF_EXCEPTIONS WHERE USER_ID='".UserStaffID()."'");
 			elseif (isset($_REQUEST['staff']['PROFILE_ID']) && $profile_RET[1]['PROFILE_ID'])
 			{
@@ -229,7 +230,8 @@ if ( $_REQUEST['modfunc'] === 'update'
 					if ( ! is_array( $value ) )
 					{
 						//FJ check numeric fields
-						if ( $fields_RET[str_replace('CUSTOM_','',$column_name)][1]['TYPE'] == 'numeric' && $value!='' && !is_numeric($value))
+						if ( isset($fields_RET[str_replace('CUSTOM_','',$column_name)][1]['TYPE']) &&
+						     ($fields_RET[str_replace('CUSTOM_','',$column_name)][1]['TYPE'] == 'numeric') && $value!='' && !is_numeric($value))
 						{
 							$error[] = _('Please enter valid Numeric data.');
 							continue;
@@ -374,7 +376,7 @@ Remote IP: %s', $admin_username, User('NAME'), $ip);
 		}
 
 		if ( UserStaffID()
-			&& $_FILES['photo'] )
+		        && ! empty($_FILES['photo']) )
 		{
 			// $new_photo_file = FileUpload('photo', $UserPicturesPath.UserSyear().'/', array('.jpg', '.jpeg'), 2, $error, '.jpg', UserStaffID());
 
@@ -475,7 +477,7 @@ if ( $_REQUEST['modfunc'] === 'delete'
 
 if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='new'))) && $_REQUEST['modfunc']!='delete')
 {
-	if ( $_REQUEST['staff_id']!='new')
+        if ( !isset($_REQUEST['staff_id']) || ($_REQUEST['staff_id']!='new') )
 	{
 		$sql = "SELECT s.STAFF_ID,s.TITLE,s.FIRST_NAME,s.LAST_NAME,s.MIDDLE_NAME,s.NAME_SUFFIX,
 						s.USERNAME,s.PASSWORD,s.SCHOOLS,s.PROFILE,s.PROFILE_ID,s.PHONE,s.EMAIL,s.LAST_LOGIN,s.SYEAR,s.ROLLOVER_ID
@@ -509,15 +511,16 @@ if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='
 		}
 	}
 
-	if ( $_REQUEST['staff_id']!='new')
-	{
+        if ( ! isset($_REQUEST['staff_id']) || ($_REQUEST['staff_id']!='new') )
+        {//die(print_r($staff));
 		//FJ add translation
-		$titles_array = array('Mr' => _('Mr'),'Mrs' => _('Mrs'),'Ms' => _('Ms'),'Miss' => _('Miss'),'Dr' => _('Dr'));
-		$suffixes_array = array('Jr' => _('Jr'),'Sr' => _('Sr'),'II' => _('II'),'III' => _('III'),'IV' => _('IV'),'V' => _('V'));
+		$titles_array = array(''=>'', 'Mr' => _('Mr'),'Mrs' => _('Mrs'),'Ms' => _('Ms'),'Miss' => _('Miss'),'Dr' => _('Dr'));
+		$suffixes_array = array(''=>'', 'Jr' => _('Jr'),'Sr' => _('Sr'),'II' => _('II'),'III' => _('III'),'IV' => _('IV'),'V' => _('V'));
 
 		$name = $titles_array[$staff['TITLE']].' '.$staff['FIRST_NAME'].' '.$staff['MIDDLE_NAME'].' '.$staff['LAST_NAME'].' '.$suffixes_array[$staff['NAME_SUFFIX']].' - '.$staff['STAFF_ID'];
 	}
 
+        if( ! isset($delete_button) ) $delete_button = '';
 	DrawHeader($name,$delete_button.SubmitButton(_('Save')));
 
 	//hook

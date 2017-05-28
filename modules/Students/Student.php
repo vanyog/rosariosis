@@ -3,7 +3,7 @@
 require_once 'ProgramFunctions/FileUpload.fnc.php';
 require_once 'ProgramFunctions/Fields.fnc.php';
 
-if (User('PROFILE')!='admin' && User('PROFILE')!='teacher' && $_REQUEST['student_id'] && $_REQUEST['student_id']!=UserStudentID() && $_REQUEST['student_id']!='new')
+if (User('PROFILE')!='admin' && User('PROFILE')!='teacher' && ! empty($_REQUEST['student_id']) && $_REQUEST['student_id']!=UserStudentID() && $_REQUEST['student_id']!='new')
 {
 	if (User('USERNAME'))
 	{

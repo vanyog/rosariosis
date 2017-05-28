@@ -25,7 +25,7 @@ if ( $_REQUEST['staff_id']!='new' && ($file = @fopen($picture_path=$UserPictures
 echo '</td><td colspan="2">';
 
 //FJ add translation
-$titles_array = array('Mr' => _('Mr'),'Mrs' => _('Mrs'),'Ms' => _('Ms'),'Miss' => _('Miss'),'Dr' => _('Dr'));
+$titles_array = array(''=>'', 'Mr' => _('Mr'),'Mrs' => _('Mrs'),'Ms' => _('Ms'),'Miss' => _('Miss'),'Dr' => _('Dr'));
 $suffixes_array = array('Jr' => _('Jr'),'Sr' => _('Sr'),'II' => _('II'),'III' => _('III'),'IV' => _('IV'),'V' => _('V'));
 
 if (AllowEdit() && !isset($_REQUEST['_ROSARIO_PDF']))
@@ -74,7 +74,7 @@ if (AllowEdit() && !isset($_REQUEST['_ROSARIO_PDF']))
 	) . '</td></tr></table>';
 
 	if ( $_REQUEST['staff_id'] === 'new'
-		|| $_REQUEST['moodle_create_user'] )
+	        || ! empty($_REQUEST['moodle_create_user']) )
 	{
 		echo $user_name_html;
 	}
@@ -121,32 +121,32 @@ echo '<tr class="st"><td>';
 //FJ Moodle integrator
 //username, password required
 
-$required = $_REQUEST['moodle_create_user'] || $old_user_in_moodle || basename( $_SERVER['PHP_SELF'] ) == 'index.php';
+$required = ! empty($_REQUEST['moodle_create_user']) || ! empty($old_user_in_moodle) || basename( $_SERVER['PHP_SELF'] ) == 'index.php';
 
 echo TextInput(
 	$staff['USERNAME'],
 	'staff[USERNAME]',
 	_( 'Username' ),
 	'size=12 maxlength=100 ' . ( $required ? 'required' : '' ),
-	( $_REQUEST['moodle_create_user'] ? false : true )
+	empty( $_REQUEST['moodle_create_user'] )
 );
 
 echo '</td><td>';
 
 echo TextInput(
 	( ! $staff['PASSWORD']
-		|| $_REQUEST['moodle_create_user'] ? '' : str_repeat( '*', 8 ) ),
+	        || !empty($_REQUEST['moodle_create_user']) ? '' : str_repeat( '*', 8 ) ),
 	'staff[PASSWORD]',
 	_( 'Password' ) .
-		( $_REQUEST['moodle_create_user']
-		|| $old_user_in_moodle ?
+	        ( ! empty( $_REQUEST['moodle_create_user'] )
+		|| ! empty( $old_user_in_moodle ) ?
 		'<div class="tooltip"><i>' .
 			_( 'The password must have at least 8 characters, at least 1 digit, at least 1 lower case letter, at least 1 upper case letter, at least 1 non-alphanumeric character' ) .
 		'</i></div>' :
 		''
 		),
 	'size=12 maxlength=42 autocomplete=off' . ( $required ? ' required' : '' ),
-	( $_REQUEST['moodle_create_user'] ? false : true )
+	( ! empty($_REQUEST['moodle_create_user']) ? false : true )
 );
 
 echo '</td></tr><tr class="st"><td colspan="2">';
@@ -209,7 +209,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 		$profile_options,
 		false,
 		'required',
-		$_REQUEST['moodle_create_user'] ? false : true
+		empty( $_REQUEST['moodle_create_user'] )
 	);
 
 	echo '</td><td>';
@@ -372,8 +372,8 @@ echo TextInput(
 	'staff[EMAIL]',
 	_( 'Email Address' ),
 	'type="email" pattern="[^ @]*@[^ @]*" size=12 maxlength=100' .
-		( $_REQUEST['moodle_create_user'] || $old_user_in_moodle ? ' required' : '' ),
-	( $_REQUEST['moodle_create_user'] ? false : true )
+	        ( ! empty($_REQUEST['moodle_create_user']) || ! empty($old_user_in_moodle) ? ' required' : '' ),
+	empty( $_REQUEST['moodle_create_user'] )
 );
 
 echo '</td><td colspan="2">';

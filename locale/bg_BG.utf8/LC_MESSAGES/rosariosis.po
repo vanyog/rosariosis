@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-27 11:43+0300\n"
+"PO-Revision-Date: 2017-05-28 19:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -3211,7 +3211,7 @@ msgstr ""
 #: modules/Custom/Registration.php:312
 #, php-format
 msgid "Welcome, %s, to the %s"
-msgstr ""
+msgstr "Добре дошли, %s, в %s"
 
 #: modules/Custom/Registration.php:319
 #, php-format
@@ -3219,6 +3219,8 @@ msgid ""
 "We would appreciate it if you would enter just a little bit of information "
 "about you and %s to help us out this school year. Thanks!"
 msgstr ""
+"Ще ви бъдем признателни ако попълните малко информация за себе си и %s за да "
+"ни помогнете да проведем тази учебна година. Благодарим!"
 
 #: modules/Custom/Registration.php:320
 msgid "your parents"
@@ -3234,7 +3236,7 @@ msgstr ""
 
 #: modules/Custom/Registration.php:332
 msgid "Information about you"
-msgstr ""
+msgstr "Информация за Вас"
 
 #: modules/Custom/Registration.php:341 modules/Custom/Registration.php:361
 #: modules/Custom/Registration.php:409 modules/Custom/Registration.php:450
@@ -3261,39 +3263,39 @@ msgstr ""
 
 #: modules/Custom/Registration.php:354
 msgid "Information about spouse or significant other"
-msgstr ""
+msgstr "Информация за съпруг/а или друг бизък"
 
 #: modules/Custom/Registration.php:355
 msgid "Leave this section blank if separated."
-msgstr ""
+msgstr "Оставете тази секция празна, ако сте сам."
 
 #: modules/Custom/Registration.php:374
 msgid "Your Address"
-msgstr ""
+msgstr "Вашият адрес"
 
 #: modules/Custom/Registration.php:387 modules/Custom/Registration.php:422
 #: modules/School_Setup/Schools.php:240
 #: modules/Students/includes/Address.inc.php:739
 #: modules/Students/includes/Address.inc.php:808
 msgid "Zip"
-msgstr ""
+msgstr "Пощ. код"
 
 #: modules/Custom/Registration.php:405
 msgid "Grandparent Information"
-msgstr ""
+msgstr "Информация за дядо/баба"
 
 #: modules/Custom/Registration.php:444
 msgid "Other Contacts"
-msgstr ""
+msgstr "Други близки"
 
 #: modules/Custom/Registration.php:454 modules/Custom/Registration.php:466
 msgid "Relation to Student"
-msgstr ""
+msgstr "Родство със студента"
 
 #: modules/Custom/Registration.php:534
 #, php-format
 msgid "Information about %s %s"
-msgstr ""
+msgstr "Информация за %s %s"
 
 #: modules/Discipline/CategoryBreakdown.php:242
 #: modules/Discipline/CategoryBreakdownTime.php:423
@@ -6257,15 +6259,15 @@ msgstr ""
 
 #: modules/School_Setup/Configuration.php:405
 msgid "Food Service Balance minimum amount for warning"
-msgstr ""
+msgstr "Минимален баланс за храна за напомняне"
 
 #: modules/School_Setup/Configuration.php:412
 msgid "Food Service Balance minimum amount"
-msgstr ""
+msgstr "Минимален баланс за храна"
 
 #: modules/School_Setup/Configuration.php:419
 msgid "Food Service Balance target amount"
-msgstr ""
+msgstr "Целеви баланс за храна"
 
 #: modules/School_Setup/CopySchool.php:4 modules/School_Setup/Menu.php:29
 #: modules/School_Setup/Rollover.php:3
@@ -7710,6 +7712,8 @@ msgid ""
 "You have students with food service balance below %1.2f - please deposit at "
 "least the Minimum Deposit into you children's accounts."
 msgstr ""
+"Имате студенти с баланс за храна под %1.2f - моля, внесете минимален депозит "
+"в сметката му."
 
 #: modules/misc/Portal.php:551
 msgid "Minimum Deposit"

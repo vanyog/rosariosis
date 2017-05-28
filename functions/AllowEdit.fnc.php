@@ -26,6 +26,8 @@ function AllowEdit( $modname = false )
 {
 	global $_ROSARIO;
 
+        if( ! isset($_ROSARIO['allow_edit']) ) $_ROSARIO['allow_edit'] = false;
+
 	if ( User( 'PROFILE' ) === 'admin' )
 	{
 		if ( ! $modname

@@ -686,7 +686,14 @@ function SelectInput( $value, $name, $title = '', $options = array(), $allow_na 
 	}
 	else
 	{
-		$display_val = is_array( $options[ $value ] ) ? $options[ $value ][1] : $options[ $value ];
+	        if( ! empty($options[ $value ]) ) {
+		    if (count($options[ $value ]) > 1) $display_val = $options[ $value ][1];
+		    else $display_val = $options[ $value ];
+		}
+		else {
+		    $display_val = '';
+		}
+//	        $display_val = is_array( $options[ $value ] ) ? $options[ $value ][1] : $options[ $value ];
 
 		if ( $display_val == '' )
 		{

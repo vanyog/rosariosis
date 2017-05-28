@@ -284,35 +284,36 @@ HTML;
 			</li>
 		</ul>
 	</li>
-	<li>The Attendance module:
+	<li>Присъствие:
 		<ul>
 			<li>
-				<i>Minutes in a Full School Day</i>: if a student attends school for 300 minutes or more, RosarioSIS will automatically mark him Present for the day. If a student attends school for 150 minutes to 299 minutes, RosarioSIS will marked him Half Day present. If a student attends school for less than 150 minutes, RosarioSIS will mark him Absent. If your School Day is not 300 minutes long, then please adjust the Minutes in a Full School Day
+			        <i>Един цял учебен ден в минути</i>: Ако студент прекарва в училище 300 минути или повече, RosarioSIS автоматично ще отбележи, че студентът е присъствал през този ден. Ако е бил в училище от 150 до 299 минути ще му се отбилежи половин ден присъствие. Ако присъствието на студента е по-малко от 150 минути, ще бъде отбелязан като отсъстващ. Ако за Вашето училище на времето от 300 минути съответства друга стойност, попълнете я в това поле.
 			</li>
 			<li>
-				<i>Number of days before / after the school date teachers can edit attendance</i>: leave the fields blank to always allow teachers to edit attendance
+			        <i>Брой дни преди / след учебния ден, в които преподавателите могат да редактират присъствието
+</i>: се оставя прамно, за да могат преподавателите да редактират присъствието по всяко време
 			</li>
 		</ul>
 	</li>
-	<li>The Food Service module:
+	<li>Хранене:
 		<ul>
 			<li>
-				<i>Food Service Balance minimum amount for warning</i>: set the minimum amount under which a warning will be displayed to the student and its parents on the Portal and to generate Reminders
+			        <i>Минимален баланс за храна за напомняне</i>: е минималният баланс за храна, под който на студента и неговите родители започва да се показва предупреждение и се изпраща съобщение
 			</li>
 			<li>
-				<i>Food Service Balance minimum amount</i>: set the minimum amount allowed
+			        <i>Минимален баланс за храна</i> е минималният, разрешен баланс за храна
 			</li>
 			<li>
-				<i>Food Service Balance target amount</i>: set the target amount to calculate the minimum deposit
+			        <i>Целеви баланс за храна</i> стойността на баланса за храна, която се цели да се постигне
 			</li>
 		</ul>
 	</li>
 </ul>
 <p>
-	<b>Modules</b> tab: manage RosarioSIS modules. Deactivate any module you will not use or install new ones.
+        Подстраница <b>Модули</b> служи за управляване модулите на RosarioSIS. От нея се актидират или деактивират инсталираните модули. Активирането се извършва с щракване върху знака (+) пред името на модул, а деактивирането - с щракване на знака (-). Щракването върху названието на модул, когато е с цвят на хипервръзка, отваря изскачащ прозорец с информация за модула, намираща се в неговия README.md файл.
 </p>
 <p>
-	<b>Plugins</b> tab: manage RosarioSIS plugins. Activate, deactivate and configure plugins. Click on the plugin title to get more information.
+        Подстраница <b>Добавки</b> служи за ативиране или деактивиране на инсталираните добавки. Активирането / деактивирането става с щракване на знаците (+) / (-), а щракването върху названието, отваря прозорец с информация за добавката.
 </p>
 HTML;
 
@@ -343,35 +344,35 @@ HTML;
 	"Export Pull-Down" fields are created by adding options to the large text box respecting the same pattern used for "Coded Pull-Down" fields ("option shown"|"option stored in database"). For example: "Two|2", where "Two" is displayed on screen to the user, and "2" is the value in a downloaded spreadsheet, but "Two" is stored in the database.
 </li>
 <li>
-	"Select Multiple from options" fields create multiple checkboxes to choose one or more options.
+        Типът "Избиране няколко възможности" означава показване на списък от отметки, от които потребителят избира кои да постави.
 </li>
 <li>
-	"Text" fields create alphanumeric text fields with a maximum capacity of 255 characters.
+        Типът "Текст" показва поле за попълване на един ред текст, не по-дълъг от 255 символа.
 </li>
 <li>
-	"Long Text" fields create large alphanumeric text boxes with a maximum length of 5000 characters.
+        Типът "Дълъг текст" показва поле за попълване на многоредов текст с максимална дължина от 5000 символа.
 </li>
 <li>
-	"Checkbox" fields create checkboxes. When checked it means "yes" and when un-checked "no".
+        Типът "Отметка" създава отметка, която, ако е поставена, означава "Да", а ако не е поставена, означава "Не".
 </li>
 <li>
-	"Number" fields create text fields that stores only numeric values.
+        Типът "Число" създава поле, в което трябва да се напише число.
 </li>
 <li>
-	"Date" field creates pull-downs fields to pick a date from.
+        Типът "Дата" показва падащи менюта за избиране на месеца, деня и годината на дата от календара.
 </li>
 </ul>
 <p>
-	The "Required" checkbox, if checked, will make that field required so an error will be displayed if the field is empty when saving the page.
+        Отметката "Необходимо", ако е поставена, ще направи попълването на информацията задължително. При непопълване и опит за запазване, ще се показва предупреждение и няма да се извършва запазване.
 </p>
 <p>
-	The "Sort Order" determines the order in which the fields will be displayed on the School Information screen.
+        "Подреждане" е число, определящо на кое по ред място да се показва информацията на страница Инфирмация за училище.
 </p>
 <p>
-	Delete a field
+        Истриване на поле данни
 </p>
 <p>
-	You can delete any School field simply by clicking on the "Delete" button in the upper right corner. Please note that you will lose all your data if you delete an already used field.
+        Можете да изтриете израно поле данни чрез щракване на бутона "Изтриване" в горния десен ъгъл на страницата. Имайте предвид, че ако изтриете поле, което вече е използвано и попълвано с данни, ще изгубите всички попълнени в това поле данни.
 </p>
 HTML;
 
@@ -380,7 +381,7 @@ else :
 
 	$help['School_Setup/Schools.php'] = <<<HTML
 <p>
-	<i>School Information</i> displays the name, address, and principal of the current school.
+        Страница <i>Информация за училище</i> показва името, адреса и ръководителя на училището.
 </p>
 HTML;
 

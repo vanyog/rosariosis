@@ -667,11 +667,13 @@ function FilterCustomFieldsMarkdown( $table, $request_index, $request_index_2 = 
 		'SCHOOL_FIELDS',
 	);
 
+        $request_values = '';
+
 	if ( ! $request_index_2 )
 	{
-		$request_values = $_REQUEST[ $request_index ];
+	        if( isset($_REQUEST[ $request_index ]) ) $request_values = $_REQUEST[ $request_index ];
 
-		$post_values = $_POST[ $request_index ];
+                if( isset($_POST[ $request_index ]) ) $post_values = $_POST[ $request_index ];
 	}
 	else
 	{
@@ -728,6 +730,8 @@ function FilterCustomFieldsMarkdown( $table, $request_index, $request_index_2 = 
  */
 function CheckRequiredCustomFields( $table, $request_values )
 {
+        return false;
+
 	// Please add your TABLE here.
 	$allowed_tables = array(
 		'CUSTOM_FIELDS',
