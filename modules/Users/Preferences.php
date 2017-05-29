@@ -89,7 +89,7 @@ if ( ! empty($_REQUEST['values']) && $_POST['values'])
 			{
 				foreach ( (array) $values as $name => $value)
 				{
-					if ( ! $current_RET[ $program ][ $name ] && $value!='')
+				        if ( empty( $current_RET[ $program ][ $name ] ) && $value!='')
 						DBQuery("INSERT INTO PROGRAM_USER_CONFIG (USER_ID,PROGRAM,TITLE,VALUE) values('".User('STAFF_ID')."','".$program."','".$name."','".$value."')");
 					elseif ( $value!='')
 						DBQuery("UPDATE PROGRAM_USER_CONFIG SET VALUE='".$value."' WHERE USER_ID='".User('STAFF_ID')."' AND PROGRAM='".$program."' AND TITLE='".$name."'");

@@ -227,28 +227,28 @@ else
 	{
 		if ( !isset($_REQUEST['_ROSARIO_PDF']))
 		{
-			if ( $_REQUEST['expanded_view']!='true')
+		        if ( ! isset($_REQUEST['expanded_view']) || ($_REQUEST['expanded_view']!='true') )
 				$header_left = '<a href="'.PreparePHP_SELF($_REQUEST,array(),array('expanded_view' => 'true')).'">'._('Expanded View').'</a>';
 			else
 				$header_left = '<a href="'.PreparePHP_SELF($_REQUEST,array(),array('expanded_view' => 'false')).'">'._('Original View').'</a>';
 
-			if ( ! $_REQUEST['address_group'])
+                        if ( empty($_REQUEST['address_group']) )
 				$header_left .= ' | <a href="'.PreparePHP_SELF($_REQUEST,array(),array('address_group' => 'Y')).'">'._('Group by Family').'</a>';
 			else
 				$header_left .= ' | <a href="'.PreparePHP_SELF($_REQUEST,array(),array('address_group' => '')).'">'._('Ungroup by Family').'</a>';
 		}
 
-		DrawHeader($header_left,$extra['header_right']);
+                DrawHeader($header_left, isset($extra['header_right']) ? $extra['header_right'] : '');
 
-		if ( $extra['extra_header_left']
-			|| $extra['extra_header_right'] )
+                if ( ! empty($extra['extra_header_left'])
+                        || ! empty($extra['extra_header_right']) )
 		{
-			DrawHeader( $extra['extra_header_left'], $extra['extra_header_right'] );
+		        DrawHeader( $extra['extra_header_left'], isset($extra['extra_header_right']) ? $extra['extra_header_right'] : '');
 		}
 
-		DrawHeader( mb_substr( $_ROSARIO['SearchTerms'], 0, -6 ) );
+                DrawHeader( mb_substr( isset($_ROSARIO['SearchTerms']) ? $_ROSARIO['SearchTerms'] : '', 0, -6 ) );
 
-		if ( ! $_REQUEST['LO_save'] && ! $extra['suppress_save'])
+                if ( empty($_REQUEST['LO_save']) && empty($extra['suppress_save']) )
 		{
 			$_SESSION['List_PHP_SELF'] = PreparePHP_SELF($_SESSION['_REQUEST_vars'],array('bottom_back'));
 
@@ -268,7 +268,7 @@ else
 			}
 		}
 
-		if ( $_REQUEST['address_group'])
+                if ( ! empty($_REQUEST['address_group']) )
 		{
 			ListOutput($students_RET,$columns,'Family','Families',$link,$extra['LO_group'],$extra['options']);
 		}
@@ -278,7 +278,9 @@ else
 			if ( !empty($extra['singular']) && !empty($extra['plural']))
 				ListOutput($students_RET,$columns,$extra['singular'],$extra['plural'],$link,$extra['LO_group'],$extra['options']);
 			else
-				ListOutput($students_RET,$columns,'Student','Students',$link,$extra['LO_group'],$extra['options']);
+			        ListOutput($students_RET, $columns, 'Student', 'Students', $link,
+				           isset($extra['LO_group']) ? $extra['LO_group'] : '',
+					   isset($extra['options'])  ? $extra['options']  : '');
 		}
 	}
 	elseif (count($students_RET)==1)

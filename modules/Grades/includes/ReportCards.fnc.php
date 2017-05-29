@@ -26,7 +26,7 @@ function ReportCardsIncludeForm( $include_on_title = 'Include on Report Card', $
 
 	$other_attendance_codes = _getOtherAttendanceCodes();
 
-	if ( $title === 'Include on Report Card' )
+        if ( isset($title) && ( $title === 'Include on Report Card' ) )
 	{
 		$title = _( 'Include on Report Card' );
 	}
@@ -169,7 +169,7 @@ function ReportCardsIncludeForm( $include_on_title = 'Include on Report Card', $
 		Widgets( 'mailing_labels' );
 	}
 
-	$return .= $extra['search'];
+        $return .= isset($extra['search']) ? $extra['search'] : '';
 
 	$extra['search'] = '';
 

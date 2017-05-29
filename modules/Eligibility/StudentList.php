@@ -34,13 +34,13 @@ switch (date('D'))
 
 $start = time() - ($today-$START_DAY)*60*60*24;
 
-if ( ! $_REQUEST['start_date'] )
+if ( empty($_REQUEST['start_date']) )
 {
 	$start_time = $start;
 
 	$start_date =  date( 'Y-m-d', $start_time );
 
-	$end_date =  date( 'Y-m-d', DBDate() );
+        $end_date =  date( 'Y-m-d' ); //, DBDate() );
 }
 else
 {

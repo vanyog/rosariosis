@@ -47,6 +47,7 @@ function GetStuList( &$extra = array() )
 		Widgets( 'all', $extra );
 	}
 
+        if( ! isset($extra['WHERE']) ) $extra['WHERE'] = appendSQL( '', $extra );
         $extra['WHERE'] .= appendSQL( '', $extra );
 
 	$extra['WHERE'] .= CustomFields( 'where', 'student', $extra );

@@ -212,7 +212,7 @@ if ( UserStudentID()
 				AND s.STUDENT_ID='".UserStudentID()."'
 				AND s.SYEAR='".UserSyear()."'
 				AND s.SCHOOL_ID = '".UserSchool()."'";
-	if ( $_REQUEST['include_inactive']!='Y')
+	if ( ! isset($_REQUEST['include_inactive']) || ($_REQUEST['include_inactive']!='Y') )
 		$sql .= " AND ('".$date."' BETWEEN s.START_DATE AND s.END_DATE OR (s.END_DATE IS NULL AND s.START_DATE<='".$date."')) ";
 	//$sql .= " ORDER BY sp.SORT_ORDER,s.MARKING_PERIOD_ID";
 	$sql .= " ORDER BY cp.SHORT_NAME,s.MARKING_PERIOD_ID";
@@ -454,7 +454,7 @@ function _makePeriodSelect($course_period_id,$column)
 function _makeMPSelect($mp_id,$name)
 {	global $_ROSARIO,$THIS_RET,$fy_id;
 
-	if ( ! $_ROSARIO['_makeMPSelect'])
+        if ( empty($_ROSARIO['_makeMPSelect']) )
 	{
 		$semesters_RET = DBGet(DBQuery("SELECT MARKING_PERIOD_ID,TITLE,NULL AS PARENT_ID FROM SCHOOL_MARKING_PERIODS WHERE MP='SEM' AND SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' ORDER BY SORT_ORDER"));
 		$quarters_RET = DBGet(DBQuery("SELECT MARKING_PERIOD_ID,TITLE,PARENT_ID FROM SCHOOL_MARKING_PERIODS WHERE MP='QTR' AND SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' ORDER BY SORT_ORDER"));

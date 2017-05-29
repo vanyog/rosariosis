@@ -67,16 +67,16 @@ elseif ( User( 'PROFILE' ) === 'parent' ) :
 
 	$help['default'] = <<<HTML
 <p>
-	As a parent, you can view your children's information, schedules, assignments, grades, eligibility, and attendance.
+        Като родител, Вие можете да видите информацията за своето дете: разписанието, заданията, оценките, извънкласните занимания и присъствието.
 </p>
 <p>
-	To choose a child to work on, select the child's name from the pull-down menu on the left frame. The program will automatically refresh with the new child in the workspace. You can also change the school year and current marking period in a similar fashion.
+        За да изберете детето, информацията на което, ще разглеждате, използваайте подащото меню влюво. Програмата автоматично ще се опресни с информацията на другото дете щом го изберете. Можете също да промените учебната година и текущия учебен период, чрез другите падащи менюта.
 </p>
 <p>
-	As you use RosarioSIS, you will notice other items appear in your side menu. When you click on any of the module icons in the side menu, you will see a list of programs available in that module. Clicking on any program title will launch the program in the main frame, and it will update the help frame to display help for that program.
+        Докато използвате RosarioSIS, ще виждате, че различни неща се появяват в страничното меню. Щракването върху името на програма ще предизвика стартиране на тази програма в работната част на екрана, а при щракване на бутона "Помощ", отдолу ще се покаже помощна информация за нея.
 </p>
 <p>
-	You can logout of RosarioSIS at any time by clicking the "Logout" button in the bottom menu.
+        Можете да излезете от RosarioSIS във всеки момент, щраквайки бутона "Изход".
 </p>
 HTML;
 

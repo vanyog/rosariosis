@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-28 19:45+0300\n"
+"PO-Revision-Date: 2017-05-29 14:00+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -2024,7 +2024,7 @@ msgstr ""
 
 #: functions/Widgets.fnc.php:1835
 msgid "Food Service Account ID"
-msgstr ""
+msgstr "Номер сметка за храна"
 
 #: functions/Widgets.fnc.php:1840 modules/Food_Service/AssignSchool.php:38
 #: modules/Food_Service/BalanceReport.php:72
@@ -2035,7 +2035,7 @@ msgstr ""
 #: modules/Food_Service/Students/Reminders.php:208 modules/misc/Export.php:305
 #: modules/misc/Export.php:528 modules/misc/Portal.php:551
 msgid "Account ID"
-msgstr ""
+msgstr "Номер сметка"
 
 #: index.php:131
 msgid "Confirm Successful Installation"
@@ -2848,7 +2848,7 @@ msgstr ""
 #: modules/Attendance/Menu.php:44 modules/Custom/AttendanceSummary.php:146
 #: modules/Grades/includes/ReportCards.fnc.php:355
 msgid "Absences"
-msgstr ""
+msgstr "Отсъствия"
 
 #: modules/Attendance/Menu.php:45
 msgid "Daily Summary"
@@ -3206,7 +3206,7 @@ msgstr ""
 
 #: modules/Custom/Registration.php:301
 msgid "Your child has been registered."
-msgstr ""
+msgstr "Вашето дете беше реистрирано."
 
 #: modules/Custom/Registration.php:312
 #, php-format
@@ -3228,7 +3228,7 @@ msgstr ""
 
 #: modules/Custom/Registration.php:320
 msgid "your child"
-msgstr ""
+msgstr "вашето дате"
 
 #: modules/Custom/Registration.php:332
 msgid "Information about your parents"
@@ -3322,7 +3322,7 @@ msgstr ""
 #: modules/Students/StudentBreakdown.php:242
 #: modules/Students/StudentBreakdown.php:259
 msgid "List"
-msgstr ""
+msgstr "Списък"
 
 #: modules/Discipline/CategoryBreakdown.php:294
 #: modules/Discipline/CategoryBreakdownTime.php:465
@@ -5717,7 +5717,7 @@ msgstr "Групово напускане"
 #: modules/Scheduling/Menu.php:22 modules/Scheduling/Menu.php:43
 #: modules/Scheduling/Menu.php:53
 msgid "Print Schedules"
-msgstr ""
+msgstr "Пачат на графици"
 
 #: modules/Scheduling/Menu.php:23 modules/Scheduling/Menu.php:44
 msgid "Print Class Lists"
@@ -5843,21 +5843,21 @@ msgstr ""
 #: modules/Scheduling/PrintSchedules.php:245
 #: modules/Scheduling/PrintSchedules.php:286
 msgid "Create Schedules for Selected Students"
-msgstr ""
+msgstr "Създаване на разписания за избраните студенти"
 
 #: modules/Scheduling/PrintSchedules.php:249
 msgid "Include only courses active as of"
-msgstr ""
+msgstr "Включване само курсове активни от"
 
 #: modules/Scheduling/PrintSchedules.php:253
 #: modules/Scheduling/Schedule.php:168
 msgid "Horizontal Format"
-msgstr ""
+msgstr "Хоризонтален формат"
 
 #: modules/Scheduling/PrintSchedules.php:259
 #: modules/Scheduling/Schedule.php:168
 msgid "Table"
-msgstr ""
+msgstr "Таблица"
 
 #: modules/Scheduling/Requests.php:112
 msgid "All Subjects"
@@ -5877,7 +5877,7 @@ msgstr ""
 
 #: modules/Scheduling/Schedule.php:137
 msgid "Include Inactive Courses"
-msgstr ""
+msgstr "Включително неактивни курсове"
 
 #: modules/Scheduling/Schedule.php:139
 #: modules/Scheduling/UnfilledRequests.php:16
@@ -5886,11 +5886,11 @@ msgstr ""
 
 #: modules/Scheduling/Schedule.php:168
 msgid "Print Schedule"
-msgstr ""
+msgstr "Печат разписание"
 
 #: modules/Scheduling/Schedule.php:222
 msgid "Add a Course"
-msgstr ""
+msgstr "Добавяне курс"
 
 #: modules/Scheduling/Schedule.php:276
 #: modules/Scheduling/UnfilledRequests.php:47
@@ -5972,8 +5972,8 @@ msgstr ""
 #: modules/Scheduling/ScheduleReport.php:360
 msgid "Unscheduled Student"
 msgid_plural "Unscheduled Students"
-msgstr[0] "Élève non planifié"
-msgstr[1] "Élèves non planifié"
+msgstr[0] ""
+msgstr[1] ""
 
 #: modules/Scheduling/Scheduler.php:17
 msgid "Delete Current Schedules"
@@ -7350,11 +7350,11 @@ msgstr "Потребителски данни"
 
 #: modules/Users/Preferences.php:31
 msgid "Your current password was incorrect."
-msgstr ""
+msgstr "Текущата Ви парола беше коригирана."
 
 #: modules/Users/Preferences.php:41
 msgid "Your new password was saved."
-msgstr ""
+msgstr "Новата Ви парола е съхранена."
 
 #: modules/Users/Preferences.php:102
 msgid "Your preferences were saved."
@@ -7717,7 +7717,7 @@ msgstr ""
 
 #: modules/misc/Portal.php:551
 msgid "Minimum Deposit"
-msgstr ""
+msgstr "Минимален депозит"
 
 #: modules/misc/Portal.php:562
 msgid "Happy parenting..."

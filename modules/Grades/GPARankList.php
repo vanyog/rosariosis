@@ -55,7 +55,7 @@ if ( $_REQUEST['search_modfunc'] == 'list')
 
 	$mps_select .= '</select>';*/
 
-	if ( ! $_REQUEST['mp'])
+        if ( empty($_REQUEST['mp']) )
 		$_REQUEST['mp'] = UserMP();
 
 	// Get all the mp's associated with the current mp
@@ -100,12 +100,21 @@ Widgets('class_rank');
 Widgets('letter_grade');
 
 //$extra['SELECT'] .= ',sgc.GPA,sgc.WEIGHTED_GPA,sgc.CLASS_RANK';
-$extra['SELECT'] .= ',sms.cum_weighted_factor, sms.cum_unweighted_factor, sms.cum_rank';
+if( ! isset($extra['SELECT']) )
+    $extra['SELECT'] = ',sms.cum_weighted_factor, sms.cum_unweighted_factor, sms.cum_rank';
+else
+    $extra['SELECT'] .= ',sms.cum_weighted_factor, sms.cum_unweighted_factor, sms.cum_rank';
 
-if (mb_strpos($extra['FROM'],'STUDENT_MP_STATS sms')===false)
+if (empty($extra['FROM']) || (mb_strpos($extra['FROM'],'STUDENT_MP_STATS sms')===false) )
 {
-	$extra['FROM'] .= ',STUDENT_MP_STATS sms';
-	$extra['WHERE'] .= " AND sms.STUDENT_ID=ssm.STUDENT_ID AND sms.MARKING_PERIOD_ID='".$_REQUEST['mp']."'";
+        if( isset($extra['FROM']) )
+            $extra['FROM'] .= ',STUDENT_MP_STATS sms';
+        else
+            $extra['FROM'] = ',STUDENT_MP_STATS sms';
+        if( isset($extra['WHERE']) )
+            $extra['WHERE'] .= " AND sms.STUDENT_ID=ssm.STUDENT_ID AND sms.MARKING_PERIOD_ID='".$_REQUEST['mp']."'";
+        else
+            $extra['WHERE'] = " AND sms.STUDENT_ID=ssm.STUDENT_ID AND sms.MARKING_PERIOD_ID='".$_REQUEST['mp']."'";
 }
 $extra['columns_after'] = array('CUM_UNWEIGHTED_FACTOR' => _('Unweighted GPA'),'CUM_WEIGHTED_FACTOR' => _('Weighted GPA'),'CUM_RANK' => _('Class Rank'));
 $extra['link']['FULL_NAME'] = false;

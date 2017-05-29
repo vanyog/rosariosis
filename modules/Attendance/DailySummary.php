@@ -38,7 +38,7 @@ if ( empty( $end_date ) )
 	$end_date = DBDate();
 }
 
-if ( $_REQUEST['attendance']
+if ( ! empty($_REQUEST['attendance'])
 	&& $_POST['attendance']
 	&& AllowEdit() )
 {
@@ -67,6 +67,7 @@ if ( $_REQUEST['attendance']
 	RedirectURL( 'attendance' );
 }
 
+if( ! isset($period_select) ) $period_select = '';
 //FJ bugfix bug when Back to Student Search
 //if ( $_REQUEST['search_modfunc'] || $_REQUEST['student_id'] || UserStudentID() || User('PROFILE')=='parent' || User('PROFILE')=='student')
 if ( $_REQUEST['search_modfunc'] || $_REQUEST['student_id'] || User('PROFILE')=='parent' || User('PROFILE')=='student')
@@ -108,7 +109,7 @@ if ( $_REQUEST['search_modfunc'] || $_REQUEST['student_id'] || User('PROFILE')==
 		}
 	}
 	else
-		$period_select .= '<option value="PERIOD"'.($_REQUEST['period_id']?' selected':'').'>'._('By Period').'</option>';
+	        $period_select .= '<option value="PERIOD"'.(!empty($_REQUEST['period_id'])?' selected':'').'>'._('By Period').'</option>';
 	$period_select .= '</select>';
 
 	echo '<form action="' . $PHP_tmp_SELF . '" method="GET">';
@@ -123,11 +124,11 @@ $cal_RET = DBGet(DBQuery("SELECT DISTINCT SCHOOL_DATE,'_'||to_char(SCHOOL_DATE,'
 
 //FJ bugfix bug when Back to Student Search
 //if (UserStudentID() || $_REQUEST['student_id'] || User('PROFILE')=='parent')
-if ( $_REQUEST['student_id'] || User('PROFILE')=='parent')
+if ( ! empty($_REQUEST['student_id']) || User('PROFILE')=='parent')
 {
 	// JUST TO SET USERSTUDENTID()
 	Search('student_id');
-	if ( $_REQUEST['period_id'])
+	if ( ! empty($_REQUEST['period_id']) )
 	{
 		//FJ multiple school periods for a course period
 		/*$sql = "SELECT

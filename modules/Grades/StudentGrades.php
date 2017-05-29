@@ -32,7 +32,7 @@ AND c.COURSE_ID=cp.COURSE_ID
 ORDER BY cp.SHORT_NAME, cp.TITLE"),array(),array('COURSE_PERIOD_ID'));
 //echo '<pre>'; var_dump($courses_RET); echo '</pre>';
 
-if ( $_REQUEST['id']
+if ( ! empty($_REQUEST['id'])
 	&& $_REQUEST['id'] !== 'all'
 	&& ! $courses_RET[ $_REQUEST['id'] ] )
 {
@@ -40,7 +40,7 @@ if ( $_REQUEST['id']
 	RedirectURL( 'id' );
 }
 
-if ( ! $_REQUEST['id'] )
+if ( empty( $_REQUEST['id'] ) )
 {
 	DrawHeader(_('Totals'),'<a href="Modules.php?modname='.$_REQUEST['modname'].'&id=all'.($do_stats?'&do_stats='.$_REQUEST['do_stats']:'').'">'._('Expand All').'</a>');
 

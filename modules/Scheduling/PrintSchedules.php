@@ -241,7 +241,8 @@ if ( ! $_REQUEST['modfunc'] )
 			$mp_select .= '<option value="'.$mp['MARKING_PERIOD_ID'].'">'.$mp['TITLE'];
 		$mp_select .= '</select>';
 
-		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.$_REQUEST['include_inactive'].'&_ROSARIO_PDF=true" method="POST" id="printSchedulesForm">';
+                echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.
+                     (isset($_REQUEST['include_inactive'])?$_REQUEST['include_inactive']:'').'&_ROSARIO_PDF=true" method="POST" id="printSchedulesForm">';
 		$extra['header_right'] = '<input type="submit" value="'._('Create Schedules for Selected Students').'" />';
 
 		$extra['extra_header_left'] = '<table class="cellpadding-5">';
@@ -261,7 +262,7 @@ if ( ! $_REQUEST['modfunc'] )
 			'</td></tr>';
 
 		Widgets('mailing_labels');
-		$extra['extra_header_left'] .= $extra['search'];
+		$extra['extra_header_left'] .= isset($extra['search']) ? $extra['search'] : '';
 		$extra['search'] = '';
 		$extra['extra_header_left'] .= '</table>';
 	}

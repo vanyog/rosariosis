@@ -253,7 +253,7 @@ function mySearch($type,$extra='')
 	else
 	{
 		DrawHeader('',$extra['header_right']);
-		DrawHeader($extra['extra_header_left'],$extra['extra_header_right']);
+		DrawHeader($extra['extra_header_left'], isset($extra['extra_header_right']) ? $extra['extra_header_right'] : '');
 
 		if (User('PROFILE')=='admin')
 		{
@@ -305,7 +305,7 @@ function mySearch($type,$extra='')
 		$course_periods_RET = DBGet(DBQuery($sql),array('COURSE_PERIOD_ID' => '_makeChooseCheckbox'));
 		$LO_columns = array('COURSE_PERIOD_ID' => '</a><input type="checkbox" value="Y" name="controller" onclick="checkAll(this.form,this.checked,\'cp_arr\');" checked /><A>','TITLE' => _('Course Period'));
 
-		if ( ! $_REQUEST['LO_save'] && ! $extra['suppress_save'])
+                if ( empty($_REQUEST['LO_save']) && empty($extra['suppress_save']) )
 		{
 			$_SESSION['List_PHP_SELF'] = PreparePHP_SELF($_SESSION['_REQUEST_vars'],array('bottom_back'));
 

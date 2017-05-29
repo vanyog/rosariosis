@@ -732,7 +732,7 @@ function _prepareAddress( $temp )
 
 	$temp = preg_replace( '/^[0-9]+ /', '', $temp );
 
-	if ( $regs[0] )
+        if ( ! empty($regs[0]) )
 	{
 		$address['HOUSE_NO'] = $regs[0];
 	}
