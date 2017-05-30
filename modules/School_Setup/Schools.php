@@ -21,7 +21,7 @@ if ( isset( $_POST['day_values'], $_POST['month_values'], $_POST['year_values'] 
 if ( $_REQUEST['modfunc'] === 'update' )
 {
         if ( isset($_REQUEST['button']) && ($_REQUEST['button'] === _( 'Save' ) )
-		&& AllowEdit() )
+                && AllowEdit() )
 	{
 		if ( $_REQUEST['values']
 			&& $_POST['values'] )
@@ -202,8 +202,8 @@ if ( ! $_REQUEST['modfunc'] )
 	if ( (!isset($_REQUEST['new_school']) || ($_REQUEST['new_school']!='true')) && $_SESSION['SchoolData']['SCHOOLS_NB'] > 1)
 		$delete_button = true;
 
-	//FJ fix bug: no save button if no admin
-	if (User('PROFILE')=='admin' && AllowEdit())
+        //FJ fix bug: no save button if no admin
+//        if (User('PROFILE')=='admin' && AllowEdit())
 		DrawHeader('',SubmitButton(_('Save'), 'button').($delete_button?SubmitButton(_('Delete'), 'button'):''));
 
 	echo '<br />';
@@ -264,7 +264,7 @@ if ( ! $_REQUEST['modfunc'] )
 	) . '</td></tr>';
 
 	if ( AllowEdit()
-		|| ! $schooldata['WWW_ADDRESS'] )
+	        || empty( $schooldata['WWW_ADDRESS'] ) )
 	{
 		echo '<tr><td colspan="3">' . TextInput(
 		        @$schooldata['WWW_ADDRESS'],

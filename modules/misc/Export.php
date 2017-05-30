@@ -3,6 +3,10 @@ require_once 'ProgramFunctions/miscExport.fnc.php';
 
 //echo '<pre>'; var_dump($_REQUEST); echo '</pre>';
 
+if( ! isset($extra['extra_search']) ) $extra['extra_search'] = '';
+if( ! isset($extra['action']) )       $extra['action'] = '';
+if( ! isset($extra['SELECT']) )       $extra['SELECT'] = '';
+
 $extra['extra_search'] .= '<tr>
 		<td></td>
 		<td><div id="fields_div"></div></td>
@@ -35,16 +39,16 @@ $extra['new'] = true;
 
 $_ROSARIO['CustomFields'] = true;
 
-if ( $_REQUEST['fields']['ADDRESS']
-	|| $_REQUEST['fields']['CITY']
-	|| $_REQUEST['fields']['STATE']
-	|| $_REQUEST['fields']['ZIPCODE']
-	|| $_REQUEST['fields']['PHONE']
-	|| $_REQUEST['fields']['MAIL_ADDRESS']
-	|| $_REQUEST['fields']['MAIL_CITY']
-	|| $_REQUEST['fields']['MAIL_STATE']
-	|| $_REQUEST['fields']['MAIL_ZIPCODE']
-	|| $_REQUEST['fields']['PARENTS'] )
+if ( ! empty($_REQUEST['fields']['ADDRESS'])
+        || ! empty($_REQUEST['fields']['CITY'])
+        || ! empty($_REQUEST['fields']['STATE'])
+        || ! empty($_REQUEST['fields']['ZIPCODE'])
+        || ! empty($_REQUEST['fields']['PHONE'])
+        || ! empty($_REQUEST['fields']['MAIL_ADDRESS'])
+        || ! empty($_REQUEST['fields']['MAIL_CITY'])
+        || ! empty($_REQUEST['fields']['MAIL_STATE'])
+        || ! empty($_REQUEST['fields']['MAIL_ZIPCODE'])
+        || ! empty($_REQUEST['fields']['PARENTS']) )
 {
 	$extra['SELECT'] .= ',a.ADDRESS_ID,a.ADDRESS,a.CITY,a.STATE,a.ZIPCODE,a.PHONE,' .
 		db_case( array( 'sam.MAILING', "'Y'", 'coalesce(a.MAIL_ADDRESS,a.ADDRESS)', 'NULL' ) ) . ' AS MAIL_ADDRESS,' .
@@ -97,33 +101,33 @@ $extra['SELECT'] .= ",ssm.NEXT_SCHOOL,ssm.CALENDAR_ID,ssm.SYEAR,
 		WHERE ssm.SCHOOL_ID=sch.ID
 		AND sch.SYEAR='" . UserSyear() . "') AS SCHOOL_NUMBER"; // Fix PHP error removed s.*.
 
-if ( $_REQUEST['fields']['FIRST_INIT'] )
+if ( ! empty($_REQUEST['fields']['FIRST_INIT']) )
 {
 	$extra['SELECT'] .= ',SUBSTR(s.FIRST_NAME,1,1) AS FIRST_INIT';
 }
 
-if ( $_REQUEST['fields']['GIVEN_NAME'] )
+if ( ! empty($_REQUEST['fields']['GIVEN_NAME']) )
 {
 	$extra['SELECT'] .= ",s.LAST_NAME||', '||s.FIRST_NAME||' '||coalesce(s.MIDDLE_NAME,' ') AS GIVEN_NAME";
 }
 
-if ( $_REQUEST['fields']['COMMON_NAME'] )
+if ( ! empty($_REQUEST['fields']['COMMON_NAME']) )
 {
 	$extra['SELECT'] .= ",s.LAST_NAME||', '||s.FIRST_NAME AS COMMON_NAME";
 }
 
-if ( $_REQUEST['fields']['USERNAME'] )
+if ( ! empty($_REQUEST['fields']['USERNAME']) )
 {
 	$extra['SELECT'] .= ",s.USERNAME";
 }
 
-if ( $_REQUEST['fields']['LAST_LOGIN'] )
+if ( ! empty($_REQUEST['fields']['LAST_LOGIN']) )
 {
 	$extra['SELECT'] .= ",s.LAST_LOGIN";
 }
 
 // School Title.
-if ( $_REQUEST['fields']['SCHOOL_TITLE'] )
+if ( ! empty($_REQUEST['fields']['SCHOOL_TITLE']) )
 {
 	$extra['SELECT'] .= ",(SELECT sch.TITLE FROM SCHOOLS sch
 		WHERE ssm.SCHOOL_ID=sch.ID
@@ -132,7 +136,7 @@ if ( $_REQUEST['fields']['SCHOOL_TITLE'] )
 
 
 
-if ( ! $extra['functions'] )
+if ( empty($extra['functions']) )
 {
 	$extra['functions'] = array(
 		'NEXT_SCHOOL' => '_makeNextSchool',
@@ -143,7 +147,7 @@ if ( ! $extra['functions'] )
 }
 
 // Generate Report.
-if ( $_REQUEST['search_modfunc'] === 'list' )
+if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc'] === 'list') )
 {
 	if ( empty( $_REQUEST['fields'] ) )
 		if ( isset( $_REQUEST['_ROSARIO_PDF'] ) )
@@ -459,7 +463,7 @@ if ( $_REQUEST['search_modfunc'] === 'list' )
 // Advanced Report form
 else
 {
-	if ( ! $fields_list )
+        if ( empty($fields_list) )
 	{
 		// General Info
 		if ( AllowUse( 'Students/Student.php&category_id=1' ) )
@@ -530,7 +534,7 @@ else
 			}
 		}
 
-		if ( $extra['field_names'] )
+                if ( ! empty($extra['field_names']) )
 			$fields_list['General'] += $extra['field_names'];
 	}
 
@@ -654,6 +658,7 @@ else
 		}
 
 		// Draw fields
+		$i = 0;
 		foreach ( (array) $fields as $field => $title )
 		{
 			$i++;
@@ -715,7 +720,7 @@ else
 	echo '</td><td class="valign-top">';
 
 	// Bottom of the screen: Course Periods list
-	if ( $Search
+	if ( ! empty($Search)
 		&& function_exists( $Search ) )
 	{
 		echo '</td></tr></table>';

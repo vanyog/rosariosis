@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Fields (and Field Categories) functions
@@ -252,19 +251,18 @@ function GetFieldsForm( $table, $title, $RET, $extra_category_fields = array(), 
 		'SCHOOL',
 	);
 
-	$id = $RET['ID'];
-
-	$category_id = $RET['CATEGORY_ID'];
-
 	if ( empty( $table )
-		|| ( empty( $id )
-			&& empty( $category_id ) )
+	        || ( empty( $RET['ID'] ) && empty( $RET['CATEGORY_ID'] ) )
 		|| ! in_array( $table, $allowed_tables ) )
 	{
 		return '';
 	}
 
-	$new = $id === 'new' || $category_id === 'new';
+        $id = isset($RET['ID']) ? $RET['ID'] : '';
+
+        $category_id = $RET['CATEGORY_ID'];
+
+        $new = $id === 'new' || $category_id === 'new';
 
 	$form = '<form action="Modules.php?modname=' . $_REQUEST['modname'];
 
@@ -730,8 +728,6 @@ function FilterCustomFieldsMarkdown( $table, $request_index, $request_index_2 = 
  */
 function CheckRequiredCustomFields( $table, $request_values )
 {
-        return false;
-
 	// Please add your TABLE here.
 	$allowed_tables = array(
 		'CUSTOM_FIELDS',

@@ -686,7 +686,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 				if (count($link['remove']['variables']))
 				{
 					foreach ( (array) $link['remove']['variables'] as $var => $val)
-						$button_link .= "&$var=" . urlencode($item[ $val ]);
+					        $button_link .= "&$var=" . urlencode(isset($item[ $val ])?$item[ $val ]:'');
 				}
 
 				echo '<td>' . button('remove',$button_title,'"'.$button_link.'"') . '</td>';

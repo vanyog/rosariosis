@@ -141,7 +141,7 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	DrawHeader(ProgramTitle());
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.$_REQUEST['include_inactive'].'&_search_all_schools='.$_REQUEST['_search_all_schools'].'&_ROSARIO_PDF=true" method="POST">';
 		$extra['header_right'] = '<input type="submit" value="'._('Create Labels for Selected Students').'">';
@@ -194,6 +194,7 @@ if ( ! $_REQUEST['modfunc'] )
 	//Widgets('letter_grade');
 	//Widgets('eligibility');
 
+        if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 	$extra['SELECT'] .= ",s.STUDENT_ID AS CHECKBOX";
 	$extra['link'] = array('FULL_NAME'=>false);
 	$extra['functions'] = array('CHECKBOX' => '_makeChooseCheckbox');
@@ -202,7 +203,7 @@ if ( ! $_REQUEST['modfunc'] )
 	$extra['new'] = true;
 
 	Search('student_id',$extra);
-	if ( $_REQUEST['search_modfunc']=='list')
+	if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center">' . SubmitButton(_('Create Labels for Selected Students')) . '</div>';
 		echo '</form>';

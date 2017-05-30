@@ -22,7 +22,7 @@ if ( $_REQUEST['modfunc'] === 'search' )
 
 	$extra['search_title'] = _( 'Advanced' );
 
-	$extra['action'] = '&field_id=' . $_REQUEST['field_id'] .
+        $extra['action'] = '&field_id=' . ( isset($_REQUEST['field_id']) ? $_REQUEST['field_id'] : '') .
 		'&chart_type=' . $_REQUEST['chart_type'] .
 		'&modfunc=&search_modfunc=';
 
@@ -193,7 +193,7 @@ if ( ! $_REQUEST['modfunc'] )
 		{
 			$selected = '';
 
-			if ( $_REQUEST['field_id'] == $field['ID'] )
+                        if ( isset($_REQUEST['field_id']) && ($_REQUEST['field_id'] == $field['ID']) )
 			{
 				$selected = ' selected';
 				$field_title = $field['TITLE'];
