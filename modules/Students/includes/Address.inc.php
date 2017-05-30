@@ -134,7 +134,7 @@ if ( isset( $_POST['values'] )
 		}
 	}
 
-	if ( $_REQUEST['values']['PEOPLE'])
+	if ( $_REQUEST['values']['PEOPLE'] )
 	{
 		// FJ other fields required.
 		$required_error = CheckRequiredCustomFields( 'PEOPLE_FIELDS', $_REQUEST['values']['PEOPLE'] );
@@ -201,7 +201,7 @@ if ( isset( $_POST['values'] )
 		}
 	}
 
-	if ( $_REQUEST['values']['PEOPLE_JOIN_CONTACTS'])
+	if ( $_REQUEST['values']['PEOPLE_JOIN_CONTACTS'] )
 	{
 		foreach ( (array) $_REQUEST['values']['PEOPLE_JOIN_CONTACTS'] as $id => $values)
 		{
@@ -265,6 +265,11 @@ if ( isset( $_POST['values'] )
 		}
 		$sql = mb_substr($sql,0,-1) . " WHERE ADDRESS_ID='".$_REQUEST['address_id']."' AND STUDENT_ID='".UserStudentID()."'";
 		DBQuery($sql);
+	}
+
+	if ( $required_error )
+	{
+		$error[] = _( 'Please fill in the required fields' );
 	}
 
 	// Unset modfunc & values & redirect URL.
