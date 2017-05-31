@@ -70,7 +70,7 @@ if ( ! empty($_REQUEST['attendance'])
 if( ! isset($period_select) ) $period_select = '';
 //FJ bugfix bug when Back to Student Search
 //if ( $_REQUEST['search_modfunc'] || $_REQUEST['student_id'] || UserStudentID() || User('PROFILE')=='parent' || User('PROFILE')=='student')
-if ( $_REQUEST['search_modfunc'] || $_REQUEST['student_id'] || User('PROFILE')=='parent' || User('PROFILE')=='student')
+if ( ! empty($_REQUEST['search_modfunc']) || ! empty($_REQUEST['student_id']) || User('PROFILE')=='parent' || User('PROFILE')=='student')
 {
 	$PHP_tmp_SELF = PreparePHP_SELF();
 	$period_select = '<select name="period_id" onchange="ajaxPostForm(this.form,true);"><option value=""'.(empty($_REQUEST['period_id'])?' selected':'').'>'._('Daily').'</option>';
@@ -208,7 +208,7 @@ else
 {
 	// in pre-2.11 versions the attendance data would be queried for all students here but data for #students*#days can be a lot
 	// in 2.11 this was switched to incremental query in the _makeColor function
-	if ( ! $_REQUEST['period_id'])
+	if ( empty($_REQUEST['period_id']) )
 	{
 		$att_sql = "SELECT ad.STATE_VALUE,SCHOOL_DATE,'_'||to_char(ad.SCHOOL_DATE,'yyyymmdd') AS SHORT_DATE
 		FROM ATTENDANCE_DAY ad,STUDENT_ENROLLMENT ssm
@@ -247,7 +247,14 @@ else
 		$extra['functions'][ $school_date_col ] = '_makeColor';
 	}
 
-	$extra['link']['FULL_NAME']['link'] = 'Modules.php?modname='.$_REQUEST['modname'].'&day_start='.$_REQUEST['day_start'].'&day_end='.$_REQUEST['day_end'].'&month_start='.$_REQUEST['month_start'].'&month_end='.$_REQUEST['month_end'].'&year_start='.$_REQUEST['year_start'].'&year_end='.$_REQUEST['year_end'].'&period_id='.$_REQUEST['period_id'];
+        $extra['link']['FULL_NAME']['link'] = 'Modules.php?modname='.$_REQUEST['modname'].'&day_start='.
+               ( isset($_REQUEST['day_start']) ? $_REQUEST['day_start'] : '' ).'&day_end='.
+               ( isset($_REQUEST['day_end'])   ? $_REQUEST['day_end']   : '' ).'&month_start='.
+               ( isset($_REQUEST['month_start'])?$_REQUEST['month_start']:'' ).'&month_end='.
+               ( isset($_REQUEST['month_end']) ? $_REQUEST['month_end'] : '' ).'&year_start='.
+               ( isset($_REQUEST['year_start'])? $_REQUEST['year_start']: '' ).'&year_end='.
+               ( isset($_REQUEST['year_end'])  ? $_REQUEST['year_end']  : '' ).'&period_id='.
+               ( isset($_REQUEST['period_id']) ? $_REQUEST['period_id'] : '' );
 	$extra['link']['FULL_NAME']['variables'] = array('student_id' => 'STUDENT_ID');
 
 	Widgets('course');

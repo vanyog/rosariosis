@@ -5,7 +5,7 @@ require_once 'modules/Scheduling/includes/calcSeats0.fnc.php';
 require_once 'modules/Scheduling/functions.inc.php';
 
 if ( ! $_REQUEST['modfunc']
-	&& $_REQUEST['search_modfunc'] !== 'list' )
+        && ( ! isset($_REQUEST['search_modfunc']) || ($_REQUEST['search_modfunc'] !== 'list') ) )
 {
 	$_SESSION['MassSchedule.php'] = array();
 }
@@ -127,7 +127,7 @@ echo ErrorMessage( $note, 'note' );
 
 if ( ! $_REQUEST['modfunc'] )
 {
-	if ( $_REQUEST['search_modfunc'] === 'list' )
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc'] === 'list') )
 	{
 		echo '<form action="Modules.php?modname=' . $_REQUEST['modname'] . '&modfunc=save" method="POST">';
 
@@ -196,7 +196,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	Search( 'student_id', $extra );
 
-	if ( $_REQUEST['search_modfunc'] === 'list' )
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc'] === 'list') )
 	{
 		echo '<br /><div class="center">' .
 			SubmitButton( _( 'Add Courses to Selected Students' ) ) . '</div></form>';

@@ -3,7 +3,7 @@
 DrawHeader( ProgramTitle() );
 
 if ( ! $_REQUEST['modfunc']
-	&& $_REQUEST['search_modfunc'] !== 'list' )
+        && ( ! isset($_REQUEST['search_modfunc']) || ($_REQUEST['search_modfunc'] !== 'list') ) )
 {
 	unset( $_SESSION['MassDrops.php'] );
 }
@@ -104,7 +104,7 @@ echo ErrorMessage( $note, 'note' );
 
 if ( $_REQUEST['modfunc']!='choose_course')
 {
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save" method="POST">';
 		DrawHeader('',SubmitButton(_('Drop Course for Selected Students')));
@@ -149,7 +149,7 @@ if ( $_REQUEST['modfunc']!='choose_course')
 if ( ! $_REQUEST['modfunc'] )
 
 {
-	if ( $_REQUEST['search_modfunc']!='list')
+        if ( ! isset($_REQUEST['search_modfunc']) || ($_REQUEST['search_modfunc']!='list') )
 		unset($_SESSION['MassDrops.php']);
 	$extra['link'] = array('FULL_NAME'=>false);
 	$extra['SELECT'] = ",CAST (NULL AS CHAR(1)) AS CHECKBOX";
@@ -162,7 +162,7 @@ if ( ! $_REQUEST['modfunc'] )
 	Widgets('activity');
 
 	Search('student_id',$extra);
-	if ( $_REQUEST['search_modfunc']=='list')
+	if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center">' . SubmitButton(_('Drop Course for Selected Students')) . '</div>';
 		echo '</form>';

@@ -83,7 +83,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	if (UserStaffID())
 	{
-		if ( $_REQUEST['search_modfunc']=='list')
+	        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 		{
 			echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save" method="POST">';
 			DrawHeader('',SubmitButton(_('Add Selected Students')));
@@ -111,7 +111,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		echo '</td></tr></table>';
 
-		if ( $_REQUEST['search_modfunc']=='list')
+                if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 			echo '<br /><div class="center">' . SubmitButton(_('Add Selected Students')) . '</div></form>';
 	}
 }

@@ -75,10 +75,10 @@ if ( empty($_REQUEST['search_modfunc']) )
 				if ( $extra['search'] )
 					echo $extra['search'];
 
-				if ( $extra['extra_search'] )
+                                if ( ! empty($extra['extra_search']) )
 					echo $extra['extra_search'];
 
-				if ( $extra['second_col'] )
+                                if ( ! empty($extra['second_col']) )
 					echo $extra['second_col'];
 
 				echo '</table>';
@@ -218,7 +218,8 @@ else
         if( !isset($extra['extra_header_left']) ) $extra['extra_header_left']   = '';
         if( !isset($extra['extra_header_right']) ) $extra['extra_header_right'] = '';
 
-	if (count($staff_RET)>1 || $link['add'] || ! $link['FULL_NAME'] || $extra['columns_before'] || $extra['columns_after'] || ($extra['BackPrompt']==false && count($staff_RET)==0) || ($extra['Redirect']===false && count($staff_RET)==1))
+        if (count($staff_RET)>1 || ! empty($link['add']) || ! $link['FULL_NAME'] || ! empty($extra['columns_before']) || $extra['columns_after'] ||
+            ($extra['BackPrompt']==false && count($staff_RET)==0) || ($extra['Redirect']===false && count($staff_RET)==1))
 	{
 	        if ( !isset($_REQUEST['expanded_view']) || ($_REQUEST['expanded_view']!='true') )
 			DrawHeader('<a href="'.PreparePHP_SELF($_REQUEST,array(),array('expanded_view' => 'true')) . '">'._('Expanded View').'</a>',$extra['header_right']);

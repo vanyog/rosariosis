@@ -2,7 +2,7 @@
 
 DrawHeader( ProgramTitle() );
 
-if (count($_REQUEST['mp_arr']))
+if (isset($_REQUEST['mp_arr']) && count($_REQUEST['mp_arr']))
 {
 	foreach ( (array) $_REQUEST['mp_arr'] as $mp )
 	{
@@ -19,7 +19,7 @@ if (count($_REQUEST['mp_arr']))
 //Widgets('letter_grade');
 
 
-if ( $_REQUEST['delete'] === 'true' )
+if ( isset($_REQUEST['delete']) && ($_REQUEST['delete'] === 'true') )
 {
 	//DeletePrompt(_('Duplicate Attendance Record'));
 	if ( !empty($_REQUEST['deletecheck']))
@@ -382,8 +382,8 @@ if ( isset( $_REQUEST['search_modfunc'] )
 	}
 }
 
-if ( ! $_REQUEST['search_modfunc']
-	&& $_REQUEST['delete'] !== 'true' )
+if ( empty($_REQUEST['search_modfunc'])
+        && ( ! isset($_REQUEST['delete']) || ($_REQUEST['delete'] !== 'true') ) )
 {
 	echo ErrorMessage( $error );
 

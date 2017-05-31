@@ -41,7 +41,7 @@ if ( $_REQUEST['modfunc']!='choose_course')
 
 	echo ErrorMessage( $note, 'note' );
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save" method="POST">';
 
@@ -106,7 +106,7 @@ if ( $_REQUEST['modfunc']!='choose_course')
 if ( ! $_REQUEST['modfunc'] )
 
 {
-	if ( $_REQUEST['search_modfunc']!='list')
+        if ( ! isset($_REQUEST['search_modfunc']) || ($_REQUEST['search_modfunc']!='list') )
 		unset($_SESSION['MassRequests.php']);
 	$extra['link'] = array('FULL_NAME'=>false);
 	$extra['SELECT'] = ",CAST (NULL AS CHAR(1)) AS CHECKBOX";
@@ -119,7 +119,7 @@ if ( ! $_REQUEST['modfunc'] )
 	//Widgets('activity');
 
 	Search('student_id',$extra);
-	if ( $_REQUEST['search_modfunc']=='list')
+	if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 		echo '<br /><div class="center">'.SubmitButton(_('Add Request to Selected Students'))."</div></form>";
 }
 

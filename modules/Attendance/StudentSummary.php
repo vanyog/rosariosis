@@ -39,7 +39,7 @@ if ( empty( $end_date ) )
 //	$_REQUEST['period_id'] = UserPeriod();
 
 //FJ bugfix bug when Back to Student Search
-if ( $_REQUEST['search_modfunc'] || $_REQUEST['student_id'] || User('PROFILE')=='parent' || User('PROFILE')=='student')
+if ( ! empty($_REQUEST['search_modfunc']) || ! empty($_REQUEST['student_id']) || User('PROFILE')=='parent' || User('PROFILE')=='student')
 {
 	$period_select = '';
 

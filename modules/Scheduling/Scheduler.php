@@ -2,7 +2,7 @@
 
 require_once 'modules/Scheduling/includes/calcSeats0.fnc.php';
 
-if ( $_REQUEST['modname']=='Scheduling/Scheduler.php' && ! $_REQUEST['run'])
+if ( $_REQUEST['modname']=='Scheduling/Scheduler.php' && empty($_REQUEST['run']) )
 {
 	$function = 'Prompt';
 	DrawHeader(ProgramTitle());
@@ -59,7 +59,7 @@ if ( $ok )
 	
 	$requests_RET = DBGet(DBQuery($sql),array(),array('REQUEST_ID'));
 	
-	if ( $_REQUEST['delete']=='Y' && count($requests_RET)>0)
+        if ( isset($_REQUEST['delete']) && ($_REQUEST['delete']=='Y') && count($requests_RET)>0)
 		DBQuery("DELETE FROM SCHEDULE WHERE SCHOOL_ID='".UserSchool()."' AND SYEAR='".UserSyear()."' AND (SCHEDULER_LOCK!='Y' OR SCHEDULER_LOCK IS NULL)");
 
 	$periods_RET = DBGet(DBQuery("SELECT COURSE_PERIOD_ID,MARKING_PERIOD_ID,MP,TOTAL_SEATS,CALENDAR_ID FROM COURSE_PERIODS WHERE SCHOOL_ID='".UserSchool()."' AND SYEAR='".UserSyear()."'"));
@@ -259,7 +259,7 @@ if ( $ok )
 		db_trans_commit($connection);
 	}
 
-	if ( $_REQUEST['test_mode']!='Y' || $_REQUEST['delete']=='Y')
+        if ( $_REQUEST['test_mode']!='Y' || ( isset($_REQUEST['delete']) && ($_REQUEST['delete']=='Y') ) )
 	{
 		echo '<script>document.getElementById("percentDIV").innerHTML = '.json_encode('<span class="loading"></span> '._('Optimizing ...').' ').';</script>';
 		echo str_pad(' ',4096);

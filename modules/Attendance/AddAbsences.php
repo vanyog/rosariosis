@@ -4,12 +4,12 @@ require_once 'modules/Attendance/includes/UpdateAttendanceDaily.fnc.php';
 
 DrawHeader( ProgramTitle() );
 
-if ( ! $_REQUEST['month'] )
+if ( empty($_REQUEST['month']) )
 {
 	$_REQUEST['month'] = date( 'm' );
 }
 
-if ( ! $_REQUEST['year'] )
+if ( empty($_REQUEST['year']) )
 {
 	$_REQUEST['year'] = date( 'Y' );
 }
@@ -131,7 +131,7 @@ if ( ! $_REQUEST['modfunc'] )
 	$extra['link'] = array('FULL_NAME'=>false);
 	$extra['SELECT'] = ",CAST (NULL AS CHAR(1)) AS CHECKBOX";
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save" method="POST">';
 		DrawHeader('',SubmitButton(_('Add Absences to Selected Students')));
@@ -213,7 +213,7 @@ if ( ! $_REQUEST['modfunc'] )
 	$extra['new'] = true;
 
 	Search('student_id',$extra);
-	if ( $_REQUEST['search_modfunc']=='list')
+	if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 		echo '<br /><div class="center">' . SubmitButton(_('Add Absences to Selected Students')) . '</div></form>';
 }
 

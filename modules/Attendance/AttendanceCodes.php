@@ -2,7 +2,7 @@
 
 DrawHeader( ProgramTitle() );
 
-if ( $_REQUEST['table']=='')
+if ( empty($_REQUEST['table']) )
 	$_REQUEST['table'] = '0';
 
 if ( $_REQUEST['modfunc'] === 'update'
@@ -16,7 +16,7 @@ if ( $_REQUEST['modfunc'] === 'update'
 			// FJ fix SQL bug invalid sort order.
 			if (empty($columns['SORT_ORDER']) || is_numeric($columns['SORT_ORDER']))
 			{
-				if ( $columns['DEFAULT_CODE']=='Y')
+			        if ( isset($columns['DEFAULT_CODE']) && ($columns['DEFAULT_CODE']=='Y') )
 					DBQuery("UPDATE ATTENDANCE_CODES SET DEFAULT_CODE=NULL WHERE SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' AND TABLE_NAME='".$_REQUEST['table']."'");
 
 				if ( $id!='new')
@@ -255,5 +255,5 @@ function _makeCheckBoxInput($value,$name)
 		$new = true;
 	}
 
-	return CheckBoxInput($value,'values['.$id.']['.$name.']','','',$new);
+        return CheckBoxInput($value,'values['.$id.']['.$name.']','','',isset($new)?$new:'');
 }

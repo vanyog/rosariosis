@@ -1,7 +1,7 @@
 <?php
 DrawHeader(ProgramTitle());
 
-if ( $_REQUEST['search_modfunc'] == 'list')
+if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc'] == 'list') )
 {
 //FJ changed MP list to GradeBreakdown.php style
 	/*if ( ! $_REQUEST['mp'] && GetMP(UserMP(),'POST_START_DATE'))
@@ -114,7 +114,7 @@ if (empty($extra['FROM']) || (mb_strpos($extra['FROM'],'STUDENT_MP_STATS sms')==
         if( isset($extra['WHERE']) )
             $extra['WHERE'] .= " AND sms.STUDENT_ID=ssm.STUDENT_ID AND sms.MARKING_PERIOD_ID='".$_REQUEST['mp']."'";
         else
-            $extra['WHERE'] = " AND sms.STUDENT_ID=ssm.STUDENT_ID AND sms.MARKING_PERIOD_ID='".$_REQUEST['mp']."'";
+            $extra['WHERE'] = " AND sms.STUDENT_ID=ssm.STUDENT_ID AND sms.MARKING_PERIOD_ID='".(isset($_REQUEST['mp']) ? $_REQUEST['mp'] : '')."'";
 }
 $extra['columns_after'] = array('CUM_UNWEIGHTED_FACTOR' => _('Unweighted GPA'),'CUM_WEIGHTED_FACTOR' => _('Weighted GPA'),'CUM_RANK' => _('Class Rank'));
 $extra['link']['FULL_NAME'] = false;

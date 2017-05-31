@@ -9,7 +9,7 @@ $fy = GetParentMP('FY',$sem);
 $pros = GetChildrenMP('PRO',UserMP());
 
 // if the UserMP has been changed, the REQUESTed MP may not work
-if ( ! $_REQUEST['mp'] || mb_strpos($str="'".UserMP()."','".$sem."','".$fy."',".$pros,"'".$_REQUEST['mp']."'")===false)
+if ( empty($_REQUEST['mp']) || mb_strpos($str="'".UserMP()."','".$sem."','".$fy."',".$pros,"'".$_REQUEST['mp']."'")===false)
 	$_REQUEST['mp'] = UserMP();
 
 $QI = DBQuery("SELECT PERIOD_ID,TITLE FROM SCHOOL_PERIODS WHERE SCHOOL_ID='".UserSchool()."' AND SYEAR='".UserSyear()."' AND EXISTS (SELECT '' FROM COURSE_PERIODS WHERE PERIOD_ID=school_periods.PERIOD_ID) ORDER BY SORT_ORDER");
@@ -17,7 +17,7 @@ $periods_RET = DBGet($QI,array(),array('PERIOD_ID'));
 
 $period_select = '<select name="period" onChange="ajaxPostForm(this.form,true);"><option value="">'._('All').'</option>';
 foreach ( (array) $periods_RET as $id => $period)
-	$period_select .= '<option value="'.$id.'"'.(($_REQUEST['period']==$id)?' selected':'').">".$period[1]['TITLE']."</option>";
+        $period_select .= '<option value="'.$id.'"'.( isset($_REQUEST['period']) && ($_REQUEST['period']==$id) ? ' selected' : '').">".$period[1]['TITLE']."</option>";
 $period_select .= "</select>";
 
 $mp_select = '<select name="mp" onChange="ajaxPostForm(this.form,true);">';
@@ -57,11 +57,11 @@ $sql = "SELECT s.STAFF_ID,s.LAST_NAME||', '||s.FIRST_NAME AS FULL_NAME,sp.TITLE,
 			sp.PERIOD_ID = cpsp.PERIOD_ID AND cp.GRADE_SCALE_ID IS NOT NULL
 			AND cp.TEACHER_ID=s.STAFF_ID AND cp.MARKING_PERIOD_ID IN (".GetAllMP('QTR',UserMP()).")
 			AND cp.SYEAR='".UserSyear()."' AND cp.SCHOOL_ID='".UserSchool()."' AND s.PROFILE='teacher'
-			".(($_REQUEST['period'])?" AND cpsp.PERIOD_ID='".$_REQUEST['period']."'":'')."
+			".(! empty($_REQUEST['period'])?" AND cpsp.PERIOD_ID='".$_REQUEST['period']."'":'')."
 		ORDER BY FULL_NAME";
 $RET = DBGet(DBQuery($sql),array(),array('STAFF_ID'));
 
-if ( ! $_REQUEST['period'] )
+if ( empty($_REQUEST['period']) )
 {
 	foreach ( (array) $RET as $staff_id => $periods )
 	{
@@ -90,7 +90,7 @@ if ( ! $_REQUEST['period'] )
 	foreach ( (array) $periods_RET as $id => $period)
 		$columns[ $id ] = $period[1]['TITLE'];
 
-	ListOutput($staff_RET,$columns,'Teacher who enters grades','Teachers who enter grades');
+        ListOutput(isset($staff_RET) ? $staff_RET : array(),$columns,'Teacher who enters grades','Teachers who enter grades');
 }
 else
 {

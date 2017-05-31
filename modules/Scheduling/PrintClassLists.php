@@ -100,7 +100,7 @@ if ( ! $_REQUEST['modfunc'] )
 	if (User('PROFILE')!='admin')
 		$_REQUEST['search_modfunc'] = 'list';
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		$_REQUEST['search_modfunc'] = 'select';
 		$extra['header_right'] = '<input type="submit" value="'._('Create Class Lists for Selected Course Periods').'" />';
@@ -126,7 +126,8 @@ if ( ! $_REQUEST['modfunc'] )
 
 		PopTable('header',_('Find a Course'));
 
-		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc='.$_REQUEST['modfunc'].'&search_modfunc=list&next_modname='.$_REQUEST['next_modname'].'" method="POST">';
+                echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc='.$_REQUEST['modfunc'].'&search_modfunc=list&next_modname='.
+                     (isset($_REQUEST['next_modname']) ? $_REQUEST['next_modname'] : '').'" method="POST">';
 
 		echo '<table>';
 

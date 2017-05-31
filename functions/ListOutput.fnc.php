@@ -481,7 +481,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 	$list_has_nav = false;
 
 	if ( $options['count']
-		|| $display_zero
+	        || ! empty($display_zero)
 		|| ( $options['save']
 			|| $options['search']
 			&& ! isset( $_REQUEST['_ROSARIO_PDF'] ) ) )
@@ -510,7 +510,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 		}
 
 		if ( ( $options['count']
-				|| $display_zero )
+		                || ! empty($display_zero) )
 			&& ( $result_count == 0
 				|| $display_count == 0 ) )
 		{
@@ -646,7 +646,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 		for ( $i=$start;$i<=$stop;$i++)
 		{
-			$item = $result[ $i ];
+		        $item = $result[ $i ];
 			if (isset($_REQUEST['_ROSARIO_PDF']) && $options['print'] && count($item))
 			{
 				//modify loop: use for instead of foreach

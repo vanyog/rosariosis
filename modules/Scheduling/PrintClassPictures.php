@@ -160,7 +160,7 @@ if ( ! $_REQUEST['modfunc'] )
 	if (User('PROFILE')!='admin')
 		$_REQUEST['search_modfunc'] = 'list';
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&_ROSARIO_PDF=true" method="POST">';
 		$extra['header_right'] = '<input type="submit" value="'._('Create Class Pictures for Selected Course Periods').'" />';
@@ -177,8 +177,8 @@ if ( ! $_REQUEST['modfunc'] )
 		$extra['extra_header_left'] .= '</table>';
 	}
 
-	mySearch('course_period',$extra);
-	if ( $_REQUEST['search_modfunc']=='list')
+        mySearch('course_period', isset($extra) ? $extra : '');
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center"><input type="submit" value="'._('Create Class Pictures for Selected Course Periods').'" /></div>';
 		echo '</form>';
@@ -188,7 +188,7 @@ if ( ! $_REQUEST['modfunc'] )
 function mySearch($type,$extra='')
 {	global $extra;
 
-	if ( ! $_REQUEST['search_modfunc'])
+        if ( empty($_REQUEST['search_modfunc']) )
 	{
 		$_SESSION['Search_PHP_SELF'] = PreparePHP_SELF($_SESSION['_REQUEST_vars'],array('bottom_back'));
 
@@ -204,7 +204,8 @@ function mySearch($type,$extra='')
 
 		PopTable('header',_('Find a Course'));
 
-		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc='.$_REQUEST['modfunc'].'&search_modfunc=list&next_modname='.$_REQUEST['next_modname'].'" method="POST">';
+                echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc='.$_REQUEST['modfunc'].'&search_modfunc=list&next_modname='.
+                      (isset($_REQUEST['next_modname']) ? $_REQUEST['next_modname'] : '').'" method="POST">';
 
 		echo '<table>';
 

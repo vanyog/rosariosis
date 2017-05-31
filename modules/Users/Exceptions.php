@@ -32,7 +32,7 @@ Search('staff_id',$extra);
 
 $user_id = UserStaffID();
 $profile = DBGet(DBQuery("SELECT PROFILE FROM STAFF WHERE STAFF_ID='".$user_id."'"));
-$xprofile = $profile[1]['PROFILE'];
+$xprofile = isset($profile[1]['PROFILE']) ? $profile[1]['PROFILE'] : '';
 $exceptions_RET = DBGet(DBQuery("SELECT MODNAME,CAN_USE,CAN_EDIT FROM STAFF_EXCEPTIONS WHERE USER_ID='".$user_id."'"),array(),array('MODNAME'));
 
 if ( $_REQUEST['modfunc'] === 'update'

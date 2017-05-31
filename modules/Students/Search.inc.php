@@ -276,7 +276,8 @@ else
 		{
 			//FJ override "Student" if extra singular/plural set
 			if ( !empty($extra['singular']) && !empty($extra['plural']))
-				ListOutput($students_RET,$columns,$extra['singular'],$extra['plural'],$link,$extra['LO_group'],$extra['options']);
+			        ListOutput($students_RET, $columns, $extra['singular'], $extra['plural'], $link,
+				           isset($extra['LO_group']) ? $extra['LO_group'] : '', $extra['options']);
 			else
 			        ListOutput($students_RET, $columns, 'Student', 'Students', $link,
 				           isset($extra['LO_group']) ? $extra['LO_group'] : '',

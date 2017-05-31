@@ -1723,7 +1723,7 @@ HTML;
 
 	$help['Attendance/AttendanceCodes.php'] = <<<HTML
 <p>
-	<i>Attendance Codes</i> allows you to setup your school's attendance codes. Attendance codes are used in the teacher's "Take Attendance" program (as well as most of the Attendance reports) and specify whether or not the student was present during the period, and if he wasn't, the reason.
+        Програмата <i>Кодове за отсъствия</i> Ви позволява да установите кодове за отсъствия за Вашето училище. Кодовете за отсъствия се използват в програмата на преподавателите "Take Attendance" program (as well as most of the Attendance reports) and specify whether or not the student was present during the period, and if he wasn't, the reason.
 </p>
 <p>
 	To add an attendance code, fill in the attendance code's title, short name, type, and state code. Select whether or not the code should be a teacher's default from the empty fields at the bottom of the attendance codes list and click the "Save" button. Generally, the attendance code called "Present" will be marked as the teacher's default. If the attendance code is marked as being type "Teacher," a teacher will be able to select that attendance code from their "Take Attendance" program. Administrators will be able to assign all codes to a student.

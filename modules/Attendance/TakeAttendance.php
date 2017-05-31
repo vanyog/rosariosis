@@ -44,7 +44,7 @@ $categories_RET = DBGet( DBQuery( "SELECT '0' AS ID,'" . DBEscapeString( _( 'Att
 
 if (count($categories_RET)==0)
 {
-	echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&table='.$_REQUEST['table'].'" method="POST">';
+        echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&table='.(isset($_REQUEST['table']) ? $_REQUEST['table'] : '').'" method="POST">';
 	DrawHeader(PrepareDate($date,'_date',false,array('submit'=>true)));
 	echo '</form>';
 

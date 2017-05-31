@@ -1,7 +1,7 @@
 <?php
 DrawHeader( ProgramTitle() );
 
-if ( $_REQUEST['search_modfunc'] == 'list')
+if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc'] == 'list') )
 {
 //FJ changed MP list to GradeBreakdown.php style
 	/*if ( ! $_REQUEST['mp'] && GetMP(UserMP(),'POST_START_DATE'))
@@ -97,13 +97,17 @@ Widgets('gpa');
 Widgets('class_rank');
 Widgets('letter_grade');
 
+if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 //$extra['SELECT'] .= ',sgc.GPA,sgc.WEIGHTED_GPA,sgc.CLASS_RANK';
 $extra['SELECT'] .= ',sms.sum_weighted_factors/sms.gp_credits as sum_weighted_factor, sms.sum_unweighted_factors/sms.gp_credits as sum_unweighted_factor';
 
-if (mb_strpos($extra['FROM'],'STUDENT_MP_STATS sms')===false)
+if (!isset($extra['FROM']) || (mb_strpos($extra['FROM'],'STUDENT_MP_STATS sms')===false) )
 {
-	$extra['FROM'] .= ',STUDENT_MP_STATS sms';
-	$extra['WHERE'] .= " AND sms.STUDENT_ID=ssm.STUDENT_ID AND sms.MARKING_PERIOD_ID='".$_REQUEST['mp']."'";
+        if( ! isset($extra['FROM']) ) $extra['FROM'] = '';
+        $extra['FROM'] .= ',STUDENT_MP_STATS sms';
+        if( ! isset($extra['WHERE']) ) $extra['WHERE'] = '';
+        $extra['WHERE'] .= " AND sms.STUDENT_ID=ssm.STUDENT_ID AND sms.MARKING_PERIOD_ID='".
+                           ( isset($_REQUEST['mp']) ? $_REQUEST['mp'] : '' )."'";
 }
 //FJ add translation
 $extra['columns_after'] = array('SUM_UNWEIGHTED_FACTOR' => _('Unweighted GPA'),'SUM_WEIGHTED_FACTOR' => _('Weighted GPA'));

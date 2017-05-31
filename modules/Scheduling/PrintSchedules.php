@@ -233,7 +233,7 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	DrawHeader(ProgramTitle());
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		$mp_RET = DBGet(DBQuery("SELECT MARKING_PERIOD_ID,TITLE,".db_case(array('MP',"'FY'","'0'","'SEM'","'1'","'QTR'","'2'"))." AS TBL FROM SCHOOL_MARKING_PERIODS WHERE (MP='FY' OR MP='SEM' OR MP='QTR') AND SCHOOL_ID='".UserSchool()."' AND SYEAR='".UserSyear()."' ORDER BY TBL,SORT_ORDER"));
 		$mp_select = '<select name="mp_id"><option value="">'._('N/A');
@@ -282,7 +282,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	Search('student_id',$extra);
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center"><input type="submit" value="'._('Create Schedules for Selected Students').'" /></div>';
 		echo '</form>';

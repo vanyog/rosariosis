@@ -53,6 +53,7 @@ function StaffWidgets( $item, &$myextra = null )
 		return false;
 	}
 
+        if( ! isset($extra['search']) ) $extra['search'] = '';
 	switch ( (string) $item )
 	{
 		// All Widgets (or almost).
@@ -152,7 +153,7 @@ function StaffWidgets( $item, &$myextra = null )
 				break;
 			}
 
-			if ( $_REQUEST['permissions'] )
+                        if ( ! empty($_REQUEST['permissions']) )
 			{
 				$extra['WHERE'] .= " AND s.PROFILE_ID IS " . ( $_REQUEST['permissions'] == 'Y' ? 'NOT' : '' ) . " NULL
 					AND s.PROFILE!='none'";

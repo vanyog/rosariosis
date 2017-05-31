@@ -24,14 +24,17 @@ else
 
 DrawHeader(ProgramTitle());
 $categories_RET = DBGet(DBQuery("SELECT ID,TITLE FROM ATTENDANCE_CODE_CATEGORIES WHERE SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' ORDER BY SORT_ORDER,TITLE"));
-if ( $_REQUEST['table']=='')
+if ( isset($_REQUEST['table']) && ($_REQUEST['table']=='') )
 	$_REQUEST['table'] = '0';
-$category_select = "<select name=table onChange='ajaxPostForm(this.form,true);'><option value='0'".($_REQUEST['table']=='0'?' selected':'').">"._('Attendance')."</option>";
+$category_select = "<select name=table onChange='ajaxPostForm(this.form,true);'><option value='0'".
+                    (isset($_REQUEST['table']) && ($_REQUEST['table']=='0') ? ' selected' : '').">"._('Attendance')."</option>";
 foreach ( (array) $categories_RET as $category)
 	$category_select .= '<option value="'.$category[ID].'"'.(($_REQUEST['table']==$category['ID'])?' selected':'').">".$category['TITLE']."</option>";
 $category_select .= "</select>";
 
-$QI = DBQuery("SELECT sp.PERIOD_ID,sp.TITLE FROM SCHOOL_PERIODS sp WHERE sp.SCHOOL_ID='".UserSchool()."' AND sp.SYEAR='".UserSyear()."' AND EXISTS (SELECT '' FROM COURSE_PERIODS WHERE SYEAR=sp.SYEAR AND PERIOD_ID=sp.PERIOD_ID AND position('," . $_REQUEST['table'] . ",' IN DOES_ATTENDANCE)>0) ORDER BY sp.SORT_ORDER");
+$QI = DBQuery("SELECT sp.PERIOD_ID,sp.TITLE FROM SCHOOL_PERIODS sp WHERE sp.SCHOOL_ID='".UserSchool()."' AND sp.SYEAR='".UserSyear().
+              "' AND EXISTS (SELECT '' FROM COURSE_PERIODS WHERE SYEAR=sp.SYEAR AND PERIOD_ID=sp.PERIOD_ID AND position('," .
+              ( isset($_REQUEST['table']) ? $_REQUEST['table'] : '' ). ",' IN DOES_ATTENDANCE)>0) ORDER BY sp.SORT_ORDER");
 $periods_RET = DBGet($QI,array(),array('PERIOD_ID'));
 
 $period_select = "<select name=period onChange='ajaxPostForm(this.form,true);'><option value=''>"._('All')."</option>";
@@ -69,12 +72,12 @@ if ( SchoolInfo( 'NUMBER_DAYS_ROTATION' ) !== null )
 			WHERE ac.STAFF_ID=cp.TEACHER_ID
 			AND ac.SCHOOL_DATE=acc.SCHOOL_DATE
 			AND ac.PERIOD_ID=sp.PERIOD_ID
-			AND TABLE_NAME='" . $_REQUEST['table'] . "') AS COMPLETED
+			AND TABLE_NAME='" . ( isset($_REQUEST['table']) ? $_REQUEST['table'] : '' ) . "') AS COMPLETED
 		FROM STAFF s,COURSE_PERIODS cp,SCHOOL_PERIODS sp,ATTENDANCE_CALENDAR acc,
 			COURSE_PERIOD_SCHOOL_PERIODS cpsp
 		WHERE cp.COURSE_PERIOD_ID=cpsp.COURSE_PERIOD_ID
 		AND	sp.PERIOD_ID=cpsp.PERIOD_ID
-		AND position('," . $_REQUEST['table'] . ",' IN cp.DOES_ATTENDANCE)>0
+		AND position('," . ( isset($_REQUEST['table']) ? $_REQUEST['table'] : '' ) . ",' IN cp.DOES_ATTENDANCE)>0
 		AND cp.TEACHER_ID=s.STAFF_ID
 		AND cp.MARKING_PERIOD_ID IN (" . GetAllMP( 'QTR', GetCurrentMP( 'QTR', $date ) ) . ")
 		AND cp.SYEAR='" . UserSyear() . "'

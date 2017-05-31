@@ -54,6 +54,7 @@ if ( $_REQUEST['modfunc'] === 'search' )
 	Search( 'student_id', $extra );
 }
 
+if( ! isset($extra['WHERE']) ) $extra['WHERE'] = '';
 if ( ! $_REQUEST['modfunc'] )
 {
 	if ( ! isset( $extra ) )
@@ -68,19 +69,27 @@ if ( ! $_REQUEST['modfunc'] )
 
 	$extra['WHERE'] .= CustomFields( 'where', 'student', $extra );
 
-	echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&list_by_day='.$_REQUEST['list_by_day'].'" method="POST">';
-	$advanced_link = ' <a href="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=search&list_by_day='.$_REQUEST['list_by_day'].'&day_start='.$_REQUEST['day_start'].'&day_end='.$_REQUEST['day_end'].'&month_start='.$_REQUEST[month_start].'&month_end='.$_REQUEST['month_end'].'&year_start='.$_REQUEST['year_start'].'&year_end='.$_REQUEST['year_end'].'">'._('Advanced').'</a>';
+        echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&list_by_day='.
+             ( isset($_REQUEST['list_by_day']) ? $_REQUEST['list_by_day'] : '' ).'" method="POST">';
+        $advanced_link = ' <a href="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=search&list_by_day='.
+                          ( isset($_REQUEST['list_by_day']) ? $_REQUEST['list_by_day'] : '' ).'&day_start='.
+                          ( isset($_REQUEST['day_start'])   ? $_REQUEST['day_start']   : '' ).'&day_end='.
+                          ( isset($_REQUEST['day_end'])     ? $_REQUEST['day_end']     : '' ).'&month_start='.
+                          ( isset($_REQUEST['month_start']) ? $_REQUEST['month_start'] : '' ).'&month_end='.
+                          ( isset($_REQUEST['month_end'])   ? $_REQUEST['month_end']   : '' ).'&year_start='.
+                          ( isset($_REQUEST['year_start'])  ? $_REQUEST['year_start']  : '' ).'&year_end='.
+                          ( isset($_REQUEST['year_end'])    ? $_REQUEST['year_end']    : '' ).'">'._('Advanced').'</a>';
 	DrawHeader(_('Timeframe').':'.PrepareDate($start_date,'_start').' '._('to').' '.PrepareDate($end_date,'_end').$advanced_link,SubmitButton(_('Go')));
 	echo '</form>';
-	if ( $_ROSARIO['SearchTerms'])
+	if ( ! empty($_ROSARIO['SearchTerms']) )
 		DrawHeader(str_replace('<br />','<br /> &nbsp;',mb_substr($_ROSARIO['SearchTerms'],0,-6)));
 
-	if ( $_REQUEST['list_by_day']=='true')
+        if ( isset($_REQUEST['list_by_day']) && ($_REQUEST['list_by_day']=='true') )
 	{
 		$cal_days = 1;
 
 		$student_days_absent = DBGet(DBQuery("SELECT ad.SCHOOL_DATE,ssm.GRADE_ID,COALESCE(sum(ad.STATE_VALUE-1)*-1,0) AS STATE_VALUE
-		FROM ATTENDANCE_DAY ad,STUDENT_ENROLLMENT ssm,STUDENTS s".$extra['FROM']."
+		FROM ATTENDANCE_DAY ad,STUDENT_ENROLLMENT ssm,STUDENTS s".(isset($extra['FROM'])?$extra['FROM']:'')."
 		WHERE s.STUDENT_ID=ssm.STUDENT_ID
 		AND ad.STUDENT_ID=ssm.STUDENT_ID
 		AND ssm.SYEAR='".UserSyear()."'
@@ -91,7 +100,7 @@ if ( ! $_REQUEST['modfunc'] )
 		GROUP BY ad.SCHOOL_DATE,ssm.GRADE_ID"),array(''),array('SCHOOL_DATE','GRADE_ID'));
 //FJ ORDER BY Date
 		$student_days_possible = DBGet(DBQuery("SELECT ac.SCHOOL_DATE,ssm.GRADE_ID,'' AS DAYS_POSSIBLE,count(*) AS ATTENDANCE_POSSIBLE,count(*) AS STUDENTS,'' AS PRESENT,'' AS ABSENT,'' AS ADA,'' AS AVERAGE_ATTENDANCE,'' AS AVERAGE_ABSENT
-		FROM STUDENT_ENROLLMENT ssm,ATTENDANCE_CALENDAR ac,STUDENTS s".$extra['FROM']."
+		FROM STUDENT_ENROLLMENT ssm,ATTENDANCE_CALENDAR ac,STUDENTS s".(isset($extra['FROM'])?$extra['FROM']:'')."
 		WHERE s.STUDENT_ID=ssm.STUDENT_ID
 		AND ssm.SYEAR='".UserSyear()."'
 		AND ac.SYEAR=ssm.SYEAR
@@ -107,17 +116,22 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$columns = array('SCHOOL_DATE' => _('Date'),'GRADE_ID' => _('Grade Level'),'STUDENTS' => _('Students'),'DAYS_POSSIBLE' => _('Days Possible'),'PRESENT' => _('Present'),'ABSENT' => _('Absent'),'ADA' => _('ADA'),'AVERAGE_ATTENDANCE' => _('Average Attendance'),'AVERAGE_ABSENT' => _('Average Absent'));
 
-		ListOutput($student_days_possible,$columns,'School Day','School Days',$link);
+                ListOutput($student_days_possible,$columns,'School Day','School Days', isset($link) ? $link : '');
 	}
 	else
 	{
-		$cal_days = DBGet(DBQuery("SELECT count(*) AS COUNT,CALENDAR_ID FROM ATTENDANCE_CALENDAR WHERE ".($_REQUEST['_search_all_schools']!='Y'?"SCHOOL_ID='".UserSchool()."' AND ":'')." SYEAR='".UserSyear()."' AND SCHOOL_DATE BETWEEN '".$start_date."' AND '".$end_date."' GROUP BY CALENDAR_ID"),array(),array('CALENDAR_ID'));
-		$calendars_RET = DBGet(DBQuery("SELECT CALENDAR_ID,TITLE FROM ATTENDANCE_CALENDARS WHERE SYEAR='".UserSyear()."' ".($_REQUEST['_search_all_schools']!='Y'?" AND SCHOOL_ID='".UserSchool()."'":'')),array(),array('CALENDAR_ID'));
+	        $cal_days = DBGet(DBQuery("SELECT count(*) AS COUNT,CALENDAR_ID FROM ATTENDANCE_CALENDAR WHERE ".
+		                (!isset($_REQUEST['_search_all_schools']) || ($_REQUEST['_search_all_schools']!='Y') ? "SCHOOL_ID='".UserSchool()."' AND " :
+				'')." SYEAR='".UserSyear()."' AND SCHOOL_DATE BETWEEN '".$start_date."' AND '".$end_date.
+				"' GROUP BY CALENDAR_ID"),array(),array('CALENDAR_ID'));
+		$calendars_RET = DBGet(DBQuery("SELECT CALENDAR_ID,TITLE FROM ATTENDANCE_CALENDARS WHERE SYEAR='".UserSyear()."' ".
+		                (!isset($_REQUEST['_search_all_schools']) || ($_REQUEST['_search_all_schools']!='Y') ? " AND SCHOOL_ID='".UserSchool()."'" :
+				 '')),array(),array('CALENDAR_ID'));
 
 		$extra['WHERE'] .= " GROUP BY ssm.GRADE_ID,ssm.CALENDAR_ID";
 
 		$student_days_absent = DBGet(DBQuery("SELECT ssm.GRADE_ID,ssm.CALENDAR_ID,COALESCE(sum(ad.STATE_VALUE-1)*-1,0) AS STATE_VALUE
-		FROM ATTENDANCE_DAY ad,STUDENT_ENROLLMENT ssm,STUDENTS s".$extra['FROM']."
+		FROM ATTENDANCE_DAY ad,STUDENT_ENROLLMENT ssm,STUDENTS s".(isset($extra['FROM']) ? $extra['FROM'] : '' )."
 		WHERE s.STUDENT_ID=ssm.STUDENT_ID
 		AND ad.STUDENT_ID=ssm.STUDENT_ID
 		AND ssm.SYEAR='".UserSyear()."'
@@ -126,20 +140,39 @@ if ( ! $_REQUEST['modfunc'] )
 		AND (ad.SCHOOL_DATE BETWEEN ssm.START_DATE AND ssm.END_DATE OR (ssm.END_DATE IS NULL AND ssm.START_DATE <= ad.SCHOOL_DATE))
 		".$extra['WHERE']),array(''),array('GRADE_ID','CALENDAR_ID'));
 		$student_days_possible = DBGet(DBQuery("SELECT ssm.GRADE_ID,ssm.CALENDAR_ID,'' AS DAYS_POSSIBLE,count(*) AS ATTENDANCE_POSSIBLE,count(*) AS STUDENTS,'' AS PRESENT,'' AS ABSENT,'' AS ADA,'' AS AVERAGE_ATTENDANCE,'' AS AVERAGE_ABSENT
-		FROM STUDENT_ENROLLMENT ssm,ATTENDANCE_CALENDAR ac,STUDENTS s".$extra['FROM']."
+		FROM STUDENT_ENROLLMENT ssm,ATTENDANCE_CALENDAR ac,STUDENTS s".(isset($extra['FROM']) ? $extra['FROM'] : '' )."
 		WHERE s.STUDENT_ID=ssm.STUDENT_ID
 		AND ssm.SYEAR='".UserSyear()."'
 		AND ac.SYEAR=ssm.SYEAR
 		AND ac.CALENDAR_ID=ssm.CALENDAR_ID
-		AND ".($_REQUEST['_search_all_schools']!='Y'?"ssm.SCHOOL_ID='".UserSchool()."' AND ":'')." ssm.SCHOOL_ID=ac.SCHOOL_ID
+		AND ".(!isset($_REQUEST['_search_all_schools']) || $_REQUEST['_search_all_schools']!='Y' ? "ssm.SCHOOL_ID='".UserSchool()."' AND " : '').
+		    " ssm.SCHOOL_ID=ac.SCHOOL_ID
 		AND (ac.SCHOOL_DATE BETWEEN ssm.START_DATE AND ssm.END_DATE OR (ssm.END_DATE IS NULL AND ssm.START_DATE <= ac.SCHOOL_DATE))
 		AND ac.SCHOOL_DATE BETWEEN '".$start_date."'
 		AND '".$end_date."'
 		".$extra['WHERE']),
 		array('GRADE_ID' => '_make','STUDENTS' => '_make','PRESENT' => '_make','ABSENT' => '_make','ADA' => '_make','AVERAGE_ATTENDANCE' => '_make','AVERAGE_ABSENT' => '_make','DAYS_POSSIBLE' => '_make'));
 
-		$columns = array('GRADE_ID' => _('Grade Level'),'STUDENTS' => _('Students'),'DAYS_POSSIBLE' => _('Days Possible'),'PRESENT' => _('Present'),'ABSENT' => _('Absent'),'ADA' => _('ADA'),'AVERAGE_ATTENDANCE' => _('Average Attendance'),'AVERAGE_ABSENT' => _('Average Absent'));
-		$link['add']['html'] = array('GRADE_ID' => '<b>'._('Total').'</b>','STUDENTS'=>round($sum['STUDENTS'],1),'DAYS_POSSIBLE' => $cal_days[key($cal_days)][1]['COUNT'],'PRESENT' => $sum['PRESENT'],'ADA'=>_Percent((($sum['PRESENT']+$sum['ABSENT']) > 0 ? ($sum['PRESENT'])/($sum['PRESENT']+$sum['ABSENT']) : 0)),'ABSENT' => $sum['ABSENT'],'AVERAGE_ATTENDANCE'=>round($sum['AVERAGE_ATTENDANCE'],1),'AVERAGE_ABSENT'=>round($sum['AVERAGE_ABSENT'],1));
+                $columns = array(
+                           'GRADE_ID' => _('Grade Level'),
+                           'STUDENTS' => _('Students'),
+                           'DAYS_POSSIBLE' => _('Days Possible'),
+                           'PRESENT' => _('Present'),
+                           'ABSENT' => _('Absent'),
+                           'ADA' => _('ADA'),
+                           'AVERAGE_ATTENDANCE' => _('Average Attendance'),
+                           'AVERAGE_ABSENT' => _('Average Absent')
+                           );
+
+                $link['add']['html'] = array('GRADE_ID' => '<b>'._('Total').'</b>',
+                                       'STUDENTS'=>round(isset($sum['STUDENTS'])?$sum['STUDENTS']:0,1),
+                                       'DAYS_POSSIBLE' => isset($cal_days[key($cal_days)][1]['COUNT'])?$cal_days[key($cal_days)][1]['COUNT']:0,
+                                       'PRESENT' => isset($sum['PRESENT'])?$sum['PRESENT']:0,
+                                       'ADA'=>_Percent((isset($sum) && ($sum['PRESENT']+$sum['ABSENT']) > 0 ?
+                                              ($sum['PRESENT'])/($sum['PRESENT']+$sum['ABSENT']) : 0)),
+                                       'ABSENT' => isset($sum['ABSENT']) ? $sum['ABSENT'] : 0,
+                                       'AVERAGE_ATTENDANCE'=>round(isset($sum['AVERAGE_ATTENDANCE'])?$sum['AVERAGE_ATTENDANCE']:0,1),
+                                       'AVERAGE_ABSENT'=>round(isset($sum['AVERAGE_ABSENT'])?$sum['AVERAGE_ABSENT']:0,1));
 
 		ListOutput(
 			$student_days_possible,

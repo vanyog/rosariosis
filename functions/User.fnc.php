@@ -144,7 +144,8 @@ function Preferences( $item, $program = 'Preferences' )
 		'DEFAULT_FAMILIES' => 'N',
 		'EMAIL' => '',
 		'PHONE' => '',
-		'USERNAME' => ''
+		'USERNAME' => '',
+		'E_DATE' => ''
 	);
 
 	if ( ! isset( $_ROSARIO['Preferences'][ $program ][ $item ][1]['VALUE'] ) )

@@ -189,7 +189,7 @@ if ( ! $_REQUEST['modfunc'] )
 	echo ErrorMessage( $error );
 
 	// ADDING & EDITING FORM.
-	if ( $_REQUEST['id']
+	if ( ! empty($_REQUEST['id'])
 		&& $_REQUEST['id'] !== 'new' )
 	{
 		$RET = DBGet( DBQuery( "SELECT ID,CATEGORY_ID,TITLE,TYPE,SELECT_OPTIONS,
@@ -204,9 +204,9 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$title = ParseMLField( $RET['CATEGORY_TITLE'] ) . ' - ' . ParseMLField( $RET['TITLE'] );
 	}
-	elseif ( $_REQUEST['category_id']
-		&& $_REQUEST['category_id'] !== 'new'
-		&& $_REQUEST['id'] !== 'new' )
+	elseif ( ! empty($_REQUEST['category_id'])
+	        && $_REQUEST['category_id'] !== 'new'
+		&& ( ! isset($_REQUEST['id']) || ($_REQUEST['id'] !== 'new') ) )
 	{
 		$RET = DBGet( DBQuery( "SELECT ID AS CATEGORY_ID,TITLE,ADMIN,TEACHER,PARENT,NONE,SORT_ORDER,INCLUDE,COLUMNS
 			FROM STAFF_FIELD_CATEGORIES
@@ -216,7 +216,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$title = ParseMLField( $RET['TITLE'] );
 	}
-	elseif ( $_REQUEST['id'] === 'new' )
+	elseif ( isset($_REQUEST['id']) && ($_REQUEST['id'] === 'new') )
 	{
 		$title = _( 'New User Field' );
 
@@ -224,15 +224,15 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$RET['CATEGORY_ID'] = $_REQUEST['category_id'];
 	}
-	elseif ( $_REQUEST['category_id'] === 'new' )
+	elseif ( isset($_REQUEST['category_id']) && ($_REQUEST['category_id'] === 'new') )
 	{
 		$title = _( 'New User Field Category' );
 
 		$RET['CATEGORY_ID'] = 'new';
 	}
 
-	if ( $_REQUEST['category_id']
-		&& ! $_REQUEST['id'] )
+        if ( ! empty($_REQUEST['category_id'])
+                && empty($_REQUEST['id']) )
 	{
 		$extra_fields = array();
 
@@ -305,7 +305,7 @@ if ( ! $_REQUEST['modfunc'] )
 	echo GetFieldsForm(
 		'STAFF',
 		$title,
-		$RET,
+		isset($RET) ? $RET : '',
 		isset( $extra_fields ) ? $extra_fields : array()
 	);
 
@@ -317,12 +317,12 @@ if ( ! $_REQUEST['modfunc'] )
 	// DISPLAY THE MENU.
 	echo '<div class="st">';
 
-	FieldsMenuOutput( $categories_RET, $_REQUEST['category_id'] );
+        FieldsMenuOutput( $categories_RET, isset($_REQUEST['category_id']) ? $_REQUEST['category_id'] : '' );
 
 	echo '</div>';
 
 	// FIELDS.
-	if ( $_REQUEST['category_id']
+	if ( ! empty($_REQUEST['category_id'])
 		&& $_REQUEST['category_id'] !== 'new'
 		&& $categories_RET )
 	{
@@ -333,7 +333,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		echo '<div class="st">';
 
-		FieldsMenuOutput( $fields_RET, $_REQUEST['id'], $_REQUEST['category_id'] );
+                FieldsMenuOutput( $fields_RET, isset($_REQUEST['id']) ? $_REQUEST['id'] : '', $_REQUEST['category_id'] );
 
 		echo '</div>';
 	}

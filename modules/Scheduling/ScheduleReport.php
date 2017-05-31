@@ -28,7 +28,7 @@ if ( isset( $_REQUEST['subject_id'] ) )
 }
 
 
-if ( $_REQUEST['subject_id'] )
+if ( ! empty($_REQUEST['subject_id']) )
 {
 	$subject_RET = DBGet( DBQuery( "SELECT TITLE
 		FROM COURSE_SUBJECTS
@@ -85,7 +85,7 @@ $subject_RET = DBGet( DBQuery( "SELECT s.SUBJECT_ID,s.TITLE
 	AND s.SCHOOL_ID='" . UserSchool() . "'
 	ORDER BY s.SORT_ORDER,s.TITLE" ) );
 
-if ( count( $subject_RET ) && $_REQUEST['subject_id'] )
+if ( count( $subject_RET ) && ! empty($_REQUEST['subject_id']) )
 {
 	foreach ( (array) $subject_RET as $key => $value)
 	{
@@ -97,7 +97,7 @@ if ( count( $subject_RET ) && $_REQUEST['subject_id'] )
 }
 
 $link['TITLE']['link'] = 'Modules.php?modname=' . $_REQUEST['modname'] .
-	'&modfunc=courses&include_child_mps=' . $_REQUEST['include_child_mps'];
+        '&modfunc=courses&include_child_mps=' . ( isset($_REQUEST['include_child_mps']) ? $_REQUEST['include_child_mps'] : '' );
 
 $link['TITLE']['variables'] = array( 'subject_id' => 'SUBJECT_ID' );
 
@@ -189,7 +189,7 @@ if ( $_REQUEST['modfunc'] === 'courses'
 
 // COURSE PERIODS ----
 if ( $_REQUEST['modfunc'] === 'course_periods'
-	|| $_REQUEST['students'] === 'course_periods' )
+        || ( isset($_REQUEST['students']) && ($_REQUEST['students'] === 'course_periods') ) )
 {
 	//FJ multiple school periods for a course period
 	//$QI = DBQuery("SELECT COURSE_PERIOD_ID,TITLE,MARKING_PERIOD_ID,MP,CALENDAR_ID,TOTAL_SEATS FROM COURSE_PERIODS cp WHERE COURSE_ID='".$_REQUEST['course_id']."' AND SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' ORDER BY (SELECT SORT_ORDER FROM SCHOOL_PERIODS WHERE PERIOD_ID=cp.PERIOD_ID),TITLE");

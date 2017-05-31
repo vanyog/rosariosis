@@ -100,7 +100,7 @@ echo ErrorMessage( $error );
 
 if (! $_REQUEST['modfunc'] || $_REQUEST['search_modfunc']=='list')
 {
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save" method="POST">';
 		$extra['header_right'] = SubmitButton(_('Notify Selected Parents'));
@@ -169,7 +169,7 @@ if (! $_REQUEST['modfunc'] || $_REQUEST['search_modfunc']=='list')
 
 	Search( 'staff_id', $extra );
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center">' . SubmitButton(_('Notify Selected Parents')) . '</div>';
 		echo '</form>';

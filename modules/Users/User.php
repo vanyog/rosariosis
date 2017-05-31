@@ -521,7 +521,7 @@ if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='
 	}
 
         if( ! isset($delete_button) ) $delete_button = '';
-	DrawHeader($name,$delete_button.SubmitButton(_('Save')));
+        DrawHeader( isset($name) ? $name : '', $delete_button.SubmitButton(_('Save')));
 
 	//hook
 	do_action('Users/User.php|header');
@@ -536,7 +536,7 @@ if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='
 		$can_use_RET['Users/User.php&category_id=1'] = true;
 
 	$profile = DBGet(DBQuery("SELECT PROFILE FROM STAFF WHERE STAFF_ID='".UserStaffID()."'"));
-	$profile = $profile[1]['PROFILE'];
+	$profile = isset($profile[1]['PROFILE']) ? $profile[1]['PROFILE'] : '';
 	$categories_RET = DBGet(DBQuery("SELECT ID,TITLE,INCLUDE FROM STAFF_FIELD_CATEGORIES WHERE ".($profile?mb_strtoupper($profile).'=\'Y\'':'ID=\'1\'')." ORDER BY SORT_ORDER,TITLE"));
 
 	foreach ( (array) $categories_RET as $category)

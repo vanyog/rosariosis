@@ -408,7 +408,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	echo ErrorMessage( $error );
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		$_ROSARIO['allow_edit'] = true;
 
@@ -512,7 +512,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	Search('student_id',$extra);
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center">' . SubmitButton(_('Create Grade Lists for Selected Students')) . '</div>';
 		echo '</form>';

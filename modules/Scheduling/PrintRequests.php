@@ -2,7 +2,8 @@
 Widgets('request');
 Widgets('mailing_labels');
 
-if ( ! $_REQUEST['search_modfunc'])
+if( ! isset($extra['action']) ) $extra['action'] = '';
+if ( empty($_REQUEST['search_modfunc']) )
 {
 	DrawHeader(ProgramTitle());
 

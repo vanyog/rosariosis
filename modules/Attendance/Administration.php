@@ -31,7 +31,7 @@ else
 	$_REQUEST['year_date'] = date('Y');
 }
 
-if ( $_REQUEST['table']=='')
+if ( empty($_REQUEST['table']) )
 	$_REQUEST['table'] = '0';
 
 if ( $_REQUEST['table']=='0')

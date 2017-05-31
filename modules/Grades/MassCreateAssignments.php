@@ -272,7 +272,7 @@ if ( ! $_REQUEST['modfunc'] )
 		}
 	}
 
-	if ( $_REQUEST['assignment_type']
+        if ( ! empty($_REQUEST['assignment_type'])
 		&& $_REQUEST['assignment_type'] !== 'new' )
 	{
 		echo '<form action="Modules.php?modname=' . $_REQUEST['modname'] . '&assignment_type=' . $_REQUEST['assignment_type'] . '&table=GRADEBOOK_ASSIGNMENTS" method="POST">';
@@ -360,7 +360,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$header .= '</tr></table>';
 	}
-	elseif ( $_REQUEST['assignment_type'] === 'new' )
+	elseif ( isset($_REQUEST['assignment_type']) && ($_REQUEST['assignment_type'] === 'new') )
 	{
 		echo '<form action="Modules.php?modname=' . $_REQUEST['modname'] . '&table=GRADEBOOK_ASSIGNMENT_TYPES" method="POST">';
 
@@ -422,7 +422,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	$types_RET = DBGet( DBQuery( $assignment_types_sql ) );
 
-	if ( $_REQUEST['assignment_type'] !== 'new' )
+        if ( ! isset($_REQUEST['assignment_type']) || ($_REQUEST['assignment_type'] !== 'new') )
 	{
 		foreach ( (array) $types_RET as $key => $value )
 		{

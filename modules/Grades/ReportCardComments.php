@@ -114,18 +114,19 @@ if ( $_REQUEST['modfunc'] === 'remove'
 	}
 }
 
+if( ! isset($course_select) ) $course_select = '';
 if ( ! $_REQUEST['modfunc'] )
 {
 	if (User('PROFILE')=='admin')
 	{
 		$subjects_RET = DBGet(DBQuery("SELECT SUBJECT_ID,TITLE FROM COURSE_SUBJECTS WHERE SCHOOL_ID='".UserSchool()."' AND SYEAR='".UserSyear()."' AND (SELECT count(1) FROM COURSE_PERIODS WHERE SUBJECT_ID=COURSE_SUBJECTS.SUBJECT_ID AND GRADE_SCALE_ID IS NOT NULL)>0 ORDER BY SORT_ORDER,TITLE"),array(),array('SUBJECT_ID'));
 
-		if ( ! $_REQUEST['subject_id'] || ! $subjects_RET[$_REQUEST['subject_id']])
+                if ( empty($_REQUEST['subject_id']) || ! $subjects_RET[$_REQUEST['subject_id']])
 			$_REQUEST['subject_id'] = key($subjects_RET).'';
 
 		$courses_RET = DBGet(DBQuery("SELECT COURSE_ID,TITLE FROM COURSES WHERE SUBJECT_ID='".$_REQUEST['subject_id']."' AND SCHOOL_ID='".UserSchool()."' AND SYEAR='".UserSyear()."' AND (SELECT count(1) FROM COURSE_PERIODS WHERE COURSE_ID=COURSES.COURSE_ID AND GRADE_SCALE_ID IS NOT NULL)>0 ORDER BY TITLE"),array(),array('COURSE_ID'));
 
-		if ( ! $_REQUEST['course_id'] || ! $courses_RET[$_REQUEST['course_id']])
+                if ( empty($_REQUEST['course_id']) || ! $courses_RET[$_REQUEST['course_id']])
 			$_REQUEST['course_id'] = key($courses_RET).'';
 
 		$subject_onchange_URL = "'Modules.php?modname=" . $_REQUEST['modname'] .
@@ -181,7 +182,7 @@ if ( ! $_REQUEST['modfunc'] )
 	UNION
 	SELECT -1,'"._('General')."',NULL,3,NULL,(SELECT count(1) FROM REPORT_CARD_COMMENTS WHERE SCHOOL_ID='".UserSchool()."' AND COURSE_ID IS NULL AND SYEAR='".UserSyear()."')
 	ORDER BY 4,SORT_ORDER"),array(),array('ID'));
-	if ( $_REQUEST['tab_id']=='' || $_REQUEST['tab_id']!='new' && ! $categories_RET[$_REQUEST['tab_id']])
+	if ( empty($_REQUEST['tab_id']) || $_REQUEST['tab_id']!='new' && ! $categories_RET[$_REQUEST['tab_id']])
 		//$_REQUEST['tab_id'] = key($categories_RET).'';
 		$_REQUEST['tab_id'] = '-1'; //FJ default to -1 (General)
 

@@ -244,7 +244,7 @@ function Search( $type, $extra = null )
 				);
 			}
 
-			if ( $extra['profile'] )
+                        if ( ! empty($extra['profile']) )
 			{
 				$options = array( $extra['profile'] => $options[ $extra['profile'] ] );
 			}

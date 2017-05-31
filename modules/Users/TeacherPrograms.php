@@ -35,7 +35,7 @@ if (UserStaffID())
 	// get the fy marking period id, there should be exactly one fy marking period
 	$fy_RET = DBGet(DBQuery("SELECT MARKING_PERIOD_ID FROM SCHOOL_MARKING_PERIODS WHERE MP='FY' AND SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."'"));
 
-	if ( $_REQUEST['period'])
+        if ( ! empty($_REQUEST['period']) )
 	{
 		list($CoursePeriod, $CoursePeriodSchoolPeriod) = explode('.', $_REQUEST['period']);
 		$_SESSION['UserCoursePeriod'] = $CoursePeriod;
@@ -44,8 +44,8 @@ if (UserStaffID())
 
 	if ( !UserCoursePeriod())
 	{
-		$_SESSION['UserCoursePeriod'] = $RET[1]['COURSE_PERIOD_ID'];
-		$_SESSION['UserCoursePeriodSchoolPeriod'] = $RET[1]['COURSE_PERIOD_SCHOOL_PERIODS_ID'];
+	        $_SESSION['UserCoursePeriod'] = isset($RET[1]['COURSE_PERIOD_ID']) ? $RET[1]['COURSE_PERIOD_ID'] : '';
+		$_SESSION['UserCoursePeriodSchoolPeriod'] = isset($RET[1]['COURSE_PERIOD_SCHOOL_PERIODS_ID']) ? $RET[1]['COURSE_PERIOD_SCHOOL_PERIODS_ID'] : '';
 	}
 
 	$period_select = '<select name="period" onChange="ajaxPostForm(this.form,true);">';
@@ -88,9 +88,9 @@ if (UserStaffID())
 		$period_select .= '<option value="'.$period['COURSE_PERIOD_ID'].'.'.$period['COURSE_PERIOD_SCHOOL_PERIODS_ID'].'"'.$selected.'>'.$period['TITLE'].(mb_strlen($period['DAYS'])<5?(mb_strlen($period['DAYS'])<2?' '._('Day').' '.$period_DAYS_locale.' - ':' '._('Days').' '.$period_DAYS_locale.' - '):' - ').($period['MARKING_PERIOD_ID']!=$fy_RET[1]['MARKING_PERIOD_ID']?GetMP($period['MARKING_PERIOD_ID'],'SHORT_NAME').' - ':'').$period['CP_SHORT_NAME'].'</option>';
 
 	}
-	if ( ! $found)
+	if ( empty($found))
 	{
-		$_SESSION['UserCoursePeriod'] = $RET[1]['COURSE_PERIOD_ID'];
+	        $_SESSION['UserCoursePeriod'] = isset($RET[1]['COURSE_PERIOD_ID']) ? $RET[1]['COURSE_PERIOD_ID'] : '';
 //FJ fix bug SQL no course period in the user period
 		if (empty($RET[1]['COURSE_PERIOD_ID']))
 		{
@@ -98,7 +98,7 @@ if (UserStaffID())
 			$_SESSION['UserCoursePeriodSchoolPeriod'] = 0;
 			$period_select .= '<option value="">'. sprintf(_('No %s were found.'), _('Course Period')).'</option>';
 		}
-		$_SESSION['UserPeriod'] = $RET[1]['PERIOD_ID'];
+		$_SESSION['UserPeriod'] = isset($RET[1]['PERIOD_ID']) ? $RET[1]['PERIOD_ID'] : '';
 	}
 	$period_select .= '</select>';
 

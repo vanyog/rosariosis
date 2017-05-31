@@ -34,7 +34,7 @@ if (AllowEdit() && !isset($_REQUEST['_ROSARIO_PDF']))
 
 	$user_name_html = '<table><tr class="st"><td>' .
 	SelectInput(
-		$staff['TITLE'],
+	        @$staff['TITLE'],
 		'staff[TITLE]',
 		_( 'Title' ),
 		$titles_array,
@@ -43,28 +43,28 @@ if (AllowEdit() && !isset($_REQUEST['_ROSARIO_PDF']))
 		$div
 	) . '</td><td>' .
 	TextInput(
-		$staff['FIRST_NAME'],
+	        @$staff['FIRST_NAME'],
 		'staff[FIRST_NAME]',
 		_( 'First Name' ),
 		'maxlength=50 required',
 		$div
 	) . '</td><td>' .
 	TextInput(
-		$staff['MIDDLE_NAME'],
+	        @$staff['MIDDLE_NAME'],
 		'staff[MIDDLE_NAME]',
 		_( 'Middle Name' ),
 		'maxlength=50',
 		$div
 	) . '</td><td>' .
 	TextInput(
-		$staff['LAST_NAME'],
+	        @$staff['LAST_NAME'],
 		'staff[LAST_NAME]',
 		_( 'Last Name' ),
 		'maxlength=50 required',
 		$div
 	) . '</td><td>' .
 	SelectInput(
-		$staff['NAME_SUFFIX'],
+	        @$staff['NAME_SUFFIX'],
 		'staff[NAME_SUFFIX]',
 		_( 'Suffix' ),
 		$suffixes_array,
@@ -124,7 +124,7 @@ echo '<tr class="st"><td>';
 $required = ! empty($_REQUEST['moodle_create_user']) || ! empty($old_user_in_moodle) || basename( $_SERVER['PHP_SELF'] ) == 'index.php';
 
 echo TextInput(
-	$staff['USERNAME'],
+        @$staff['USERNAME'],
 	'staff[USERNAME]',
 	_( 'Username' ),
 	'size=12 maxlength=100 ' . ( $required ? 'required' : '' ),
@@ -134,7 +134,7 @@ echo TextInput(
 echo '</td><td>';
 
 echo TextInput(
-	( ! $staff['PASSWORD']
+        ( empty( $staff['PASSWORD'] )
 	        || !empty($_REQUEST['moodle_create_user']) ? '' : str_repeat( '*', 8 ) ),
 	'staff[PASSWORD]',
 	_( 'Password' ) .
@@ -151,7 +151,7 @@ echo TextInput(
 
 echo '</td></tr><tr class="st"><td colspan="2">';
 
-echo NoInput(makeLogin($staff['LAST_LOGIN']),_('Last Login'));
+echo NoInput(makeLogin(isset($staff['LAST_LOGIN']) ? $staff['LAST_LOGIN'] : ''),_('Last Login'));
 
 
 echo '</td></tr></table><hr />';
@@ -203,7 +203,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 	}
 
 	echo SelectInput(
-		$staff['PROFILE'],
+	        @$staff['PROFILE'],
 		'staff[PROFILE]',
 		_( 'User Profile' ),
 		$profile_options,
@@ -234,7 +234,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 		$na = _( 'Default' );
 
 	echo SelectInput(
-		$staff['PROFILE_ID'],
+	        @$staff['PROFILE_ID'],
 		'staff[PROFILE_ID]',
 		_( 'Permissions' ),
 		$permissions_options,
@@ -243,7 +243,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 
 	if ( User( 'PROFILE' ) === 'admin'
 		&& AllowEdit( 'Users/Exceptions.php' )
-		&& ! $staff['PROFILE_ID']
+		&& empty($staff['PROFILE_ID'])
 		&& UserStaffID() )
 	{
 		// Add link to User Permissions.
@@ -262,7 +262,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 	echo '</td><td>';
 
 	//FJ remove Schools for Parents
-	if ( $staff['PROFILE'] !== 'parent' )
+	if ( ! isset($staff['PROFILE']) || ($staff['PROFILE'] !== 'parent') )
 	{
 		$schools_RET = DBGet( DBQuery( "SELECT ID,TITLE
 			FROM SCHOOLS
@@ -299,7 +299,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 					$schools_html .= '</tr><tr class="st">';
 				}
 
-				$value = mb_strpos( $staff['SCHOOLS'], ',' . $school['ID'] . ',' ) !== false ? 'Y' : '';
+                                $value = mb_strpos( isset($staff['SCHOOLS']) ? $staff['SCHOOLS'] : '', ',' . $school['ID'] . ',' ) !== false ? 'Y' : '';
 
 				$schools_html .= '<td>' . CheckboxInput(
 					$value,
@@ -368,7 +368,7 @@ echo '<tr class="st"><td>';
 // FJ Moodle integrator: email required
 //echo TextInput($staff['EMAIL'],'staff[EMAIL]',_('Email Address'),'size=12 maxlength=100');
 echo TextInput(
-	$staff['EMAIL'],
+        @$staff['EMAIL'],
 	'staff[EMAIL]',
 	_( 'Email Address' ),
 	'type="email" pattern="[^ @]*@[^ @]*" size=12 maxlength=100' .
@@ -379,7 +379,7 @@ echo TextInput(
 echo '</td><td colspan="2">';
 
 echo TextInput(
-	$staff['PHONE'],
+        @$staff['PHONE'],
 	'staff[PHONE]',
 	_( 'Phone Number' ),
 	'size=12 maxlength=100'

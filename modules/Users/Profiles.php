@@ -27,11 +27,12 @@ if ( isset( $_REQUEST['profile_id'] )
 	$_REQUEST['profile_id'] = false;
 }
 
-if ( $_REQUEST['profile_id'] !== false )
+if ( ! isset($_REQUEST['profile_id']) || ($_REQUEST['profile_id'] !== false) )
 {
-	$exceptions_RET = DBGet(DBQuery("SELECT PROFILE_ID,MODNAME,CAN_USE,CAN_EDIT FROM PROFILE_EXCEPTIONS WHERE PROFILE_ID='".$_REQUEST['profile_id']."'"),array(),array('MODNAME'));
-	$profile_RET = DBGet(DBQuery("SELECT PROFILE FROM USER_PROFILES WHERE ID='".$_REQUEST['profile_id']."'"));
-	$xprofile = $profile_RET[1]['PROFILE'];
+        $exceptions_RET = DBGet(DBQuery("SELECT PROFILE_ID,MODNAME,CAN_USE,CAN_EDIT FROM PROFILE_EXCEPTIONS WHERE PROFILE_ID='".
+                          (isset($_REQUEST['profile_id']) ? $_REQUEST['profile_id'] : '')."'"),array(),array('MODNAME'));
+        $profile_RET = DBGet(DBQuery("SELECT PROFILE FROM USER_PROFILES WHERE ID='".(isset($_REQUEST['profile_id'])?$_REQUEST['profile_id']:'')."'"));
+        $xprofile = isset($profile_RET[1]['PROFILE']) ? $profile_RET[1]['PROFILE'] : '';
 
 	if ( $xprofile === 'student' )
 	{
@@ -221,7 +222,8 @@ if ( $_REQUEST['modfunc']
 
 if ( $_REQUEST['modfunc']!='delete')
 {
-	echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=update&profile_id='.$_REQUEST['profile_id'].'" method="POST">';
+        echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=update&profile_id='.
+              (isset($_REQUEST['profile_id']) ? $_REQUEST['profile_id'] : '').'" method="POST">';
 	DrawHeader(_('Select the programs that users of this profile can use and which programs those users can use to save information.'),SubmitButton(_('Save')));
 	echo '<br />';
 	echo '<table><tr class="st"><td class="valign-top">';
@@ -235,7 +237,8 @@ if ( $_REQUEST['modfunc']!='delete')
 	{
 		foreach ( (array) $profiles_RET[ $profiles ] as $id => $profile)
 		{
-			if ( $_REQUEST['profile_id']!='' && $id==$_REQUEST['profile_id'])
+		        if ( ( ! isset($_REQUEST['profile_id']) || ($_REQUEST['profile_id']!='') ) &&
+			         isset($_REQUEST['profile_id']) && ($id==$_REQUEST['profile_id']) )
 				echo '<tr id="selected_tr" class="highlight"><td>'.(AllowEdit() && $id > 3 ? button('remove', '', '"Modules.php?modname='.$_REQUEST['modname'].'&modfunc=delete&profile_id='.$id.'"') : '&nbsp;').'</td><td>';
 			else
 				echo '<tr class="highlight-hover"><td>'.(AllowEdit() && $id > 3 ? button('remove', '', '"Modules.php?modname='.$_REQUEST['modname'].'&modfunc=delete&profile_id='.$id.'"') : '&nbsp;').'</td><td>';
@@ -269,7 +272,7 @@ if ( $_REQUEST['modfunc']!='delete')
 	echo '</td><td></td><td>';
 
 	echo '<div id="main_div">';
-	if ( $_REQUEST['profile_id']!='')
+	if ( isset($_REQUEST['profile_id']) && ($_REQUEST['profile_id']!='') )
 	{
 		PopTable('header',_('Permissions'));
 
@@ -336,8 +339,8 @@ if ( $_REQUEST['modfunc']!='delete')
 					&& $file !== 'default'
 					&& $file !== 'title' )
 				{
-					$can_use = $exceptions_RET[ $file ][1]['CAN_USE'];
-					$can_edit = $exceptions_RET[ $file ][1]['CAN_EDIT'];
+				        $can_use = isset($exceptions_RET[ $file ][1]['CAN_USE']) ? $exceptions_RET[ $file ][1]['CAN_USE'] : '';
+					$can_edit = isset($exceptions_RET[ $file ][1]['CAN_EDIT']) ? $exceptions_RET[ $file ][1]['CAN_EDIT'] : '';
 
 					echo '<tr><td class="align-right"><input type="checkbox" name="can_use[' .
 						str_replace( '.', '_', $file ) . ']" value="true"' .
@@ -366,8 +369,8 @@ if ( $_REQUEST['modfunc']!='delete')
 						{
 							$file = 'Students/Student.php&category_id='.$category['ID'];
 							$title = '&nbsp;&nbsp;&rsaquo; '.ParseMLField($category['TITLE']);
-							$can_use = $exceptions_RET[ $file ][1]['CAN_USE'];
-							$can_edit = $exceptions_RET[ $file ][1]['CAN_EDIT'];
+							$can_use = isset($exceptions_RET[ $file ][1]['CAN_USE']) ? $exceptions_RET[ $file ][1]['CAN_USE'] : '';
+							$can_edit = isset($exceptions_RET[ $file ][1]['CAN_EDIT']) ? $exceptions_RET[ $file ][1]['CAN_EDIT'] : '';
 
 							//echo '<tr><td>&nbsp;</td><td>&nbsp;</td>';
 							echo '<tr><td class="align-right"><input type="checkbox" name="can_use['.str_replace('.','_',$file).']" value="true"'.($can_use=='Y'?' checked':'').(AllowEdit()?'':' DISABLED').' /></td>';

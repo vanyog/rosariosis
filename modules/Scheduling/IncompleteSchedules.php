@@ -9,14 +9,15 @@ $period_select .= "</select>";
 */
 
 DrawHeader(ProgramTitle());
-if ( $period_select)
+if ( ! empty($period_select) )
 {
 	echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'" method="POST">';
 	DrawHeader($period_select);
 	echo '</form>';
 }
 
-if ( $_REQUEST['search_modfunc']=='list')
+if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
+if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 {
 	Widgets('course');
 	Widgets('request');
@@ -45,7 +46,7 @@ foreach ( (array) $periods_RET as $period)
 	$extra['columns_after']['PERIOD_'.$period['PERIOD_ID']] = $period['TITLE'];
 	$extra['functions']['PERIOD_'.$period['PERIOD_ID']] = '_preparePeriods';
 }
-if ( ! $_REQUEST['search_modfunc'])
+if ( empty($_REQUEST['search_modfunc']) )
 	Search('student_id',$extra);
 else
 {
