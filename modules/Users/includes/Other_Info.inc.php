@@ -25,7 +25,7 @@ if ( UserStaffID() )
 
 if ( count( $fields_RET ) )
 {
-	echo $separator;
+        if(isset($separator)) echo $separator;
 
 	echo '<table class="width-100p valign-top fixed-col">';
 }

@@ -56,7 +56,7 @@ function PreparePHP_SELF( $tmp_REQUEST = array(), $remove = array(), $add = arra
 
 
 	// Add modname param.
-	$PHP_tmp_SELF = 'Modules.php?modname=' . $tmp_REQUEST['modname'];
+	$PHP_tmp_SELF = 'Modules.php?modname=' . ( isset($tmp_REQUEST['modname']) ? $tmp_REQUEST['modname'] : '' );
 
 	unset( $tmp_REQUEST['modname'] );
 

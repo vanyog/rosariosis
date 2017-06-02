@@ -405,8 +405,8 @@ if ( $_REQUEST['modfunc']!='delete')
 						{
 							$file = 'Users/User.php&category_id=' . $category['ID'];
 							$title = '&nbsp;&nbsp;&rsaquo; ' . ParseMLField( $category['TITLE'] );
-							$can_use = $exceptions_RET[ $file ][1]['CAN_USE'];
-							$can_edit = $exceptions_RET[ $file ][1]['CAN_EDIT'];
+							$can_use =  isset($exceptions_RET[ $file ][1]['CAN_USE']) ? $exceptions_RET[ $file ][1]['CAN_USE'] : '';
+							$can_edit = isset($exceptions_RET[ $file ][1]['CAN_EDIT'])? $exceptions_RET[ $file ][1]['CAN_EDIT']: '';
 
 							echo '<tr><td class="align-right"><input type="checkbox" name="can_use['.str_replace('.','_',$file).']" value="true"'.($can_use=='Y'?' checked':'').(AllowEdit()?'':' DISABLED').'></td>';
 

@@ -621,27 +621,26 @@ HTML;
         Нова категория
 </p>
 <p>
-         За да създадете нова категория, щракнете знака (+) под съществуващите категории. После можете да напишете название на категорията, номер на подреждане (определя в какъв ред се подреждат подстраниците в програмата Информация за студент)
-         You can now type in the name of the new Category in the "Title" field(s) provided. Add a sort order (order in which the tabs will appear in the Student Info program), and the number of columns the tab will display (optional). Click "Save" when you have finished.
+         За да създадете нова категория, щракнете знака (+) под съществуващите категории. После можете да напишете название на категорията, номер на подреждане (определя в какъв ред се подреждат подстраниците в програмата Информация за студент). Щракнете бутона "Запазване", когато свършите с попълването.
 </p>
 <p>
-	Add a new Field
+        Ново поле данни
 </p>
 <p>
-	Click on the "+" icon below the "No Student Fields were found" text. Fill in the Field Name field(s), and then choose what type of field you wish with the "Data Type" pull-down.
+        Щракнете знака (+) под надписа "Не са намерени Полета". Попълнете "Название" на полето и изберете типа на полето от падащото маню "Тип отговор".
 </p>
 <ul>
 <li>
-	"Pull-Down" fields create menus from which you can select one option. To create this type of field, click on "Pull-Down" and then add your options (one per line) in the "Pull-Down/Auto Pull-down/Coded Pull-Down/Select Multiple from Options" text box.
+        Полетата от тип "Падащо меню" създават падащо меню, с което се избира една от няколко възможности. Възможностите за избиране се попълват по една на ред в прозореца "Pull-Down/Auto Pull-down/Coded Pull-Down/Select Multiple from Options".
 </li>
 <li>
-	"Auto Pull-Down" fields create menus from which you can select one option, and add options. You add options by selecting the "-Edit-" option in the menu choices and click "Save". You can then edit the field by removing the red "-Edit-" from the field, entering the correct information. RosarioSIS gets all the options that have been added to this field to create the pull-down.
+        Полетата от тип "Падащо меню с добавяне" саздават падащо меню, с което се избира една от няколко възможности, към които може да се добави и нова. Добавяне на нова възможност става с избиране на реда -Редактиране- и щракване на бутон "Запазване". След това можете да напишете Вашата, различна от останалите стойност и да щракнете повторно бутон "Запазване". RosarioSIS ще показва всички, въведени в такова поле нови възможности, за да се избирт и те.
 </li>
 <li>
-	"Edit Pull-Down" fields are similar to Auto Pull-Down fields.
+        "Падащо меню с редактиране" е подобно на "Падащо меню с добавяне".
 </li>
 <li>
-	"Coded Pull-Down" fields are created by adding options to the large text box respecting the following pattern: "option shown"|"option stored in database" (where | is the "pipe" character). For example: "Two|2", where "Two" is displayed on screen to the user, or in a downloaded spreadsheet, and "2" is stored in the database.
+        Типът "Кодирано падащо меню" създава падащо меню, в което се показват надписи, по които се избира стойност, но в базата данни се съхранява не надписа, а друга, съответстваща му стойност (код). В прозореца за описване на възможните стойности, на всеки ред се записва, например, "1|Едно". Къдато "Едно" е надписа, който се показва в падащото маню, а "1" е кода, който се запазва като стойност. Стойностите и съответните им надписи се отделят със знак "|" (вертикална черта).
 </li>
 <li>
 	"Export Pull-Down" fields are created by adding options to the large text box respecting the same pattern used for "Coded Pull-Down" fields ("option shown"|"option stored in database"). For example: "Two|2", where "Two" is displayed on screen to the user, and "2" is the value in a downloaded spreadsheet, but "Two" is stored in the database.

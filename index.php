@@ -102,6 +102,7 @@ elseif ( isset( $_POST['USERNAME'] )
 	}
 
 	// Admin, teacher or parent: initiate session.
+	$login_status = '';
 	if ( $login_RET
 		&& ( $login_RET[1]['PROFILE'] === 'admin'
 			|| $login_RET[1]['PROFILE'] === 'teacher'
@@ -207,7 +208,6 @@ elseif ( isset( $_POST['USERNAME'] )
 		$error[] = _( 'Incorrect username or password.' ) . '&nbsp;'
 			. _( 'Please try logging in again.' );
 
-		$login_status = '';
 	}
 
 	// Access Log.

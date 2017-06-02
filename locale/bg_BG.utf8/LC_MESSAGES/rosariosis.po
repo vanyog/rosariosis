@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-01 16:07+0300\n"
+"PO-Revision-Date: 2017-06-02 21:44+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -369,7 +369,7 @@ msgstr "Падащо меню с редактиране"
 #: ProgramFunctions/Fields.fnc.php:335 ProgramFunctions/Fields.fnc.php:422
 #: ProgramFunctions/Fields.fnc.php:623
 msgid "Coded Pull-Down"
-msgstr ""
+msgstr "Кодирано падащо меню"
 
 #: ProgramFunctions/Fields.fnc.php:336 ProgramFunctions/Fields.fnc.php:357
 #: ProgramFunctions/Fields.fnc.php:624
@@ -1517,7 +1517,7 @@ msgstr "Не"
 
 #: functions/Search.fnc.php:158
 msgid "Check All"
-msgstr ""
+msgstr "Всички"
 
 #: functions/Search.fnc.php:190 functions/StaffWidgets.fnc.php:265
 #: functions/Widgets.fnc.php:961 functions/Widgets.fnc.php:1092
@@ -2053,12 +2053,13 @@ msgstr ""
 
 #: index.php:175
 msgid "Your account has not yet been activated."
-msgstr ""
+msgstr "Вашата регистрация още не е активирана."
 
 #: index.php:176 index.php:304
 msgid ""
 "You will be notified when it has been verified by a school administrator."
 msgstr ""
+"Ще бъдете уведомени, когато бъде проверена от администратор на училището."
 
 #: index.php:207
 msgid "Incorrect username or password."
@@ -2085,11 +2086,11 @@ msgstr ""
 
 #: index.php:303
 msgid "Your account has been created."
-msgstr ""
+msgstr "Вашата регистрация беше създадена."
 
 #: index.php:305
 msgid "You will then be able to log in."
-msgstr ""
+msgstr "След това ще можете да влизате в сайта."
 
 #: index.php:311
 msgid ""
@@ -2144,8 +2145,8 @@ msgid ""
 msgstr ""
 "Това е мрежа с ограничен достъп. Използването на тази мрежа, нейното "
 "оборудане и ресурси се наблюдава през цялото време и изисква разрешение от "
-"мрежв администратор и %s. Ако Вие нямате такова разрешение в писмен вид, Вие "
-"нарушавате правомерното използване на тази мрежа и може, и ще бъдете "
+"мрежов администратор и %s. Ако Вие нямате такова разрешение в писмен вид, "
+"Вие нарушавате правомерното използване на тази мрежа и може, и ще бъдете "
 "третирани с цялата строгост на закона. Прониквайки вътре в тази мрежа, Вие "
 "декларирате, че сте запознати и сте съгласни с тези условия."
 
@@ -7071,6 +7072,8 @@ msgid ""
 "A user with that username already exists. Choose a different username and "
 "try again."
 msgstr ""
+"Потребител с това потребителско име вече съществува. Изберете друго "
+"потребителско име и опитайте отново."
 
 #: modules/Students/Student.php:215
 #, php-format
@@ -7540,7 +7543,7 @@ msgstr ""
 
 #: modules/Users/UserFields.php:222
 msgid "New User Field"
-msgstr ""
+msgstr "Ново потребителско поле"
 
 #: modules/Users/UserFields.php:230
 msgid "New User Field Category"

@@ -237,7 +237,7 @@ if ( ! $_REQUEST['modfunc'] )
 		$extra_fields = array();
 
 		$extra_fields[] = TextInput(
-			$RET['COLUMNS'],
+		        @$RET['COLUMNS'],
 			'tables[' . $_REQUEST['category_id'] . '][COLUMNS]',
 			_( 'Display Columns' ),
 			'size=5'
@@ -247,7 +247,7 @@ if ( ! $_REQUEST['modfunc'] )
 		{
 			$extra_fields[] = '<table><tr class="st"><td>' .
 				CheckboxInput(
-					$RET['ADMIN'],
+				        @$RET['ADMIN'],
 					'tables[' . $_REQUEST['category_id'] . '][ADMIN]',
 					_( 'Administrator' ),
 					'',
@@ -256,7 +256,7 @@ if ( ! $_REQUEST['modfunc'] )
 					button( 'x' )
 				) . '</td><td>' .
 				CheckboxInput(
-					$RET['TEACHER'],
+				        @$RET['TEACHER'],
 					'tables[' . $_REQUEST['category_id'] . '][TEACHER]',
 					_( 'Teacher' ),
 					'',
@@ -265,7 +265,7 @@ if ( ! $_REQUEST['modfunc'] )
 					button( 'x' )
 				) . '</td></tr><tr><td>' .
 				CheckboxInput(
-					$RET['PARENT'],
+				        @$RET['PARENT'],
 					'tables[' . $_REQUEST['category_id'] . '][PARENT]',
 					_( 'Parent' ),
 					'',
@@ -274,7 +274,7 @@ if ( ! $_REQUEST['modfunc'] )
 					button( 'x' )
 				) . '</td><td>' .
 				CheckboxInput(
-					$RET['NONE'],
+				        @$RET['NONE'],
 					'tables[' . $_REQUEST['category_id'] . '][NONE]',
 					_( 'No Access' ),
 					'',
@@ -295,7 +295,7 @@ if ( ! $_REQUEST['modfunc'] )
 		{
 			// TODO: check if INCLUDE file (+ ".inc.php") exsits.
 			$extra_fields[] = TextInput(
-				$RET['INCLUDE'],
+			        @$RET['INCLUDE'],
 				'tables[' . $_REQUEST['category_id'] . '][INCLUDE]',
 				_( 'Include (should be left blank for most categories)' )
 			);

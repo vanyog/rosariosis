@@ -73,7 +73,7 @@ if (AllowEdit() && !isset($_REQUEST['_ROSARIO_PDF']))
 		$div
 	) . '</td></tr></table>';
 
-	if ( $_REQUEST['staff_id'] === 'new'
+        if ( isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id'] === 'new')
 	        || ! empty($_REQUEST['moodle_create_user']) )
 	{
 		echo $user_name_html;

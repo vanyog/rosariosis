@@ -105,7 +105,7 @@ if ( empty($_REQUEST['search_modfunc']) )
 
 				Search(
 					'staff_fields_all',
-					is_array( $extra['staff_fields'] ) ? $extra['staff_fields'] : array()
+					isset( $extra['staff_fields'] ) && is_array( $extra['staff_fields'] ) ? $extra['staff_fields'] : array()
 				);
 
 				$staff_fields_all = ob_get_clean();

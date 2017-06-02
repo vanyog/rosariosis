@@ -962,7 +962,7 @@ function Widgets( $item, &$myextra = null )
 			$select = '<select name="activity_id">
 				<option value="">' . _( 'Not Specified' ) . '</option>';
 
-			foreach ( (array) $activities_RET as $activity )
+                        if( isset($activities_RET) ) foreach ( (array) $activities_RET as $activity )
 			{
 				$select .= '<option value="' . $activity['ID'] . '">' . $activity['TITLE'] . '</option>';
 			}

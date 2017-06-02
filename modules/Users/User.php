@@ -69,7 +69,7 @@ if ( User( 'PROFILE' ) !== 'admin' )
 	}
 }
 
-if ( $_REQUEST['modfunc'] === 'update'
+if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'update')
 	&& AllowEdit() )
 {
 	if ( isset( $_POST['day_staff'], $_POST['month_staff'], $_POST['year_staff'] ) )
@@ -146,7 +146,7 @@ if ( $_REQUEST['modfunc'] === 'update'
 			unset( $_REQUEST['staff']['PROFILE_ID'] );
 		}
 		// New User.
-		elseif ( $_REQUEST['staff']['PROFILE'] === 'admin' )
+		elseif ( isset($_REQUEST['staff']['PROFILE']) && ($_REQUEST['staff']['PROFILE'] === 'admin') )
 		{
 			// Remove Administrator from profile options.
 			$_REQUEST['staff']['PROFILE'] = 'teacher';
@@ -186,9 +186,11 @@ if ( $_REQUEST['modfunc'] === 'update'
 		if ( $required_error)
 			$error[] = _('Please fill in the required fields');
 
-                if(! isset( $_REQUEST['staff']['USERNAME'] ) ) $_REQUEST['staff']['USERNAME'] = '';
 		//check username unicity
-		$existing_username = DBGet(DBQuery("SELECT 'exists' FROM STAFF WHERE USERNAME='".$_REQUEST['staff']['USERNAME']."' AND SYEAR='".UserSyear()."' AND STAFF_ID!='".UserStaffID()."' UNION SELECT 'exists' FROM STUDENTS WHERE USERNAME='".$_REQUEST['staff']['USERNAME']."'"));
+		$existing_username = DBGet(DBQuery("SELECT 'exists' FROM STAFF WHERE USERNAME='".
+		     (isset($_REQUEST['staff']['USERNAME'])?$_REQUEST['staff']['USERNAME']:'')."' AND SYEAR='".UserSyear()."' AND STAFF_ID!='".
+		     UserStaffID()."' UNION SELECT 'exists' FROM STUDENTS WHERE USERNAME='".
+		     (isset($_REQUEST['staff']['USERNAME'])?$_REQUEST['staff']['USERNAME']:'')."'"));
 		if (count($existing_username))
 		{
 			$error[] = _('A user with that username already exists. Choose a different username and try again.');
@@ -292,11 +294,11 @@ if ( $_REQUEST['modfunc'] === 'update'
 			//hook
 			do_action('Users/User.php|create_user_checks');
 
-			if ( $_REQUEST['staff']['PROFILE']=='admin')
+                        if ( isset($_REQUEST['staff']['PROFILE']) && ($_REQUEST['staff']['PROFILE']=='admin') )
 				$_REQUEST['staff']['PROFILE_ID'] = '1';
-			elseif ( $_REQUEST['staff']['PROFILE']=='teacher')
+			elseif ( isset($_REQUEST['staff']['PROFILE']) && ($_REQUEST['staff']['PROFILE']=='teacher') )
 				$_REQUEST['staff']['PROFILE_ID'] = '2';
-			elseif ( $_REQUEST['staff']['PROFILE']=='parent')
+			elseif ( isset($_REQUEST['staff']['PROFILE']) && ($_REQUEST['staff']['PROFILE']=='parent') )
 				$_REQUEST['staff']['PROFILE_ID'] = '3';
 
 			if ( ! $error )
@@ -314,13 +316,16 @@ if ( $_REQUEST['modfunc'] === 'update'
 					$values = "'".Config('SYEAR')."'".mb_substr($values,mb_strpos($values,','))."'none',";
 				}
 
-				$fields_RET = DBGet(DBQuery("SELECT ID,TYPE FROM STAFF_FIELDS ORDER BY SORT_ORDER"), array(), array('ID'));
+                                $fields_RET = DBGet(DBQuery("SELECT ID,TYPE FROM STAFF_FIELDS ORDER BY SORT_ORDER"), array(), array('ID'));
 				foreach ( (array) $_REQUEST['staff'] as $column => $value)
 				{
 					if ( !empty($value) || $value=='0')
 					{
 						//FJ check numeric fields
-						if ( $fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric' && $value!='' && !is_numeric($value))
+						if ( isset($fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'])
+						       && ($fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric')
+						       && $value!=''
+						       && !is_numeric($value))
 						{
 							$error[] = _('Please enter valid Numeric data.');
 							break;
@@ -329,7 +334,11 @@ if ( $_REQUEST['modfunc'] === 'update'
 						$fields .= DBEscapeIdentifier( $column ) . ',';
 
 						//FJ add password encryption
-						if ( $column!=='PASSWORD')
+						if( $column=='SCHOOLS'){
+						        $value = str_replace(",,","",$value);
+							$values .= "'" . $value . "',";
+						}
+						elseif( $column!=='PASSWORD')
 							$values .= "'" . $value . "',";
 						else
 						{
@@ -418,7 +427,7 @@ Remote IP: %s', $admin_username, User('NAME'), $ip);
 if (basename($_SERVER['PHP_SELF'])!='index.php')
 {
         if ( isset($_REQUEST['staff_id']) && ( $_REQUEST['staff_id']=='new') )
-	{
+        {
 		$_ROSARIO['HeaderIcon'] = 'modules/Users/icon.png';
 		DrawHeader(_('Add a User'));
 	}
@@ -432,6 +441,7 @@ elseif ( !UserStaffID())
 {
 	$_ROSARIO['HeaderIcon'] = 'modules/Users/icon.png';
 	DrawHeader(_('Create User Account'));
+
 }
 //account created, return to index
 else
@@ -445,7 +455,7 @@ else
 
 echo ErrorMessage( $error );
 
-if ( $_REQUEST['modfunc'] === 'delete'
+if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'delete')
 	&& basename( $_SERVER['PHP_SELF'] ) != 'index.php'
 	&& AllowEdit() )
 {
@@ -475,7 +485,7 @@ if ( $_REQUEST['modfunc'] === 'delete'
 	}
 }
 
-if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='new'))) && $_REQUEST['modfunc']!='delete')
+if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='new'))) && (empty($_REQUEST['modfunc']) || $_REQUEST['modfunc']!='delete') )
 {
         if ( !isset($_REQUEST['staff_id']) || ($_REQUEST['staff_id']!='new') )
 	{
@@ -512,7 +522,7 @@ if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='
 	}
 
         if ( ! isset($_REQUEST['staff_id']) || ($_REQUEST['staff_id']!='new') )
-        {//die(print_r($staff));
+        {
 		//FJ add translation
 		$titles_array = array(''=>'', 'Mr' => _('Mr'),'Mrs' => _('Mrs'),'Ms' => _('Ms'),'Miss' => _('Miss'),'Dr' => _('Dr'));
 		$suffixes_array = array(''=>'', 'Jr' => _('Jr'),'Sr' => _('Sr'),'II' => _('II'),'III' => _('III'),'IV' => _('IV'),'V' => _('V'));
@@ -562,7 +572,8 @@ if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='
 		}
 	}
 
-	$_ROSARIO['selected_tab'] = 'Modules.php?modname=' . $_REQUEST['modname'] . '&category_id=' . $category_id . '&staff_id=' . UserStaffID();
+        $_ROSARIO['selected_tab'] = 'Modules.php?modname=' . (isset($_REQUEST['modname']) ? $_REQUEST['modname'] : '').
+                                    '&category_id=' . $category_id . '&staff_id=' . UserStaffID();
 
 	echo '<br />';
 	PopTable('header',$tabs,'width="100%"');

@@ -70,7 +70,7 @@ if ( User( 'PROFILE' ) !== 'admin' )
 	}
 }
 
-if ( $_REQUEST['modfunc'] === 'update'
+if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'update')
 	&& AllowEdit() )
 {
 	if ( isset( $_POST['day_students'], $_POST['month_students'], $_POST['year_students'] ) )
@@ -151,7 +151,10 @@ if ( $_REQUEST['modfunc'] === 'update'
 					if (1)//!empty($value) || $value=='0')
 					{
 						//FJ check numeric fields
-						if ( $fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric' && $value!='' && !is_numeric($value))
+						if ( isset($fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'])
+						        && ($fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric')
+							&& $value!=''
+							&& !is_numeric($value))
 						{
 							$error[] = _('Please enter valid Numeric data.');
 							continue;
@@ -249,7 +252,8 @@ if ( $_REQUEST['modfunc'] === 'update'
 					if ( !empty($value) || $value=='0')
 					{
 						//FJ check numeric fields
-						if ( $fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric' && $value!='' && !is_numeric($value))
+						if ( $fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric' && $value!=''
+						         && !is_numeric($value))
 						{
 							$error[] = _('Please enter valid Numeric data.');
 							continue;
@@ -427,7 +431,7 @@ if ( UserStudentID()
 	$categories_RET = DBGet(DBQuery("SELECT ID,TITLE,INCLUDE FROM STUDENT_FIELD_CATEGORIES WHERE ".
 	                  (!isset($_REQUEST['student_id'])||($_REQUEST['student_id']!='new')?'TRUE':'ID=\'1\'')." ORDER BY SORT_ORDER,TITLE"));
 
-	if ( $_REQUEST['modfunc']!='delete' || $_REQUEST['delete_ok'])
+        if ( empty($_REQUEST['modfunc']) || $_REQUEST['modfunc']!='delete' || $_REQUEST['delete_ok'])
 	{
 	        if ( !isset($_REQUEST['student_id'])||($_REQUEST['student_id']!='new') )
 		{
@@ -491,7 +495,8 @@ if ( UserStudentID()
 			}
 		}
 
-		$_ROSARIO['selected_tab'] = 'Modules.php?modname=' . $_REQUEST['modname'] . '&category_id=' . $category_id . '&student_id=' . UserStudentID();
+                $_ROSARIO['selected_tab'] = 'Modules.php?modname=' . ( isset($_REQUEST['modname']) ? $_REQUEST['modname'] : '' ) .
+                                            '&category_id=' . $category_id . '&student_id=' . UserStudentID();
 
 		echo '<br />';
 		echo PopTable('header',$tabs,'width="100%"');

@@ -107,6 +107,7 @@ function SaveData( $iu_extra, $field_names = array() )
 				}
 				else
 				{
+				        if( ! isset($sql[ $table ]) ) $sql[ $table ] = '';
 					$sql[ $table ] .= DBEscapeIdentifier( $column ) . "='" . $value . "',";
 
 					$go = true;
