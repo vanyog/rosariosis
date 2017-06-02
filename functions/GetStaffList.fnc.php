@@ -38,7 +38,10 @@ function GetStaffList(& $extra)
 
 				$view_fields_RET = DBGet(DBQuery("SELECT cf.ID,cf.TYPE,cf.TITLE
 				FROM STAFF_FIELDS cf
-				WHERE ((SELECT VALUE FROM PROGRAM_USER_CONFIG WHERE TITLE=cast(cf.ID AS TEXT) AND PROGRAM='StaffFieldsView' AND USER_ID='".User('STAFF_ID')."')='Y'".($extra['staff_fields']['view']?" OR cf.ID IN (".$extra['staff_fields']['view'].")":'').")
+				WHERE ((SELECT VALUE FROM PROGRAM_USER_CONFIG WHERE TITLE=cast(cf.ID AS TEXT) AND PROGRAM='StaffFieldsView' AND USER_ID='".
+				       User('STAFF_ID')."')='Y'".
+				       (isset($extra['staff_fields']['view']) && $extra['staff_fields']['view'] ?
+				         " OR cf.ID IN (".$extra['staff_fields']['view'].")":'').")
 				ORDER BY cf.SORT_ORDER,cf.TITLE"));
 
 				foreach ( (array) $view_fields_RET as $field )
@@ -58,7 +61,7 @@ function GetStaffList(& $extra)
 					AND TITLE IN ('EMAIL','PHONE')
 					AND USER_ID='" . User( 'STAFF_ID' ) . "'"), array(), array( 'TITLE' ) );
 
-				if ( $view_other_RET['EMAIL'][1]['VALUE'] === 'Y' )
+                                if ( isset($view_other_RET['EMAIL'][1]['VALUE']) && ($view_other_RET['EMAIL'][1]['VALUE'] === 'Y') )
 				{
 					$extra['columns_after']['EMAIL'] = _( 'Email Address' );
 
@@ -67,7 +70,7 @@ function GetStaffList(& $extra)
 					$select .= ',s.EMAIL';
 				}
 
-				if ( $view_other_RET['PHONE'][1]['VALUE'] === 'Y' )
+                                if ( isset($view_other_RET['PHONE'][1]['VALUE']) && ($view_other_RET['PHONE'][1]['VALUE'] === 'Y') )
 				{
 					$extra['columns_after']['PHONE'] = _( 'Phone Number' );
 

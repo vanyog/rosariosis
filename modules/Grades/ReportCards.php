@@ -35,7 +35,7 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	DrawHeader( ProgramTitle() );
 
-	if ( $_REQUEST['search_modfunc'] === 'list' )
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc'] === 'list') )
 	{
 		echo '<FORM action="' . PreparePHP_SELF(
 			$_REQUEST,
@@ -69,7 +69,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	Search( 'student_id', $extra );
 
-	if ( $_REQUEST['search_modfunc'] === 'list' )
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc'] === 'list') )
 	{
 		echo '<BR /><div class="center">' .
 			Buttons( _( 'Create Report Cards for Selected Students' ) ) . '</div>';

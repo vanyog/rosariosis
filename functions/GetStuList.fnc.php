@@ -544,7 +544,8 @@ function GetStuList( &$extra = array() )
 							"('" . $extra['DATE'] . "'>=ss.START_DATE
 								AND (ss.END_DATE IS NULL
 									OR '" . $extra['DATE'] . "'<=ss.END_DATE))
-							AND ss.MARKING_PERIOD_ID IN (" . GetAllMP( $extra['MPTable'], $extra['MP'] ) . ")",
+							AND ss.MARKING_PERIOD_ID IN (" .
+							    GetAllMP( isset($extra['MPTable']) ? $extra['MPTable'] : '', $extra['MP'] ) . ")",
 							'TRUE',
 							$active,
 							$inactive
@@ -570,14 +571,14 @@ function GetStuList( &$extra = array() )
 			// Active / Scheduled Students.
 			else
 			{
-				$sql .= " AND ss.MARKING_PERIOD_ID IN (" . GetAllMP( $extra['MPTable'], $extra['MP'] ) . ")
+			        $sql .= " AND ss.MARKING_PERIOD_ID IN (" . GetAllMP( isset($extra['MPTable']) ? $extra['MPTable'] : '', $extra['MP'] ) . ")
 					AND ('" . $extra['DATE'] . "'>=ss.START_DATE
 						AND ('" . $extra['DATE'] . "'<=ss.END_DATE
 							OR ss.END_DATE IS NULL))";
 			}
 
 			$sql .= ") JOIN COURSE_PERIODS cp ON (cp.COURSE_PERIOD_ID=ss.COURSE_PERIOD_ID AND " .
-				( $extra['all_courses'] == 'Y' ?
+			        ( isset($extra['all_courses']) && ($extra['all_courses'] == 'Y') ?
 					"cp.TEACHER_ID='" . User( 'STAFF_ID' ) . "'" :
 					"cp.COURSE_PERIOD_ID='" . UserCoursePeriod() . "'" ) . ")
 				JOIN STUDENT_ENROLLMENT ssm ON (ssm.STUDENT_ID=s.STUDENT_ID

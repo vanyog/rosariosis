@@ -727,7 +727,7 @@ if ( ( ! $_REQUEST['modfunc']
 				'size=4 maxlength=4'
 			) . '</td>';
 
-			$header .= '</tr>';
+			$header .= '</tr><tr><td colspan="6"><hr /></td></tr>';
 
 			$days = array('M','T','W','H','F','S','U');
 
@@ -835,7 +835,14 @@ if ( ( ! $_REQUEST['modfunc']
 
 			} while ( $i <= count( $RET2 ) );
 
-			$header .= '<tr class="st"><td colspan="6"><a href="#" onclick="'.($new ? 'newSchoolPeriod();' : 'document.getElementById(\'schoolPeriod\'+'.$i.').style.display=\'table-row\';').' return false;">'. button('add') .' '._('New Period').'</a></td></tr>';
+			$header .= '<tr class="st"><td colspan="6">
+				<a href="#" onclick="' .
+					( $new ?
+						'newSchoolPeriod();' :
+						'document.getElementById(\'schoolPeriod\'+' . $i . ').style.display=\'table-row\';' ).
+					' return false;">' .
+				button( 'add' ) . ' ' . _( 'New Period' ) . '</a>
+				<hr /></td></tr>';
 
 			if ( ! $new )
 				$header .= '<script>document.getElementById(\'schoolPeriod\'+'.$i.').style.display = "none";</script>';
@@ -1028,9 +1035,9 @@ if ( ( ! $_REQUEST['modfunc']
 					'' ) .
 				'<span class="legend-gray">' . _( 'Parent Course Period' ) . '</span></td>';
 
-			$header .= '</tr>';
-			$header .= '</table>';
-			DrawHeader($header);
+			$header .= '</tr></table>';
+
+			DrawHeader( $header );
 			//echo '</form>';
 		}
 		elseif ( ! empty($_REQUEST['course_id']) )
@@ -1069,7 +1076,7 @@ if ( ( ! $_REQUEST['modfunc']
 				$RET['TITLE'],
 				'tables[COURSES][' . $_REQUEST['course_id'] . '][TITLE]',
 				_( 'Title' ),
-				'required maxlength=100'
+				'required maxlength=100 size=20'
 			) . '</td>';
 
 			$header .= '<td>' . TextInput(
@@ -1084,7 +1091,7 @@ if ( ( ! $_REQUEST['modfunc']
 				$RET['CREDIT_HOURS'],
 				'tables[COURSES][' . $_REQUEST['course_id'] . '][CREDIT_HOURS]',
 				_( 'Credit Hours' ),
-				'maxlength=7'
+				'maxlength=7 size=7'
 			) . '</td>';
 
 			//FJ SQL error column "subject_id" specified more than once
@@ -1128,14 +1135,14 @@ if ( ( ! $_REQUEST['modfunc']
 				$RET['TITLE'],
 				'tables[COURSE_SUBJECTS][' . $_REQUEST['subject_id'] . '][TITLE]',
 				_( 'Title' ),
-				'required maxlength=100'
+				'required maxlength=100 size=20'
 			) . '</td>';
 
 			$header .= '<td>' . TextInput(
 				$RET['SORT_ORDER'],
 				'tables[COURSE_SUBJECTS][' . $_REQUEST['subject_id'] . '][SORT_ORDER]',
 				_( 'Sort Order' ),
-				'maxlength=3'
+				'maxlength=3 size=5'
 			) . '</td>';
 
 			$header .= '</tr>';

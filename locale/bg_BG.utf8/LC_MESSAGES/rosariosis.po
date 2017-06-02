@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-05-29 14:00+0300\n"
+"PO-Revision-Date: 2017-06-01 16:07+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -2833,7 +2833,7 @@ msgstr "Настройки"
 #: modules/Attendance/Menu.php:28 modules/School_Setup/CopySchool.php:10
 #: modules/School_Setup/Rollover.php:3
 msgid "Attendance Codes"
-msgstr ""
+msgstr "Кодове за присъствие"
 
 #: modules/Attendance/Menu.php:29 modules/Grades/Menu.php:36
 #: modules/Users/Menu.php:24 modules/Users/TeacherPrograms.php:6

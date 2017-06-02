@@ -112,7 +112,7 @@ if ( $_REQUEST['modfunc']=='gradebook')
 	}
 }
 
-if ( $_REQUEST['values'] && $_POST['values'])
+if ( ! empty($_REQUEST['values']) && $_POST['values'])
 {
 	$course_period_id = UserCoursePeriod();
 	foreach ( (array) $_REQUEST['values'] as $student_id => $value)
@@ -130,6 +130,7 @@ if ( $_REQUEST['values'] && $_POST['values'])
 	$current_RET = DBGet(DBQuery("SELECT ELIGIBILITY_CODE,STUDENT_ID FROM ELIGIBILITY WHERE SCHOOL_DATE BETWEEN '".$start_date."' AND '".$end_date."' AND PERIOD_ID='".UserPeriod()."'"),array(),array('STUDENT_ID'));
 }
 
+if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 $extra['SELECT'] .= ",'' AS PASSING,'' AS BORDERLINE,'' AS FAILING,'' AS INCOMPLETE";
 $extra['functions'] = array('PASSING' => 'makeRadio','BORDERLINE' => 'makeRadio','FAILING' => 'makeRadio','INCOMPLETE' => 'makeRadio');
 $columns = array('PASSING' => _('Passing'),'BORDERLINE' => _('Borderline'),'FAILING' => _('Failing'),'INCOMPLETE' => _('Incomplete'));
