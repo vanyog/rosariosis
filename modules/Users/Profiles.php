@@ -97,7 +97,7 @@ if ( $_REQUEST['modfunc'] === 'delete'
 }
 
 if ( $_REQUEST['modfunc'] === 'update'
-	&& ! $_REQUEST['new_profile_title']
+        && empty($_REQUEST['new_profile_title'])
 	&& AllowEdit() )
 {
 	$tmp_menu = $menu;
@@ -148,16 +148,21 @@ if ( $_REQUEST['modfunc'] === 'update'
 				&& $modname !== 'default'
 				&& $modname !== 'title' )
 			{
-				if ( !count($exceptions_RET[ $modname ]) && ($_REQUEST['can_edit'][str_replace('.','_',$modname)] || $_REQUEST['can_use'][str_replace('.','_',$modname)]))
+			        if ( ( empty($exceptions_RET[ $modname ]) || !count($exceptions_RET[ $modname ]) )
+				     && (! empty($_REQUEST['can_edit'][str_replace('.','_',$modname)])
+				         || ! empty($_REQUEST['can_use'][str_replace('.','_',$modname)]) ) )
 					DBQuery("INSERT INTO PROFILE_EXCEPTIONS (PROFILE_ID,MODNAME) values('".$_REQUEST['profile_id']."','".$modname."')");
-				elseif (count($exceptions_RET[ $modname ]) && ! $_REQUEST['can_edit'][str_replace('.','_',$modname)] && ! $_REQUEST['can_use'][str_replace('.','_',$modname)])
+				elseif ( isset($exceptions_RET[ $modname ]) && count($exceptions_RET[ $modname ])
+				         && empty($_REQUEST['can_edit'][str_replace('.','_',$modname)])
+					 && ! $_REQUEST['can_use'][str_replace('.','_',$modname)])
 					DBQuery("DELETE FROM PROFILE_EXCEPTIONS WHERE PROFILE_ID='".$_REQUEST['profile_id']."' AND MODNAME='".$modname."'");
 
-				if ( $_REQUEST['can_edit'][str_replace('.','_',$modname)] || $_REQUEST['can_use'][str_replace('.','_',$modname)])
+                                if ( ! empty($_REQUEST['can_edit'][str_replace('.','_',$modname)])
+                                     || ! empty($_REQUEST['can_use'][str_replace('.','_',$modname)]) )
 				{
 					$update = "UPDATE PROFILE_EXCEPTIONS SET ";
 
-					if ( $_REQUEST['can_edit'][str_replace('.','_',$modname)])
+                                        if ( ! empty($_REQUEST['can_edit'][str_replace('.','_',$modname)]) )
 						$update .= "CAN_EDIT='Y',";
 					else
 						$update .= "CAN_EDIT=NULL,";
