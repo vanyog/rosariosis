@@ -89,7 +89,7 @@ function GetStuList( &$extra = array() )
 	if ( isset( $_REQUEST['expanded_view'] )
 		&& $_REQUEST['expanded_view'] == 'true' )
 	{
-		if ( ! $extra['columns_after'] )
+	        if ( empty($extra['columns_after']) )
 		{
 			$extra['columns_after'] = array();
 		}
@@ -101,7 +101,7 @@ function GetStuList( &$extra = array() )
 				WHERE TITLE=cast(cf.ID AS TEXT)
 				AND PROGRAM='StudentFieldsView'
 				AND USER_ID='" . User( 'STAFF_ID' ) . "')='Y'" .
-				( $extra['student_fields']['view'] ?
+				( isset($extra['student_fields']['view']) && $extra['student_fields']['view'] ?
 					" OR cf.ID IN (" . $extra['student_fields']['view'] . ")" :
 					'' ) . ")
 			ORDER BY cf.SORT_ORDER,cf.TITLE" ) );
@@ -112,13 +112,17 @@ function GetStuList( &$extra = array() )
 			AND TITLE='ADDRESS'
 			AND USER_ID='" . User( 'STAFF_ID' ) . "'" ) );
 
-		$view_address_RET = $view_address_RET[1]['VALUE'];
+                $view_address_RET = isset($view_address_RET[1]['VALUE']) ? $view_address_RET[1]['VALUE'] : '';
 
 		$view_other_RET = DBGet( DBQuery( "SELECT TITLE,VALUE
 			FROM PROGRAM_USER_CONFIG
 			WHERE PROGRAM='StudentFieldsView'
 			AND TITLE IN ('USERNAME','CONTACT_INFO','HOME_PHONE','GUARDIANS','ALL_CONTACTS')
 			AND USER_ID='" . User( 'STAFF_ID' ) . "'"), array(), array( 'TITLE' ) );
+
+                if( ! isset($extra2['ORDER_BY']) ) $extra2['ORDER_BY'] = '';
+                if( ! isset($extra2['FROM']) )     $extra2['FROM'] = '';
+                if( ! isset($extra2['WHERE']) )    $extra2['WHERE'] = '';
 
 		if ( ! $view_fields_RET
 			&& ! $view_address_RET
@@ -195,7 +199,7 @@ function GetStuList( &$extra = array() )
 
 				$_REQUEST['expanded_view'] = false;
 
-				$addr = $_REQUEST['addr'];
+                                $addr = isset($_REQUEST['addr']) ? $_REQUEST['addr'] : '';
 
 				unset( $_REQUEST['addr'] );
 
@@ -611,7 +615,7 @@ function GetStuList( &$extra = array() )
 				AND ssm.SCHOOL_ID='".UserSchool()."'
 				AND ('" . $extra['DATE'] . "'>=ssm.START_DATE
 					AND (ssm.END_DATE IS NULL OR '" . $extra['DATE'] . "'<=ssm.END_DATE))
-				AND s.STUDENT_ID" . ( $extra['ASSOCIATED'] ?
+				AND s.STUDENT_ID" . ( ! empty($extra['ASSOCIATED']) ?
 					" IN (SELECT STUDENT_ID FROM STUDENTS_JOIN_USERS WHERE STAFF_ID='" . $extra['ASSOCIATED'] . "')" :
 					"='" . UserStudentID() . "'" );
 
@@ -668,7 +672,7 @@ function GetStuList( &$extra = array() )
 
         // Execute Query & return.
         if( !isset($extra['group']) ) $extra['group'] = array();
-	return DBGet( DBQuery( $sql ), $functions, $extra['group'] );
+        return DBGet( DBQuery( $sql ), $functions, $extra['group'] );
 }
 
 

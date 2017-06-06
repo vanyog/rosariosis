@@ -161,7 +161,7 @@ else
 
 	$staff_RET = GetStaffList($extra);
 
-	if ( $extra['profile'] )
+        if ( ! empty($extra['profile']) )
 	{
 		// DO NOT translate those strings since they will be passed to ListOutput ultimately.
 		$options = array(

@@ -172,6 +172,7 @@ else
 
         if ( empty($extra['NoSearchTerms']) )
 	{
+	        if( ! isset($_ROSARIO['SearchTerms']) ) $_ROSARIO['SearchTerms'] = '';
 	        if ( isset($_REQUEST['_search_all_schools']) && ($_REQUEST['_search_all_schools']=='Y') )
 			$_ROSARIO['SearchTerms'] .= '<b>'._('Search All Schools').'</b><br />';
 
@@ -181,11 +182,12 @@ else
 
         if ( !empty($_REQUEST['address_group']) )
 	{
+	        if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 		$extra['SELECT'] .= ",coalesce((SELECT ADDRESS_ID FROM STUDENTS_JOIN_ADDRESS WHERE STUDENT_ID=ssm.STUDENT_ID AND RESIDENCE='Y' LIMIT 1),-ssm.STUDENT_ID) AS FAMILY_ID";
 		$extra['group'] = $extra['LO_group'] = array('FAMILY_ID');
 	}
 
-        $students_RET = GetStuList($extra);
+        $students_RET = GetStuList($extra);//die(print_r($extra,true));
 
         if ( ! empty($extra['array_function']) && function_exists($extra['array_function']))
 		if ( $_REQUEST['address_group'])
@@ -270,14 +272,16 @@ else
 
                 if ( ! empty($_REQUEST['address_group']) )
 		{
-			ListOutput($students_RET,$columns,'Family','Families',$link,$extra['LO_group'],$extra['options']);
+		        ListOutput($students_RET,$columns,'Family','Families',$link,$extra['LO_group'],
+			           isset($extra['options'])  ? $extra['options']  : '');
 		}
 		else
 		{
 			//FJ override "Student" if extra singular/plural set
 			if ( !empty($extra['singular']) && !empty($extra['plural']))
 			        ListOutput($students_RET, $columns, $extra['singular'], $extra['plural'], $link,
-				           isset($extra['LO_group']) ? $extra['LO_group'] : '', $extra['options']);
+				           isset($extra['LO_group']) ? $extra['LO_group'] : '',
+					   isset($extra['options'])  ? $extra['options']  : '');
 			else
 			        ListOutput($students_RET, $columns, 'Student', 'Students', $link,
 				           isset($extra['LO_group']) ? $extra['LO_group'] : '',

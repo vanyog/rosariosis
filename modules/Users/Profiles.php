@@ -201,7 +201,7 @@ if ( $_REQUEST['modfunc'] === 'update'
 }
 
 if ( $_REQUEST['modfunc']
-	&& $_REQUEST['new_profile_title']
+        && ! empty($_REQUEST['new_profile_title'])
 	&& AllowEdit() )
 {
 	$id = DBGet(DBQuery("SELECT ".db_seq_nextval('USER_PROFILES_SEQ')." AS ID"));
@@ -425,8 +425,10 @@ if ( $_REQUEST['modfunc']!='delete')
 								// Admin User Profile restriction.
 								$file = 'Users/User.php&category_id=1&user_profile';
 								$title = ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo; ' . _( 'User Profile' );
-								$can_use = $exceptions_RET[ $file ][1]['CAN_USE'];
-								$can_edit = $exceptions_RET[ $file ][1]['CAN_EDIT'];
+								$can_use = isset($exceptions_RET[ $file ][1]['CAN_USE']) ?
+								           $exceptions_RET[ $file ][1]['CAN_USE'] : '';
+								$can_edit = isset($exceptions_RET[ $file ][1]['CAN_EDIT']) ?
+								            $exceptions_RET[ $file ][1]['CAN_EDIT'] : '';
 
 								echo '<tr><td class="align-right"><input type="checkbox" name="can_use['.str_replace('.','_',$file).']" value="true"'.($can_use=='Y'?' checked':'').(AllowEdit()?'':' DISABLED').'></td>';
 
@@ -437,8 +439,10 @@ if ( $_REQUEST['modfunc']!='delete')
 								// Admin Schools restriction.
 								$file = 'Users/User.php&category_id=1&schools';
 								$title = ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo; ' . _( 'Schools' );
-								$can_use = $exceptions_RET[ $file ][1]['CAN_USE'];
-								$can_edit = $exceptions_RET[ $file ][1]['CAN_EDIT'];
+								$can_use = isset($exceptions_RET[ $file ][1]['CAN_USE']) ?
+								           $exceptions_RET[ $file ][1]['CAN_USE'] : '';
+								$can_edit = isset($exceptions_RET[ $file ][1]['CAN_EDIT']) ?
+								            $exceptions_RET[ $file ][1]['CAN_EDIT'] : '';
 
 								echo '<tr><td class="align-right"><input type="checkbox" name="can_use['.str_replace('.','_',$file).']" value="true"'.($can_use=='Y'?' checked':'').(AllowEdit()?'':' DISABLED').'></td>';
 

@@ -382,7 +382,7 @@ $addJavascripts .= 'var menuStudentID = "' . UserStudentID() . '",
 			if ( ! UserStudentID() )
 			{
 				// Note: do not use SetUserStudentID() here as this is safe.
-				$_SESSION['student_id'] = $students_RET[1]['STUDENT_ID'];
+				$_SESSION['student_id'] = isset($students_RET[1]['STUDENT_ID']) ? $students_RET[1]['STUDENT_ID'] : '';
 			}
 			?>
 

@@ -334,11 +334,7 @@ if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'update')
 						$fields .= DBEscapeIdentifier( $column ) . ',';
 
 						//FJ add password encryption
-						if( $column=='SCHOOLS'){
-						        $value = str_replace(",,","",$value);
-							$values .= "'" . $value . "',";
-						}
-						elseif( $column!=='PASSWORD')
+						if( $column!=='PASSWORD')
 							$values .= "'" . $value . "',";
 						else
 						{
@@ -432,7 +428,7 @@ if (basename($_SERVER['PHP_SELF'])!='index.php')
 		DrawHeader(_('Add a User'));
 	}
 	else
-		DrawHeader(ProgramTitle());
+	        DrawHeader(ProgramTitle());
 		if(!isset($extra)) $extra = null;
 		Search('staff_id',$extra);
 }
@@ -488,7 +484,7 @@ if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'delete')
 if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='new'))) && (empty($_REQUEST['modfunc']) || $_REQUEST['modfunc']!='delete') )
 {
         if ( !isset($_REQUEST['staff_id']) || ($_REQUEST['staff_id']!='new') )
-	{
+        {
 		$sql = "SELECT s.STAFF_ID,s.TITLE,s.FIRST_NAME,s.LAST_NAME,s.MIDDLE_NAME,s.NAME_SUFFIX,
 						s.USERNAME,s.PASSWORD,s.SCHOOLS,s.PROFILE,s.PROFILE_ID,s.PHONE,s.EMAIL,s.LAST_LOGIN,s.SYEAR,s.ROLLOVER_ID
 				FROM STAFF s WHERE s.STAFF_ID='".UserStaffID()."'";
@@ -551,7 +547,7 @@ if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='
 
 	foreach ( (array) $categories_RET as $category)
 	{
-		if ( $can_use_RET['Users/User.php&category_id='.$category['ID']])
+	        if ( ! empty($can_use_RET['Users/User.php&category_id='.$category['ID']]) )
 		{
 			//FJ Remove $_REQUEST['include']
 			/*if ( $category['ID']=='1')
@@ -583,7 +579,7 @@ if ((UserStaffID() || (isset($_REQUEST['staff_id']) && ($_REQUEST['staff_id']=='
 	{
 		if ( !mb_strpos( $include, '/' ) )
 		{
-			require 'modules/Users/includes/' . $include . '.inc.php';
+		        require 'modules/Users/includes/' . $include . '.inc.php';
 		}
 		else
 		{

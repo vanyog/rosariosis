@@ -113,7 +113,7 @@ if ( ! isset( $_REQUEST['staff_id'] )
 
 	echo NoInput( $staff['ROLLOVER_ID'], sprintf( _( 'Last Year %s ID' ), Config( 'NAME' ) ) );
 
-	echo '</td></tr>';
+        echo '</td></tr>';
 }
 
 echo '<tr class="st"><td>';
@@ -162,12 +162,18 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 {
 	echo '<tr class="st"><td>';
 
-	$profile_options = array(
+/*	$profile_options = array(
 		'admin' => _( 'Administrator' ),
 		'teacher' => _( 'Teacher' ),
 		'parent' => _( 'Parent' ),
 		'none' => _( 'No Access' )
-	);
+	);*/
+
+        // To be possible to choose created by admin profiles
+        $all_profiles = DBGet( DBQuery( "SELECT PROFILE,TITLE FROM USER_PROFILES WHERE TRUE ORDER BY ID" ) );
+        $profile_options = array();
+        foreach($all_profiles as $rec)
+                $profile_options[$rec['PROFILE']] = $rec['TITLE'];
 
 	$admin_user_profile_restriction = false;
 
@@ -194,7 +200,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 		$admin_user_profile_restriction = true;
 	}
 	elseif ( User( 'PROFILE' ) !== 'admin'
-		&& $_ROSARIO['allow_edit'] )
+	        && ! empty($_ROSARIO['allow_edit']) )
 	{
 		// Temporarily deactivate AllowEdit for Parents & Teachers.
 		$_ROSARIO['allow_edit'] = false;

@@ -135,7 +135,7 @@ if ( ! $staff_RET[1]['PROFILE_ID'])
 	echo '<table class="widefat">';
 	foreach ( (array) $menu as $modcat => $profiles)
 	{
-		$values = $profiles[$staff_RET[1]['PROFILE']];
+	        $values = isset($profiles[$staff_RET[1]['PROFILE']]) ? $profiles[$staff_RET[1]['PROFILE']] : '';
 
 		if ( empty( $values ) )
 		{

@@ -122,7 +122,11 @@ if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'update')
 			$error[] = _('Please fill in the required fields');
 
 		//check username unicity
-		$existing_username = DBGet(DBQuery("SELECT 'exists' FROM STAFF WHERE USERNAME='".$_REQUEST['students']['USERNAME']."' AND SYEAR='".UserSyear()."' UNION SELECT 'exists' FROM STUDENTS WHERE USERNAME='".$_REQUEST['students']['USERNAME']."' AND STUDENT_ID!='".UserStudentID()."'"));
+		$existing_username = DBGet(DBQuery("SELECT 'exists' FROM STAFF WHERE USERNAME='".
+		                     ( isset($_REQUEST['students']['USERNAME']) ? $_REQUEST['students']['USERNAME'] : '' ).
+				     "' AND SYEAR='".UserSyear()."' UNION SELECT 'exists' FROM STUDENTS WHERE USERNAME='".
+				     ( isset($_REQUEST['students']['USERNAME']) ? $_REQUEST['students']['USERNAME'] : '' ).
+				     "' AND STUDENT_ID!='".UserStudentID()."'"));
 		if (count($existing_username))
 		{
 			$error[] = _('A user with that username already exists. Choose a different username and try again.');

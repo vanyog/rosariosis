@@ -43,7 +43,7 @@ if ( ! empty($_REQUEST['search_modfunc']) || ! empty($_REQUEST['student_id']) ||
 {
 	$period_select = '';
 
-	if ( !UserStudentID() && ! $_REQUEST['student_id'])
+        if ( !UserStudentID() && empty($_REQUEST['student_id']))
 	{
 		//FJ multiple school periods for a course period
 		//$periods_RET = DBGet(DBQuery("SELECT sp.PERIOD_ID,sp.TITLE FROM SCHOOL_PERIODS sp WHERE sp.SYEAR='".UserSyear()."' AND sp.SCHOOL_ID='".UserSchool()."' AND EXISTS(SELECT '' FROM COURSE_PERIODS cp WHERE cp.PERIOD_ID=sp.PERIOD_ID AND position(',0,' IN cp.DOES_ATTENDANCE)>0".(User('PROFILE')=='teacher'?" AND cp.PERIOD_ID='".UserPeriod()."'":'').") ORDER BY sp.SORT_ORDER"));

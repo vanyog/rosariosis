@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-02 21:44+0300\n"
+"PO-Revision-Date: 2017-06-05 10:01+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -1289,7 +1289,7 @@ msgstr ""
 #: modules/misc/Export.php:439
 #, php-format
 msgid "%s ID"
-msgstr "%s Ид. номера"
+msgstr "%s Ид.номер"
 
 #: functions/GetStuList.fnc.php:1186 functions/Search.fnc.php:187
 #: modules/Attendance/Percent.php:108 modules/Attendance/Percent.php:141
