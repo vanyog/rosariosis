@@ -714,7 +714,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 							echo '"); return false;\'';
 
-							if ( $link[ $key ]['extra'])
+                                                        if ( ! empty($link[ $key ]['extra']) )
 								echo ' '.$link[ $key ]['extra'];
 							echo '>';
 						}
@@ -802,7 +802,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 			&& ! isset( $_REQUEST['_ROSARIO_PDF'] ) )
 		{
 			// WIDTH=100%
-			if ( $link['add']['html'])
+			if ( ! empty($link['add']['html']) )
 			{
 				echo '<div style="overflow-x:auto;"><table class="list widefat';
 				if ( $options['responsive'] )

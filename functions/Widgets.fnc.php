@@ -227,6 +227,10 @@ function Widgets( $item, &$myextra = null )
 				break;
 			}
 
+                        if( ! isset($extra['FROM']) )           $extra['FROM']           = '';
+                        if( ! isset($extra['WHERE']))           $extra['WHERE']          = '';
+                        if( ! isset($_ROSARIO['SearchTerms']) ) $_ROSARIO['SearchTerms'] = '';
+
                         if ( ! empty($_REQUEST['w_course_period_id']) )
 			{
 				// Course.
@@ -239,7 +243,7 @@ function Widgets( $item, &$myextra = null )
 
 					$extra['FROM'] .= ",SCHEDULE w_ss";
 
-					$extra['WHERE'] .= " AND w_ss.STUDENT_ID=s.STUDENT_ID
+                                        $extra['WHERE'] .= " AND w_ss.STUDENT_ID=s.STUDENT_ID
 						AND w_ss.SYEAR=ssm.SYEAR
 						AND w_ss.SCHOOL_ID=ssm.SCHOOL_ID
 						AND w_ss.COURSE_ID='" . $course[1]['COURSE_ID'] . "'
@@ -273,7 +277,7 @@ function Widgets( $item, &$myextra = null )
 						WHERE c.COURSE_ID=cp.COURSE_ID
 						AND cp.COURSE_PERIOD_ID='" . $_REQUEST['w_course_period_id'] . "'" ) );
 
-					if ( ! $extra['NoSearchTerms'] )
+                                        if ( empty($extra['NoSearchTerms']) )
 					{
 						$_ROSARIO['SearchTerms'] .= '<b>' . _( 'Course Period' ) . ': </b>' .
 							$course[1]['COURSE_TITLE'] . ': ' . $course[1]['TITLE'] . '<br />';

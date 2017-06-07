@@ -162,18 +162,18 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 {
 	echo '<tr class="st"><td>';
 
-/*	$profile_options = array(
+        $profile_options = array(
 		'admin' => _( 'Administrator' ),
 		'teacher' => _( 'Teacher' ),
 		'parent' => _( 'Parent' ),
 		'none' => _( 'No Access' )
-	);*/
+	);
 
-        // To be possible to choose created by admin profiles
+        /*/ To be possible to choose created by admin profiles
         $all_profiles = DBGet( DBQuery( "SELECT PROFILE,TITLE FROM USER_PROFILES WHERE TRUE ORDER BY ID" ) );
         $profile_options = array();
         foreach($all_profiles as $rec)
-                $profile_options[$rec['PROFILE']] = $rec['TITLE'];
+                $profile_options[$rec['PROFILE']] = $rec['TITLE'];*/
 
 	$admin_user_profile_restriction = false;
 
@@ -331,7 +331,7 @@ if ( basename( $_SERVER['PHP_SELF'] ) != 'index.php' )
 
 			$title = FormatInputTitle( _( 'Schools' ), $id );
 
-			if ( $_REQUEST['staff_id'] !== 'new'
+                        if ( ( empty($_REQUEST['staff_id']) || ($_REQUEST['staff_id'] !== 'new') )
 				&& AllowEdit() )
 			{
 				echo InputDivOnclick(

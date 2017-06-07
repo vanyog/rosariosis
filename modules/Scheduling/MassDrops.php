@@ -115,7 +115,7 @@ if ( $_REQUEST['modfunc']!='choose_course')
 
 		echo '<table><tr><td colspan="2"><div id=course_div>';
 
-		if ( $_SESSION['MassDrops.php'])
+                if ( ! empty($_SESSION['MassDrops.php']) )
 		{
 			$course_title = DBGet(DBQuery("SELECT TITLE FROM COURSES WHERE COURSE_ID='".$_SESSION['MassDrops.php']['course_id']."'"));
 			$course_title = $course_title[1]['TITLE'];
@@ -172,7 +172,7 @@ if ( ! $_REQUEST['modfunc'] )
 if ( $_REQUEST['modfunc']=='choose_course')
 {
 
-	if ( ! $_REQUEST['course_period_id'])
+        if ( empty($_REQUEST['course_period_id']) )
 		include 'modules/Scheduling/Courses.php';
 	else
 	{

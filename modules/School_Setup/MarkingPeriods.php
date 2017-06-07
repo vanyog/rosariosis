@@ -49,9 +49,9 @@ if ( isset( $_POST['day_tables'], $_POST['month_tables'], $_POST['year_tables'] 
 		$_REQUEST['day_tables']
 	);
 
-	$_POST['tables'] = array_replace_recursive( (array) $_POST['tables'], $requested_dates );
+        $_POST['tables'] = array_replace_recursive( isset($_POST['tables']) ? (array) $_POST['tables'] : array(), $requested_dates );
 
-	$_REQUEST['tables'] = array_replace_recursive( (array) $_REQUEST['tables'], $requested_dates );
+        $_REQUEST['tables'] = array_replace_recursive( isset($_REQUEST['tables']) ? (array) $_REQUEST['tables'] : array(), $requested_dates );
 }
 
 if ( isset( $_POST['tables'] )
@@ -222,11 +222,11 @@ if ( isset( $_POST['tables'] )
 			FROM SCHOOL_MARKING_PERIODS
 			WHERE MP='" . $_REQUEST['mp_term'] . "'
 			AND ( true=false" .
-			( $columns['START_DATE'] ? " OR '" . $columns['START_DATE'] .
+			( ! empty($columns['START_DATE']) ? " OR '" . $columns['START_DATE'] .
 				"' BETWEEN START_DATE AND END_DATE" : '' ) .
-			( $columns['END_DATE'] ? " OR '" . $columns['END_DATE'] .
+			( ! empty($columns['END_DATE']) ? " OR '" . $columns['END_DATE'] .
 				"' BETWEEN START_DATE AND END_DATE" : '' ) .
-			( $columns['START_DATE'] && $columns['END_DATE'] ?
+			( ! empty($columns['START_DATE']) && ! empty($columns['END_DATE']) ?
 				" OR START_DATE BETWEEN '" . $columns['START_DATE'] . "' AND '" . $columns['END_DATE'] . "'" .
 				" OR END_DATE BETWEEN '" . $columns['START_DATE'] . "' AND '" . $columns['END_DATE'] . "'" : '') . ")
 			AND SCHOOL_ID='" . UserSchool() . "'
@@ -239,11 +239,11 @@ if ( isset( $_POST['tables'] )
 			FROM SCHOOL_MARKING_PERIODS
 			WHERE MP='" . $_REQUEST['mp_term'] . "'
 			AND ( true=false" .
-			( $columns['POST_START_DATE'] ? " OR '" . $columns['POST_START_DATE'] .
+			( ! empty($columns['POST_START_DATE']) ? " OR '" . $columns['POST_START_DATE'] .
 				"' BETWEEN POST_START_DATE AND POST_END_DATE" : '' ) .
-			( $columns['POST_END_DATE'] ? " OR '" . $columns['POST_END_DATE'] .
+			( ! empty($columns['POST_END_DATE']) ? " OR '" . $columns['POST_END_DATE'] .
 				"' BETWEEN POST_START_DATE AND POST_END_DATE" : '' ) .
-			( $columns['POST_START_DATE'] && $columns['POST_END_DATE'] ?
+			( ! empty($columns['POST_START_DATE']) && ! empty($columns['POST_END_DATE']) ?
 				" OR POST_START_DATE BETWEEN '" . $columns['POST_START_DATE'] . "' AND '" . $columns['POST_END_DATE'] . "'" .
 				" OR POST_END_DATE BETWEEN '" . $columns['POST_START_DATE'] . "' AND '" . $columns['POST_END_DATE'] . "'" : '' ) . ")
 			AND SCHOOL_ID='" . UserSchool() . "'

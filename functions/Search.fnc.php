@@ -499,7 +499,7 @@ function Search( $type, $extra = null )
 				}
 
 				// Text.
-				foreach ( (array) $category['text'] as $col )
+				if( isset($category['text']) ) foreach ( (array) $category['text'] as $col )
 				{
 					$name = 'cust[' . $col['COLUMN_NAME'] . ']';
 

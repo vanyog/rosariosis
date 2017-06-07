@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-05 10:01+0300\n"
+"PO-Revision-Date: 2017-06-06 23:07+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -1825,7 +1825,7 @@ msgstr "Избиране"
 #: modules/Scheduling/UnfilledRequests.php:42
 #: modules/Scheduling/new_Requests.php:54 modules/Users/Preferences.php:692
 msgid "Request"
-msgstr ""
+msgstr "Заявка"
 
 #: functions/Widgets.fnc.php:337
 msgid "Missing Request"
@@ -1894,13 +1894,13 @@ msgstr ""
 #: modules/Scheduling/Requests.php:148
 #: modules/Scheduling/includes/unfilledRequests.inc.php:44
 msgid "Without"
-msgstr ""
+msgstr "Без"
 
 #: functions/Widgets.fnc.php:727 modules/Scheduling/MassRequests.php:63
 #: modules/Scheduling/PrintRequests.php:82 modules/Scheduling/Requests.php:148
 #: modules/Scheduling/includes/unfilledRequests.inc.php:44
 msgid "With"
-msgstr ""
+msgstr "Със"
 
 #: functions/Widgets.fnc.php:728 modules/Grades/ReportCardGrades.php:83
 msgid "Report Card Grade"
@@ -2946,7 +2946,7 @@ msgstr ""
 #: modules/Grades/includes/StudentAssignments.fnc.php:521
 #: modules/Scheduling/Requests.php:122
 msgid "Course Title"
-msgstr ""
+msgstr "Название на курса"
 
 #: modules/Attendance/TeacherCompletion.php:111
 msgid "Teacher who takes attendance"
@@ -5560,7 +5560,7 @@ msgstr "Нов курс"
 
 #: modules/Scheduling/Courses.php:1101
 msgid "New Subject"
-msgstr ""
+msgstr "Нов предмет"
 
 #: modules/Scheduling/Courses.php:1139 modules/Scheduling/Courses.php:1149
 msgid "Choose a"
@@ -5569,21 +5569,21 @@ msgstr "Избиране"
 #: modules/Scheduling/Courses.php:1139 modules/Scheduling/Courses.php:1149
 #: modules/Scheduling/functions.inc.php:24
 msgid "Last Year Course Period"
-msgstr ""
+msgstr "Курсов период от миналата година"
 
 #: modules/Scheduling/Courses.php:1139 modules/Scheduling/Courses.php:1149
 #: modules/Scheduling/functions.inc.php:16
 #: modules/Scheduling/functions.inc.php:28
 msgid "Last Year Course"
-msgstr ""
+msgstr "Курс от миналата година"
 
 #: modules/Scheduling/Courses.php:1139 modules/Scheduling/Courses.php:1149
 msgid "Last Year Subject"
-msgstr ""
+msgstr "Предмет от миналата година"
 
 #: modules/Scheduling/Courses.php:1139
 msgid "Enrollment Date"
-msgstr ""
+msgstr "Дата на записване"
 
 #: modules/Scheduling/Courses.php:1143
 msgid "Offer Enrollment in Child Marking Periods"
@@ -5643,11 +5643,11 @@ msgstr ""
 #: modules/Scheduling/MassRequests.php:45
 #: modules/Scheduling/MassRequests.php:120
 msgid "Add Request to Selected Students"
-msgstr ""
+msgstr "Добавяне заявка към избраните студенти"
 
 #: modules/Scheduling/MassRequests.php:49
 msgid "Request to Add"
-msgstr ""
+msgstr "Заявка за добавяне"
 
 #: modules/Scheduling/MassSchedule.php:55
 msgid "The number of selected students exceeds the available seats."
@@ -5680,36 +5680,36 @@ msgstr ""
 #: modules/Scheduling/MassSchedule.php:134
 #: modules/Scheduling/MassSchedule.php:202
 msgid "Add Courses to Selected Students"
-msgstr ""
+msgstr "Добавяне на курсовете към избраните студенти"
 
 #: modules/Scheduling/MassSchedule.php:138
 msgid "Courses to Add"
-msgstr ""
+msgstr "Курсове за добавяне"
 
 #: modules/Scheduling/MassSchedule.php:152
 msgid "Start Date"
-msgstr ""
+msgstr "Дата започване"
 
 #: modules/Scheduling/Menu.php:16 modules/Scheduling/PrintSchedules.php:104
 #: modules/Scheduling/PrintSchedules.php:124
 #: modules/Scheduling/PrintSchedules.php:187
 #: modules/Scheduling/PrintSchedules.php:209
 msgid "Student Schedule"
-msgstr ""
+msgstr "Разписание на студент"
 
 #: modules/Scheduling/Menu.php:17 modules/Scheduling/Menu.php:55
 #: modules/Scheduling/PrintRequests.php:45
 #: modules/Scheduling/PrintRequests.php:60
 msgid "Student Requests"
-msgstr ""
+msgstr "Заявки от студенти"
 
 #: modules/Scheduling/Menu.php:18
 msgid "Group Schedule"
-msgstr ""
+msgstr "Групово разписание"
 
 #: modules/Scheduling/Menu.php:19
 msgid "Group Requests"
-msgstr ""
+msgstr "Групови заявки"
 
 #: modules/Scheduling/Menu.php:20
 msgid "Group Drops"
@@ -5718,19 +5718,19 @@ msgstr "Групово напускане"
 #: modules/Scheduling/Menu.php:22 modules/Scheduling/Menu.php:43
 #: modules/Scheduling/Menu.php:53
 msgid "Print Schedules"
-msgstr "Пачат на графици"
+msgstr "Пачат на разписания"
 
 #: modules/Scheduling/Menu.php:23 modules/Scheduling/Menu.php:44
 msgid "Print Class Lists"
-msgstr ""
+msgstr "Печат списъци класове"
 
 #: modules/Scheduling/Menu.php:24 modules/Scheduling/Menu.php:45
 msgid "Print Class Pictures"
-msgstr ""
+msgstr "Печат снимки на клас"
 
 #: modules/Scheduling/Menu.php:25
 msgid "Print Requests"
-msgstr ""
+msgstr "Печат заявки"
 
 #: modules/Scheduling/Menu.php:27
 msgid "Master Schedule Report"
@@ -5742,15 +5742,15 @@ msgstr ""
 
 #: modules/Scheduling/Menu.php:29
 msgid "Requests Report"
-msgstr ""
+msgstr "Отчет заявки"
 
 #: modules/Scheduling/Menu.php:30 modules/Scheduling/UnfilledRequests.php:49
 msgid "Unfilled Requests"
-msgstr ""
+msgstr "Непопълнени заявки"
 
 #: modules/Scheduling/Menu.php:31
 msgid "Incomplete Schedules"
-msgstr ""
+msgstr "Непълни разписания"
 
 #: modules/Scheduling/Menu.php:32 modules/Students/Menu.php:22
 msgid "Add / Drop Report"
@@ -5766,26 +5766,26 @@ msgstr "Разписание"
 
 #: modules/Scheduling/Menu.php:54
 msgid "Class Pictures"
-msgstr ""
+msgstr "Снимки на клас"
 
 #: modules/Scheduling/PrintClassLists.php:65
 msgid "Class List"
-msgstr ""
+msgstr "Списък на клас"
 
 #: modules/Scheduling/PrintClassLists.php:93
 #: modules/Scheduling/PrintClassPictures.php:153
 msgid "You must choose at least one course period."
-msgstr ""
+msgstr "Трябва да изберете поне един курсов период"
 
 #: modules/Scheduling/PrintClassLists.php:106
 #: modules/Scheduling/PrintClassLists.php:244
 msgid "Create Class Lists for Selected Course Periods"
-msgstr ""
+msgstr "Създаване списъци на класове за израните курсови периоди"
 
 #: modules/Scheduling/PrintClassLists.php:127
 #: modules/Scheduling/PrintClassPictures.php:205
 msgid "Find a Course"
-msgstr ""
+msgstr "Намиране курс"
 
 #: modules/Scheduling/PrintClassLists.php:167
 #: modules/Scheduling/PrintClassPictures.php:247
@@ -5797,19 +5797,19 @@ msgstr "Наново"
 #: modules/Scheduling/PrintClassPictures.php:166
 #: modules/Scheduling/PrintClassPictures.php:183
 msgid "Create Class Pictures for Selected Course Periods"
-msgstr ""
+msgstr "Създаване снимки на клас за избрания курсов период"
 
 #: modules/Scheduling/PrintClassPictures.php:171
 msgid "Include Teacher"
-msgstr ""
+msgstr "Включи преподавателя"
 
 #: modules/Scheduling/PrintClassPictures.php:172
 msgid "Use Last Year's if Missing"
-msgstr ""
+msgstr "Използване от последна година, ако липсва"
 
 #: modules/Scheduling/PrintRequests.php:84
 msgid "Not With"
-msgstr ""
+msgstr "Не със"
 
 #: modules/Scheduling/PrintRequests.php:86 modules/Scheduling/Requests.php:160
 #: modules/Scheduling/includes/unfilledRequests.inc.php:50
@@ -5862,15 +5862,15 @@ msgstr "Таблица"
 
 #: modules/Scheduling/Requests.php:112
 msgid "All Subjects"
-msgstr ""
+msgstr "Всички предмети"
 
 #: modules/Scheduling/Requests.php:120
 msgid "Add a Request"
-msgstr ""
+msgstr "Добавяне заявка"
 
 #: modules/Scheduling/RequestsReport.php:19
 msgid "Number of Requests"
-msgstr ""
+msgstr "Брой заявки"
 
 #: modules/Scheduling/Schedule.php:101
 msgid "Student's Absences and Grades"
@@ -5883,7 +5883,7 @@ msgstr "Включително неактивни курсове"
 #: modules/Scheduling/Schedule.php:139
 #: modules/Scheduling/UnfilledRequests.php:16
 msgid "Show Available Seats"
-msgstr ""
+msgstr "Показване наличните места"
 
 #: modules/Scheduling/Schedule.php:168
 msgid "Print Schedule"
@@ -7344,7 +7344,7 @@ msgstr "Потребителски профили"
 #: modules/Users/Menu.php:22 modules/Users/Profiles.php:65
 #: modules/Users/includes/General_Info.inc.php:248
 msgid "User Permissions"
-msgstr "Позволения на потребителите"
+msgstr "Позволения на потребител"
 
 #: modules/Users/Menu.php:23 modules/Users/Preferences.php:176
 #: modules/Users/Search.inc.php:156

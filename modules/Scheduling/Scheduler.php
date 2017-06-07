@@ -205,7 +205,7 @@ if ( $ok )
 	}
 	echo '<!-- unfilled '.count($unfilled).' -->';
 
-	if ( $_REQUEST['test_mode']!='Y')
+        if ( empty($_REQUEST['test_mode']) || ($_REQUEST['test_mode']!='Y') )
 	{
 		echo '<script>document.getElementById("percentDIV").innerHTML = '.json_encode('<span class="loading"></span> '._('Saving Schedules ...').' ').';</script>';
 		echo str_pad(' ',4096);
@@ -259,7 +259,7 @@ if ( $ok )
 		db_trans_commit($connection);
 	}
 
-        if ( $_REQUEST['test_mode']!='Y' || ( isset($_REQUEST['delete']) && ($_REQUEST['delete']=='Y') ) )
+        if ( empty($_REQUEST['test_mode']) || ($_REQUEST['test_mode']!='Y') || ( isset($_REQUEST['delete']) && ($_REQUEST['delete']=='Y') ) )
 	{
 		echo '<script>document.getElementById("percentDIV").innerHTML = '.json_encode('<span class="loading"></span> '._('Optimizing ...').' ').';</script>';
 		echo str_pad(' ',4096);
@@ -288,7 +288,7 @@ function _scheduleRequest($request,$not_parent_id=false)
 {	global $cp_parent_RET,$cp_course_RET,$schedule,$filled;
 
 	$possible = array();
-	if (count($cp_course_RET[$request['COURSE_ID']]))
+	if ( isset($cp_course_RET[$request['COURSE_ID']]) && count($cp_course_RET[$request['COURSE_ID']]) )
 	{
 		foreach ( (array) $cp_course_RET[$request['COURSE_ID']] as $course_period)
 		{
@@ -358,7 +358,7 @@ function _moveRequest($request,$not_request=false,$not_parent_id=false)
 	if ( ! $not_request || !is_array($not_request))
 		$not_request = array();
 
-	if (count($cp_course_RET[$request['COURSE_ID']]))
+        if ( isset($cp_course_RET[$request['COURSE_ID']]) && count($cp_course_RET[$request['COURSE_ID']]) )
 	{
 		foreach ( (array) $cp_course_RET[$request['COURSE_ID']] as $course_period)
 		{

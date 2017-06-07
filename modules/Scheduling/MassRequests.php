@@ -53,7 +53,7 @@ if ( $_REQUEST['modfunc']!='choose_course')
 
 		echo '<table><tr><td>&nbsp;</td><td><div id="course_div">';
 
-		if ( $_SESSION['MassRequests.php'])
+                if ( ! empty($_SESSION['MassRequests.php']) )
 		{
 			$course_title = DBGet(DBQuery("SELECT TITLE FROM COURSES WHERE COURSE_ID='".$_SESSION['MassRequests.php']['course_id']."'"));
 			$course_title = $course_title[1]['TITLE'];

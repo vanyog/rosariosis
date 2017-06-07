@@ -91,7 +91,7 @@ if ( $_REQUEST['modfunc'] === 'modify'
 		$sql = mb_substr($sql,0,-1) . " WHERE STUDENT_ID='".UserStudentID()."' AND COURSE_PERIOD_ID='".$course_period_id."' AND START_DATE='".$start_date."'";
 		DBQuery($sql);
 
-		if ( $columns['START_DATE'] || $columns['END_DATE'])
+                if ( ! empty($columns['START_DATE']) || $columns['END_DATE'])
 		{
 			$start_end_RET = DBGet(DBQuery("SELECT START_DATE,END_DATE FROM SCHEDULE WHERE STUDENT_ID='".UserStudentID()."' AND COURSE_PERIOD_ID='".$course_period_id."' AND END_DATE<START_DATE"));
 
@@ -130,7 +130,7 @@ if ( $_REQUEST['modfunc'] === 'modify'
 		}
 	}
 
-	if ( ! $schedule_deletion_pending )
+        if ( empty($schedule_deletion_pending) )
 	{
 		// Unset modfunc & schedule & redirect URL.
 		RedirectURL( array( 'modfunc', 'schedule' ) );
@@ -272,11 +272,13 @@ if ( UserStudentID()
 		require_once 'modules/Scheduling/includes/unfilledRequests.inc.php';
 
 		$extra['WHERE'] = " AND s.STUDENT_ID='".UserStudentID()."'";
+		if( ! isset($extra['FROM']) ) $extra['FROM'] = '';
 		$extra['FROM'] .= ',SCHEDULE_REQUESTS sr,COURSES c';
 
 		$custom_fields_RET = DBGet(DBQuery("SELECT ID,TITLE,TYPE FROM CUSTOM_FIELDS WHERE ID=200000000"),array(),array('ID'));
 
-		if ( $custom_fields_RET['200000000'] && $custom_fields_RET['200000000'][1]['TYPE'] == 'select')
+                if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
+                if ( $custom_fields_RET['200000000'] && $custom_fields_RET['200000000'][1]['TYPE'] == 'select')
 			$extra['SELECT'] .= ',s.CUSTOM_200000000,c.TITLE AS COURSE,sr.SUBJECT_ID,sr.COURSE_ID,sr.WITH_TEACHER_ID,sr.NOT_TEACHER_ID,sr.WITH_PERIOD_ID,sr.NOT_PERIOD_ID,\'0\' AS AVAILABLE_SEATS,(SELECT count(*) AS SECTIONS FROM COURSE_PERIODS cp WHERE cp.COURSE_ID=sr.COURSE_ID AND (cp.GENDER_RESTRICTION=\'N\' OR cp.GENDER_RESTRICTION=substring(s.CUSTOM_200000000,1,1)) AND (sr.WITH_TEACHER_ID IS NULL OR sr.WITH_TEACHER_ID=cp.TEACHER_ID) AND (sr.NOT_TEACHER_ID IS NULL OR sr.NOT_TEACHER_ID!=cp.TEACHER_ID)) AS SECTIONS ';
 		else //'None' as GENDER
 			$extra['SELECT'] .= ',\'None\' AS CUSTOM_200000000,c.TITLE AS COURSE,sr.SUBJECT_ID,sr.COURSE_ID,sr.WITH_TEACHER_ID,sr.NOT_TEACHER_ID,sr.WITH_PERIOD_ID,sr.NOT_PERIOD_ID,\'0\' AS AVAILABLE_SEATS,(SELECT count(*) AS SECTIONS FROM COURSE_PERIODS cp WHERE cp.COURSE_ID=sr.COURSE_ID AND (cp.GENDER_RESTRICTION=\'N\' OR cp.GENDER_RESTRICTION=substring(\'None\',1,1)) AND (sr.WITH_TEACHER_ID IS NULL OR sr.WITH_TEACHER_ID=cp.TEACHER_ID) AND (sr.NOT_TEACHER_ID IS NULL OR sr.NOT_TEACHER_ID!=cp.TEACHER_ID)) AS SECTIONS ';
@@ -286,7 +288,7 @@ if ( UserStudentID()
 
 		$columns = array('COURSE' => _('Request'),'SECTIONS' => _('Sections'),'WITH_TEACHER_ID' => _('Teacher'),'WITH_PERIOD_ID' => _('Period'));
 
-		if ( $_REQUEST['include_seats'])
+                if ( ! empty($_REQUEST['include_seats']) )
 		{
 			$columns += array('AVAILABLE_SEATS' => _('Available Seats'));
 			$extra['functions'] += array('AVAILABLE_SEATS' => 'CalcSeats');
@@ -307,7 +309,7 @@ if ( UserStudentID()
 if ( $_REQUEST['modfunc']=='choose_course')
 {
 
-	if ( ! $_REQUEST['course_period_id'] )
+        if ( empty($_REQUEST['course_period_id']) )
 	{
 		require_once 'modules/Scheduling/Courses.php';
 	}
