@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-06 23:07+0300\n"
+"PO-Revision-Date: 2017-06-07 21:25+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -6958,7 +6958,7 @@ msgstr "Групово попълване на информация"
 
 #: modules/Students/Menu.php:19
 msgid "Associate Parents with Students"
-msgstr "Асоцииране родители - студенти"
+msgstr "Посочване родителите на студент"
 
 #: modules/Students/Menu.php:21 modules/Students/Menu.php:42
 msgid "Advanced Report"
@@ -7330,7 +7330,7 @@ msgstr "Добавяне потребител"
 
 #: modules/Users/Menu.php:18
 msgid "Associate Students with Parents"
-msgstr "Посочване родителите на студентите"
+msgstr "Свързване родител студент"
 
 #: modules/Users/Menu.php:19 modules/Users/Menu.php:31
 #: modules/Users/Menu.php:38
