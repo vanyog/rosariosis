@@ -345,6 +345,7 @@ function GetChildrenMP( $mp, $marking_period_id = '0' )
 
 				foreach ( (array) $pro_RET as $qtr => $pros )
 				{
+				        if( ! isset($children_mp[ $mp ][ $qtr ]) ) $children_mp[ $mp ][ $qtr ] = '';
 					foreach ( (array) $pros as $pro )
 					{
 						$children_mp[ $mp ][ $qtr ] .= ",'" . $pro['MARKING_PERIOD_ID'] . "'";

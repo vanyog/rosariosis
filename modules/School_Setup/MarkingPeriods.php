@@ -447,21 +447,21 @@ if ( ! $_REQUEST['modfunc'] )
 	$header .= '<table class="width-100p valign-top fixed-col"><tr class="st">';
 
 	$header .= '<td>' . TextInput(
-		$RET['TITLE'],
+	        @$RET['TITLE'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][TITLE]',
 		_( 'Title' ),
 		'required maxlength="50"'
 	) . '</td>';
 
 	$header .= '<td>' . TextInput(
-		$RET['SHORT_NAME'],
+	        @$RET['SHORT_NAME'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][SHORT_NAME]',
 		_( 'Short Name' ),
 		'required maxlength="10"'
 	) . '</td>';
 
 	$header .= '<td>' . TextInput(
-		$RET['SORT_ORDER'],
+	        @$RET['SORT_ORDER'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][SORT_ORDER]',
 		_( 'Sort Order' ),
 		'size="3" maxlength="4"'
@@ -470,7 +470,7 @@ if ( ! $_REQUEST['modfunc'] )
 	$header .= '<td><table class="width-100p"><tr>';
 
 	$header .= '<td>' . CheckboxInput(
-		$RET['DOES_GRADES'],
+	        @$RET['DOES_GRADES'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][DOES_GRADES]',
 		_( 'Graded' ),
 		'',
@@ -480,7 +480,7 @@ if ( ! $_REQUEST['modfunc'] )
 	) . '</td>';
 
 	$header .= '<td>' . CheckboxInput(
-		$RET['DOES_COMMENTS'],
+	        @$RET['DOES_COMMENTS'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][DOES_COMMENTS]',
 		_( 'Comments' ),
 		'',
@@ -494,7 +494,7 @@ if ( ! $_REQUEST['modfunc'] )
 	$required = $allow_na = $div = true;
 
 	$header .= '<td>' . DateInput(
-		$RET['START_DATE'],
+	        @$RET['START_DATE'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][START_DATE]',
 		_( 'Begins' ),
 		$div,
@@ -503,7 +503,7 @@ if ( ! $_REQUEST['modfunc'] )
 	) . '</td>';
 
 	$header .= '<td>' . DateInput(
-		$RET['END_DATE'],
+	        @$RET['END_DATE'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][END_DATE]',
 		_( 'Ends' ),
 		$div,
@@ -511,12 +511,12 @@ if ( ! $_REQUEST['modfunc'] )
 		$required
 	) . '</td>';
 
-	$required = $RET['DOES_GRADES'];
+        $required = isset($RET['DOES_GRADES']) ? $RET['DOES_GRADES'] : false;
 
-	$red = $RET['DOES_GRADES'] && ! $RET['POST_END_DATE'];
+        $red = ! empty($RET['DOES_GRADES']) && ! $RET['POST_END_DATE'];
 
 	$header .= '<td>' . DateInput(
-		$RET['POST_START_DATE'],
+	        @$RET['POST_START_DATE'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][POST_START_DATE]',
 		( $red ? '<span class="legend-red">' : '' ) . _( 'Grade Posting Begins' ) . ( $red ? '</span>' : '' ),
 		$div,
@@ -525,7 +525,7 @@ if ( ! $_REQUEST['modfunc'] )
 	) . '</td>';
 
 	$header .= '<td>' . DateInput(
-		$RET['POST_END_DATE'],
+	        @$RET['POST_END_DATE'],
 		'tables[' . $_REQUEST['marking_period_id'] . '][POST_END_DATE]',
 		( $red ? '<span class="legend-red">' : '' ) . _( 'Grade Posting Ends' ) . ( $red ? '</span>' : '' ),
 		$div,

@@ -76,7 +76,7 @@ if ( $_REQUEST['modfunc'] === 'save'
 
 							foreach ( (array) $_REQUEST['student'] as $student_id => $yes )
 							{
-								if ( ! $current_RET[ $student_id ] )
+							        if ( empty($current_RET[ $student_id ]) )
 								{
 									DBQuery( "INSERT INTO SCHEDULE
 										(SYEAR,SCHOOL_ID,STUDENT_ID,COURSE_ID,COURSE_PERIOD_ID,MP,

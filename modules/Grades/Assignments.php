@@ -340,7 +340,7 @@ echo ErrorMessage( $error );
 if ( ! $_REQUEST['modfunc'] )
 {
 	// Check assignment type ID is valid for current school & syear!
-	if ( $_REQUEST['assignment_type_id']
+	if ( ! empty($_REQUEST['assignment_type_id'])
 		&& $_REQUEST['assignment_type_id'] !== 'new' )
 	{
 		$assignment_type_RET = DBGet( DBQuery( "SELECT ASSIGNMENT_TYPE_ID
@@ -368,8 +368,8 @@ if ( ! $_REQUEST['modfunc'] )
 
 	$types_RET = DBGet( DBQuery( $assignment_types_sql ) );
 
-	if ( $_REQUEST['assignment_id'] !== 'new'
-		&& $_REQUEST['assignment_type_id'] !== 'new' )
+        if ( ! empty($_REQUEST['assignment_id']) && $_REQUEST['assignment_id'] !== 'new'
+                && $_REQUEST['assignment_type_id'] !== 'new' )
 	{
 		$is_assignment = $_REQUEST['assignment_id'];
 
@@ -390,7 +390,7 @@ if ( ! $_REQUEST['modfunc'] )
 	}
 
 	// ADDING & EDITING FORM.
-	if ( $_REQUEST['assignment_id']
+	if ( ! empty($_REQUEST['assignment_id'])
 		&& $_REQUEST['assignment_id'] !== 'new' )
 	{
 		$sql = "SELECT ASSIGNMENT_TYPE_ID,TITLE,ASSIGNED_DATE,DUE_DATE,POINTS,COURSE_ID,
@@ -411,7 +411,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$title = $RET['TITLE'];
 	}
-	elseif ( $_REQUEST['assignment_type_id']
+	elseif ( ! empty($_REQUEST['assignment_type_id'])
 		&& $_REQUEST['assignment_type_id'] !== 'new'
 		&& $_REQUEST['assignment_id'] !== 'new' )
 	{
@@ -431,7 +431,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 		$title = $RET['TITLE'];
 	}
-	elseif ( $_REQUEST['assignment_id'] === 'new' )
+	elseif ( isset($_REQUEST['assignment_id']) && $_REQUEST['assignment_id'] === 'new' )
 	{
 		// FJ Add Warning if not in current Quarter.
 		if ( GetCurrentMP( 'QTR', DBDate(), false ) !== UserMP() )
@@ -444,7 +444,7 @@ if ( ! $_REQUEST['modfunc'] )
 		$title = _( 'New Assignment' );
 		$new = true;
 	}
-	elseif ( $_REQUEST['assignment_type_id']=='new')
+	elseif ( isset($_REQUEST['assignment_type_id']) && $_REQUEST['assignment_type_id']=='new' )
 	{
 		$sql = "SELECT sum(FINAL_GRADE_PERCENT) AS TOTAL_PERCENT
 			FROM GRADEBOOK_ASSIGNMENT_TYPES
@@ -460,7 +460,7 @@ if ( ! $_REQUEST['modfunc'] )
 		$title = _( 'New Assignment Type' );
 	}
 
-	if ( $_REQUEST['assignment_id'] )
+        if ( ! empty($_REQUEST['assignment_id']) )
 	{
 		echo '<form action="Modules.php?modname=' . $_REQUEST['modname'] . '&assignment_type_id=' . $_REQUEST['assignment_type_id'];
 
@@ -567,19 +567,20 @@ if ( ! $_REQUEST['modfunc'] )
 		$header .= '<tr><td class="valign-top" colspan="2">' . ErrorMessage( $error ) . '</td></tr>';
 		$header .= '</table>';
 	}
-	elseif ( $_REQUEST['assignment_type_id'])
+	elseif ( ! empty($_REQUEST['assignment_type_id']) )
 	{
 		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&table=GRADEBOOK_ASSIGNMENT_TYPES';
 		if ( $_REQUEST['assignment_type_id']!='new')
 			echo '&assignment_type_id='.$_REQUEST['assignment_type_id'];
 		echo '" method="POST">';
-		DrawHeader($title,$delete_button.SubmitButton(_('Save')));
+		DrawHeader($title, (isset($delete_button)?$delete_button:'').SubmitButton(_('Save')));
+		if( ! isset($header) ) $header = '';
 		$header .= '<table class="width-100p valign-top fixed-col">';
 		$header .= '<tr class="st">';
 
 		//FJ title is required
 		$header .= '<td>' . TextInput(
-			$RET['TITLE'],
+		        @$RET['TITLE'],
 			'tables[' . $_REQUEST['assignment_type_id'] . '][TITLE]',
 			_( 'Title' ),
 			'required'
@@ -600,7 +601,7 @@ if ( ! $_REQUEST['modfunc'] )
 		}
 
 		$header .= '<td>' . TextInput(
-			$RET['SORT_ORDER'],
+		        @$RET['SORT_ORDER'],
 			'tables[' . $_REQUEST['assignment_type_id'] . '][SORT_ORDER]',
 			_( 'Sort Order' ),
 			'size="3" maxlength="4"' ) . '</td>';
@@ -614,7 +615,7 @@ if ( ! $_REQUEST['modfunc'] )
 		$header .= '<td>' .  RadioInput($RET['COLOR'],'tables['.$_REQUEST['assignment_type_id'].'][COLOR]',_('Color'),$color_select) . '</td>';*/
 
 		$header .= '<td>' . ColorInput(
-			$RET['COLOR'],
+		        @$RET['COLOR'],
 			'tables[' . $_REQUEST['assignment_type_id'] . '][COLOR]',
 			_( 'Color' ),
 			'hidden'
@@ -680,7 +681,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 
 	// ASSIGNMENTS
-	if ( $_REQUEST['assignment_type_id'] && $_REQUEST['assignment_type_id']!='new' && count($types_RET))
+	if ( ! empty($_REQUEST['assignment_type_id']) && $_REQUEST['assignment_type_id']!='new' && count($types_RET))
 	{
 		$sql = "SELECT ASSIGNMENT_ID,TITLE,POINTS
 		FROM GRADEBOOK_ASSIGNMENTS

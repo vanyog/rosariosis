@@ -219,7 +219,8 @@ else
         if( !isset($extra['extra_header_right']) ) $extra['extra_header_right'] = '';
 
         if (count($staff_RET)>1 || ! empty($link['add']) || ! $link['FULL_NAME'] || ! empty($extra['columns_before']) || $extra['columns_after'] ||
-            ($extra['BackPrompt']==false && count($staff_RET)==0) || ($extra['Redirect']===false && count($staff_RET)==1))
+            (isset($extra['BackPrompt']) && $extra['BackPrompt']==false && count($staff_RET)==0) ||
+            (isset($extra['Redirect'])   && $extra['Redirect'] ===false && count($staff_RET)==1) )
 	{
 	        if ( !isset($_REQUEST['expanded_view']) || ($_REQUEST['expanded_view']!='true') )
 			DrawHeader('<a href="'.PreparePHP_SELF($_REQUEST,array(),array('expanded_view' => 'true')) . '">'._('Expanded View').'</a>',$extra['header_right']);

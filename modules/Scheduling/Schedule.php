@@ -437,10 +437,10 @@ function _makePeriodSelect($course_period_id,$column)
 
 	foreach ( (array) $orders_RET as $value)
 	{
-		if ( $value['TOTAL_SEATS'] && $_REQUEST['include_seats'])
+	        if ( $value['TOTAL_SEATS'] && ! empty($_REQUEST['include_seats']) )
 			$seats = calcSeats0($value);
 
-		$periods[$value['COURSE_PERIOD_ID']] = $value['TITLE'] . (($value['MARKING_PERIOD_ID']!=$fy_id && $value['COURSE_PERIOD_ID']!=$course_period_id)?' ('.GetMP($value['MARKING_PERIOD_ID']).')':'').(($value['TOTAL_SEATS'] && $_REQUEST['include_seats'] && $seats!='')?' '.sprintf(_('(%d seats)'),($value['TOTAL_SEATS']-$seats)):'').(($value['COURSE_PERIOD_ID']!=$course_period_id && $value['COURSE_PERIOD_ID']!=$value['PARENT_ID'] && $value['PARENT'])?' -> '.$value['PARENT']:'');
+                $periods[$value['COURSE_PERIOD_ID']] = $value['TITLE'] . (($value['MARKING_PERIOD_ID']!=$fy_id && $value['COURSE_PERIOD_ID']!=$course_period_id)?' ('.GetMP($value['MARKING_PERIOD_ID']).')':'').(($value['TOTAL_SEATS'] && ! empty($_REQUEST['include_seats']) && $seats!='')?' '.sprintf(_('(%d seats)'),($value['TOTAL_SEATS']-$seats)):'').(($value['COURSE_PERIOD_ID']!=$course_period_id && $value['COURSE_PERIOD_ID']!=$value['PARENT_ID'] && $value['PARENT'])?' -> '.$value['PARENT']:'');
 	}
 
 	return SelectInput(

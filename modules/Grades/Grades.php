@@ -19,7 +19,7 @@ $gradebook_config = ProgramUserConfig( 'Gradebook' );
 //$max_allowed = Preferences('ANOMALOUS_MAX','Gradebook')/100;
 $max_allowed = ( $gradebook_config['ANOMALOUS_MAX'] ? $gradebook_config['ANOMALOUS_MAX'] / 100 : 1 );
 
-if ( $_REQUEST['student_id'])
+if ( ! empty($_REQUEST['student_id']) )
 {
 	if ( $_REQUEST['student_id']!=UserStudentID())
 	{
@@ -28,7 +28,7 @@ if ( $_REQUEST['student_id'])
 		//FJ bugfix SQL bug course period
 		/*if ( $_REQUEST['period'] && $_REQUEST['period']!=UserCoursePeriod())
 			$_SESSION['UserCoursePeriod'] = $_REQUEST['period'];*/
-		if ( $_REQUEST['period'])
+		if ( ! empty($_REQUEST['period']) )
 		{
 			list($CoursePeriod, $CoursePeriodSchoolPeriod) = explode('.', $_REQUEST['period']);
 
@@ -45,7 +45,7 @@ else
 		//FJ bugfix SQL bug course period
 		/*if ( $_REQUEST['period'] && $_REQUEST['period']!=UserCoursePeriod())
 			$_SESSION['UserCoursePeriod'] = $_REQUEST['period'];*/
-		if ( $_REQUEST['period'])
+		if ( ! empty($_REQUEST['period']) )
 		{
 			list($CoursePeriod, $CoursePeriodSchoolPeriod) = explode('.', $_REQUEST['period']);
 
@@ -55,7 +55,7 @@ else
 	}
 }
 
-if ( $_REQUEST['period'])
+if ( ! empty($_REQUEST['period']) )
 {
 	//FJ bugfix SQL bug course period
 	/*if ( $_REQUEST['period']!=UserCoursePeriod())
@@ -88,7 +88,7 @@ AND ASSIGNMENT_TYPE_ID=gt.ASSIGNMENT_TYPE_ID)>0
 ORDER BY SORT_ORDER,TITLE"),array(),array('ASSIGNMENT_TYPE_ID'));
 //echo '<pre>'; var_dump($types_RET); echo '</pre>';
 
-if ( $_REQUEST['type_id']
+if ( ! empty($_REQUEST['type_id'])
 	&& ! $types_RET[ $_REQUEST['type_id'] ] )
 {
 	// Unset type ID & redirect URL.
@@ -101,13 +101,14 @@ CASE WHEN (ASSIGNED_DATE IS NULL OR CURRENT_DATE>=ASSIGNED_DATE) AND (DUE_DATE I
 FROM GRADEBOOK_ASSIGNMENTS
 WHERE STAFF_ID='".User('STAFF_ID')."'
 AND ((COURSE_ID=(SELECT COURSE_ID FROM COURSE_PERIODS WHERE COURSE_PERIOD_ID='".UserCoursePeriod()."') AND STAFF_ID='".User('STAFF_ID')."') OR COURSE_PERIOD_ID='".UserCoursePeriod()."')
-AND MARKING_PERIOD_ID='".UserMP()."'".($_REQUEST['type_id']?"
+AND MARKING_PERIOD_ID='".UserMP()."'".
+(!empty($_REQUEST['type_id'])?"
 AND ASSIGNMENT_TYPE_ID='".$_REQUEST['type_id']."'":'')."
 ORDER BY ".Preferences('ASSIGNMENT_SORTING','Gradebook')." DESC,ASSIGNMENT_ID DESC,TITLE"),array(),array('ASSIGNMENT_ID'));
 //echo '<pre>'; var_dump($assignments_RET); echo '</pre>';
 
 // when changing course periods the assignment_id will be wrong except for '' (totals) and 'all'
-if ( $_REQUEST['assignment_id']
+if ( ! empty($_REQUEST['assignment_id'])
 	&& $_REQUEST['assignment_id'] !== 'all'
 	&& ! $assignments_RET[ $_REQUEST['assignment_id'] ] )
 {
@@ -123,7 +124,7 @@ if ( UserStudentID()
 	$_REQUEST['assignment_id'] = 'all';
 }
 
-if ( $_REQUEST['values']
+if ( ! empty($_REQUEST['values'])
 	&& $_POST['values']
 	&& $_SESSION['type_id'] === $_REQUEST['type_id']
 	&& $_SESSION['assignment_id'] === $_REQUEST['assignment_id'] )
@@ -215,8 +216,8 @@ if ( $_REQUEST['values']
 	unset( $current_RET );
 }
 
-$_SESSION['type_id'] = $_REQUEST['type_id'];
-$_SESSION['assignment_id'] = $_REQUEST['assignment_id'];
+$_SESSION['type_id'] = isset($_REQUEST['type_id']) ? $_REQUEST['type_id'] : '';
+$_SESSION['assignment_id'] = isset($_REQUEST['assignment_id']) ? $_REQUEST['assignment_id'] : '';
 
 $LO_options = array('search'=>false);
 
@@ -303,17 +304,20 @@ else
 		$LO_columns += array( 'STUDENT_ID' => sprintf( _( '%s ID' ), Config( 'NAME' ) ) );
 	}*/
 
-	if ( $_REQUEST['include_inactive'] == 'Y' )
+        if ( isset($_REQUEST['include_inactive']) && ($_REQUEST['include_inactive'] == 'Y') )
 	{
 		$LO_columns += array(
 			'ACTIVE' => _( 'School Status' ),
 			'ACTIVE_SCHEDULE' => _( 'Course Status' ) );
 	}
 
-	$link['FULL_NAME']['link'] = 'Modules.php?modname='.$_REQUEST['modname'].'&include_inactive='.$_REQUEST['include_inactive'].'&include_all='.$_REQUEST['include_all'].'&type_id='.$_REQUEST['type_id'].'&assignment_id=all';
+        $link['FULL_NAME']['link'] = 'Modules.php?modname='.$_REQUEST['modname'].'&include_inactive='.
+                                     (isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '').'&include_all='.
+                                     (isset($_REQUEST['include_all'])      ? $_REQUEST['include_all']      : '').'&type_id='.
+                                     (isset($_REQUEST['type_id'])          ? $_REQUEST['type_id']          : '').'&assignment_id=all';
 	$link['FULL_NAME']['variables'] = array('student_id' => 'STUDENT_ID');
 
-	if ( $_REQUEST['assignment_id']=='all')
+        if ( isset($_REQUEST['assignment_id']) && ($_REQUEST['assignment_id']=='all') )
 	{
 		$current_RET = DBGet(DBQuery("SELECT g.STUDENT_ID,g.ASSIGNMENT_ID,g.POINTS FROM GRADEBOOK_GRADES g,GRADEBOOK_ASSIGNMENTS a WHERE a.ASSIGNMENT_ID=g.ASSIGNMENT_ID AND a.MARKING_PERIOD_ID='".UserMP()."' AND g.COURSE_PERIOD_ID='".UserCoursePeriod()."'".($_REQUEST['type_id']?" AND a.ASSIGNMENT_TYPE_ID='".$_REQUEST['type_id']."'":'')),array(),array('STUDENT_ID','ASSIGNMENT_ID'));
 		$count_extra = array('SELECT_ONLY' => 'ssm.STUDENT_ID');
@@ -348,7 +352,7 @@ else
 			$LO_columns['G' . $id] = $column_title;
 		}
 	}
-	elseif ( $_REQUEST['assignment_id'] )
+	elseif ( ! empty($_REQUEST['assignment_id']) )
 	{
 		$extra['SELECT'] .= ",'" . $_REQUEST['assignment_id'] . "' AS POINTS,
 			'" . $_REQUEST['assignment_id'] . "' AS PERCENT_GRADE,
@@ -403,7 +407,7 @@ else
 		}
 	}
 
-	if ( $_REQUEST['assignment_id'] != 'all' )
+        if ( empty($_REQUEST['assignment_id']) || ($_REQUEST['assignment_id'] != 'all') )
 	{
 		// modif Francois: display percent grade according to Configuration.
 		if ( ProgramConfig( 'grades', 'GRADES_DOES_LETTER_PERCENT' ) >= 0 )
@@ -426,15 +430,15 @@ $stu_RET = GetStuList($extra);
 
 //FJ add translation
 $type_onchange_URL = "'Modules.php?modname=" . $_REQUEST['modname'] .
-	'&include_inactive=' . $_REQUEST['include_inactive'] .
-	'&include_all=' . $_REQUEST['include_all'] .
-	( $_REQUEST['assignment_id'] === 'all' ? '&assignment_id=all' : '' ) .
+        '&include_inactive=' . (isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '').
+        '&include_all=' . (isset($_REQUEST['include_all']) ? $_REQUEST['include_all'] : '').
+        ( isset($_REQUEST['assignment_id']) && ($_REQUEST['assignment_id'] === 'all') ? '&assignment_id=all' : '' ) .
 	( UserStudentID() ? '&student_id=' . UserStudentID() : '' ) .
 	"&type_id='";
 
 $type_select = '<select name="type_id" onchange="ajaxLink(' . $type_onchange_URL . ' + this.options[selectedIndex].value);">';
 
-$type_select .= '<option value=""' . ( ! $_REQUEST['type_id'] ? ' selected' : '' ) . '>' .
+$type_select .= '<option value=""' . ( empty( $_REQUEST['type_id']) ? ' selected' : '' ) . '>' .
 	_( 'All' ) .
 '</option>';
 
@@ -448,21 +452,22 @@ foreach ( (array) $types_RET as $id => $type )
 $type_select .= '</select>';
 
 $assignment_onchange_URL = "'Modules.php?modname=" . $_REQUEST['modname'] .
-	'&include_inactive=' . $_REQUEST['include_inactive'] .
-	'&include_all=' . $_REQUEST['include_all'] .
-	'&type_id=' . $_REQUEST['type_id'] .
+        '&include_inactive=' . (isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '') .
+        '&include_all=' . (isset($_REQUEST['include_all']) ? $_REQUEST['include_all'] : '').
+        '&type_id=' . (isset($_REQUEST['type_id']) ? $_REQUEST['type_id'] : '').
 	"&assignment_id='";
 
 $assignment_select = '<select name="assignment_id" onchange="ajaxLink(' . $assignment_onchange_URL . ' + this.options[selectedIndex].value);">';
 
 $assignment_select .= '<option value="">' . _( 'Totals' ) . '</option>';
 
-$assignment_select .= '<option value="all"' . ( ( $_REQUEST['assignment_id'] === 'all' && !UserStudentID() ) ? ' selected' : '' ) . '>' .
-	_( 'All' ) .
-'</option>';
+$assignment_select .= '<option value="all"' .
+                      ( ( isset($_REQUEST['assignment_id']) && ($_REQUEST['assignment_id']) === 'all' && !UserStudentID() ) ? ' selected' : '' ) . '>' .
+                      _( 'All' ) .
+                      '</option>';
 
 if (UserStudentID() && $_REQUEST['assignment_id']=='all')
-	$assignment_select .= '<option value="all" selected>'.$stu_RET[1]['FULL_NAME'].'</option>';
+        $assignment_select .= '<option value="all" selected>'.(isset($stu_RET[1]['FULL_NAME'])?$stu_RET[1]['FULL_NAME']:'').'</option>';
 
 foreach ( (array) $assignments_RET as $id => $assignment)
 	$assignment_select .= '<option value="'.$id.'"'.($_REQUEST['assignment_id']==$id?' selected':'').'>'.($_REQUEST['type_id']?'':$types_RET[$assignment[1]['ASSIGNMENT_TYPE_ID']][1]['TITLE'].' - ').$assignment[1]['TITLE'].'</option>';
@@ -472,8 +477,12 @@ echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&student_id='.Us
 
 $tabs = array( array(
 	'title' => _( 'All' ),
-	'link' => 'Modules.php?modname=' . $_REQUEST['modname'] . '&type_id=' . ( $_REQUEST['assignment_id'] == 'all' ? '&assignment_id=all' : '' ) . ( UserStudentID() ? '&student_id=' . UserStudentID() : '' ) . '&include_inactive=' . $_REQUEST['include_inactive'] . '&include_all=' . $_REQUEST['include_all']
-));
+	'link' => 'Modules.php?modname=' . $_REQUEST['modname'] . '&type_id=' .
+	          ( isset($_REQUEST['assignment_id']) && ($_REQUEST['assignment_id'] == 'all') ? '&assignment_id=all' : '' ) .
+		  ( UserStudentID() ? '&student_id=' . UserStudentID() : '' ) . '&include_inactive=' .
+		  ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ) . '&include_all=' .
+		  ( isset($_REQUEST['include_all'])      ? $_REQUEST['include_all']      : '' ) )
+	);
 
 foreach ( (array) $types_RET as $id => $type )
 {
@@ -488,7 +497,7 @@ foreach ( (array) $types_RET as $id => $type )
 	);
 }
 
-DrawHeader($type_select.$assignment_select,$_REQUEST['assignment_id']?SubmitButton(_('Save')):'');
+DrawHeader($type_select.$assignment_select, ! empty($_REQUEST['assignment_id']) ? SubmitButton(_('Save')) : '');
 
 DrawHeader(
 	CheckBoxOnclick(
@@ -501,7 +510,7 @@ DrawHeader(
 	)
 );
 
-if ( $_REQUEST['assignment_id'] && $_REQUEST['assignment_id']!='all')
+if ( ! empty($_REQUEST['assignment_id']) && $_REQUEST['assignment_id']!='all')
 {
 	$assigned_date = $assignments_RET[$_REQUEST['assignment_id']][1]['ASSIGNED_DATE'];
 	$due_date = $assignments_RET[$_REQUEST['assignment_id']][1]['DUE_DATE'];
@@ -510,7 +519,14 @@ if ( $_REQUEST['assignment_id'] && $_REQUEST['assignment_id']!='all')
 	DrawHeader('<b>'._('Assigned Date').':</b> '.($assigned_date ? ProperDate($assigned_date) : _('N/A')).', <b>'._('Due Date').':</b> '.($due_date ? ProperDate($due_date) : _('N/A')).($due ? ' - <b>'._('Assignment is Due').'</b>' : ''));
 }
 
-$LO_options['header'] = WrapTabs($tabs,'Modules.php?modname='.$_REQUEST['modname'].'&type_id='.($_REQUEST['type_id']?$_REQUEST['type_id']:($_REQUEST['assignment_id'] && $_REQUEST['assignment_id']!='all'?$assignments_RET[$_REQUEST['assignment_id']][1]['ASSIGNMENT_TYPE_ID']:'')).($_REQUEST['assignment_id']=='all'?'&assignment_id=all':'').(UserStudentID()?'&student_id='.UserStudentID():'').'&include_inactive='.$_REQUEST['include_inactive'].'&include_all='.$_REQUEST['include_all']);
+$LO_options['header'] = WrapTabs($tabs,'Modules.php?modname='.$_REQUEST['modname'].'&type_id='.
+                        ( ! empty($_REQUEST['type_id']) ? $_REQUEST['type_id'] :
+                          ( ! empty($_REQUEST['assignment_id']) && ($_REQUEST['assignment_id']!='all') ?
+                              $assignments_RET[$_REQUEST['assignment_id']][1]['ASSIGNMENT_TYPE_ID'] : '' ) ).
+                        ( isset($_REQUEST['assignment_id']) && ($_REQUEST['assignment_id']=='all') ?
+                           '&assignment_id=all':'').(UserStudentID()?'&student_id='.UserStudentID() : '').'&include_inactive='.
+                           ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '').'&include_all='.
+                           ( isset($_REQUEST['include_all'])      ? $_REQUEST['include_all']      : '') );
 
 echo '<br />';
 
@@ -519,7 +535,7 @@ if (UserStudentID())
 else
 	ListOutput($stu_RET,$LO_columns,'Student','Students',$link,array(),$LO_options);
 
-echo $_REQUEST['assignment_id']?'<br /><div class="center">' . SubmitButton( _( 'Save' ) ) . '</div>':'';
+echo ! empty($_REQUEST['assignment_id'])?'<br /><div class="center">' . SubmitButton( _( 'Save' ) ) . '</div>':'';
 echo '</form>';
 
 

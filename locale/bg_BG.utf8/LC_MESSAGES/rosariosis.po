@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-07 21:25+0300\n"
+"PO-Revision-Date: 2017-06-10 17:50+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -1682,7 +1682,7 @@ msgstr ""
 #: modules/Food_Service/Users/Accounts.php:161 modules/misc/Export.php:308
 #: modules/misc/Export.php:531
 msgid "Barcode"
-msgstr ""
+msgstr "Баркод"
 
 #: functions/StaffWidgets.fnc.php:331
 msgid "Food Service Account Exists"
@@ -2039,17 +2039,17 @@ msgstr "Номер сметка"
 
 #: index.php:131
 msgid "Confirm Successful Installation"
-msgstr ""
+msgstr "Потвърждаване на успешно инсталиране"
 
 #: index.php:137
 #, php-format
 msgid "You have successfully installed %s."
-msgstr ""
+msgstr "Вие успешно инсталирахте %s."
 
 #: index.php:145
 #, php-format
 msgid "Check the %s page to spot remaining configuration problems."
-msgstr ""
+msgstr "Отворете страница %s за да проверите за налични проблеми."
 
 #: index.php:175
 msgid "Your account has not yet been activated."
@@ -2063,7 +2063,7 @@ msgstr ""
 
 #: index.php:207
 msgid "Incorrect username or password."
-msgstr "Грешно потребителско ими или парола."
+msgstr "Грешно потребителско име или парола."
 
 #: index.php:208
 msgid "Please try logging in again."
@@ -2839,7 +2839,7 @@ msgstr "Кодове за присъствие"
 #: modules/Attendance/Menu.php:29 modules/Grades/Menu.php:36
 #: modules/Users/Menu.php:24 modules/Users/TeacherPrograms.php:6
 msgid "Teacher Programs"
-msgstr ""
+msgstr "Учителски програми"
 
 #: modules/Attendance/Menu.php:30 modules/Attendance/Menu.php:36
 #: modules/Attendance/Menu.php:50
@@ -4589,7 +4589,7 @@ msgstr "Конфигурация"
 #: modules/Grades/Menu.php:70
 #: modules/Grades/includes/StudentAssignments.fnc.php:526
 msgid "Assignments"
-msgstr ""
+msgstr "Задания"
 
 #: modules/Grades/Configuration.php:48
 msgid "Score Rounding"
@@ -4945,7 +4945,7 @@ msgstr "Предмет"
 #: modules/Grades/InputFinalGrades.php:18
 #: modules/Grades/InputFinalGrades.php:27
 msgid "You cannot enter grades for this course period."
-msgstr ""
+msgstr "Не можете да въвеждате оценки за тази част на курс."
 
 #: modules/Grades/InputFinalGrades.php:63
 #: modules/Grades/ReportCardComments.php:186
@@ -5082,7 +5082,7 @@ msgstr ""
 #: modules/Grades/Menu.php:37 modules/Grades/Menu.php:45
 #: modules/Grades/Menu.php:80
 msgid "Input Final Grades"
-msgstr ""
+msgstr "Въвеждане окончателни оценки"
 
 #: modules/Grades/Menu.php:38 modules/Grades/Menu.php:69
 #: modules/Grades/Menu.php:81

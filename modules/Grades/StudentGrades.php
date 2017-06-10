@@ -42,7 +42,10 @@ if ( ! empty($_REQUEST['id'])
 
 if ( empty( $_REQUEST['id'] ) )
 {
-	DrawHeader(_('Totals'),'<a href="Modules.php?modname='.$_REQUEST['modname'].'&id=all'.($do_stats?'&do_stats='.$_REQUEST['do_stats']:'').'">'._('Expand All').'</a>');
+        DrawHeader(_('Totals'),
+                   '<a href="Modules.php?modname='.$_REQUEST['modname'].'&id=all'.
+                   ($do_stats?'&do_stats='.(isset($_REQUEST['do_stats'])?$_REQUEST['do_stats']:''):'').
+                   '">'._('Expand All').'</a>');
 
 	if ( $do_stats )
 	{
@@ -64,7 +67,7 @@ if ( empty( $_REQUEST['id'] ) )
 		$LO_columns['GRADE'] = _( 'Letter' );
 	}
 
-	if ( $do_stats && $_REQUEST['do_stats'])
+        if ( $do_stats && ! empty($_REQUEST['do_stats']) )
 		$LO_columns += array('BAR1' => _('Grade Range'),'BAR2' => _('Class Rank'));
 
 	if (count($courses_RET))

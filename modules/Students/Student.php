@@ -256,7 +256,9 @@ if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'update')
 					if ( !empty($value) || $value=='0')
 					{
 						//FJ check numeric fields
-						if ( $fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric' && $value!=''
+						if ( isset($fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'])
+						         && $fields_RET[str_replace('CUSTOM_','',$column)][1]['TYPE'] == 'numeric'
+							 && $value!=''
 						         && !is_numeric($value))
 						{
 							$error[] = _('Please enter valid Numeric data.');

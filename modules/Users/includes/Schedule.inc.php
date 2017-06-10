@@ -9,21 +9,22 @@ if ( GetTeacher( UserStaffID(), 'PROFILE', false ) === 'teacher' )
 	if ( $PopTable_opened)
 		PopTable('footer');
 
-	$all_schools_onclick_URL = "'" . ( $_REQUEST['all_schools'] == 'Y' ?
+        $all_schools_onclick_URL = "'" . ( isset($_REQUEST['all_schools']) && ($_REQUEST['all_schools'] == 'Y') ?
 		PreparePHP_SELF( $_REQUEST, array(), array( 'all_schools' => '' ) ) :
 		PreparePHP_SELF( $_REQUEST, array(), array( 'all_schools' => 'Y' ) ) ) . "'";
 
-	$input_all_schools = '<input type="checkbox" name="all_schools" value="Y" onclick="ajaxLink(' . $all_schools_onclick_URL . ');"' . ( $_REQUEST['all_schools'] == 'Y' ? 'checked' : '' ) . ' />';
+        $input_all_schools = '<input type="checkbox" name="all_schools" value="Y" onclick="ajaxLink(' . $all_schools_onclick_URL . ');"' .
+                             ( isset($_REQUEST['all_schools']) && ($_REQUEST['all_schools'] == 'Y') ? 'checked' : '' ) . ' />';
 
 	DrawHeader('','','<label>'.$input_all_schools.' '._('List Courses For All Schools').'</label>');
 
 	// preload GetMP cache with all schools
-	if ( $_REQUEST['all_schools']=='Y')
+	if ( isset($_REQUEST['all_schools']) && ($_REQUEST['all_schools']=='Y') )
 		$_ROSARIO['GetMP'] = DBGet(DBQuery("SELECT MARKING_PERIOD_ID,TITLE,POST_START_DATE,POST_END_DATE,MP,SORT_ORDER,SHORT_NAME,START_DATE,END_DATE,DOES_GRADES,DOES_COMMENTS FROM SCHOOL_MARKING_PERIODS WHERE SYEAR='".UserSyear()."'"),array(),array('MARKING_PERIOD_ID'));
 
 	//$columns = array('TITLE' => _('Course'),'PERIOD_ID' => _('Period'),'ROOM' => _('Room'),'MARKING_PERIOD_ID' => _('Marking Period'));
 	$columns = array('TITLE' => _('Course'),'COURSE_PERIOD' => _('Course Period'),'ROOM' => _('Room'),'MARKING_PERIOD_ID' => _('Marking Period'));
-	if ( $_REQUEST['all_schools']=='Y')
+	if ( isset( $_REQUEST['all_schools']) && ($_REQUEST['all_schools']=='Y') )
 	{
 		$columns += array('SCHOOL' => _('School'));
 		$group = array('SCHOOL_ID');
@@ -37,12 +38,12 @@ if ( GetTeacher( UserStaffID(), 'PROFILE', false ) === 'teacher' )
 	WHERE cp.COURSE_ID=c.COURSE_ID
 	AND cp.TEACHER_ID='".UserStaffID()."'
 	AND cp.SYEAR='".UserSyear()."'".
-	($_REQUEST['all_schools']=='Y'?'':" AND cp.SCHOOL_ID='".UserSchool()."'")."
+	(isset($_REQUEST['all_schools']) && ($_REQUEST['all_schools']=='Y') ? '' : " AND cp.SCHOOL_ID='".UserSchool()."'" )."
 	AND s.ID=cp.SCHOOL_ID
 	AND s.SYEAR=cp.SYEAR
 	ORDER BY cp.SHORT_NAME,cp.TITLE"),array('MARKING_PERIOD_ID' => 'GetMP'),$group);
 
-	if ( $_REQUEST['all_schools'] == 'Y' )
+        if ( isset($_REQUEST['all_schools']) && ($_REQUEST['all_schools'] == 'Y') )
 	{
 		ListOutput(
 			$schedule_RET,
@@ -147,7 +148,7 @@ function _schedule_table_RET($schedule_table_RET)
 		{
 			foreach ($course_period['DAYS'] as $course_period_day)
 			{
-				if ( !is_array($schedule_table_body[ $i ][ $course_period_day ]))
+			        if ( !isset($schedule_table_body[ $i ][ $course_period_day ]) || !is_array($schedule_table_body[ $i ][ $course_period_day ]))
 					$schedule_table_body[ $i ][ $course_period_day ] = array();
 				$schedule_table_body[ $i ][ $course_period_day ][] = '<div style="display:table-cell;">'.$course_period['TITLE'].' '.(empty($course_period['SHORT_NAME'])?'':'<span style="font-size:smaller;">('.$course_period['SHORT_NAME']).')'.(empty($course_period['ROOM'])?'':' '._('Room').': '.$course_period['ROOM'].'</span>').'&nbsp;</div>';
 			}

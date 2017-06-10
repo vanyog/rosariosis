@@ -34,7 +34,7 @@ function User( $item )
 
 	// Get User Info or Update it if Syear changed.
 	if ( ! isset( $_ROSARIO['User'] )
-		|| UserSyear() !== $_ROSARIO['User'][1]['SYEAR'] )
+	        || empty($_ROSARIO['User'][1]['SYEAR']) || UserSyear() !== $_ROSARIO['User'][1]['SYEAR'] )
 	{
 		// Get User Info.
 		if ( ! empty( $_SESSION['STAFF_ID'] )
@@ -86,7 +86,9 @@ function User( $item )
 		}
 	}
 
-	return $_ROSARIO['User'][1][ $item ];
+        if( isset($_ROSARIO['User'][1][ $item ]) )
+                return $_ROSARIO['User'][1][ $item ];
+        else return '';
 }
 
 

@@ -8,13 +8,13 @@ if ( UserStudentID() )
 {
 	$student_id = UserStudentID();
 
-	$mp_id = $_REQUEST['mp_id'];
+        $mp_id = isset($_REQUEST['mp_id']) ? $_REQUEST['mp_id'] : '';
 
-	$tab_id = $_REQUEST['tab_id'] ? $_REQUEST['tab_id'] : 'grades';
+        $tab_id = ! empty($_REQUEST['tab_id']) ? $_REQUEST['tab_id'] : 'grades';
 
 	// FJ fix bug no delete MP.
 	if ( $_REQUEST['modfunc'] === 'update'
-		&& $_REQUEST['removemp']
+	        && ! empty($_REQUEST['removemp'])
 		&& $_REQUEST['new_sms']
 		&& DeletePrompt( _( 'Marking Period' ) ) )
 	{
@@ -30,10 +30,10 @@ if ( UserStudentID() )
 	}
 
 	if ( $_REQUEST['modfunc'] === 'update'
-		&& ! $_REQUEST['removemp'] )
+	        && empty($_REQUEST['removemp']) )
 	{
 
-		if ( $_REQUEST['new_sms'] )
+                if ( ! empty($_REQUEST['new_sms']) )
 		{
 			//FJ fix SQL bug when marking period already exist
 			$smsRET = DBGet(DBQuery("SELECT * FROM STUDENT_MP_STATS WHERE student_id='".$student_id."' and marking_period_id='".$_REQUEST['new_sms']."'"));
@@ -181,13 +181,14 @@ if ( UserStudentID() )
 								'unweighted_gpa' => $rec['UNWEIGHTED_GPA'],
 								'cr_weighted' => $rec['CR_WEIGHTED'],
 								'cr_unweighted' => $rec['CR_UNWEIGHTED'],
-								'gpa' => $rec['GPA']);
+								'gpa' => isset($rec['GPA']) ? $rec['GPA'] : '');
 			}
 		}
 		else
 			$mp_id = "0";
 
-		$mpselect = '<form action="Modules.php?modname='.$_REQUEST['modname'].'&tab_id='.$_REQUEST['tab_id'].'" method="POST">';
+                $mpselect = '<form action="Modules.php?modname='.$_REQUEST['modname'].'&tab_id='.
+                            ( isset($_REQUEST['tab_id']) ? $_REQUEST['tab_id'] : '').'" method="POST">';
 		$mpselect .= '<select name="mp_id" onchange="ajaxPostForm(this.form,true);">';
 
 		foreach ($gmp as $id => $mparray)
@@ -201,19 +202,27 @@ if ( UserStudentID() )
 		DrawHeader($mpselect);
 
 		//FORM for updates/new records
-		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=update&tab_id='.$_REQUEST['tab_id'].'&mp_id='.$mp_id.'" method="POST">';
+		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=update&tab_id='.
+		     ( isset($_REQUEST['tab_id']) ? $_REQUEST['tab_id'] : '' ).'&mp_id='.$mp_id.'" method="POST">';
 
 		DrawHeader('',SubmitButton(_('Save')));
 		echo '<br />';
 
 		echo PopTable( 'header', $displayname );
 
-		echo '<table style="border-collapse:separate; border-spacing:6px;"><tr><td colspan="3" class="center">'._('Marking Period Statistics').'</td></tr><tr><td>'._('GPA').'</td><td>'._('Weighted').': '.sprintf('%0.3f',$gmp[ $mp_id ]['weighted_gpa']).'</td><td>'._('Unweighted').": ".sprintf('%0.3f',$gmp[ $mp_id ]['unweighted_gpa']).'</td></tr>';
-		echo '<tr><td>'._('Class Rank GPA').'</td><td>'._('Weighted').': '.sprintf('%0.3f',$gmp[ $mp_id ]['cr_weighted']).'</td><td>'._('Unweighted').': '.sprintf('%0.3f',$gmp[ $mp_id ]['cr_unweighted']).'</td></tr></table>';
+                echo '<table style="border-collapse:separate; border-spacing:6px;"><tr><td colspan="3" class="center">'
+                      ._('Marking Period Statistics').'</td></tr><tr><td>'._('GPA').'</td><td>'._('Weighted').': '.
+                      sprintf('%0.3f', isset($gmp[ $mp_id ]['weighted_gpa']) ? $gmp[ $mp_id ]['weighted_gpa'] : '').
+                      '</td><td>'._('Unweighted').": ".
+                      sprintf('%0.3f', isset($gmp[ $mp_id ]['unweighted_gpa']) ? $gmp[ $mp_id ]['unweighted_gpa'] : '').'</td></tr>';
+                echo '<tr><td>'._('Class Rank GPA').'</td><td>'._('Weighted').': '.
+                      sprintf('%0.3f', isset($gmp[ $mp_id ]['cr_weighted'])   ? $gmp[ $mp_id ]['cr_weighted']  : '').'</td><td>'._('Unweighted').': '.
+                      sprintf('%0.3f', isset($gmp[ $mp_id ]['cr_unweighted']) ? $gmp[ $mp_id ]['cr_unweighted']: '').'</td></tr></table>';
 
 		echo PopTable( 'footer' ) . '<br />';
 
-		$sms_grade_level = TextInput($gmp[ $mp_id ]['grade_level'],"SMS_GRADE_LEVEL",_('Grade Level'),'size=3 maxlength=3');
+                $sms_grade_level = TextInput( isset($gmp[ $mp_id ]['grade_level']) ? $gmp[ $mp_id ]['grade_level'] : '',
+                                              "SMS_GRADE_LEVEL", _('Grade Level'), 'size=3 maxlength=3');
 
 		if ( $mp_id=="0")
 		{
@@ -252,7 +261,7 @@ if ( UserStudentID() )
 			$sql = "SELECT * FROM student_report_card_grades WHERE STUDENT_ID='".$student_id."' AND cast(MARKING_PERIOD_ID as integer)='".$mp_id."' ORDER BY ID";
 
 			//build forms based on tab selected
-			if ( $_REQUEST['tab_id']=='grades' || $_REQUEST['tab_id'] == '')
+			if ( isset($_REQUEST['tab_id']) && ($_REQUEST['tab_id']=='grades' || $_REQUEST['tab_id'] == '') )
 			{
 				$functions = array(
 					'COURSE_TITLE' => '_makeTextInput',

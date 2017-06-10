@@ -178,7 +178,8 @@ function mySearch($extra)
 	echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&search_modfunc=list&_ROSARIO_PDF=true'.$extra['action'].'" method="POST" name="search">';
 
 	DrawHeader('',$extra['header_right']);
-	DrawHeader($extra['extra_header_left'],$extra['extra_header_right']);
+	DrawHeader(isset($extra['extra_header_left']) ? $extra['extra_header_left'] : '',
+	           isset($extra['extra_header_right'])? $extra['extra_header_right']: '' );
 	echo '<table>'.$extra['extra_search'].'</table>';
 
 	$sql = 'SELECT \'<input type="checkbox" name="cp_arr[]" value="\'||cp.COURSE_PERIOD_ID||\'">\' AS CHECKBOX,cp.TITLE FROM COURSE_PERIODS cp';
@@ -227,7 +228,7 @@ function mySearch($extra)
 	$course_periods_RET = DBGet(DBQuery($sql));
 	$LO_columns = array('CHECKBOX' => '</a><input type="checkbox" value="Y" name="controller" onclick="checkAll(this.form,this.checked,\'cp_arr\');"><A>','TITLE' => _('Course Period'));
 
-	if ( ! $_REQUEST['LO_save'] && ! $extra['suppress_save'])
+        if ( empty($_REQUEST['LO_save']) && empty($extra['suppress_save']) )
 	{
 		$_SESSION['List_PHP_SELF'] = PreparePHP_SELF($_SESSION['_REQUEST_vars'],array('bottom_back'));
 
