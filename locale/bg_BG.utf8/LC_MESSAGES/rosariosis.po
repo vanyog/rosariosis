@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-10 17:50+0300\n"
+"PO-Revision-Date: 2017-06-10 20:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -6994,7 +6994,7 @@ msgstr "Кодове на записване"
 
 #: modules/Students/Menu.php:40
 msgid "Associated Parents"
-msgstr ""
+msgstr "Асоциирани Родители"
 
 #: modules/Students/PeopleFields.php:127
 msgid "Contact Field"
