@@ -35,6 +35,7 @@ if ( ! empty($_REQUEST['subject_id']) )
 		WHERE SUBJECT_ID='" . $_REQUEST['subject_id'] . "'" ) );
 
 	//FJ add translation
+	if( ! isset($header) ) $header = '';
 	$header .= '<a href="Modules.php?modname=' . $_REQUEST['modname'] .
 		'&include_child_mps=' . $_REQUEST['include_child_mps'] . '">' . _( 'Top' ) . '</a>
 		&rsaquo; <a href="Modules.php?modname=' . $_REQUEST['modname'] .
@@ -42,7 +43,7 @@ if ( ! empty($_REQUEST['subject_id']) )
 		'&include_child_mps=' . $_REQUEST['include_child_mps'] . '">' .
 		$subject_RET[1]['TITLE'] . '</a>';
 
-	if ( $_REQUEST['course_id'] )
+        if ( ! empty($_REQUEST['course_id']) )
 	{
 		$header2 = '<a href="Modules.php?modname=' . $_REQUEST['modname'] .
 			'&subject_id=' . $_REQUEST['subject_id'] . '&course_id=' . $_REQUEST['course_id'];
@@ -144,7 +145,7 @@ if ( $_REQUEST['modfunc'] === 'courses'
 
 	$RET = calcSeats($_RET,array('COURSE_ID','TITLE','COUNT_REQUESTS'));
 
-	if (count($RET) && $_REQUEST['course_id'])
+        if ( count($RET) && ! empty($_REQUEST['course_id']) )
 	{
 		foreach ( (array) $RET as $key => $value)
 		{
@@ -226,7 +227,7 @@ if ( $_REQUEST['modfunc'] === 'course_periods'
 		$RET[ $key ] += $value;
 	}
 
-	if (count($RET) && $_REQUEST['course_period_id'])
+        if (count($RET) && ! empty($_REQUEST['course_period_id']) )
 	{
 		foreach ( (array) $RET as $key => $value)
 		{
@@ -286,7 +287,7 @@ if ( $_REQUEST['modfunc']=='students')
 		$column_birthdate = array('CUSTOM_200000004'=>ParseMLField($custom_fields_RET['200000004'][1]['TITLE']));
 	}
 
-	if ( $_REQUEST['unscheduled']=='true')
+        if ( isset($_REQUEST['unscheduled']) && ($_REQUEST['unscheduled']=='true') )
 	{
 		$sql = "SELECT s.LAST_NAME||', '||s.FIRST_NAME AS FULL_NAME,s.STUDENT_ID".$sql_birthdate.",ssm.GRADE_ID
 				FROM SCHEDULE_REQUESTS sr,STUDENTS s,STUDENT_ENROLLMENT ssm
@@ -319,7 +320,7 @@ if ( $_REQUEST['modfunc']=='students')
 				AND ssm.SYEAR='".UserSyear()."'
 				AND ssm.SCHOOL_ID='".UserSchool()."' ";
 
-		if ( $_REQUEST['course_period_id'])
+                if ( ! empty($_REQUEST['course_period_id']) )
 		{
 			$sql .= "AND ss.COURSE_PERIOD_ID='".$_REQUEST['course_period_id']."'";
 		}
@@ -343,7 +344,7 @@ if ( $_REQUEST['modfunc']=='students')
 
 	echo '<div style="clear: both;">';
 
-	if ( $_REQUEST['unscheduled']=='true')
+        if ( isset($_REQUEST['unscheduled']) && ($_REQUEST['unscheduled']=='true') )
 	{
 		ListOutput(
 			$RET,

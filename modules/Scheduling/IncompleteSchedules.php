@@ -40,6 +40,7 @@ $extra['new'] = true;
 Widgets('course');
 Widgets('request');
 
+if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 foreach ( (array) $periods_RET as $period)
 {
 	$extra['SELECT'] .= ',NULL AS PERIOD_'.$period['PERIOD_ID'];
@@ -75,7 +76,7 @@ function _preparePeriods($value,$name)
 {	global $THIS_RET,$schedule_RET;
 
 	$period_id = mb_substr($name,7);
-	if ( ! $schedule_RET[$THIS_RET['STUDENT_ID']][ $period_id ])
+	if ( empty($schedule_RET[$THIS_RET['STUDENT_ID']][ $period_id ]) )
 	{
 		if (isset($_REQUEST['LO_save']))
 			$return = _('No');

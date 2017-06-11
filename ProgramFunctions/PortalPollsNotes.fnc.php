@@ -217,8 +217,8 @@ function PortalPollForm($poll_id, $profile_id, $user_id, $poll_questions_RET)
 function PortalPollsVotesDisplay( $poll_id, $display_votes, $poll_questions_RET, $votes_number, $js_included_is_voting = false )
 {
 
-	if ( ! $display_votes )
-	{
+        if (  ! $display_votes )
+        {
 		$poll_completed_str = isset( $_POST['poll_completed_string'] ) ?
 			$_POST['poll_completed_string'] :
 			_( 'Poll completed' );
@@ -307,7 +307,7 @@ if (isset($_POST['votes']) && is_array($_POST['votes']))
 	{
 		if ( !empty($votes_array))
 		{
-			echo PortalPollsVote($poll_id, $votes_array);
+		        echo PortalPollsVote($poll_id, $votes_array);
 			break;
 		}
 	}

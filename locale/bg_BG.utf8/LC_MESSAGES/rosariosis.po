@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-10 20:45+0300\n"
+"PO-Revision-Date: 2017-06-11 08:22+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -1555,7 +1555,7 @@ msgstr ""
 #: modules/Grades/Grades.php:418 modules/Grades/Grades.php:431
 #: modules/Grades/TeacherCompletion.php:18
 msgid "All"
-msgstr ""
+msgstr "Всички"
 
 #: functions/StaffWidgets.fnc.php:77 modules/Food_Service/Accounts.php:17
 #: modules/Food_Service/ActivityReport.php:40
@@ -2908,7 +2908,7 @@ msgstr[1] "Учебни дни"
 
 #: modules/Attendance/StudentSummary.php:68
 msgid "All Periods"
-msgstr ""
+msgstr "Всички периоди"
 
 #: modules/Attendance/StudentSummary.php:109
 msgid "State Abs"
@@ -4301,7 +4301,7 @@ msgstr ""
 
 #: modules/Grades/AnomalousGrades.php:12
 msgid "Include All Courses"
-msgstr ""
+msgstr "Включване всички курсове"
 
 #: modules/Grades/AnomalousGrades.php:17 modules/Grades/Grades.php:453
 #: modules/Grades/InputFinalGrades.php:957
@@ -4313,11 +4313,11 @@ msgstr "Включително неактивни студенти"
 
 #: modules/Grades/AnomalousGrades.php:23
 msgid "Include"
-msgstr ""
+msgstr "Вкючване"
 
 #: modules/Grades/AnomalousGrades.php:23
 msgid "Missing Grades"
-msgstr ""
+msgstr "Липсващи оценки"
 
 #: modules/Grades/AnomalousGrades.php:23
 msgid "Excused and Negative Grades"
@@ -4516,12 +4516,12 @@ msgstr ""
 
 #: modules/Grades/Assignments.php:529
 msgid "Apply to all Periods for this Course"
-msgstr ""
+msgstr "Прилагане към всички периоди на този курс"
 
 #: modules/Grades/Assignments.php:534
 #: modules/Grades/MassCreateAssignments.php:330
 msgid "Enable Assignment Submission"
-msgstr ""
+msgstr "Позволяване изпращане на изпълнение"
 
 #: modules/Grades/Assignments.php:589 modules/Grades/Assignments.php:590
 #: modules/Grades/MassCreateAssignments.php:381
@@ -4848,11 +4848,11 @@ msgstr ""
 
 #: modules/Grades/Grades.php:457
 msgid "Include Inactive Assignments"
-msgstr ""
+msgstr "Включително неактивни задания"
 
 #: modules/Grades/Grades.php:467
 msgid "Assignment is Due"
-msgstr ""
+msgstr "Заданието е изтекло"
 
 # E/C = Extra Credit
 # Context: assignments
@@ -4951,7 +4951,7 @@ msgstr "Не можете да въвеждате оценки за тази ч�
 #: modules/Grades/ReportCardComments.php:186
 #: modules/Grades/StudentGrades.php:212
 msgid "All Courses"
-msgstr ""
+msgstr "Всички курсове"
 
 #: modules/Grades/InputFinalGrades.php:70
 #: modules/Grades/ReportCardComments.php:188
@@ -5000,27 +5000,27 @@ msgstr ""
 
 #: modules/Grades/InputFinalGrades.php:986
 msgid "Clear All"
-msgstr ""
+msgstr "Изтриване всички"
 
 #: modules/Grades/InputFinalGrades.php:1019
 #, php-format
 msgid "Comment %d"
-msgstr ""
+msgstr "Коментар %d"
 
 #: modules/Grades/InputFinalGrades.php:1022
 msgid "Add Comment"
-msgstr ""
+msgstr "Всички коментари"
 
 #: modules/Grades/MassCreateAssignments.php:75
 #: modules/Grades/MassCreateAssignments.php:101
 #: modules/Scheduling/MassDrops.php:85 modules/Scheduling/MassRequests.php:25
 #: modules/Scheduling/MassSchedule.php:116
 msgid "You must choose a course."
-msgstr ""
+msgstr "Трябва да изберете курс."
 
 #: modules/Grades/MassCreateAssignments.php:221
 msgid "The Assignments were successfully created."
-msgstr ""
+msgstr "Заданието беше създадено успешно."
 
 #: modules/Grades/MassCreateAssignments.php:225
 msgid "The Assignment Types were successfully created."
@@ -5215,15 +5215,15 @@ msgstr ""
 
 #: modules/Grades/StudentGrades.php:38
 msgid "Expand All"
-msgstr ""
+msgstr "Разгъване всички"
 
 #: modules/Grades/StudentGrades.php:44 modules/Grades/StudentGrades.php:236
 msgid "Include Anonymous Statistics"
-msgstr ""
+msgstr "Включване анонимна статистика"
 
 #: modules/Grades/StudentGrades.php:48
 msgid "Ungraded"
-msgstr ""
+msgstr "Неоценена"
 
 #: modules/Grades/StudentGrades.php:61 modules/Grades/StudentGrades.php:302
 msgid "Grade Range"
@@ -6260,7 +6260,7 @@ msgstr ""
 
 #: modules/School_Setup/Configuration.php:405
 msgid "Food Service Balance minimum amount for warning"
-msgstr "Минимален баланс за храна за напомняне"
+msgstr "Баланс за храна за напомняне"
 
 #: modules/School_Setup/Configuration.php:412
 msgid "Food Service Balance minimum amount"
@@ -6782,22 +6782,22 @@ msgstr ""
 #: modules/Students/AddressFields.php:140 modules/Students/PeopleFields.php:140
 #: modules/Students/StudentFields.php:170 modules/Users/UserFields.php:170
 msgid "and all fields in the category"
-msgstr ""
+msgstr "и всички полета от категорията"
 
 #: modules/Students/AddressFields.php:185
 msgid "New Address Field"
-msgstr ""
+msgstr "Ново адресно поле"
 
 #: modules/Students/AddressFields.php:193
 msgid "New Address Field Category"
-msgstr ""
+msgstr "Нова категория адресни полета"
 
 #: modules/Students/AddressFields.php:206
 #: modules/Students/MailingLabels.php:159
 #: modules/Students/includes/Address.inc.php:784
 #: modules/Users/Preferences.php:624 modules/misc/Export.php:590
 msgid "Residence"
-msgstr ""
+msgstr "Местоживеене"
 
 #: modules/Students/AddressFields.php:215
 #: modules/Students/MailingLabels.php:158 modules/Users/Preferences.php:634
@@ -6847,7 +6847,7 @@ msgstr ""
 
 #: modules/Students/AssignOtherInfo.php:165
 msgid "All Categories"
-msgstr ""
+msgstr "Всички категории"
 
 #: modules/Students/AssignOtherInfo.php:321
 #: modules/Students/includes/Enrollment.inc.php:139 modules/misc/Export.php:139
@@ -6883,11 +6883,11 @@ msgstr "Отписан"
 
 #: modules/Students/Letters.php:104 modules/Students/Letters.php:160
 msgid "Print Letters for Selected Students"
-msgstr ""
+msgstr "Печатане на писма до избраните студенти"
 
 #: modules/Students/Letters.php:119
 msgid "Letter Text"
-msgstr ""
+msgstr "Текст на писмо"
 
 #: modules/Students/Letters.php:137 modules/Students/StudentLabels.php:176
 msgid "Attendance Teacher"
@@ -7040,7 +7040,7 @@ msgstr "Намиране на студент"
 #: modules/Students/Search.inc.php:66 modules/Students/Search.inc.php:170
 #: modules/Users/Search.inc.php:101 modules/Users/Search.inc.php:196
 msgid "Search All Schools"
-msgstr ""
+msgstr "Търсене всички училища"
 
 #: modules/Students/Search.inc.php:99 modules/Users/Preferences.php:168
 #: modules/Users/Search.inc.php:138
@@ -7409,7 +7409,7 @@ msgstr "Групиране по семейства по подразбиране
 
 #: modules/Users/Preferences.php:324
 msgid "Search all schools by default"
-msgstr ""
+msgstr "Търсене всички училища по подразбиране"
 
 #: modules/Users/Preferences.php:367
 msgid "Theme"
@@ -7453,7 +7453,7 @@ msgstr "Номер на домашен телефон"
 
 #: modules/Users/Preferences.php:610
 msgid "All Contacts"
-msgstr ""
+msgstr "Всички контакти"
 
 #: modules/Users/Preferences.php:615 modules/Users/Preferences.php:622
 #: modules/Users/Preferences.php:632 modules/Users/Preferences.php:640
@@ -7463,7 +7463,7 @@ msgstr "Адреси"
 
 #: modules/Users/Preferences.php:689
 msgid "Next School Year"
-msgstr ""
+msgstr "Следваща учебна година"
 
 #: modules/Users/Preferences.php:724 modules/Users/Preferences.php:849
 msgid "Widget"
@@ -7562,11 +7562,11 @@ msgstr ""
 #: modules/Users/includes/General_Info.inc.php:331
 #: modules/Users/includes/General_Info.inc.php:348
 msgid "All Schools"
-msgstr ""
+msgstr "Всички училища"
 
 #: modules/Users/includes/Schedule.inc.php:18
 msgid "List Courses For All Schools"
-msgstr ""
+msgstr "Показване курсовете от всички училища"
 
 #: modules/misc/ChooseRequest.php:14
 msgid "Not Requested"

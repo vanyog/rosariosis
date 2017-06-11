@@ -107,7 +107,7 @@ if ( $_REQUEST['modfunc'] === 'update'
 					}
 				}
 
-				$columns['PUBLISHED_PROFILES'] = $_REQUEST['values']['new']['PUBLISHED_PROFILES'] ?
+                                $columns['PUBLISHED_PROFILES'] = ! empty($_REQUEST['values']['new']['PUBLISHED_PROFILES']) ?
 					',' . $_REQUEST['values']['new']['PUBLISHED_PROFILES'] :
 					'';
 
@@ -200,10 +200,10 @@ if ( $_REQUEST['modfunc'] === 'update'
 					'.gz',
 				);
 
-				if ( $columns['FILE_OR_EMBED'] == 'FILE')
+                                if ( isset($columns['FILE_OR_EMBED']) && ($columns['FILE_OR_EMBED'] == 'FILE') )
 					$columns['FILE_ATTACHED'] = FileUpload('FILE_ATTACHED_FILE', $PortalNotesFilesPath, $file_attached_ext_white_list, 0, $error);
 
-				elseif ( $columns['FILE_OR_EMBED'] == 'EMBED')
+                                elseif ( isset($columns['FILE_OR_EMBED']) && ($columns['FILE_OR_EMBED'] == 'EMBED') )
 					if (filter_var($columns['FILE_ATTACHED_EMBED'], FILTER_VALIDATE_URL) !== false)
 						$columns['FILE_ATTACHED'] = $columns['FILE_ATTACHED_EMBED'];
 

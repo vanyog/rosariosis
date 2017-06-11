@@ -51,7 +51,7 @@ if (count($categories_RET)==0)
 	ErrorMessage(array(_('You cannot take attendance for this course period.')),'fatal');
 }
 
-if ($_REQUEST['table']=='')
+if ( empty($_REQUEST['table']) )
 	$_REQUEST['table'] = $categories_RET[1]['ID'];
 
 if ($_REQUEST['table']=='0')

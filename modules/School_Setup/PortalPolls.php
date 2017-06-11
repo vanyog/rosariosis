@@ -97,6 +97,7 @@ if ( $_REQUEST['modfunc'] === 'update'
 			// New: check for Title.
 			elseif ( $columns['TITLE'] )
 			{
+			        if( ! isset($_REQUEST['values']['new']['PUBLISHED_PROFILES']) ) $_REQUEST['values']['new']['PUBLISHED_PROFILES'] = '';
 				foreach ( array('admin','teacher','parent') as $profile_id )
 				{
 					if ( isset( $_REQUEST['profiles']['new'][ $profile_id ] )
