@@ -185,7 +185,7 @@ if ( ! $_REQUEST['modfunc'] )
 		for ( $i=1;$i<=$last;$i++)
 		{
 			$this_date = $_REQUEST['year'].'-'.$_REQUEST['month'].'-'.($i<10?'0'.$i:$i);
-			if ( ! $calendar_RET[ $this_date ])
+			if ( empty($calendar_RET[ $this_date ]) )
 				$disabled = ' DISABLED';
 			elseif (date('Y-m-d')==$this_date)
 				$disabled = ' checked';

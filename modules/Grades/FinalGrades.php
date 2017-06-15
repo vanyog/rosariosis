@@ -28,8 +28,8 @@ if ( $_REQUEST['modfunc'] === 'delete'
 
 if ( $_REQUEST['modfunc'] === 'save' )
 {
-	if ( count( $_REQUEST['mp_arr'] )
-		&& count( $_REQUEST['st_arr'] ) )
+        if ( isset($_REQUEST['mp_arr']) && count( $_REQUEST['mp_arr'] )
+                && isset($_REQUEST['st_arr']) && count( $_REQUEST['st_arr'] ) )
 	{
 
 		$mp_list = "'" . implode( "','", $_REQUEST['mp_arr'] ) . "'";

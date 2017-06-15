@@ -109,7 +109,7 @@ if (SchoolInfo('NUMBER_DAYS_ROTATION') !== null)
 // TODO: can be optimized? Remove PERIOD_ID index.
 $current_RET = DBGet(DBQuery($current_Q),array(),array('STUDENT_ID','PERIOD_ID'));
 
-if ( $_REQUEST['attendance']
+if ( ! empty($_REQUEST['attendance'])
 	&& $_POST['attendance']
 	&& AllowEdit() )
 {
@@ -180,7 +180,7 @@ if ( $_REQUEST['attendance']
 	RedirectURL( array( 'attendance', 'attendance_day' ) );
 }
 
-if (count($_REQUEST['attendance_day']))
+if (isset($_REQUEST['attendance_day']) && count($_REQUEST['attendance_day']))
 {
 	foreach ( (array) $_REQUEST['attendance_day'] as $student_id => $comment)
 		UpdateAttendanceDaily($student_id,$date,$comment['COMMENT']);
@@ -200,6 +200,7 @@ ORDER BY SORT_ORDER"));
 
 $categories_RET = DBGet(DBQuery("SELECT ID,TITLE FROM ATTENDANCE_CODE_CATEGORIES WHERE SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."'"));
 
+if( ! isset($headerl) ) $headerl = '';
 if (count($categories_RET))
 {
 	$tmp_PHP_SELF = PreparePHP_SELF( $_REQUEST, array( 'table', 'codes' ) );
@@ -279,12 +280,12 @@ if (isset($_REQUEST['student_id']) && $_REQUEST['student_id']!='new')
 }
 else
 {
-	if ( $_REQUEST['expanded_view']!='true')
+        if ( empty($_REQUEST['expanded_view']) || ($_REQUEST['expanded_view']!='true') )
 		$extra['WHERE'] = $extra2['WHERE'] = " AND EXISTS (SELECT '' FROM $table ap,ATTENDANCE_CODES ac WHERE ap.SCHOOL_DATE='".$date."' AND ap.STUDENT_ID=ssm.STUDENT_ID AND ap.ATTENDANCE_CODE=ac.ID AND ac.SCHOOL_ID=ssm.SCHOOL_ID AND ac.SYEAR=ssm.SYEAR ".str_replace('TABLE_NAME','ac.TABLE_NAME',$extra_sql);
 	else
 		$extra['WHERE'] = " AND EXISTS (SELECT '' FROM $table ap,ATTENDANCE_CODES ac WHERE ap.SCHOOL_DATE='".$date."' AND ap.STUDENT_ID=ssm.STUDENT_ID AND ap.ATTENDANCE_CODE=ac.ID AND ac.SCHOOL_ID=ssm.SCHOOL_ID AND ac.SYEAR=ssm.SYEAR ".str_replace('TABLE_NAME','ac.TABLE_NAME',$extra_sql);
 
-	if (count($_REQUEST['codes']))
+        if ( isset($_REQUEST['codes']) && count($_REQUEST['codes']) )
 	{
 		$REQ_codes = $_REQUEST['codes'];
 		foreach ( (array) $REQ_codes as $key => $value)
@@ -297,7 +298,7 @@ else
 	}
 	else
 		$abs = ($_REQUEST['table']=='0'); //true;
-	if (count($REQ_codes) && ! $abs)
+	if (isset($REQ_codes) && count($REQ_codes) && ! $abs)
 	{
 		$extra['WHERE'] .= "AND ac.ID IN (";
 		foreach ( (array) $REQ_codes as $code)
@@ -316,7 +317,7 @@ else
 			foreach ( (array) $RET as $code)
 				$extra['WHERE'] .= "'".$code['ID']."',";
 
-			if ( $_REQUEST['expanded_view']!='true')
+                        if ( empty($_REQUEST['expanded_view']) || ($_REQUEST['expanded_view']!='true') )
 				$extra2['WHERE'] = $extra['WHERE'] = mb_substr($extra['WHERE'],0,-1) . ')';
 			else
 				$extra['WHERE'] = mb_substr($extra['WHERE'],0,-1) . ')';
@@ -325,12 +326,15 @@ else
 	$extra['WHERE'] .= ')';
 
 	// EXPANDED VIEW BREAKS THIS QUERY.  PLUS, PHONE IS ALREADY AN OPTION IN EXPANDED VIEW
-	if ( $_REQUEST['expanded_view']!='true' && !isset($_REQUEST['_ROSARIO_PDF']))
+	if ( ( empty($_REQUEST['expanded_view']) || ($_REQUEST['expanded_view']!='true') )
+	     && !isset($_REQUEST['_ROSARIO_PDF'] ) )
 	{
 		$extra2['WHERE'] .= ')';
 		$extra2['SELECT_ONLY'] = 'ssm.STUDENT_ID,p.PERSON_ID,p.FIRST_NAME,p.LAST_NAME,sjp.STUDENT_RELATION,pjc.TITLE,pjc.VALUE,a.PHONE,sjp.ADDRESS_ID ';
+		if( ! isset($extra2['FROM']) ) $extra2['FROM'] = '';
 		$extra2['FROM'] .= ',ADDRESS a,STUDENTS_JOIN_ADDRESS sja LEFT OUTER JOIN STUDENTS_JOIN_PEOPLE sjp ON (sja.STUDENT_ID=sjp.STUDENT_ID AND sja.ADDRESS_ID=sjp.ADDRESS_ID AND (sjp.CUSTODY=\'Y\' OR sjp.EMERGENCY=\'Y\')) LEFT OUTER JOIN PEOPLE p ON (p.PERSON_ID=sjp.PERSON_ID) LEFT OUTER JOIN PEOPLE_JOIN_CONTACTS pjc ON (pjc.PERSON_ID=p.PERSON_ID) ';
 		$extra2['WHERE'] .= ' AND a.ADDRESS_ID=sja.ADDRESS_ID AND sja.STUDENT_ID=ssm.STUDENT_ID ';
+		if( ! isset($extra2['ORDER_BY']) ) $extra2['ORDER_BY'] ='';
 		$extra2['ORDER_BY'] .= 'COALESCE(sjp.CUSTODY,\'N\') DESC';
 		$extra2['group'] = array('STUDENT_ID','PERSON_ID');
 
@@ -339,6 +343,7 @@ else
 	}
 
 	$columns = array();
+	if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 	$extra['SELECT'] .= ',s.STUDENT_ID AS PHONE';
 	$extra['functions']['PHONE'] = 'makeContactInfo';
 
@@ -368,7 +373,7 @@ else
 		$extra['columns_after']['PERIOD_'.$period['PERIOD_ID']] = $period['SHORT_NAME'];
 	}
 
-	if ( $REQ_codes)
+        if ( ! empty($REQ_codes) )
 	{
 		foreach ( (array) $REQ_codes as $code)
 			$code_pulldowns .= _makeCodeSearch($code);
@@ -401,7 +406,7 @@ else
 			'"#" onclick=\'javascript:addHTML("' . str_replace( '"', '\"', _makeCodeSearch() ) .
 			'","code_pulldowns"); return false;\''
 		) . '</td><td><div id="code_pulldowns">' . $code_pulldowns . '</div></td>' .
-		'<td class="align-right">' . $current_student_link . '</td></tr></table>';
+		'<td class="align-right">' . ( isset($current_student_link) ? $current_student_link : ''). '</td></tr></table>';
 
 	DrawHeader( $headerl, $headerr );
 

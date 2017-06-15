@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-11 08:22+0300\n"
+"PO-Revision-Date: 2017-06-12 12:42+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -1382,7 +1382,7 @@ msgstr ""
 #: modules/Users/TeacherPrograms.php:99
 #, php-format
 msgid "No %s were found."
-msgstr "Не са намерени %s."
+msgstr "Не е намерен %s."
 
 #: functions/ListOutput.fnc.php:429
 #, php-format
@@ -2311,7 +2311,7 @@ msgstr ""
 #: modules/Student_Billing/StudentPayments.php:143
 #: modules/Students/includes/Comments.inc.php:67
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 #: modules/Accounting/DailyTransactions.php:195
 #: modules/Food_Service/ActivityReport.php:60
@@ -2530,7 +2530,7 @@ msgstr ""
 #: modules/Attendance/Administration_fast.old.php:83
 #: modules/Attendance/Administration_fast.old.php:149
 msgid "Update"
-msgstr ""
+msgstr "Променяне"
 
 #: modules/Attendance/Administration.php:335
 #: modules/Attendance/AttendanceCodes.php:220
@@ -2791,7 +2791,7 @@ msgstr ""
 
 #: modules/Attendance/Menu.php:16
 msgid "Administration"
-msgstr ""
+msgstr "Администриране"
 
 #: modules/Attendance/Menu.php:19 modules/Eligibility/Menu.php:20
 #: modules/Grades/Menu.php:23
@@ -4738,7 +4738,7 @@ msgstr ""
 #: modules/Grades/ReportCardGrades.php:217
 #: modules/Grades/ReportCardGrades.php:262
 msgid "Grade Scale"
-msgstr ""
+msgstr "Скала оценки"
 
 #: modules/Grades/EditReportCardGrades.php:296
 #: modules/Grades/Transcripts.php:325
@@ -5183,11 +5183,11 @@ msgstr ""
 
 #: modules/Grades/ReportCardGrades.php:218
 msgid "Scale Value"
-msgstr ""
+msgstr "Стойност"
 
 #: modules/Grades/ReportCardGrades.php:219
 msgid "Minimum Passing Grade"
-msgstr ""
+msgstr "Мин. за преминаване"
 
 #: modules/Grades/ReportCardGrades.php:221
 msgid "High Honor Roll GPA Min"
@@ -5548,7 +5548,7 @@ msgstr ""
 
 #: modules/Scheduling/Courses.php:985
 msgid "Allow Teacher Grade Scale"
-msgstr ""
+msgstr "Позволяване учителска скала оценки"
 
 #: modules/Scheduling/Courses.php:1013
 msgid "Parent Course Period"
@@ -5701,7 +5701,7 @@ msgstr "Разписание на студент"
 #: modules/Scheduling/PrintRequests.php:45
 #: modules/Scheduling/PrintRequests.php:60
 msgid "Student Requests"
-msgstr "Заявки от студенти"
+msgstr "Заявки от студент"
 
 #: modules/Scheduling/Menu.php:18
 msgid "Group Schedule"

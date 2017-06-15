@@ -842,7 +842,7 @@ if ( ! $_REQUEST['modfunc'] )
 		AND '" . $last_day_month . "'
 		AND SYEAR='" . UserSyear() . "'
 		AND SCHOOL_ID='" . UserSchool() . "'
-		AND CALENDAR_ID='" . $_REQUEST['calendar_id'] . "'";
+		AND CALENDAR_ID='" . ( isset($_REQUEST['calendar_id']) ? $_REQUEST['calendar_id'] : ''). "'";
 
 	$calendar_RET = DBGet( DBQuery( $calendar_SQL ), array(), array( 'SCHOOL_DATE' ) );
 
@@ -859,7 +859,7 @@ if ( ! $_REQUEST['modfunc'] )
 				continue;
 			}
 
-			if ( $calendar_RET[ $date ] )
+                        if ( ! empty($calendar_RET[ $date ]) )
 			{
 				//if ( $minutes!='0' && $minutes!='')
 				//FJ fix bug MINUTES not numeric
@@ -906,7 +906,7 @@ if ( ! $_REQUEST['modfunc'] )
 		{
 			if ( $yes === 'Y' )
 			{
-				if ( $calendar_RET[ $date ] )
+			        if ( ! empty($calendar_RET[ $date ]) )
 				{
 					DBQuery( "UPDATE ATTENDANCE_CALENDAR
 						SET MINUTES='999'
@@ -943,7 +943,7 @@ if ( ! $_REQUEST['modfunc'] )
 	{
 		foreach ( (array) $_REQUEST['blocks'] as $date => $block )
 		{
-			if ( $calendar_RET[ $date ] )
+		        if ( ! empty($calendar_RET[ $date ]) )
 			{
 				DBQuery( "UPDATE ATTENDANCE_CALENDAR
 					SET BLOCK='" . $block . "'
@@ -990,10 +990,10 @@ if ( ! $_REQUEST['modfunc'] )
 		$calendar_onchange_URL = "'Modules.php?modname=" . $_REQUEST['modname'] . "&calendar_id='";
 
 		$links = SelectInput(
-			$_REQUEST['calendar_id'],
+		        @$_REQUEST['calendar_id'],
 			'calendar_id',
 			'',
-			$options,
+			isset($options) ? $options : '',
 			false,
 			' onchange="ajaxLink(' . $calendar_onchange_URL . ' + document.getElementById(\'calendar_id\').value);" ',
 			false
@@ -1001,10 +1001,12 @@ if ( ! $_REQUEST['modfunc'] )
 		'<a href="Modules.php?modname=' . $_REQUEST['modname'] . '&modfunc=create" class="nobr">' .
 			button( 'add' ) . _( 'Create new calendar' ) .
 		'</a> | ' .
-		'<a href="Modules.php?modname=' . $_REQUEST['modname'] . '&modfunc=create&calendar_id=' . $_REQUEST['calendar_id'] . '" class="nobr">' .
+		'<a href="Modules.php?modname=' . $_REQUEST['modname'] . '&modfunc=create&calendar_id=' .
+		        ( isset($_REQUEST['calendar_id']) ? $_REQUEST['calendar_id'] : '') . '" class="nobr">' .
 			_( 'Recreate this calendar' ) .
 		'</a>&nbsp; ' .
-		'<a href="Modules.php?modname=' . $_REQUEST['modname'] . '&modfunc=delete_calendar&calendar_id=' . $_REQUEST['calendar_id'] . '" class="nobr">' .
+		'<a href="Modules.php?modname=' . $_REQUEST['modname'] . '&modfunc=delete_calendar&calendar_id=' .
+		        ( isset($_REQUEST['calendar_id']) ? $_REQUEST['calendar_id'] : ''). '" class="nobr">' .
 			button( 'remove' ) . _( 'Delete this calendar' ) .
 		'</a>';
 	}
@@ -1225,11 +1227,11 @@ if ( ! $_REQUEST['modfunc'] )
 
 		// Blocks
 		if ( count( $blocks_RET )
-			&& ( $calendar_RET[ $date ][1]['BLOCK']
+		        && ( ! empty($calendar_RET[ $date ][1]['BLOCK'])
 				|| User( 'PROFILE' ) === 'admin' ) )
 		{
 			echo SelectInput(
-				$calendar_RET[ $date ][1]['BLOCK'],
+			        @$calendar_RET[ $date ][1]['BLOCK'],
 				"blocks[" . $date . "]",
 				'',
 				$block_options

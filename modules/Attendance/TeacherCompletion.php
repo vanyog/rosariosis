@@ -83,7 +83,7 @@ if ( SchoolInfo( 'NUMBER_DAYS_ROTATION' ) !== null )
 		AND cp.SYEAR='" . UserSyear() . "'
 		AND cp.SCHOOL_ID='" . UserSchool() . "'
 		AND s.PROFILE='teacher'" .
-		( $_REQUEST['period'] ? " AND cpsp.PERIOD_ID='" . $_REQUEST['period'] . "'" : '' ) .
+		( ! empty($_REQUEST['period']) ? " AND cpsp.PERIOD_ID='" . $_REQUEST['period'] . "'" : '' ) .
 		" AND acc.CALENDAR_ID=cp.CALENDAR_ID
 		AND acc.SCHOOL_DATE='" . $date . "'
 		AND acc.SYEAR='" . UserSyear() . "'
@@ -132,7 +132,7 @@ if ( ! isset( $_REQUEST['period'] )
 		$columns[ $id ] = $period[1]['TITLE'];
 	}
 
-	ListOutput( $staff_RET, $columns, 'Teacher who takes attendance', 'Teachers who take attendance' );
+        ListOutput( isset($staff_RET) ? $staff_RET : array(), $columns, 'Teacher who takes attendance', 'Teachers who take attendance' );
 }
 else
 {

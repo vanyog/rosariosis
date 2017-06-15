@@ -859,12 +859,13 @@ function GetReportCardsExtra( $mp_list, $st_list )
 	// Student List Extra.
 	$extra['WHERE'] = " AND s.STUDENT_ID IN ( " . $st_list . ")";
 
+        if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 	$extra['SELECT'] .= ",sg1.GRADE_LETTER as GRADE_TITLE,sg1.GRADE_PERCENT,
 		sg1.COMMENT as COMMENT_TITLE,sg1.STUDENT_ID,sg1.COURSE_PERIOD_ID,sg1.MARKING_PERIOD_ID,
 		sg1.COURSE_TITLE as COURSE_TITLE,rc_cp.TITLE AS TEACHER,sp.SORT_ORDER";
 
 	// Period-by-period absences.
-	if ( $_REQUEST['elements']['period_absences'] === 'Y' )
+	if ( isset($_REQUEST['elements']['period_absences']) && ($_REQUEST['elements']['period_absences'] === 'Y') )
 	{
 		$extra['SELECT'] .= ",rc_cp.DOES_ATTENDANCE,
 			(SELECT count(*) FROM ATTENDANCE_PERIOD ap,ATTENDANCE_CODES ac
@@ -882,6 +883,7 @@ function GetReportCardsExtra( $mp_list, $st_list )
 
 	//FJ multiple school periods for a course period.
 	//$extra['FROM'] .= ",STUDENT_REPORT_CARD_GRADES sg1,ATTENDANCE_CODES ac,COURSE_PERIODS rc_cp,SCHOOL_PERIODS sp";
+	if( ! isset($extra['FROM']) ) $extra['FROM'] = '';
 	$extra['FROM'] .= ",STUDENT_REPORT_CARD_GRADES sg1,ATTENDANCE_CODES ac,COURSE_PERIODS rc_cp,
 		SCHOOL_PERIODS sp,COURSE_PERIOD_SCHOOL_PERIODS cpsp";
 
@@ -893,6 +895,7 @@ function GetReportCardsExtra( $mp_list, $st_list )
 					AND sp.PERIOD_ID=cpsp.PERIOD_ID
 					AND rc_cp.COURSE_PERIOD_ID=cpsp.COURSE_PERIOD_ID";
 
+        if( ! isset($extra['ORDER']) ) $extra['ORDER'] = '';
 	$extra['ORDER'] .= ",sg1.COURSE_TITLE,sp.SORT_ORDER,ac.TITLE";
 
 	$extra['functions']['TEACHER'] = '_makeTeacher';
