@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-12 12:42+0300\n"
+"PO-Revision-Date: 2017-06-16 23:19+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -374,7 +374,7 @@ msgstr "Кодирано падащо меню"
 #: ProgramFunctions/Fields.fnc.php:336 ProgramFunctions/Fields.fnc.php:357
 #: ProgramFunctions/Fields.fnc.php:624
 msgid "Export Pull-Down"
-msgstr ""
+msgstr "Падащо меню за експорт"
 
 #: ProgramFunctions/Fields.fnc.php:337 ProgramFunctions/Fields.fnc.php:423
 #: ProgramFunctions/Fields.fnc.php:625
@@ -618,15 +618,15 @@ msgstr "до"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:342
 msgid "Administrator w/Custom"
-msgstr ""
+msgstr "Администратор-инд."
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:343
 msgid "Teacher w/Custom"
-msgstr ""
+msgstr "Преподавател-инд."
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:344
 msgid "Parent w/Custom"
-msgstr ""
+msgstr "Родител-инд."
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:369
 msgid "Visible To"
@@ -634,23 +634,23 @@ msgstr "Да се вижда от"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:403
 msgid "Limit to Teacher"
-msgstr ""
+msgstr "С преподавател"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:453
 #: modules/Grades/includes/StudentAssignments.fnc.php:601
 msgid "View Online"
-msgstr ""
+msgstr "Преглеждане онлайн"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:455
 #: modules/Grades/includes/StudentAssignments.fnc.php:630
 msgid "Download"
-msgstr ""
+msgstr "Изтегляне"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:475
 #: modules/Grades/includes/StudentAssignments.fnc.php:355
 #, php-format
 msgid "Maximum file size: %01.0fMb"
-msgstr ""
+msgstr "Максимален размер файл: %01.0fMb"
 
 #: ProgramFunctions/PortalPollsNotes.fnc.php:482
 msgid "Embed Link"
@@ -669,15 +669,15 @@ msgstr "Редактиране"
 
 #: ProgramFunctions/StudentsUsersInfo.fnc.php:533
 msgid "%Y Years %m Months %d Days"
-msgstr ""
+msgstr "%Y години %m месеци %d дни"
 
 #: ProgramFunctions/StudentsUsersInfo.fnc.php:568
 msgid "Immunization"
-msgstr ""
+msgstr "Имунизация"
 
 #: ProgramFunctions/StudentsUsersInfo.fnc.php:568
 msgid "Physical"
-msgstr ""
+msgstr "Физически"
 
 #: ProgramFunctions/miscExport.fnc.php:28 functions/Widgets.fnc.php:1426
 #: modules/Students/AssignOtherInfo.php:312
@@ -747,7 +747,7 @@ msgstr "Грешка"
 
 #: Side.php:492 functions/GetMP.php:83
 msgid "No quarters found"
-msgstr ""
+msgstr "Не е намерена четвърт"
 
 #: Side.php:576 modules/Attendance/AddAbsences.php:178
 #: modules/Eligibility/EnterEligibility.php:35
@@ -847,11 +847,11 @@ msgstr "Дни"
 
 #: Side.php:638
 msgid "No courses found"
-msgstr ""
+msgstr "Не са намарени курсове"
 
 #: Side.php:672
 msgid "Clear working student"
-msgstr ""
+msgstr "Премахване текущия студент"
 
 #: Side.php:676 modules/Students/Menu.php:16 modules/Students/Menu.php:39
 #: modules/Students/Menu.php:50 modules/Students/PrintStudentInfo.php:46
@@ -861,7 +861,7 @@ msgstr "Информация за студент"
 
 #: Side.php:696
 msgid "Clear working user"
-msgstr ""
+msgstr "Премахване текущия потребител"
 
 #: Side.php:700 modules/Users/Menu.php:16 modules/Users/Menu.php:30
 #: modules/Users/Menu.php:37
@@ -870,7 +870,7 @@ msgstr "Информация за потребител"
 
 #: database.inc.php:368
 msgid "We have a problem, please contact technical support ..."
-msgstr ""
+msgstr "Имаме проблем, моля съобщете на текническа поддръжка …"
 
 #: functions/CustomFields.fnc.php:110 functions/GetStaffList.fnc.php:60
 #: functions/Search.fnc.php:372 functions/Search.fnc.php:406
@@ -1031,7 +1031,7 @@ msgstr "Бележка"
 
 #: functions/GetMP.php:398
 msgid "You are not currently in a marking period"
-msgstr ""
+msgstr "В момента не сте в период на оценяване"
 
 #: functions/GetStaffList.fnc.php:28 modules/Students/AddUsers.php:73
 #: modules/Students/includes/General_Info.inc.php:139
@@ -1095,7 +1095,7 @@ msgstr "Профил"
 
 #: functions/GetStaffList.fnc.php:306
 msgid " w/Custom"
-msgstr ""
+msgstr " - инд."
 
 #: functions/GetStuList.fnc.php:124
 #: modules/Students/includes/Address.inc.php:794
@@ -1203,16 +1203,16 @@ msgstr "Състояние"
 #: functions/GetStuList.fnc.php:549 modules/Grades/AnomalousGrades.php:118
 #: modules/Grades/Grades.php:266 modules/Grades/InputFinalGrades.php:1001
 msgid "School Status"
-msgstr ""
+msgstr "Статус училище"
 
 #: functions/GetStuList.fnc.php:550 modules/Grades/AnomalousGrades.php:118
 #: modules/Grades/Grades.php:267 modules/Grades/InputFinalGrades.php:1001
 msgid "Course Status"
-msgstr ""
+msgstr "Статус курс"
 
 #: functions/GetStuList.fnc.php:723
 msgid "This student has no contact information."
-msgstr ""
+msgstr "Този студент няма информация за контакт."
 
 #: functions/GetStuList.fnc.php:726
 #: modules/Students/includes/Address.inc.php:275
@@ -1221,11 +1221,11 @@ msgstr ""
 #: modules/Users/Preferences.php:592 modules/Users/Preferences.php:600
 #: modules/Users/Preferences.php:608
 msgid "Contact Information"
-msgstr ""
+msgstr "Информация за контакт"
 
 #: functions/GetStuList.fnc.php:853
 msgid "Call"
-msgstr ""
+msgstr "Позвъняване"
 
 #: functions/GetStuList.fnc.php:1063 functions/Inputs.php:565
 #: functions/Inputs.php:575 functions/Search.fnc.php:606
@@ -1249,7 +1249,7 @@ msgstr ""
 #: modules/Students/StudentBreakdown.php:116 plugins/Moodle/functions.php:454
 #: plugins/Moodle/functions.php:513
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: functions/GetStuList.fnc.php:1063 functions/Inputs.php:566
 #: functions/Inputs.php:576 functions/Search.fnc.php:607
@@ -1269,7 +1269,7 @@ msgstr ""
 #: modules/Student_Billing/functions.inc.php:122
 #: modules/Students/StudentBreakdown.php:120
 msgid "No"
-msgstr ""
+msgstr "Не"
 
 #: functions/GetStuList.fnc.php:1140 functions/Search.fnc.php:137
 #: modules/Attendance/DuplicateAttendance.php:236
@@ -1329,11 +1329,11 @@ msgstr[1] "Оценки"
 
 #: functions/GetStuList.fnc.php:1200
 msgid "Excluded"
-msgstr ""
+msgstr "Изключено"
 
 #: functions/GetStuList.fnc.php:1236
 msgid "Address contains"
-msgstr ""
+msgstr "Адресът съдържа"
 
 #: functions/Inputs.php:497
 msgid "Write"
@@ -1345,7 +1345,7 @@ msgstr "Преглед"
 
 #: functions/Inputs.php:501
 msgid "Mastering MarkDown"
-msgstr ""
+msgstr "Помощ за форматиране"
 
 #: functions/Inputs.php:504
 msgid "Nothing to preview."
@@ -1353,7 +1353,7 @@ msgstr "Нищо за показване."
 
 #: functions/Inputs.php:890
 msgid "Select some Options"
-msgstr ""
+msgstr "Изберете някои възможности"
 
 #: functions/ListOutput.fnc.php:9 modules/Attendance/AttendanceCodes.php:160
 #: modules/Food_Service/MenuReports.php:260
@@ -1373,7 +1373,7 @@ msgstr ""
 
 #: functions/ListOutput.fnc.php:310
 msgid "Relevance"
-msgstr ""
+msgstr "Съответствие"
 
 #: functions/ListOutput.fnc.php:404 modules/Grades/GradeBreakdown.php:187
 #: modules/Grades/ReportCardComments.php:144
@@ -1460,17 +1460,17 @@ msgstr "Отмяна"
 #: functions/SaveData.fnc.php:55 functions/SaveData.fnc.php:58
 #, php-format
 msgid "The value for %s"
-msgstr ""
+msgstr "Стойност за %s"
 
 #: functions/SaveData.fnc.php:63
 #, php-format
 msgid "There is no column for %s. This value was not saved."
-msgstr ""
+msgstr "Няма колона за %s. Не е запазена стойност."
 
 #: functions/SaveData.fnc.php:74
 #, php-format
 msgid "%s was too long. It was truncated to fit in the field."
-msgstr ""
+msgstr "%s е твърде дълго. Беже отрязано, за да се събере в полето."
 
 #: functions/SaveData.fnc.php:83
 #, php-format
@@ -1478,15 +1478,17 @@ msgid ""
 "%s, a numerical field, contained non-numerical characters. These characters "
 "were removed."
 msgstr ""
+"Числовото поле %s съдържа нечислови символи. Символите бяха премахнати."
 
 #: functions/SaveData.fnc.php:91
 #, php-format
 msgid "%s, a date field, was not a valid date. This value could not be saved."
 msgstr ""
+"Полето за дата %s не съдържа валидна дата. Стойността не може да се запази."
 
 #: functions/Search.fnc.php:130 functions/Search.fnc.php:713
 msgid "starts with"
-msgstr ""
+msgstr "започва с"
 
 #: functions/Search.fnc.php:139 modules/Food_Service/AssignSchool.php:38
 #: modules/Food_Service/AssignSchool.php:40
@@ -1539,11 +1541,11 @@ msgstr "Без значение"
 #: modules/Discipline/StudentFieldBreakdown.php:132
 #: modules/Students/StudentBreakdown.php:74 modules/misc/Export.php:655
 msgid "No Value"
-msgstr ""
+msgstr "Няма стойност"
 
 #: functions/Search.fnc.php:528 functions/Search.fnc.php:894
 msgid "Other Value"
-msgstr ""
+msgstr "Друга стойност"
 
 #: functions/Search.fnc.php:605 functions/StaffWidgets.fnc.php:169
 #: functions/StaffWidgets.fnc.php:338 modules/Attendance/Administration.php:439
@@ -1660,7 +1662,7 @@ msgstr "Състояние на сметката"
 #: modules/Food_Service/User.inc.php:62
 #: modules/Food_Service/Users/Accounts.php:157
 msgid "Disabled"
-msgstr ""
+msgstr "Блокирано"
 
 #: functions/StaffWidgets.fnc.php:269 functions/Widgets.fnc.php:1774
 #: modules/Food_Service/Student.inc.php:75
@@ -1668,12 +1670,12 @@ msgstr ""
 #: modules/Food_Service/User.inc.php:62
 #: modules/Food_Service/Users/Accounts.php:157
 msgid "Closed"
-msgstr ""
+msgstr "Затворено"
 
 #: functions/StaffWidgets.fnc.php:296 functions/Widgets.fnc.php:1801
 #: modules/Users/Preferences.php:704 modules/Users/Preferences.php:838
 msgid "Food Service Barcode"
-msgstr ""
+msgstr "Барход за храна"
 
 #: functions/StaffWidgets.fnc.php:301 functions/Widgets.fnc.php:1807
 #: modules/Food_Service/Student.inc.php:82
@@ -1686,15 +1688,15 @@ msgstr "Баркод"
 
 #: functions/StaffWidgets.fnc.php:331
 msgid "Food Service Account Exists"
-msgstr ""
+msgstr "Сметката за храна съществува"
 
 #: functions/StaffWidgets.fnc.php:336
 msgid "Has Account"
-msgstr ""
+msgstr "Има сметка"
 
 #: functions/StaffWidgets.fnc.php:381 functions/StaffWidgets.fnc.php:387
 msgid "Staff Payroll Balance"
-msgstr ""
+msgstr "Баланс по ведомост"
 
 #: functions/StaffWidgets.fnc.php:382 functions/StaffWidgets.fnc.php:388
 #: functions/Widgets.fnc.php:412 functions/Widgets.fnc.php:431
@@ -1705,11 +1707,11 @@ msgstr ""
 #: functions/Widgets.fnc.php:1163 functions/Widgets.fnc.php:1343
 #: functions/Widgets.fnc.php:1356 functions/Widgets.fnc.php:1564
 msgid "Between"
-msgstr ""
+msgstr "Между"
 
 #: functions/Widgets.fnc.php:81
 msgid "Enrollment"
-msgstr ""
+msgstr "Записване"
 
 #: functions/Widgets.fnc.php:96 modules/Scheduling/Menu.php:14
 #: modules/Scheduling/Menu.php:39 modules/Scheduling/Menu.php:49

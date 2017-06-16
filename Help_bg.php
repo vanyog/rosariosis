@@ -338,10 +338,10 @@ HTML;
         Типът "Падащо меню с редактиране" е подобен на "Падащо маню с добавяне".
 </li>
 <li>
-	"Coded Pull-Down" fields are created by adding options to the large text box respecting the following pattern: "option shown"|"option stored in database" (where | is the "pipe" character). For example: "Two|2", where "Two" is displayed on screen to the user, or in a downloaded spreadsheet, and "2" is stored in the database.
+        Типът "Кодирано падащо меню" създава падащо меню от надписи, по които се избира стойност, но в базата данни се съхранява не надписа, а съответстваща му стойност (код). В прозореца за описване на възможните стойности, на всеки ред се записва, например, "1|Едно". Където "Едно" е надписа, който се показва в падащото маню, а "1" е кода, който се запазва като стойност. Стойностите и съответните им надписи се отделят със знак "|" (вертикална черта).
 </li>
 <li>
-	"Export Pull-Down" fields are created by adding options to the large text box respecting the same pattern used for "Coded Pull-Down" fields ("option shown"|"option stored in database"). For example: "Two|2", where "Two" is displayed on screen to the user, and "2" is the value in a downloaded spreadsheet, but "Two" is stored in the database.
+        Типът "Падащо меню за експорт" се дефинира подобно на типа "Кодирано падащо меню". В прозореца за описване на възможните стойности, на всеки ред се пише, например, "1|Едно". Където "Едно" е надписа, който се показва в падащото маню, а "1" е кода, който се запазва при експортиране на данните във външен файл. В базата данни се запазва надписа.
 </li>
 <li>
         Типът "Избиране няколко възможности" означава показване на списък от отметки, от които потребителят избира кои да постави.
@@ -387,10 +387,10 @@ HTML;
 
 	$help['School_Setup/Calendar.php'] = <<<HTML
 <p>
-	<i>Calendars</i> is a display of school events and your student's assignments. The calendar also displays whether or not school is in attendance on any given day. By default, the calendar displays the current month. The month and year displayed can be changed by changing the month and year pull-down menus at the top of the screen.
+        Програма <i>Календари</i> е предназначена за показване на събития на училището и заданията на студента. Календарът сащо показва дали училището работи през даден ден. По подразбиране календарът показва текущия месец. Показвания месец и година могат да бъдат сменени чрез избиране от падащите менюта в горната част на екрана.
 </p>
 <p>
-	The titles of school events and assignments are displayed in each date's box. Clicking on these titles will open a popup window that displays more information about the event or assignment. School events are preceded by a black stripe and assignments are preceded by a red stripe.
+        Названията на събитията и заданията се показват в правоъгълника на съответния ден. Щракването върху название ще отвори изскачащ прозорец, който показва повече информация за събитието или заданието. Събитията са оцветени с черна лента, а заданията - с червена.
 </p>
 <p>
 	For days that school is in attendance all day, the date's box is green. On partial days, the number of minutes that school is in session is displayed. If the school is not in attendance at all on any given day, the date's box is pink.

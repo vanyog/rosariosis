@@ -606,7 +606,7 @@ if ( $_REQUEST['modfunc'] === 'detail' )
 	else
 	{
 		// Event
-		if ( $_REQUEST['event_id'] )
+		if ( ! empty($_REQUEST['event_id']) )
 		{
 			if ( $_REQUEST['event_id'] !== 'new' )
 			{
@@ -672,7 +672,7 @@ if ( $_REQUEST['modfunc'] === 'detail' )
 		}
 
 		// FJ add event repeat.
-		if ( $_REQUEST['event_id'] === 'new' )
+		if ( isset($_REQUEST['event_id']) && ($_REQUEST['event_id'] === 'new') )
 		{
 			echo '<tr><td>
 				<input name="REPEAT" id="REPEAT" value="0" maxlength="3" size="1" type="number" min="0" />&nbsp;' . _( 'Days' ) .
@@ -724,7 +724,7 @@ if ( $_REQUEST['modfunc'] === 'detail' )
 
 		PopTable( 'footer' );
 
-		if ( $_REQUEST['event_id'] )
+                if ( ! empty($_REQUEST['event_id']) )
 			echo '</form>';
 
 		// Unset button & values & redirect URL.
