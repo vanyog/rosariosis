@@ -185,6 +185,9 @@ $locale = $_SESSION['locale'];
 
 putenv( 'LC_ALL=' . $locale );
 
+// VanyoG - We need this on mac.
+if( substr($locale,-5)=='.utf8' ) $locale = substr($locale, 0, 5);
+
 setlocale( LC_ALL, $locale );
 
 // FJ numeric separator ".".

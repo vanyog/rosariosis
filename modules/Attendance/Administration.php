@@ -298,17 +298,17 @@ else
 	}
 	else
 		$abs = ($_REQUEST['table']=='0'); //true;
-	if (isset($REQ_codes) && count($REQ_codes) && ! $abs)
+	if (isset($REQ_codes) && count($REQ_codes) && empty($abs))
 	{
 		$extra['WHERE'] .= "AND ac.ID IN (";
 		foreach ( (array) $REQ_codes as $code)
 			$extra['WHERE'] .= "'".$code."',";
-		if ( $_REQUEST['expanded_view']!='true')
+		if ( ! isset($_REQUEST['expanded_view']) || ($_REQUEST['expanded_view']!='true') )
 			$extra2['WHERE'] = $extra['WHERE'] = mb_substr($extra['WHERE'],0,-1) . ')';
 		else
 			$extra['WHERE'] = mb_substr($extra['WHERE'],0,-1) . ')';
 	}
-	elseif ( $abs)
+	elseif ( ! empty($abs) )
 	{
 		$RET = DBGet(DBQuery("SELECT ID FROM ATTENDANCE_CODES WHERE SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' AND (DEFAULT_CODE!='Y' OR DEFAULT_CODE IS NULL) AND TABLE_NAME='".$_REQUEST['table']."'"));
 		if (count($RET))
@@ -373,12 +373,14 @@ else
 		$extra['columns_after']['PERIOD_'.$period['PERIOD_ID']] = $period['SHORT_NAME'];
 	}
 
+
         if ( ! empty($REQ_codes) )
 	{
+	        if( ! isset($code_pulldowns) ) $code_pulldowns = '';
 		foreach ( (array) $REQ_codes as $code)
 			$code_pulldowns .= _makeCodeSearch($code);
 	}
-	elseif ( $abs)
+	elseif ( ! empty($abs) )
 		$code_pulldowns = _makeCodeSearch('A');
 	else
 		$code_pulldowns = _makeCodeSearch();
@@ -426,7 +428,7 @@ function _makeCodePulldown($value,$title)
 		if ( ! $current_schedule_RET[ $value ])
 			$current_schedule_RET[ $value ] = true;
 	}
-	if ( $THIS_RET['COURSE'])
+	if ( ! empty($THIS_RET['COURSE']) )
 	{
 		$period_id = $THIS_RET['PERIOD_ID'];
 		$code_title = 'TITLE';
@@ -437,7 +439,7 @@ function _makeCodePulldown($value,$title)
 		$code_title = 'SHORT_NAME';
 	}
 
-	if ( $current_schedule_RET[ $value ][ $period_id ])
+        if ( ! empty($current_schedule_RET[ $value ][ $period_id ]) )
 	{
 		foreach ( (array) $codes_RET as $code)
 			if ( $current_schedule_RET[ $value ][ $period_id ][1]['HALF_DAY']!='Y' || $code['STATE_CODE']!='H') // prune half day codes for half day courses
@@ -466,7 +468,7 @@ function _makeReasonInput($value,$title)
 
 	$val = $current_RET[ $value ][$THIS_RET['PERIOD_ID']][1]['ATTENDANCE_REASON'];
 
-	return TextInput($val,'attendance['.$value.']['.$THIS_RET['PERIOD_ID'].'][ATTENDANCE_REASON]','',$options);
+        return TextInput($val,'attendance['.$value.']['.$THIS_RET['PERIOD_ID'].'][ATTENDANCE_REASON]','',isset($options)?$options:'');
 }
 
 function _makeReason($value,$title)

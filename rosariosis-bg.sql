@@ -3476,10 +3476,10 @@ INSERT INTO attendance_calendars VALUES (1, 'Главен', 2017, 1, 'Y', NULL);
 -- Data for Name: attendance_codes; Type: TABLE DATA; Schema: public; Owner: rosariosis
 --
 
-INSERT INTO attendance_codes VALUES (1, 2017, 1, 'Absent', 'A', 'teacher', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes VALUES (2, 2017, 1, 'Present', 'P', 'teacher', 'P', 'Y', 0, NULL);
-INSERT INTO attendance_codes VALUES (3, 2017, 1, 'Tardy', 'T', 'teacher', 'P', NULL, 0, NULL);
-INSERT INTO attendance_codes VALUES (4, 2017, 1, 'Excused Absence', 'E', 'official', 'A', NULL, 0, NULL);
+INSERT INTO attendance_codes VALUES (1, 2017, 1, 'Отсъстващ', 'О', 'teacher', 'О', NULL, 0, NULL);
+INSERT INTO attendance_codes VALUES (2, 2017, 1, 'Присъстващ', 'П', 'teacher', 'П', 'Y', 0, NULL);
+INSERT INTO attendance_codes VALUES (3, 2017, 1, 'Закъснял', 'З', 'teacher', 'P', NULL, 0, NULL);
+INSERT INTO attendance_codes VALUES (4, 2017, 1, 'Извинено отсъствие', 'И', 'official', 'И', NULL, 0, NULL);
 
 
 --

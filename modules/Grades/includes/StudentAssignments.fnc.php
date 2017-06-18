@@ -59,7 +59,7 @@ function StudentAssignmentSubmit( $assignment_id, &$error )
 
 	// TODO: check if Student not dropped?
 
-	$files = $old_data['files'];
+        $files = isset($old_data['files']) ? $old_data['files'] : '';
 
 	$timestamp = date( 'Y-m-d His' );
 

@@ -190,9 +190,10 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	DrawHeader(ProgramTitle());
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
-		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.$_REQUEST['include_inactive'].'&_ROSARIO_PDF=true" method="POST">';
+	        echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.
+		      ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ).'&_ROSARIO_PDF=true" method="POST">';
 		$extra['header_right'] = SubmitButton(_('Create Honor Roll for Selected Students'));
 
 		$extra['extra_header_left'] = '<table>';
@@ -278,12 +279,12 @@ if ( ! $_REQUEST['modfunc'] )
 	Widgets('course');
 	MyWidgets('honor_roll');
 
-	if ( $for_news_web)
+        if ( ! empty($for_news_web) )
 		$extra['student_fields'] = array('search'=>"'".$for_news_web."'",'view'=>"'".$for_news_web."'");
 
 	Search('student_id',$extra);
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center">' . SubmitButton(_('Create Honor Roll for Selected Students')) . '</div>';
 		echo '</form>';
@@ -292,7 +293,8 @@ if ( ! $_REQUEST['modfunc'] )
 
 function _makeChooseCheckbox($value,$title)
 {
-	if ( $_REQUEST['honor_roll']=='Y' || $_REQUEST['high_honor_roll']=='Y')
+        if ( ( isset($_REQUEST['honor_roll']) && ($_REQUEST['honor_roll']=='Y') )
+             || ( isset($_REQUEST['high_honor_roll']) && ($_REQUEST['high_honor_roll']=='Y') ) )
 		return '<input type="checkbox" name="st_arr[]" value="'.$value.'" checked />';
 	else
 		return '';
@@ -304,7 +306,7 @@ function MyWidgets($item)
 	switch ( $item)
 	{
 		case 'honor_roll':
-			if ( $_REQUEST['honor_roll']=='Y' && $_REQUEST['high_honor_roll']=='Y')
+		        if ( isset($_REQUEST['honor_roll']) && $_REQUEST['honor_roll']=='Y' && $_REQUEST['high_honor_roll']=='Y')
 			{
 				$extra['SELECT'] .= ",".db_case(array("exists(SELECT rg.GPA_VALUE
 				FROM STUDENT_REPORT_CARD_GRADES sg,COURSE_PERIODS cp,REPORT_CARD_GRADES rg
@@ -341,11 +343,11 @@ function MyWidgets($item)
 
 				$extra['columns_after']['HIGH_HONOR'] = _('High Honor');
 
-				if ( ! $extra['NoSearchTerms'])
+                                if ( empty($extra['NoSearchTerms']) )
 					//FJ add translation
 					$_ROSARIO['SearchTerms'] .= '<b>'._('Honor Roll').' & '._('High Honor Roll').'</b><br />';
 			}
-			elseif ( $_REQUEST['honor_roll']=='Y')
+			elseif ( isset($_REQUEST['honor_roll']) && ($_REQUEST['honor_roll']=='Y') )
 			{
 				$extra['WHERE'] .=  " AND exists(SELECT ''
 				FROM STUDENT_REPORT_CARD_GRADES sg,COURSE_PERIODS cp
@@ -383,7 +385,7 @@ function MyWidgets($item)
 				if ( ! $extra['NoSearchTerms'])
 					$_ROSARIO['SearchTerms'] .= '<b>'._('Honor Roll').'</b><br />';
 			}
-			elseif ( $_REQUEST['high_honor_roll']=='Y')
+			elseif ( isset($_REQUEST['high_honor_roll']) && ($_REQUEST['high_honor_roll']=='Y') )
 			{
 				$extra['WHERE'] .=  " AND exists(SELECT ''
 				FROM STUDENT_REPORT_CARD_GRADES sg,COURSE_PERIODS cp

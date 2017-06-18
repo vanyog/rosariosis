@@ -68,7 +68,9 @@ if ( ! empty($_REQUEST['search_modfunc']) || ! empty($_REQUEST['student_id']) ||
 				$period_select .= '<option value="all"'.(($_REQUEST['period_id']=='all')?' selected':'').'>'._('All Periods').'</option>';
 
 			foreach ( (array) $periods_RET as $period)
-				$period_select .= '<option value="'.$period['PERIOD_ID'].'"'.(($_REQUEST['period_id']==$period['PERIOD_ID'])?' selected':'').'>'.$period['TITLE'].'</option>';
+			        $period_select .= '<option value="'.( isset($period['PERIOD_ID']) ? $period['PERIOD_ID'] : '' ).'"'.
+				                    ( (isset($_REQUEST['period_id']) && $_REQUEST['period_id']==$period['PERIOD_ID']) ? ' selected' : '' ).'>'.
+						    $period['TITLE'].'</option>';
 		}
 		$period_select .= '</select>';
 	}
@@ -165,6 +167,7 @@ if (UserStudentID())
 	AND ad.SYEAR='".UserSyear()."'
 	ORDER BY ap.SCHOOL_DATE"),array(),array('SCHOOL_DATE','PERIOD_ID'));
 	$days_RET = array();
+	$i = 0;
 	foreach ( (array) $absences_RET as $school_date => $absences)
 	{
 		$i++;

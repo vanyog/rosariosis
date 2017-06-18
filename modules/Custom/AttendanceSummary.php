@@ -256,9 +256,10 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	DrawHeader(ProgramTitle());
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
-		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.$_REQUEST['include_inactive'].'&_ROSARIO_PDF=true" method="POST">';
+	        echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.
+		      ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ).'&_ROSARIO_PDF=true" method="POST">';
 
 		$extra['header_right'] = '<input type="submit" value="'._('Create Attendance Report for Selected Students').'" />';
 
@@ -278,7 +279,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	Search('student_id',$extra);
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center">' . SubmitButton(_('Create Attendance Report for Selected Students')) . '</div>';
 		echo '</form>';

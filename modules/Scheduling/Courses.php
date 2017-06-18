@@ -239,7 +239,8 @@ if ( ! empty($_REQUEST['tables'])
 						{
 							$other_school_p = DBGet(DBQuery("SELECT PERIOD_ID,DAYS FROM COURSE_PERIOD_SCHOOL_PERIODS WHERE ".$where['COURSE_PERIODS']."='".$_REQUEST['course_period_id']."' AND ".$where[ $table_name ]."<>'".$id."'"));
 
-							if (in_array($columns['PERIOD_ID'], $temp_PERIOD_ID)) //prevent repeat periods
+                                                         //prevent repeat periods
+                                                        if (isset($columns['PERIOD_ID']) && in_array($columns['PERIOD_ID'], $temp_PERIOD_ID))
 								continue;
 
 							$periods_title = '';
@@ -293,7 +294,7 @@ if ( ! empty($_REQUEST['tables'])
 								break; //no update
 							}
 							else
-								$temp_PERIOD_ID[] = $columns['PERIOD_ID'];
+							        $temp_PERIOD_ID[] = isset($columns['PERIOD_ID']) ? $columns['PERIOD_ID'] : '';
 						}
 
 						foreach ( (array) $columns as $column => $value)

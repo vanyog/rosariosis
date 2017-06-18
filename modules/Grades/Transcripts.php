@@ -386,7 +386,7 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	DrawHeader( ProgramTitle() );
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		//FJ include gentranscript.php in Transcripts.php
 		//echo '<form action="modules/Grades/gentranscript.php" method="POST">';
@@ -500,7 +500,7 @@ if ( ! $_REQUEST['modfunc'] )
 			//FJ add Show Studies Certificate option
 			$extra['extra_header_left'] .= '<div id="divcertificatetext" style="display:none">
 				<textarea id="inputcertificatetext" name="inputcertificatetext" cols="100" rows="5">' .
-				( $templates[User( 'STAFF_ID' )] ? $templates[User( 'STAFF_ID' )][1]['TEMPLATE'] : $templates[0][1]['TEMPLATE'] ) .
+				( ! empty($templates[User( 'STAFF_ID' )]) ? $templates[User( 'STAFF_ID' )][1]['TEMPLATE'] : $templates[0][1]['TEMPLATE'] ) .
 				'</textarea>' .
 				FormatInputTitle(
 					_( 'Certificate Studies Text' ),
@@ -546,7 +546,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	Search('student_id',$extra);
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center"><input type="submit" value="'._('Create Transcripts for Selected Students').'" /></div>';
 		echo '</form>';

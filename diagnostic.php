@@ -199,7 +199,7 @@ if ( ! count( $error ) )
 	echo '<h3>Your RosarioSIS installation is properly configured.</h3>';
 }
 
-if ( $unset_username )
+if ( ! empty($unset_username) )
 {
 	unset( $_SESSION['USERNAME'] );
 	unset( $_SESSION['STAFF_ID'] );

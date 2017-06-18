@@ -147,7 +147,7 @@ $current_Q = "SELECT ATTENDANCE_TEACHER_CODE,STUDENT_ID,ADMIN,COMMENT,COURSE_PER
 
 $current_RET = DBGet(DBQuery($current_Q),array(),array('STUDENT_ID'));
 
-if ( $_REQUEST['attendance']
+if ( ! empty($_REQUEST['attendance'])
 	&& $_POST['attendance'] )
 {
 	foreach ( (array) $_REQUEST['attendance'] as $student_id => $value )
@@ -203,6 +203,7 @@ AND TABLE_NAME='".$_REQUEST['table']."'".
 ($_REQUEST['table']=='0' && $course_RET[1]['HALF_DAY'] ? " AND STATE_CODE!='H'" : '')."
 ORDER BY SORT_ORDER"));
 
+if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 if (count($codes_RET))
 {
 	foreach ( (array) $codes_RET as $code)
@@ -270,12 +271,16 @@ function _makeRadio($value,$title)
 {	global $THIS_RET,$current_RET;
 
 	$colors = array('P' => '#00FF00','A' => '#FF0000','H' => '#FFCC00','T' => '#0000FF');
-	if ($current_RET[$THIS_RET['STUDENT_ID']][1]['ATTENDANCE_TEACHER_CODE']==mb_substr($title,5))
+	if ( isset($current_RET[$THIS_RET['STUDENT_ID']][1]['ATTENDANCE_TEACHER_CODE'])
+	     && ($current_RET[$THIS_RET['STUDENT_ID']][1]['ATTENDANCE_TEACHER_CODE']==mb_substr($title,5)) )
 	{
 		if (isset($_REQUEST['LO_save']))
 			return _('Yes');
 		else
-			return '<div style="'.($current_RET[$THIS_RET['STUDENT_ID']][1]['COURSE_PERIOD_ID']==UserCoursePeriod()?($colors[ $value ]?'background-color:'.$colors[ $value ].';':''):'background-color:#000;').' float:left; padding: 2px 8px;"><input type="radio" name="attendance['.$THIS_RET['STUDENT_ID'].']" value="'.$title.'" checked /></div>';
+		        return '<div style="'.($current_RET[$THIS_RET['STUDENT_ID']][1]['COURSE_PERIOD_ID']==UserCoursePeriod() ?
+			                        (! empty($colors[ $value ]) ? 'background-color:'.$colors[ $value ].';' : '') :
+						'background-color:#000;'
+						).' float:left; padding: 2px 8px;"><input type="radio" name="attendance['.$THIS_RET['STUDENT_ID'].']" value="'.$title.'" checked /></div>';
 	}
 	else
 		return '<div style="float:left; padding: 2px 8px;"><input type="radio" name="attendance['.$THIS_RET['STUDENT_ID'].']" value="'.$title.'"'.(AllowEdit()?'':' disabled').'></div>';
@@ -286,13 +291,17 @@ function _makeRadioSelected($value,$title)
 
 	$colors = array('P' => '#00FF00','A' => '#FF0000','H' => '#FFCC00','T' => '#0000FF');
 	$colors1 = array('P' => '#DDFFDD','A' => '#FFDDDD','H' => '#FFEEDD','T' => '#DDDDFF');
-	if ($current_RET[$THIS_RET['STUDENT_ID']][1]['ATTENDANCE_TEACHER_CODE']!='')
-		if ($current_RET[$THIS_RET['STUDENT_ID']][1]['ATTENDANCE_TEACHER_CODE']==mb_substr($title,5))
+	if (! empty($current_RET[$THIS_RET['STUDENT_ID']][1]['ATTENDANCE_TEACHER_CODE']) )
+	        if ($current_RET[$THIS_RET['STUDENT_ID']][1]['ATTENDANCE_TEACHER_CODE']==mb_substr($title,5))
 		{
 			if (isset($_REQUEST['LO_save']))
 				return _('Yes');
 			else
-				return '<div style="'.($current_RET[$THIS_RET['STUDENT_ID']][1]['COURSE_PERIOD_ID']==UserCoursePeriod()?($colors[ $value ]?'background-color:'.$colors[ $value ].';':''):'background-color:#000;').' float:left; padding: 2px 8px;"><input type="radio" name="attendance['.$THIS_RET['STUDENT_ID'].']" value="'.$title.'" checked /></div>';
+			        return '<div style="'.
+				        ($current_RET[$THIS_RET['STUDENT_ID']][1]['COURSE_PERIOD_ID']==UserCoursePeriod() ?
+					(! empty($colors[ $value ]) ? 'background-color:'.$colors[ $value ].';' : '') :
+					 'background-color:#000;'
+					).' float:left; padding: 2px 8px;"><input type="radio" name="attendance['.$THIS_RET['STUDENT_ID'].']" value="'.$title.'" checked /></div>';
 		}
 		else
 			return '<div style="float:left; padding: 2px 8px;"><input type="radio" name="attendance['.$THIS_RET['STUDENT_ID'].']" value="'.$title.'"'.(AllowEdit()?'':' disabled').'></div>';
@@ -301,7 +310,7 @@ function _makeRadioSelected($value,$title)
 		if (isset($_REQUEST['LO_save']))
 			return _('Yes');
 		else
-			return '<div style="'.($colors1[ $value ]?'background-color:'.$colors1[ $value ].';':'').'; float:left;">&nbsp;&nbsp;<input type="radio" name="attendance['.$THIS_RET['STUDENT_ID'].']" value="'.$title.'" checked />&nbsp;&nbsp;</div>';
+		        return '<div style="'.(!empty($colors1[ $value ])?'background-color:'.$colors1[ $value ].';':'').'; float:left;">&nbsp;&nbsp;<input type="radio" name="attendance['.$THIS_RET['STUDENT_ID'].']" value="'.$title.'" checked />&nbsp;&nbsp;</div>';
 	}
 }
 
@@ -335,13 +344,14 @@ function _makeTipMessage( $full_name, $column )
 function makeCommentInput($student_id,$column)
 {	global $current_RET;
 
-	return TextInput($current_RET[ $student_id ][1]['COMMENT'],'comment['.$student_id.']','','maxlength="100" size="20"',true,true);
+        return TextInput( isset($current_RET[ $student_id ][1]['COMMENT']) ? $current_RET[ $student_id ][1]['COMMENT'] : '',
+                         'comment['.$student_id.']','','maxlength="100" size="20"',true,true);
 }
 
 function makeAttendanceReason($student_id,$column)
 {	global $current_RET,$attendance_reason;
 
-	if ($current_RET[ $student_id ][1]['ATTENDANCE_REASON'])
+        if ( ! empty($current_RET[ $student_id ][1]['ATTENDANCE_REASON']) )
 	{
 		$attendance_reason = true;
 		return $current_RET[ $student_id ][1]['ATTENDANCE_REASON'];

@@ -54,7 +54,13 @@ if ( $_REQUEST['modfunc'] === 'search' )
 	Search( 'student_id', $extra );
 }
 
-if( ! isset($extra['WHERE']) ) $extra['WHERE'] = '';
+if( ! isset($extra['WHERE']) )  $extra['WHERE']  = '';
+if( ! isset($sum['STUDENTS']) ) $sum['STUDENTS'] = 0;
+if( ! isset($sum['PRESENT']) )  $sum['PRESENT']  = 0;
+if( ! isset($sum['ABSENT']) )   $sum['ABSENT']   = 0;
+if( ! isset($sum['AVERAGE_ATTENDANCE']) ) $sum['AVERAGE_ATTENDANCE'] = 0;
+if( ! isset($sum['AVERAGE_ABSENT']) )     $sum['AVERAGE_ABSENT']     = 0;
+
 if ( ! $_REQUEST['modfunc'] )
 {
 	if ( ! isset( $extra ) )
@@ -199,7 +205,7 @@ function _make($value,$column)
 		break;
 
 		case 'PRESENT':
-			$sum['PRESENT'] += ($THIS_RET['ATTENDANCE_POSSIBLE'] - $student_days_absent[$THIS_RET['GRADE_ID']][$THIS_RET['CALENDAR_ID']][1]['STATE_VALUE']);
+		        $sum['PRESENT'] += ($THIS_RET['ATTENDANCE_POSSIBLE'] - $student_days_absent[$THIS_RET['GRADE_ID']][$THIS_RET['CALENDAR_ID']][1]['STATE_VALUE']);
 			return $THIS_RET['ATTENDANCE_POSSIBLE'] - $student_days_absent[$THIS_RET['GRADE_ID']][$THIS_RET['CALENDAR_ID']][1]['STATE_VALUE'];
 		break;
         case 'ABSENT':

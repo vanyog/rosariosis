@@ -119,9 +119,10 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	DrawHeader(ProgramTitle());
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
-		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.$_REQUEST['include_inactive'].'&_ROSARIO_PDF=true" method="POST">';
+	        echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.
+		      ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ).'&_ROSARIO_PDF=true" method="POST">';
 		$extra['header_right'] = SubmitButton(_('Create Honor Roll by Subject for Selected Students'));
 
 		//FJ add Template
@@ -223,12 +224,12 @@ if ( ! $_REQUEST['modfunc'] )
 
 	MyWidgets('honor_roll_subject');
 
-	if ( $for_news_web)
+        if ( ! empty($for_news_web) )
 		$extra['student_fields'] = array('search'=>"'".$for_news_web."'",'view'=>"'".$for_news_web."'");
 
 	Search('student_id',$extra);
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center">' . SubmitButton(_('Create Honor Roll by Subject for Selected Students')) . '</div>';
 		echo '</form>';
@@ -248,6 +249,8 @@ function MyWidgets($item)
 		case 'honor_roll_subject':
 			if ( !empty($_REQUEST['subject_id']))
 			{
+			        if( ! isset($extra['WHERE']) ) $extra['WHERE'] = '';
+
 				$extra['WHERE'] .=  " AND exists(SELECT ''
 				FROM STUDENT_REPORT_CARD_GRADES sg,COURSE_PERIODS cp, COURSES c
 				WHERE sg.STUDENT_ID=s.STUDENT_ID
@@ -271,10 +274,11 @@ function MyWidgets($item)
 				AND sg.REPORT_CARD_GRADE_ID=rg.ID
 				AND rg.GPA_VALUE<(SELECT HRS_GPA_VALUE FROM REPORT_CARD_GRADE_SCALES WHERE ID=rg.GRADE_SCALE_ID))";
 
-				if ( ! $extra['NoSearchTerms'])
+                                if ( empty($extra['NoSearchTerms']) )
 				{
 					$subject_RET = DBGet(DBQuery("SELECT TITLE FROM COURSE_SUBJECTS WHERE SUBJECT_ID='".$_REQUEST['subject_id']."' AND SCHOOL_ID='".UserSchool()."' AND SYEAR='".UserSyear()."'"));
 
+                                        if( ! isset($_ROSARIO['SearchTerms']) ) $_ROSARIO['SearchTerms'] = '';
 					$_ROSARIO['SearchTerms'] .= '<b>'._('Subject').':</b> '.$subject_RET[1]['TITLE'];
 					$_ROSARIO['SearchTerms'] .= '<input type="hidden" id="subject" name="subject" value="'.str_replace('"','&quot;',$subject_RET[1]['TITLE']).'" /><br />';
 				}
@@ -290,6 +294,7 @@ function MyWidgets($item)
 			}
 
 			$select .= '</select>';
+			if( ! isset($extra['search']) ) $extra['search'] = '';
 			$extra['search'] .= '<tr><td>'._('Subject').'</td><td>'.$select.'</td></tr>';
 		break;
 	}

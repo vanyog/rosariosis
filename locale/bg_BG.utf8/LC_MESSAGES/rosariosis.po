@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-16 23:19+0300\n"
+"PO-Revision-Date: 2017-06-17 20:50+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -2449,37 +2449,37 @@ msgstr ""
 
 #: modules/Attendance/AddAbsences.php:112
 msgid "Absence records were added for the selected students."
-msgstr ""
+msgstr "Записи за отсъствия бяха добавени за избраните студенти"
 
 #: modules/Attendance/AddAbsences.php:115
 msgid "You must choose at least one period and one student."
-msgstr ""
+msgstr "Трябва да избирете поне един период и един студент."
 
 #: modules/Attendance/AddAbsences.php:135
 #: modules/Attendance/AddAbsences.php:215
 msgid "Add Absences to Selected Students"
-msgstr ""
+msgstr "Поставяне отсъствия на избраните студенти"
 
 #: modules/Attendance/AddAbsences.php:139 modules/Attendance/Menu.php:17
 msgid "Add Absences"
-msgstr ""
+msgstr "Поставяне отсъствия"
 
 #: modules/Attendance/AddAbsences.php:141
 msgid "Add Absence to Periods"
-msgstr ""
+msgstr "Поставяне отсъствие за период"
 
 #: modules/Attendance/AddAbsences.php:160
 msgid "Absence Code"
-msgstr ""
+msgstr "Код за отсъствие"
 
 #: modules/Attendance/AddAbsences.php:166
 msgid "Absence Reason"
-msgstr ""
+msgstr "Причина за отсъствието"
 
 #: modules/Attendance/Administration.php:58
 #: modules/Attendance/TakeAttendance.php:118
 msgid "The selected date is not in a school quarter."
-msgstr ""
+msgstr "Избраната дата не е в училищната четвърт."
 
 #: modules/Attendance/Administration.php:250
 #: modules/Attendance/Administration_fast.old.php:81
@@ -2508,23 +2508,23 @@ msgstr "Период"
 #: modules/Attendance/Administration_fast.old.php:81
 #: modules/Attendance/AttendanceCodes.php:75
 msgid "Attendance Code"
-msgstr ""
+msgstr "Код присъствие"
 
 #: modules/Attendance/Administration.php:250
 #: modules/Attendance/Administration_fast.old.php:81
 msgid "Teacher's Entry"
-msgstr ""
+msgstr "Въвеждане от преподавател"
 
 #: modules/Attendance/Administration.php:250
 #: modules/Attendance/StudentSummary.php:186
 #: modules/Attendance/TakeAttendance.php:232
 msgid "Office Comment"
-msgstr ""
+msgstr "Офис коментар"
 
 #: modules/Attendance/Administration.php:250
 #: modules/Attendance/TakeAttendance.php:221
 msgid "Teacher Comment"
-msgstr ""
+msgstr "Преподавателски коментар"
 
 #: modules/Attendance/Administration.php:254
 #: modules/Attendance/Administration.php:363
@@ -2540,7 +2540,7 @@ msgstr "Променяне"
 #: modules/Attendance/DailySummary.php:293 modules/Attendance/Percent.php:108
 #: modules/Attendance/Percent.php:141 modules/Attendance/StudentSummary.php:185
 msgid "Present"
-msgstr ""
+msgstr "Присъствие"
 
 #: modules/Attendance/Administration.php:336
 msgid "Day Comment"
@@ -2553,7 +2553,7 @@ msgstr ""
 
 #: modules/Attendance/Administration.php:441
 msgid "Not Present"
-msgstr ""
+msgstr "Не присъстващ"
 
 #: modules/Attendance/Administration.php:459
 #: modules/Attendance/StudentSummary.php:198
@@ -2652,26 +2652,26 @@ msgstr "Тип"
 
 #: modules/Attendance/AttendanceCodes.php:122
 msgid "Default for Teacher"
-msgstr ""
+msgstr "Подразбиране за преподавател"
 
 #: modules/Attendance/AttendanceCodes.php:126
 msgid "State Code"
-msgstr ""
+msgstr "Код състояние"
 
 #: modules/Attendance/AttendanceCodes.php:213
 msgid "Teacher & Office"
-msgstr ""
+msgstr "Преподавател и офис"
 
 #: modules/Attendance/AttendanceCodes.php:214
 msgid "Office Only"
-msgstr ""
+msgstr "Само офис"
 
 #: modules/Attendance/AttendanceCodes.php:221
 #: modules/Attendance/DailySummary.php:255
 #: modules/Attendance/DailySummary.php:293 modules/Attendance/Percent.php:108
 #: modules/Attendance/Percent.php:141
 msgid "Absent"
-msgstr ""
+msgstr "Отсъстващ"
 
 #: modules/Attendance/DailySummary.php:66
 #: modules/Attendance/StudentSummary.php:63
@@ -2846,7 +2846,7 @@ msgstr "Учителски програми"
 #: modules/Attendance/Menu.php:30 modules/Attendance/Menu.php:36
 #: modules/Attendance/Menu.php:50
 msgid "Take Attendance"
-msgstr ""
+msgstr "Регистриране присъствие"
 
 #: modules/Attendance/Menu.php:44 modules/Custom/AttendanceSummary.php:146
 #: modules/Grades/includes/ReportCards.fnc.php:355
@@ -2922,24 +2922,24 @@ msgstr ""
 
 #: modules/Attendance/TakeAttendance.php:108
 msgid "You cannot take attendance for this period on this day."
-msgstr ""
+msgstr "Не можете да въвеждате присъствие за този период на този ден"
 
 #: modules/Attendance/TakeAttendance.php:234
 #: modules/Food_Service/TakeMenuCounts.php:137
 msgid "The selected date is not today"
-msgstr ""
+msgstr "Избраният ден не е днес"
 
 #: modules/Attendance/TakeAttendance.php:235
 msgid "You can edit this attendance"
-msgstr ""
+msgstr "Можете да редактирате това присъствие"
 
 #: modules/Attendance/TakeAttendance.php:235
 msgid "You cannot edit this attendance"
-msgstr ""
+msgstr "Не можете да редактирате това присъствие"
 
 #: modules/Attendance/TakeAttendance.php:240
 msgid "You already have taken attendance today for this period."
-msgstr ""
+msgstr "Вие вече въведохте присъствие за този ден."
 
 #: modules/Attendance/TeacherCompletion.php:95
 #: modules/Attendance/TeacherCompletion.php:128
@@ -2953,8 +2953,8 @@ msgstr "Название на курса"
 #: modules/Attendance/TeacherCompletion.php:111
 msgid "Teacher who takes attendance"
 msgid_plural "Teachers who take attendance"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Преподавател, който въвежда присъствие"
+msgstr[1] "Преподаватели, които въвеждат присъствие"
 
 #: modules/Attendance/TeacherCompletion.php:142
 #: modules/Grades/TeacherCompletion.php:110
@@ -4408,8 +4408,8 @@ msgstr ""
 #: modules/Grades/includes/StudentAssignments.fnc.php:283
 msgid "Assignment Type"
 msgid_plural "Assignment Types"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Тип задание"
+msgstr[1] "Типове задания"
 
 #: modules/Grades/Assignments-new.php:219 modules/Grades/Assignments.php:500
 #: modules/Grades/Assignments.php:703 modules/Grades/Grades.php:193
@@ -4418,17 +4418,17 @@ msgstr[1] ""
 #: modules/Grades/ProgressReports.php:32
 #: modules/Grades/includes/StudentAssignments.fnc.php:287
 msgid "Points"
-msgstr ""
+msgstr "Точки"
 
 #: modules/Grades/Assignments-new.php:220 modules/Grades/Assignments.php:516
 #: modules/Grades/MassCreateAssignments.php:310
 msgid "Default Points"
-msgstr ""
+msgstr "Точки по подразбиране"
 
 #: modules/Grades/Assignments-new.php:221 modules/Grades/Assignments.php:518
 #: modules/Grades/MassCreateAssignments.php:312
 msgid "Enter an asterisk (*) to excuse student"
-msgstr ""
+msgstr "Въведете звезда (*) за да извините студента"
 
 #: modules/Grades/Assignments-new.php:222 modules/Grades/Configuration.php:52
 #: modules/Grades/Grades.php:467 modules/Grades/ProgressReports.php:26
@@ -4438,7 +4438,7 @@ msgstr ""
 #: modules/School_Setup/Calendar.php:669 modules/misc/Portal.php:335
 #: plugins/Moodle/Grades/Assignments.php:36
 msgid "Assigned Date"
-msgstr ""
+msgstr "Дата на задаване"
 
 #: modules/Grades/Assignments-new.php:223 modules/Grades/Configuration.php:52
 #: modules/Grades/Grades.php:467 modules/Grades/ProgressReports.php:29
@@ -4448,7 +4448,7 @@ msgstr ""
 #: modules/Student_Billing/MassAssignFees.php:64 modules/misc/Portal.php:334
 #: modules/misc/Portal.php:517 modules/misc/Portal.php:653
 msgid "Due Date"
-msgstr ""
+msgstr "Срок за предаване"
 
 # 'user_profiles' table
 #: modules/Grades/Assignments-new.php:256 modules/Grades/Grades.php:201
@@ -4457,13 +4457,13 @@ msgstr ""
 #: modules/Grades/ProgressReports.php:35 modules/Grades/StudentGrades.php:52
 #: modules/Grades/StudentGrades.php:289
 msgid "Percent"
-msgstr ""
+msgstr "Процент"
 
 #: modules/Grades/Assignments-new.php:260 modules/Grades/Assignments.php:614
 #: modules/Grades/MassCreateAssignments.php:391
 #: modules/Grades/ReportCardComments.php:218
 msgid "Color"
-msgstr ""
+msgstr "Звят"
 
 #: modules/Grades/Assignments-new.php:331 modules/Grades/Assignments.php:554
 #: modules/Grades/MassCreateAssignments.php:148
@@ -4509,7 +4509,7 @@ msgstr ""
 #: modules/Grades/Assignments.php:455
 #: modules/Grades/MassCreateAssignments.php:362
 msgid "New Assignment Type"
-msgstr ""
+msgstr "Нов тип задание"
 
 #: modules/Grades/Assignments.php:502
 #: modules/Grades/MassCreateAssignments.php:302
@@ -4838,7 +4838,7 @@ msgstr ""
 
 #: modules/Grades/Grades.php:195 modules/Grades/Grades.php:332
 msgid "Submission"
-msgstr ""
+msgstr "Предаване"
 
 #: modules/Grades/Grades.php:206 modules/Grades/Grades.php:374
 #: modules/Grades/InputFinalGrades.php:1004
@@ -4846,7 +4846,7 @@ msgstr ""
 #: modules/Grades/ProgressReports.php:39 modules/Grades/StudentGrades.php:57
 #: modules/Grades/StudentGrades.php:296
 msgid "Letter"
-msgstr ""
+msgstr "Буква"
 
 #: modules/Grades/Grades.php:457
 msgid "Include Inactive Assignments"
@@ -4896,7 +4896,7 @@ msgstr ""
 #: modules/Grades/Transcripts.php:495 modules/Students/Letters.php:124
 #: modules/misc/Export.php:129 modules/misc/Export.php:433
 msgid "Last, First M"
-msgstr ""
+msgstr "Фамилия, Лично П"
 
 #: modules/Grades/HonorRoll.php:239 modules/Grades/HonorRollSubject.php:161
 msgid "Frame"
@@ -5026,15 +5026,15 @@ msgstr "Заданието беше създадено успешно."
 
 #: modules/Grades/MassCreateAssignments.php:225
 msgid "The Assignment Types were successfully created."
-msgstr ""
+msgstr "Тимът задание беше създаден успешно."
 
 #: modules/Grades/MassCreateAssignments.php:272
 msgid "Create Assignment for Selected Course Periods"
-msgstr ""
+msgstr "Създаване на задание за избрания период от курс"
 
 #: modules/Grades/MassCreateAssignments.php:359
 msgid "Create Assignment Type for Selected Courses"
-msgstr ""
+msgstr "Създаване на тип задание за избраните курсове"
 
 #: modules/Grades/Menu.php:16 modules/Grades/Menu.php:46
 #: modules/Grades/Menu.php:72
@@ -5209,11 +5209,11 @@ msgstr ""
 
 #: modules/Grades/StudentAssignments.php:27
 msgid "Assignment submitted."
-msgstr ""
+msgstr "Заданието е предадено."
 
 #: modules/Grades/StudentAssignments.php:37
 msgid "Back to Assignments"
-msgstr ""
+msgstr "Обратно къз задания"
 
 #: modules/Grades/StudentGrades.php:38
 msgid "Expand All"
@@ -5430,13 +5430,13 @@ msgstr ""
 #: modules/Grades/includes/StudentAssignments.fnc.php:362
 #: modules/Grades/includes/StudentAssignments.fnc.php:605
 msgid "Submission date"
-msgstr ""
+msgstr "Дата на предаване"
 
 #: modules/Grades/includes/StudentAssignments.fnc.php:341
 #: modules/Grades/includes/StudentAssignments.fnc.php:366
 #: modules/Grades/includes/StudentAssignments.fnc.php:607
 msgid "Message"
-msgstr ""
+msgstr "Съобщение"
 
 #: modules/Grades/includes/StudentAssignments.fnc.php:344
 msgid "Submissions for this assignment are closed."
@@ -5445,12 +5445,12 @@ msgstr ""
 #: modules/Grades/includes/StudentAssignments.fnc.php:368
 #: modules/School_Setup/Calendar.php:680
 msgid "Submit Assignment"
-msgstr ""
+msgstr "Предаване задание"
 
 #: modules/Grades/includes/StudentAssignments.fnc.php:523
 #: modules/misc/Portal.php:522 modules/misc/Portal.php:658
 msgid "Submitted"
-msgstr ""
+msgstr "Предадено"
 
 #: modules/Resources/Menu.php:14 modules/Resources/Menu.php:16
 #: modules/Resources/Menu.php:20 modules/Resources/Menu.php:22
@@ -5465,7 +5465,7 @@ msgstr[1] "Ресурси"
 
 #: modules/Resources/Resources.php:69 modules/Resources/Resources.php:127
 msgid "Link"
-msgstr ""
+msgstr "Връзка"
 
 #: modules/Scheduling/AddDrop.php:60 modules/Scheduling/Schedule.php:224
 #: modules/Students/AddDrop.php:56
@@ -5476,8 +5476,8 @@ msgstr "Отстранен"
 #: modules/Scheduling/AddDrop.php:61
 msgid "Schedule Record"
 msgid_plural "Schedule Records"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Запис от разписание"
+msgstr[1] "Записи от разписание"
 
 #: modules/Scheduling/Courses.php:86 modules/Scheduling/Courses.php:1258
 msgid "MP"
@@ -5514,7 +5514,7 @@ msgstr "Места"
 
 #: modules/Scheduling/Courses.php:795
 msgid "Meeting Days"
-msgstr ""
+msgstr "Присъствени дни"
 
 #: modules/Scheduling/Courses.php:822
 msgid "New Period"
@@ -5777,7 +5777,7 @@ msgstr "Списък на клас"
 #: modules/Scheduling/PrintClassLists.php:93
 #: modules/Scheduling/PrintClassPictures.php:153
 msgid "You must choose at least one course period."
-msgstr "Трябва да изберете поне един курсов период"
+msgstr "Трябва да изберете поне един курсов период."
 
 #: modules/Scheduling/PrintClassLists.php:106
 #: modules/Scheduling/PrintClassLists.php:244
@@ -5829,7 +5829,7 @@ msgstr ""
 
 #: modules/Scheduling/PrintSchedules.php:33 modules/Scheduling/Schedule.php:224
 msgid "Term"
-msgstr ""
+msgstr "Срок"
 
 #: modules/Scheduling/PrintSchedules.php:85 modules/School_Setup/Menu.php:20
 #: modules/School_Setup/Menu.php:41 modules/Users/includes/Schedule.inc.php:101
@@ -6596,7 +6596,7 @@ msgstr "Брой дни в смяна"
 #: modules/School_Setup/Schools.php:309
 msgid ""
 "Leave the field blank if the school does not use a Rotation of Numbered Days"
-msgstr "Оставете полето празно ако училището не работи на смени."
+msgstr "Оставете полето празно ако училището не работи на смени"
 
 #: modules/School_Setup/includes/Modules.inc.php:43
 #: modules/School_Setup/includes/Modules.inc.php:76
@@ -7666,8 +7666,8 @@ msgstr "Дата публикуване"
 #: modules/misc/Portal.php:477 modules/misc/Portal.php:613
 msgid "Day With Upcoming Events"
 msgid_plural "Days With Upcoming Events"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ден с предстоящи събития"
+msgstr[1] "Дни с предстоящи събития"
 
 #: modules/misc/Portal.php:215
 msgid "Teachers have missing attendance data"

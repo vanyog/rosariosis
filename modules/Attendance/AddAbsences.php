@@ -18,10 +18,11 @@ else
 
 if ( $_REQUEST['modfunc'] === 'save' )
 {
-	if ( count( $_REQUEST['period'] )
+        if ( isset($_REQUEST['period']) && count( $_REQUEST['period'] )
 		&& count( $_REQUEST['student'] )
-		&& count( $_REQUEST['dates'] ) )
+		&& isset($_REQUEST['dates']) && count( $_REQUEST['dates'] ) )
 	{
+	        if( ! isset($periods_list) ) $periods_list = '';
 		foreach ( (array) $_REQUEST['period'] as $period_id => $yes )
 		{
 			if ( $yes )
@@ -32,6 +33,7 @@ if ( $_REQUEST['modfunc'] === 'save' )
 
 		$periods_list = '(' . mb_substr( $periods_list, 1 ) . ')';
 
+                if( ! isset($students_list) ) $students_list = '';
 		foreach ( (array) $_REQUEST['student'] as $student_id => $yes )
 		{
 			if ( $yes )
@@ -186,7 +188,7 @@ if ( ! $_REQUEST['modfunc'] )
 		{
 			$this_date = $_REQUEST['year'].'-'.$_REQUEST['month'].'-'.($i<10?'0'.$i:$i);
 			if ( empty($calendar_RET[ $this_date ]) )
-				$disabled = ' DISABLED';
+			        $disabled = ' DISABLED';
 			elseif (date('Y-m-d')==$this_date)
 				$disabled = ' checked';
 			else

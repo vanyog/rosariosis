@@ -187,7 +187,7 @@ else
 		$extra['group'] = $extra['LO_group'] = array('FAMILY_ID');
 	}
 
-        $students_RET = GetStuList($extra);//die(print_r($extra,true));
+        $students_RET = GetStuList($extra);
 
         if ( ! empty($extra['array_function']) && function_exists($extra['array_function']))
 		if ( $_REQUEST['address_group'])

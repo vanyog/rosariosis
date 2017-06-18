@@ -74,7 +74,7 @@ if ( ! empty($_REQUEST['search_modfunc']) || ! empty($_REQUEST['student_id']) ||
 {
 	$PHP_tmp_SELF = PreparePHP_SELF();
 	$period_select = '<select name="period_id" onchange="ajaxPostForm(this.form,true);"><option value=""'.(empty($_REQUEST['period_id'])?' selected':'').'>'._('Daily').'</option>';
-	if ( !UserStudentID() && ! $_REQUEST['student_id'])
+	if ( !UserStudentID() && empty($_REQUEST['student_id']) )
 	{
 		if (User('PROFILE')=='admin')
 		{
@@ -87,7 +87,9 @@ if ( ! empty($_REQUEST['search_modfunc']) || ! empty($_REQUEST['student_id']) ||
 			AND (SELECT count(1) FROM COURSE_PERIODS cp, COURSE_PERIOD_SCHOOL_PERIODS cpsp WHERE cp.COURSE_PERIOD_ID=cpsp.COURSE_PERIOD_ID AND position(',0,' IN cp.DOES_ATTENDANCE)>0 AND cpsp.PERIOD_ID=sp.PERIOD_ID AND cp.SYEAR=sp.SYEAR AND cp.SCHOOL_ID=sp.SCHOOL_ID)>0
 			ORDER BY sp.SORT_ORDER"));
 			foreach ( (array) $periods_RET as $period)
-				$period_select .= '<option value="'.$period['PERIOD_ID'].'"'.(($_REQUEST['period_id']==$period['PERIOD_ID'])?' selected':'').'>'.$period['TITLE'].'</option>';
+			        $period_select .= '<option value="'.$period['PERIOD_ID'].'"'.
+				                  ( isset($_REQUEST['period_id']) && $_REQUEST['period_id']==$period['PERIOD_ID'] ? ' selected' : '' ).
+						  '>'.$period['TITLE'].'</option>';
 		}
 		else
 		{
@@ -181,7 +183,13 @@ if ( ! empty($_REQUEST['student_id']) || User('PROFILE')=='parent')
 				$col_period = true;
 			}
 			foreach ( (array) $cal_RET as $value)
-				$student_RET[ $i ][$value['SHORT_DATE']] = _makePeriodColor($attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['SHORT_NAME'],$attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['STATE_CODE'],$attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['DEFAULT_CODE']);
+			        $student_RET[ $i ][$value['SHORT_DATE']] = _makePeriodColor(
+				    isset($attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['SHORT_NAME']) ?
+				        $attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['SHORT_NAME'] : '',
+				    isset($attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['STATE_CODE']) ?
+				        $attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['STATE_CODE'] : '',
+				    isset($attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['DEFAULT_CODE']) ?
+				        $attendance_RET[$value['SCHOOL_DATE']][$course['PERIOD_ID']][1]['DEFAULT_CODE'] : '' );
 		}
 	}
 
@@ -233,6 +241,7 @@ else
 	{
 		$school_date_col = '_' . str_replace( '-', '', $value['SCHOOL_DATE'] );
 
+                if( ! isset($extra['SELECT']) ) $extra['SELECT'] = '';
 		$extra['SELECT'] .= ",'' as " . $school_date_col;
 
 		$proper_date = ProperDate( $value['SCHOOL_DATE'], 'short' );
@@ -274,7 +283,7 @@ function _makeColor($value,$column)
 	if ( ! $att_RET[$THIS_RET['STUDENT_ID']])
 		$att_RET[$THIS_RET['STUDENT_ID']] = DBGet(DBQuery($att_sql.$THIS_RET['STUDENT_ID']),array(),array('SHORT_DATE'));
 
-	if ( $_REQUEST['period_id'])
+        if ( ! empty($_REQUEST['period_id']) )
 	{
 		if ( ! $attendance_codes)
 			$attendance_codes = DBGet(DBQuery("SELECT ID,DEFAULT_CODE,STATE_CODE,SHORT_NAME FROM ATTENDANCE_CODES WHERE SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' AND TABLE_NAME='0'"),array(),array('ID'));
@@ -294,7 +303,8 @@ function _makeColor($value,$column)
 	}
 	else
 	{
-		$ac = $att_RET[$THIS_RET['STUDENT_ID']][ $column ][1]['STATE_VALUE'];
+	        $ac = isset($att_RET[$THIS_RET['STUDENT_ID']][ $column ][1]['STATE_VALUE']) ?
+		      $att_RET[$THIS_RET['STUDENT_ID']][ $column ][1]['STATE_VALUE'] : '';
 		if ( $ac=='0.0')
 			return '<div style="float:left; background-color:#FF0000; padding:0 8px;" title="'.$attendance_codes_locale['A'].'">'.mb_substr($attendance_codes_locale['A'],0,3).'</div>';
 		elseif ( $ac > 0 && $ac < 1)
@@ -318,8 +328,8 @@ function _makePeriodColor($name,$state_code,$default_code)
 	elseif ( $state_code=='T')
 		$color = '#6666FF';
 
-	if ( $color) // && $state_code!='1.0')
-		return '<div style="float:left; background-color:'.$color.'; padding:0 8px;" title="'.$attendance_codes_locale[ $name ].'">'.(empty($attendance_codes_locale[ $name ])?$name:mb_substr($attendance_codes_locale[ $name ],0,3)).'</div>';
+        if ( ! empty($color) ) // && $state_code!='1.0')
+                return '<div style="float:left; background-color:'.$color.'; padding:0 8px;" title="'.$attendance_codes_locale[ $name ].'">'.(empty($attendance_codes_locale[ $name ])?$name:mb_substr($attendance_codes_locale[ $name ],0,3)).'</div>';
 	else
 		return false;
 }
