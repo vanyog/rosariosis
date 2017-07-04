@@ -59,6 +59,7 @@ function _makePercentGrade( $grade_id_or_title, $course_period_id = 0, $staff_id
 	}
 	//$grades = array('A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F');
 
+        $crnt = '';
 	foreach ( (array) $_ROSARIO['_makeLetterGrade']['grades'][ $grade_scale_id ] as $grade )
 	{
 		$prev = $crnt;

@@ -81,7 +81,7 @@ $categories_RET = DBGet( DBQuery( "SELECT rc.ID,rc.TITLE,rc.COLOR,1,rc.SORT_ORDE
 		AND SYEAR='" . UserSyear() . "')>0
 	ORDER BY 4,SORT_ORDER" ), array(), array( 'ID' ) );
 
-if ( $_REQUEST['tab_id']=='' || ! $categories_RET[$_REQUEST['tab_id']])
+if ( empty($_REQUEST['tab_id']) || ! $categories_RET[$_REQUEST['tab_id']])
 	$_REQUEST['tab_id'] = key($categories_RET).'';
 
 $comment_codes_RET = DBGet( DBQuery( "SELECT SCALE_ID,TITLE,SHORT_NAME,COMMENT
@@ -409,7 +409,7 @@ if ( $_REQUEST['modfunc'] === 'clearall' )
 	RedirectURL( 'modfunc' );
 }
 
-if ( $_REQUEST['values']
+if ( ! empty($_REQUEST['values'])
 	&& $_POST['values'] )
 {
 	require_once 'ProgramFunctions/_makeLetterGrade.fnc.php';
@@ -426,9 +426,9 @@ if ( $_REQUEST['values']
 	foreach ( (array) $_REQUEST['values'] as $student_id => $columns)
 	{
 		$sql = $sep = '';
-		if ( $current_RET[ $student_id ])
+		if ( ! empty($current_RET[ $student_id ]) )
 		{
-			if ( $columns['percent']!='')
+		        if ( ! empty($columns['percent']) )
 			{
 				//FJ bugfix SQL error invalid input syntax for type numeric
 				$percent = trim($columns['percent'],'%');
@@ -470,7 +470,7 @@ if ( $_REQUEST['values']
 				$sql .= ",CREDIT_EARNED='" . ( (float) $weighted && $weighted >= $gp_passing ? $course_RET[1]['CREDITS'] : '0' ) . "'";
 				$sep = ',';
 			}
-			elseif ( $columns['grade'])
+			elseif ( ! empty($columns['grade']) )
 			{
 				$percent = _makePercentGrade($columns['grade'],$course_period_id);
 				$grade = $columns['grade'];
@@ -680,9 +680,9 @@ if ( $_REQUEST['values']
 		if (isset($columns['commentsB']) && is_array($columns['commentsB']))
 			foreach ( (array) $columns['commentsB'] as $i => $comment)
 				if ( $comment)
-					if ( $old[ $comment ])
+				        if ( ! empty($old[ $comment ]) )
 					{
-						if ( $change[$old[ $comment ]])
+					        if ( ! empty($change[$old[ $comment ]]) )
 							$change[$old[ $comment ]]['REPORT_CARD_COMMENT_ID'] = $comment;
 						$columns['commentsB'][ $i ] = false;
 					}
@@ -692,7 +692,7 @@ if ( $_REQUEST['values']
 		if (isset($columns['commentsB']) && is_array($columns['commentsB']))
 			foreach ( (array) $columns['commentsB'] as $i => $comment)
 				if ( $comment)
-					if ( ! $new[ $comment ])
+				        if ( empty($new[ $comment ]) )
 					{
 						if ( ! $change[ $i ]['REPORT_CARD_COMMENT_ID'])
 						{
@@ -710,7 +710,7 @@ if ( $_REQUEST['values']
 			foreach ( (array) $columns['commentsB'] as $i => $comment)
 				if ( $comment)
 				{
-					if ( ! $new[ $comment ])
+				        if ( empty($new[ $comment ]) )
 					{
 						while ( $change[key($change)]['REPORT_CARD_COMMENT_ID'])
 							next($change);
@@ -722,7 +722,7 @@ if ( $_REQUEST['values']
 
 		// update the db
 		foreach ( (array) $change as $i => $comment)
-			if ( $current_commentsB_RET[ $student_id ][ $i ])
+		        if ( ! empty($current_commentsB_RET[ $student_id ][ $i ]) )
 				if ( $comment['REPORT_CARD_COMMENT_ID'])
 				{
 					if ( $comment['REPORT_CARD_COMMENT_ID']!=$current_commentsB_RET[ $student_id ][ $i ]['REPORT_CARD_COMMENT_ID'])
@@ -797,8 +797,9 @@ if ( $_REQUEST['values']
 }
 
 $mps_onchange_URL = "'Modules.php?modname=" . $_REQUEST['modname'] .
-	'&include_inactive=' . $_REQUEST['include_inactive'] . "&mp='";
+        '&include_inactive=' . ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ) . "&mp='";
 
+if( ! isset($mps_select) ) $mps_select = '';
 $mps_select .= '<select name="mp" onchange="ajaxLink(' . $mps_onchange_URL . ' + this.options[selectedIndex].value);">';
 
 if ( $pros!='')
@@ -983,9 +984,12 @@ if ( !isset($_REQUEST['_ROSARIO_PDF']))
 
 	if (AllowEdit())
 	{
-		$gb_header .= '<a href="Modules.php?modname='.$_REQUEST['modname'].'&include_inactive='.$_REQUEST['include_inactive'].'&modfunc=gradebook&mp='.$_REQUEST['mp'].'">'._('Get Gradebook Grades.').'</a>';
+	        if( ! isset($gb_header) ) $gb_header = '';
+		$gb_header .= '<a href="Modules.php?modname='.$_REQUEST['modname'].'&include_inactive='.
+		              ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ).'&modfunc=gradebook&mp='.
+			      $_REQUEST['mp'].'">'._('Get Gradebook Grades.').'</a>';
 		$prev_mp = DBGet(DBQuery("SELECT MARKING_PERIOD_ID,TITLE,START_DATE FROM SCHOOL_MARKING_PERIODS WHERE MP='".GetMP($_REQUEST['mp'],'MP')."' AND SCHOOL_ID='".UserSchool()."' AND SYEAR='".UserSyear()."' AND START_DATE<'".GetMP($_REQUEST['mp'],'START_DATE')."' ORDER BY START_DATE DESC LIMIT 1"));
-		$prev_mp = $prev_mp[1];
+		if( count($prev_mp) ) $prev_mp = $prev_mp[1];
 
 		//FJ remove Get previous MP Grades & Comments if course period's marking period is a quarter
 		$mp_is_quarter = DBGet(DBQuery("SELECT '' FROM COURSE_PERIODS WHERE MP='QTR' AND COURSE_PERIOD_ID='".$course_period_id."'"));
@@ -997,7 +1001,9 @@ if ( !isset($_REQUEST['_ROSARIO_PDF']))
 		}
 
 		$gb_header .= ' | ';
-		$gb_header .= '<a href="Modules.php?modname='.$_REQUEST['modname'].'&include_inactive='.$_REQUEST['include_inactive'].'&modfunc=clearall&tab_id='.$_REQUEST['tab_id'].'&mp='.$_REQUEST['mp'].'">'._('Clear All').'</a>';
+		$gb_header .= '<a href="Modules.php?modname='.$_REQUEST['modname'].'&include_inactive='.
+		              ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ).'&modfunc=clearall&tab_id='.
+			      $_REQUEST['tab_id'].'&mp='.$_REQUEST['mp'].'">'._('Clear All').'</a>';
 	}
 
 	DrawHeader($gb_header);
@@ -1011,7 +1017,7 @@ else
 
 $LO_columns = array('FULL_NAME' => _('Student'),'STUDENT_ID'=>sprintf(_('%s ID'),Config('NAME')));
 
-if ( $_REQUEST['include_inactive']=='Y')
+if ( isset($_REQUEST['include_inactive']) && ($_REQUEST['include_inactive']=='Y') )
 	$LO_columns += array('ACTIVE' => _('School Status'),'ACTIVE_SCHEDULE' => _('Course Status'));
 
 $LO_columns += array(
@@ -1100,8 +1106,8 @@ function _makeLetterPercent($student_id,$column)
 	}
 	else
 	{
-		$select_percent = $current_RET[ $student_id ][1]['GRADE_PERCENT'];
-		$select_grade = $current_RET[ $student_id ][1]['REPORT_CARD_GRADE_ID'];
+	        $select_percent = isset($current_RET[ $student_id ][1]['GRADE_PERCENT']) ? $current_RET[ $student_id ][1]['GRADE_PERCENT'] : '';
+		$select_grade   = isset($current_RET[ $student_id ][1]['REPORT_CARD_GRADE_ID']) ? $current_RET[ $student_id ][1]['REPORT_CARD_GRADE_ID'] : '';
 		$div = true;
 	}
 
@@ -1181,7 +1187,7 @@ function _makeComment($value,$column)
 	}
 	else
 	{
-		$select = $current_RET[$THIS_RET['STUDENT_ID']][1]['COMMENT'];
+	        $select = isset($current_RET[$THIS_RET['STUDENT_ID']][1]['COMMENT']) ? $current_RET[$THIS_RET['STUDENT_ID']][1]['COMMENT'] : '';
 		$div = true;
 	}
 

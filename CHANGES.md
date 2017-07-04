@@ -7,6 +7,13 @@ Changes in 3.4
 - New translations (37% completed) in locale/
 - Add new translations flag icons in assets/flags/
 - Update README.md & add translations REFERENCE.md in locale/
+- International proof no_accents function in FileUpload.fnc.php
+- Fix SQL error field type numeric(5,0) in Registration.php
+- Fix PHP error typo SchoolInfo() in HonorRoll.php
+- Rollback TinyMCE image upload handler in Inputs.php
+- CSS style sub & sup HTML elements in stylesheet.css
+- Add pdf_start action hook to PDF.php & Actions.php
+- Add header & footer HTML options to PDF.php & Wkhtmltopdf.php
 
 Changes in 3.3.4
 ----------------

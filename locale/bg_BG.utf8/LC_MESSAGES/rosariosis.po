@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-17 20:50+0300\n"
+"PO-Revision-Date: 2017-06-19 10:44+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -1906,7 +1906,7 @@ msgstr "Със"
 
 #: functions/Widgets.fnc.php:728 modules/Grades/ReportCardGrades.php:83
 msgid "Report Card Grade"
-msgstr ""
+msgstr "Оценки от отчетен картон"
 
 #: functions/Widgets.fnc.php:765
 msgid "Did not receive"
@@ -2375,7 +2375,7 @@ msgstr ""
 
 #: modules/Accounting/Expenses.php:167 modules/Accounting/Incomes.php:164
 msgid "General Balance"
-msgstr ""
+msgstr "Основен баланс"
 
 #: modules/Accounting/Incomes.php:105 modules/Accounting/Salaries.php:105
 #: modules/Grades/Assignments.php:541
@@ -3536,7 +3536,7 @@ msgstr ""
 
 #: modules/Eligibility/EnterEligibility.php:148
 msgid "Use Gradebook Grades"
-msgstr ""
+msgstr "Използване оценките от дневника"
 
 #: modules/Eligibility/EntryTimes.php:78
 msgid "Allow Eligibility Posting"
@@ -4776,44 +4776,44 @@ msgstr ""
 #: modules/Grades/FinalGrades.php:274
 #: modules/Grades/includes/ReportCards.fnc.php:736
 msgid "General Comments"
-msgstr ""
+msgstr "Основни коментари"
 
 #: modules/Grades/FinalGrades.php:277 modules/Grades/FinalGrades.php:278
 #: modules/Grades/FinalGrades.php:328 modules/Grades/InputFinalGrades.php:905
 #: modules/Grades/InputFinalGrades.php:948 modules/Grades/Menu.php:31
 #: modules/Grades/Menu.php:63
 msgid "Comment Codes"
-msgstr ""
+msgstr "Кодове на коментари"
 
 #: modules/Grades/FinalGrades.php:333
 #: modules/Grades/includes/ReportCards.fnc.php:684
 msgid "Comment Scales"
-msgstr ""
+msgstr "Скали за коментари"
 
 #: modules/Grades/FinalGrades.php:366
 #: modules/Grades/ReportCardCommentCodes.php:138
 #: modules/Grades/ReportCardCommentCodes.php:155
 #: modules/Grades/includes/ReportCards.fnc.php:782
 msgid "Comment Scale"
-msgstr ""
+msgstr "Скала за коментари"
 
 #: modules/Grades/FinalGrades.php:381
 #: modules/Grades/includes/ReportCards.fnc.php:738
 msgid "Course-specific Comments"
-msgstr ""
+msgstr "Курс-специфични коментари"
 
 #: modules/Grades/FinalGrades.php:397 modules/Grades/ReportCards.php:31
 #: modules/Grades/Transcripts.php:363
 msgid "You must choose at least one student and one marking period."
-msgstr ""
+msgstr "Трябва да изберете поне един студент и период за оценяване."
 
 #: modules/Grades/FinalGrades.php:415 modules/Grades/FinalGrades.php:514
 msgid "Create Grade Lists for Selected Students"
-msgstr ""
+msgstr "Създаване списъци с оценки за избраните студенти"
 
 #: modules/Grades/FinalGrades.php:417
 msgid "Include on Grade List"
-msgstr ""
+msgstr "Вклучително в списъка с оценки"
 
 #: modules/Grades/GradeBreakdown.php:157 modules/Grades/Menu.php:24
 #: modules/Grades/Menu.php:54
@@ -4958,12 +4958,12 @@ msgstr "Всички курсове"
 #: modules/Grades/InputFinalGrades.php:70
 #: modules/Grades/ReportCardComments.php:188
 msgid "General"
-msgstr ""
+msgstr "Основни"
 
 #: modules/Grades/InputFinalGrades.php:904 modules/Grades/Menu.php:30
 #: modules/Grades/Menu.php:62
 msgid "Report Card Comments"
-msgstr ""
+msgstr "Коментари от отчетен картон"
 
 #: modules/Grades/InputFinalGrades.php:965
 #, php-format
@@ -4972,33 +4972,33 @@ msgstr "Дни за оценяване: %s - %s"
 
 #: modules/Grades/InputFinalGrades.php:968
 msgid "These grades are complete."
-msgstr ""
+msgstr "Тези оценки са попълнени."
 
 #: modules/Grades/InputFinalGrades.php:968
 msgid "These grades are NOT complete."
-msgstr ""
+msgstr "Тези оценки НЕ СА оформени."
 
 #: modules/Grades/InputFinalGrades.php:968
 msgid "You can edit these grades."
-msgstr ""
+msgstr "Можете да редактирате тези оценки."
 
 #: modules/Grades/InputFinalGrades.php:968
 msgid "You can not edit these grades."
-msgstr ""
+msgstr "Можете да редактирате тези оценки."
 
 #: modules/Grades/InputFinalGrades.php:972
 msgid "Get Gradebook Grades."
-msgstr ""
+msgstr "Вземане оценките от дневника."
 
 #: modules/Grades/InputFinalGrades.php:981
 #, php-format
 msgid "Get %s Grades"
-msgstr ""
+msgstr "Вземане %s оценки"
 
 #: modules/Grades/InputFinalGrades.php:982
 #, php-format
 msgid "Get %s Comments"
-msgstr ""
+msgstr "Вземане %s коментари"
 
 #: modules/Grades/InputFinalGrades.php:986
 msgid "Clear All"
@@ -5039,7 +5039,7 @@ msgstr "Създаване на тип задание за избраните к
 #: modules/Grades/Menu.php:16 modules/Grades/Menu.php:46
 #: modules/Grades/Menu.php:72
 msgid "Report Cards"
-msgstr ""
+msgstr "Отчетни картони"
 
 #: modules/Grades/Menu.php:18
 msgid "Honor Roll by Subject"
@@ -5089,12 +5089,12 @@ msgstr "Въвеждане окончателни оценки"
 #: modules/Grades/Menu.php:38 modules/Grades/Menu.php:69
 #: modules/Grades/Menu.php:81
 msgid "Gradebook Grades"
-msgstr ""
+msgstr "Оценки от дневника"
 
 #: modules/Grades/Menu.php:39 modules/Grades/Menu.php:51
 #: modules/Grades/Menu.php:82
 msgid "Anomalous Grades"
-msgstr ""
+msgstr "Аномални оценки"
 
 #: modules/Grades/Menu.php:52
 msgid "Progress Reports"
@@ -5390,7 +5390,7 @@ msgstr ""
 
 #: modules/Grades/includes/ReportCards.fnc.php:817
 msgid "Explanation of Comment Codes"
-msgstr ""
+msgstr "Обяснение кодове на коментари"
 
 #: modules/Grades/includes/ReportCards.fnc.php:947
 #, php-format
@@ -5546,7 +5546,7 @@ msgstr "Скала за оценяване"
 
 #: modules/Scheduling/Courses.php:939
 msgid "Not Graded"
-msgstr ""
+msgstr "Без оценка"
 
 #: modules/Scheduling/Courses.php:985
 msgid "Allow Teacher Grade Scale"
@@ -6287,7 +6287,7 @@ msgstr ""
 
 #: modules/School_Setup/CopySchool.php:8 modules/School_Setup/Rollover.php:3
 msgid "Report Card Comment Codes"
-msgstr ""
+msgstr "Кодове на коментари за отчетни картони"
 
 #: modules/School_Setup/CopySchool.php:9 modules/School_Setup/Rollover.php:7
 msgid "Eligibility Activities"

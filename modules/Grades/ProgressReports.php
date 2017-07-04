@@ -131,9 +131,10 @@ if ( ! $_REQUEST['modfunc'] )
 {
 	DrawHeader(_('Gradebook').' - '.ProgramTitle());
 
-	if ( $_REQUEST['search_modfunc']=='list') // || UserStudentID())
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') ) // || UserStudentID())
 	{
-		echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.$_REQUEST['include_inactive'].'&_ROSARIO_PDF=true" method="POST">';
+	        echo '<form action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=save&include_inactive='.
+		     ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ).'&_ROSARIO_PDF=true" method="POST">';
 
 		$extra['header_right'] = Buttons( _( 'Create Progress Reports for Selected Students' ) );
 
@@ -179,7 +180,7 @@ if ( ! $_REQUEST['modfunc'] )
 
 	Search('student_id',$extra);
 
-	if ( $_REQUEST['search_modfunc']=='list')
+        if ( isset($_REQUEST['search_modfunc']) && ($_REQUEST['search_modfunc']=='list') )
 	{
 		echo '<br /><div class="center">' .
 			Buttons( _( 'Create Progress Reports for Selected Students' ) ) .

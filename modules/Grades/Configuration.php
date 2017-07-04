@@ -2,7 +2,7 @@
 
 DrawHeader( _( 'Gradebook' ) . ' - ' . ProgramTitle() );
 
-if ( $_REQUEST['values'] )
+if ( ! empty($_REQUEST['values']) )
 {
 	DBQuery("DELETE FROM PROGRAM_USER_CONFIG WHERE USER_ID='".User('STAFF_ID')."' AND PROGRAM='Gradebook'");
 	foreach ( (array) $_REQUEST['values'] as $title => $value)
@@ -52,10 +52,18 @@ if ( ! $gradebook_config['ASSIGNMENT_SORTING'])
 echo '<tr><td><table><tr><td colspan="3"><b>'._('Assignment Sorting').'</b></td></tr><tr class="st"><td><label><input type="radio" name="values[ASSIGNMENT_SORTING]" value="ASSIGNMENT_ID"'.(($gradebook_config['ASSIGNMENT_SORTING']=='ASSIGNMENT_ID')?' checked':'').'>&nbsp;'._('Newest First').'</label></td><td><label><input type="radio" name="values[ASSIGNMENT_SORTING]" value="DUE_DATE"'.(($gradebook_config['ASSIGNMENT_SORTING']=='DUE_DATE')?' checked':'').'>&nbsp;'._('Due Date').'</label></td><td><label><input type="radio" name="values[ASSIGNMENT_SORTING]" value=ASSIGNED_DATE'.(($gradebook_config['ASSIGNMENT_SORTING']=='ASSIGNED_DATE')?' checked':'').'>&nbsp;'._('Assigned Date').'</label></td></tr></table></td></tr>';
 
 //FJ add <label> on checkbox
-echo '<tr><td><label><input type="checkbox" name="values[WEIGHT]" value="Y"'.(($gradebook_config['WEIGHT']=='Y')?' checked':'').'> '._('Weight Grades').'</label></td></tr>';
-echo '<tr><td><label><input type="checkbox" name="values[DEFAULT_ASSIGNED]" value="Y"'.(($gradebook_config['DEFAULT_ASSIGNED']=='Y')?' checked':'').'> '._('Assigned Date defaults to today').'</label></td></tr>';
-echo '<tr><td><label><input type="checkbox" name="values[DEFAULT_DUE]" value="Y"'.(($gradebook_config['DEFAULT_DUE']=='Y')?' checked':'').'> '._('Due Date defaults to today').'</label></td></tr>';
-echo '<tr><td><label><input type="checkbox" name="values[LETTER_GRADE_ALL]" value="Y"'.(($gradebook_config['LETTER_GRADE_ALL']=='Y')?' checked':'').'> '._('Hide letter grades for all gradebook assignments').'</label></td></tr>';
+echo '<tr><td><label><input type="checkbox" name="values[WEIGHT]" value="Y"'.
+     (isset($gradebook_config['WEIGHT'])&&($gradebook_config['WEIGHT']=='Y')?' checked':'').
+     '> '._('Weight Grades').'</label></td></tr>';
+echo '<tr><td><label><input type="checkbox" name="values[DEFAULT_ASSIGNED]" value="Y"'.
+     (isset($gradebook_config['DEFAULT_ASSIGNED'])&&($gradebook_config['DEFAULT_ASSIGNED']=='Y')?' checked':'').
+     '> '._('Assigned Date defaults to today').'</label></td></tr>';
+echo '<tr><td><label><input type="checkbox" name="values[DEFAULT_DUE]" value="Y"'.
+     (isset($gradebook_config['DEFAULT_DUE'])&&($gradebook_config['DEFAULT_DUE']=='Y')?' checked':'').
+     '> '._('Due Date defaults to today').'</label></td></tr>';
+echo '<tr><td><label><input type="checkbox" name="values[LETTER_GRADE_ALL]" value="Y"'.
+     (isset($gradebook_config['LETTER_GRADE_ALL'])&&($gradebook_config['LETTER_GRADE_ALL']=='Y')?' checked':'').
+     '> '._('Hide letter grades for all gradebook assignments').'</label></td></tr>';
 echo '<tr><td><input type="text" name="values[LETTER_GRADE_MIN]" value="'.$gradebook_config['LETTER_GRADE_MIN'].'" size="3" maxlength="3" /> '._('Minimum assignment points for letter grade').'</td></tr>';
 echo '<tr><td><input type="text" name="values[ANOMALOUS_MAX]" value="'.($gradebook_config['ANOMALOUS_MAX']!=''?$gradebook_config['ANOMALOUS_MAX']:'100').'" size="3" maxlength="3" /> % '._('Allowed maximum percent in Anomalous grades').'</td></tr>';
 echo '<tr><td><input type="text" name="values[LATENCY]" value="'.round($gradebook_config['LATENCY']).'" size="3" maxlength="3" /> '._('Days until ungraded assignment grade appears in Parent/Student gradebook views').'</td></tr>';
@@ -67,7 +75,9 @@ if ( $RosarioModules['Eligibility'])
 	echo '<fieldset>';
 	echo '<legend>'._('Eligibility').'</legend>';
 	echo '<table>';
-	echo '<tr><td><label><input type="checkbox" name="values[ELIGIBILITY_CUMULITIVE]" value="Y"'.(($gradebook_config['ELIGIBILITY_CUMULITIVE']=='Y')?' checked':'').'>&nbsp;'._('Calculate Eligibility using Cumulative Semester Grades').'</label></td></tr>';
+	echo '<tr><td><label><input type="checkbox" name="values[ELIGIBILITY_CUMULITIVE]" value="Y"'.
+	     (isset($gradebook_config['ELIGIBILITY_CUMULITIVE'])&&($gradebook_config['ELIGIBILITY_CUMULITIVE']=='Y')?' checked':'').
+	     '>&nbsp;'._('Calculate Eligibility using Cumulative Semester Grades').'</label></td></tr>';
 	echo '</table>';
 	echo '</fieldset><br />';
 }

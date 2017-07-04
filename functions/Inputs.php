@@ -476,15 +476,21 @@ function TinyMCEInput( $value, $name, $title = '', $extra = '' )
 			format: {title: 'Format', items: 'formats | removeformat'}
 		},
 		paste_data_images: true,
+		images_upload_handler: function (blobInfo, success, failure) {
+			success("data:" + blobInfo.blob().type + ";base64," + blobInfo.base64());
+		},
 		pagebreak_separator: '<div style="page-break-after: always;"></div>',
 		language: <?php echo json_encode( $tinymce_language ); ?>,
 		directionality : <?php echo json_encode( $tinymce_directionality ); ?>,
 		relative_urls: false,
+		// verify_html: false,
 		remove_script_host: false
 	});
 </script><!-- /TinyMCE -->
 
 		<?php $tinymce_js = ob_get_clean();
+
+		$js_included = true;
 	}
 
 	return $tinymce_js . $textarea;

@@ -152,7 +152,7 @@ if ( ! empty($_REQUEST['attendance'])
 {
 	foreach ( (array) $_REQUEST['attendance'] as $student_id => $value )
 	{
-		if ($current_RET[ $student_id ])
+	        if( ! empty($current_RET[ $student_id ]) )
 		{
 			$sql = "UPDATE " . DBEscapeIdentifier( $table ) .
 				" SET ATTENDANCE_TEACHER_CODE='" . mb_substr( $value, 5 ) . "',
@@ -232,11 +232,12 @@ $extra['DATE'] = $date;
 
 $stu_RET = GetStuList($extra);
 
-if ($attendance_reason)
+if ( ! empty($attendance_reason) )
 	$columns += array('ATTENDANCE_REASON' => _('Office Comment'));
 
 $date_note = $date!=DBDate() ? ' <span style="color:red" class="nobr">'._('The selected date is not today').'</span> |' : '';
-$date_note .= AllowEdit() ? ' <span style="color:green" class="nobr">'._('You can edit this attendance').'</span>':' <span style="color:red" class="nobr">'._('You cannot edit this attendance').'</span>';
+$date_note .= AllowEdit() ? ' <span style="color:green" class="nobr">'._('You can edit this attendance').'</span>' :
+                            ' <span style="color:red" class="nobr">'._('You cannot edit this attendance').'</span>';
 
 $completed_RET = DBGet(DBQuery("SELECT 'Y' as COMPLETED FROM ATTENDANCE_COMPLETED WHERE STAFF_ID='".User('STAFF_ID')."' AND SCHOOL_DATE='".$date."' AND PERIOD_ID='".UserPeriod()."' AND TABLE_NAME='".$_REQUEST['table']."'"));
 

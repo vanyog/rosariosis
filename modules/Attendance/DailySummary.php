@@ -1,5 +1,4 @@
-<?php
-//FJ move Attendance.php from functions/ to modules/Attendance/includes
+<?php //FJ move Attendance.php from functions/ to modules/Attendance/includes
 require_once 'modules/Attendance/includes/UpdateAttendanceDaily.fnc.php';
 
 DrawHeader( ProgramTitle() );
@@ -104,9 +103,11 @@ if ( ! empty($_REQUEST['search_modfunc']) || ! empty($_REQUEST['student_id']) ||
 			if ( $periods_RET)
 			{
 				//$period_select .= '<option value="'.$periods_RET[1]['PERIOD_ID'].'"'.(($_REQUEST['period_id']==$periods_RET[1]['PERIOD_ID'] || !isset($_REQUEST['period_id']))?' selected':'').">".$periods_RET[1]['TITLE'].'</option>';
-				$period_select .= '<option value="'.$periods_RET[1]['PERIOD_ID'].'"'.(($_REQUEST['period_id']==$periods_RET[1]['PERIOD_ID'])?' selected':'').">".$periods_RET[1]['TITLE'].'</option>';
+				$period_select .= '<option value="'.$periods_RET[1]['PERIOD_ID'].'"'.
+				                  (ISSET($_REQUEST['period_id'])&&($_REQUEST['period_id']==$periods_RET[1]['PERIOD_ID'])?' selected':'').
+						  ">".$periods_RET[1]['TITLE'].'</option>';
 				if ( !isset($_REQUEST['period_id']))
-					$_REQUEST['period_id'] = $periods_RET['PERIOD_ID'];
+				        $_REQUEST['period_id'] = @$periods_RET['PERIOD_ID'];
 			}
 		}
 	}
