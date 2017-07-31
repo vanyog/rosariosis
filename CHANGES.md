@@ -1,6 +1,20 @@
 # CHANGES
 ## RosarioSIS Student Information System
 
+Changes in 3.4.3
+----------------
+- Fix #198 Add error if student account inactive (today < Attendance start date) in index.php
+- Optimization Remove $schools_RET & $calendars_RET ID index in Widgets.fnc.php
+
+Changes in 3.4.2
+----------------
+- Move "Calendars" program up & "Database Backup" under Security in School_Setup/Menu.php
+- Update Arabic translation in locale/ar_AE.utf8, thanks to @abogadeer
+- Fix #195 Add Right to Left languages stylesheet & move side menu to right in rtl.css
+- Fix #195 Handle RTL languages (menu on the right) in jquery-fixedmenu.js
+- Fix SQL error if MP was deleted in ScheduleReport.php
+- CSS fix responsive calendar for RTL in rtl.css
+
 Changes in 3.4.1
 ----------------
 - Add maxlength & length to Fees & Payments text inputs in Student_Billing/functions.inc.php
