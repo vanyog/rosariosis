@@ -127,8 +127,6 @@ if ( $_REQUEST['modfunc'] === 'save' )
 
 			echo '<style type="text/css"> * {font-size:large; line-height:1.2;} </style>';
 
-			$columns = array('COURSE_TITLE' => _('Course'));
-
 			$school_info = DBGet(DBQuery('select * from schools where syear = '.UserSyear().' AND id = '.$school_id));
 			$school_info = $school_info[1];
 
@@ -155,9 +153,13 @@ if ( $_REQUEST['modfunc'] === 'save' )
 
 					echo '</td><td>';
 
-					//Student Info
-					echo '<span style="font-size:x-large;">'.$student_data['LAST_NAME'].', '.$student_data['FIRST_NAME'].'<br /></span>';
-					echo '<span>'.$student_data['ADDRESS'].'<br /></span>';
+					// Student Info.
+					echo '<span style="font-size:x-large;">' . $student_data['LAST_NAME'] . ', ' .
+						$student_data['FIRST_NAME'] . '<br /></span>';
+
+					// Translate "No Address".
+					echo '<span>' . ( $student_data['ADDRESS'] === 'No Address' ?
+						_( 'No Address' ) : $student_data['ADDRESS'] ) . '<br /></span>';
 					echo '<span>'.$student_data['CITY'].(!empty($student_data['STATE'])?', '.$student_data['STATE']:'').(!empty($student_data['ZIPCODE'])?'  '.$student_data['ZIPCODE']:'').'</span>';
 
 					echo '<table class="cellspacing-0 cellpadding-5" style="margin-top:10px;"><tr>';
@@ -238,6 +240,8 @@ if ( $_REQUEST['modfunc'] === 'save' )
 					$listOutput_RET = array();
 					$total_credit_earned = 0;
 					$total_credit_attempted = 0;
+
+					$columns = array( 'COURSE_TITLE' => _( 'Course' ) );
 
 					foreach ( (array) $mps as $mp_id => $grades)
 					{
@@ -403,12 +407,10 @@ if ( ! $_REQUEST['modfunc'] )
 			$syear_history_RET = DBGet( DBQuery( "SELECT DISTINCT SYEAR
 				FROM HISTORY_MARKING_PERIODS
 				WHERE SYEAR<>'" . UserSyear() . "'
-				AND SYEAR<>'" . UserSyear() . "'
 				AND SCHOOL_ID='" . UserSchool() . "'
 				UNION SELECT DISTINCT SYEAR
 				FROM SCHOOL_MARKING_PERIODS
 				WHERE SYEAR<>'" . UserSyear() . "'
-				AND SYEAR<>'" . UserSyear() . "'
 				AND SCHOOL_ID='" . UserSchool() . "'
 				ORDER BY SYEAR DESC" ) );
 

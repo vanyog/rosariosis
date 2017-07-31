@@ -4254,7 +4254,7 @@ INSERT INTO school_periods VALUES (11, 2017, 1, 11, 'Час 8', '08', 45, NULL, 
 -- Data for Name: schools; Type: TABLE DATA; Schema: public; Owner: rosariosis
 --
 
-INSERT INTO schools VALUES (2017, 1, 'Default School', '500 S. Street St.', 'Springfield', 'IL', '62704', NULL, 'Mr. Principal', 'www.rosariosis.org', NULL, NULL, 4, NULL);
+INSERT INTO schools VALUES (2017, 1, 'Първо училище', 'ул. Неизвестна № 10', 'София', 'София град', '1313', NULL, 'Господин Известен', 'www.rosariosis.org', NULL, NULL, 4, NULL);
 
 
 --

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RosarioSIS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 19:24-0500\n"
-"PO-Revision-Date: 2017-06-19 10:44+0300\n"
+"PO-Revision-Date: 2017-07-23 15:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -5030,7 +5030,7 @@ msgstr "Тимът задание беше създаден успешно."
 
 #: modules/Grades/MassCreateAssignments.php:272
 msgid "Create Assignment for Selected Course Periods"
-msgstr "Създаване на задание за избрания период от курс"
+msgstr "Създаване на задание за избраната част на курс"
 
 #: modules/Grades/MassCreateAssignments.php:359
 msgid "Create Assignment Type for Selected Courses"
@@ -5554,7 +5554,7 @@ msgstr "Позволяване учителска скала оценки"
 
 #: modules/Scheduling/Courses.php:1013
 msgid "Parent Course Period"
-msgstr ""
+msgstr "Съдържаща част от курс"
 
 #: modules/Scheduling/Courses.php:1041
 msgid "New Course"
@@ -7671,7 +7671,7 @@ msgstr[1] "Дни с предстоящи събития"
 
 #: modules/misc/Portal.php:215
 msgid "Teachers have missing attendance data"
-msgstr ""
+msgstr "Преподаватели имат непопълнени присъствия"
 
 #: modules/misc/Portal.php:217 modules/misc/Portal.php:404
 msgid "Course Period with missing attendance data"
@@ -7705,7 +7705,7 @@ msgstr[1] ""
 
 #: modules/misc/Portal.php:402
 msgid "You have missing attendance data"
-msgstr ""
+msgstr "Имате пропуснати данни за присъствие"
 
 #: modules/misc/Portal.php:420
 msgid "Happy teaching..."

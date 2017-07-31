@@ -47,8 +47,12 @@ function GetStuList( &$extra = array() )
 		Widgets( 'all', $extra );
 	}
 
-        if( ! isset($extra['WHERE']) ) $extra['WHERE'] = appendSQL( '', $extra );
-        $extra['WHERE'] .= appendSQL( '', $extra );
+	if ( ! isset( $extra['WHERE'] ) )
+	{
+		$extra['WHERE'] = '';
+	}
+
+	$extra['WHERE'] .= appendSQL( '', $extra );
 
 	$extra['WHERE'] .= CustomFields( 'where', 'student', $extra );
 
@@ -65,7 +69,7 @@ function GetStuList( &$extra = array() )
 
 	if ( isset( $extra['functions'] ) )
 	{
-		$functions += $extra['functions'];
+		$functions += (array) $extra['functions'];
 	}
 
 	if ( ! isset( $extra['MP'] )
@@ -75,11 +79,11 @@ function GetStuList( &$extra = array() )
 
 		$extra['DATE'] = DBDate();
 	}
-	elseif ( empty($extra['MP']) )
+	elseif ( empty( $extra['MP'] ) )
 	{
 		$extra['MP'] = GetCurrentMP( 'QTR', $extra['DATE'], false );
 	}
-	elseif ( empty($extra['DATE']) )
+	elseif ( empty( $extra['DATE'] ) )
 	{
 		$extra['DATE'] = DBDate();
 	}
@@ -656,7 +660,10 @@ function GetStuList( &$extra = array() )
 		// It would be easier to sort on full_name but postgres sometimes yields strange results.
 		$sql .= 's.LAST_NAME,s.FIRST_NAME,s.MIDDLE_NAME';
 
-		if( isset($extra['ORDER']) ) $sql .= $extra['ORDER'];
+		if ( isset( $extra['ORDER'] ) )
+		{
+			$sql .= $extra['ORDER'];
+		}
 	}
 	elseif ( isset( $extra['ORDER_BY'] ) )
 	{
@@ -670,9 +677,11 @@ function GetStuList( &$extra = array() )
 		echo '<!--' . $sql . '-->';
 	}
 
-        // Execute Query & return.
-        if( !isset($extra['group']) ) $extra['group'] = array();
-        return DBGet( DBQuery( $sql ), $functions, $extra['group'] );
+	// DBGet group arg.
+	$group = ( isset( $extra['group'] ) ? $extra['group'] : array() );
+
+	// Execute Query & return.
+	return DBGet( DBQuery( $sql ), $functions, $group );
 }
 
 

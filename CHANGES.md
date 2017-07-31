@@ -1,6 +1,23 @@
 # CHANGES
 ## RosarioSIS Student Information System
 
+Changes in 3.4.1
+----------------
+- Add maxlength & length to Fees & Payments text inputs in Student_Billing/functions.inc.php
+- Add maxlength & length to Salaries & Payments text inputs in Accounting/functions.inc.php
+- #191 Fix PHP notices thanks to @vanyog in GetStaffList.fnc.php, GetStuList.fnc.php & ListOutput.fnc.php
+- Set current SchoolYear on login in index.php, Side.php & Portal.php
+- Fix SQL error when UserSchool() not set in Config.fnc.php
+- Optimize: remove SCHOOL_DATE index (events) & group LO options in vars in Portal.php
+- Translate "No Address" in Address.inc.php, Transcripts.php
+- Fix Remove previous years MP columns from list in Transcripts.php
+- Fix SQL error remove duplicate "s." prefix in Search.fnc.php
+- Remove useless DBGet indexes in SetUserStudentID() in Current.php
+- Fix PHP error when no Student associated to Parent in Registration.php
+- Fix #197 last login date in PasswordReset.php, thanks to @Claculagator
+- Add Student Payments Header action hook in StudentPayments.php
+- Fix SQL error searching Other Value in Search.fnc.php
+
 Changes in 3.4
 --------------
 - Fix #193 PHP error: do not call button(), not logged in in PortalPollsNotes.fnc.php

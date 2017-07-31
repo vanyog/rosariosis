@@ -3377,7 +3377,43 @@ CREATE TABLE templates (
 -- modif Francois: history grades in Transripts
 
 CREATE VIEW transcript_grades AS
-    SELECT mp.syear, mp.school_id, mp.marking_period_id, mp.mp_type, mp.short_name, mp.parent_id, mp.grandparent_id, (SELECT mp2.end_date FROM (student_report_card_grades JOIN marking_periods mp2 ON (((mp2.marking_period_id)::text = (student_report_card_grades.marking_period_id)::text))) WHERE (((student_report_card_grades.student_id = (sms.student_id)::numeric) AND (((student_report_card_grades.marking_period_id)::text = (mp.parent_id)::text) OR ((student_report_card_grades.marking_period_id)::text = (mp.grandparent_id)::text))) AND ((student_report_card_grades.course_title)::text = (srcg.course_title)::text)) ORDER BY mp2.end_date LIMIT 1) AS parent_end_date, mp.end_date, sms.student_id, (sms.cum_weighted_factor * schools.reporting_gp_scale) AS cum_weighted_gpa, (sms.cum_unweighted_factor * schools.reporting_gp_scale) AS cum_unweighted_gpa, sms.cum_rank, sms.mp_rank, sms.class_size, ((sms.sum_weighted_factors / sms.count_weighted_factors) * schools.reporting_gp_scale) AS weighted_gpa, ((sms.sum_unweighted_factors / sms.count_unweighted_factors) * schools.reporting_gp_scale) AS unweighted_gpa, sms.grade_level_short, srcg.comment, srcg.grade_percent, srcg.grade_letter, srcg.weighted_gp, srcg.unweighted_gp, srcg.gp_scale, srcg.credit_attempted, srcg.credit_earned, srcg.course_title, srcg.school AS school_name, schools.reporting_gp_scale AS school_scale, ((sms.cr_weighted_factors / (sms.count_cr_factors)::numeric) * schools.reporting_gp_scale) AS cr_weighted_gpa, ((sms.cr_unweighted_factors / (sms.count_cr_factors)::numeric) * schools.reporting_gp_scale) AS cr_unweighted_gpa, (sms.cum_cr_weighted_factor * schools.reporting_gp_scale) AS cum_cr_weighted_gpa, (sms.cum_cr_unweighted_factor * schools.reporting_gp_scale) AS cum_cr_unweighted_gpa, srcg.class_rank, sms.comments, srcg.credit_hours FROM (((marking_periods mp JOIN student_report_card_grades srcg ON (((mp.marking_period_id)::text = (srcg.marking_period_id)::text))) JOIN student_mp_stats sms ON ((((sms.marking_period_id)::numeric = mp.marking_period_id) AND ((sms.student_id)::numeric = srcg.student_id)))) LEFT OUTER JOIN schools ON (((mp.school_id = schools.id) AND (mp.syear = schools.syear)))) ORDER BY srcg.course_period_id;
+    SELECT mp.syear,mp.school_id,mp.marking_period_id,mp.mp_type,
+    mp.short_name,mp.parent_id,mp.grandparent_id,
+    (SELECT mp2.end_date
+        FROM (student_report_card_grades
+            JOIN marking_periods mp2
+            ON (((mp2.marking_period_id)::text = (student_report_card_grades.marking_period_id)::text)))
+                WHERE (((student_report_card_grades.student_id = (sms.student_id)::numeric)
+                    AND (((student_report_card_grades.marking_period_id)::text = (mp.parent_id)::text)
+                        OR ((student_report_card_grades.marking_period_id)::text = (mp.grandparent_id)::text)))
+                AND ((student_report_card_grades.course_title)::text = (srcg.course_title)::text))
+                ORDER BY mp2.end_date LIMIT 1) AS parent_end_date,
+    mp.end_date,sms.student_id,
+    (sms.cum_weighted_factor * schools.reporting_gp_scale) AS cum_weighted_gpa,
+    (sms.cum_unweighted_factor * schools.reporting_gp_scale) AS cum_unweighted_gpa,
+    sms.cum_rank,sms.mp_rank,sms.class_size,
+    ((sms.sum_weighted_factors / sms.count_weighted_factors) * schools.reporting_gp_scale) AS weighted_gpa,
+    ((sms.sum_unweighted_factors / sms.count_unweighted_factors) * schools.reporting_gp_scale) AS unweighted_gpa,
+    sms.grade_level_short,srcg.comment,srcg.grade_percent,srcg.grade_letter,
+    srcg.weighted_gp,srcg.unweighted_gp,srcg.gp_scale,srcg.credit_attempted,
+    srcg.credit_earned,srcg.course_title,srcg.school AS school_name,
+    schools.reporting_gp_scale AS school_scale,
+    ((sms.cr_weighted_factors / (sms.count_cr_factors)::numeric) * schools.reporting_gp_scale) AS cr_weighted_gpa,
+    ((sms.cr_unweighted_factors / (sms.count_cr_factors)::numeric) * schools.reporting_gp_scale) AS cr_unweighted_gpa,
+    (sms.cum_cr_weighted_factor * schools.reporting_gp_scale) AS cum_cr_weighted_gpa,
+    (sms.cum_cr_unweighted_factor * schools.reporting_gp_scale) AS cum_cr_unweighted_gpa,
+    srcg.class_rank,sms.comments,
+    srcg.credit_hours
+    FROM (((marking_periods mp
+        JOIN student_report_card_grades srcg
+        ON (((mp.marking_period_id)::text = (srcg.marking_period_id)::text)))
+        JOIN student_mp_stats sms
+        ON ((((sms.marking_period_id)::numeric = mp.marking_period_id)
+            AND ((sms.student_id)::numeric = srcg.student_id))))
+        LEFT OUTER JOIN schools
+        ON (((mp.school_id = schools.id)
+            AND (mp.syear = schools.syear))))
+    ORDER BY srcg.course_period_id;
 
 
 
@@ -3523,7 +3559,7 @@ INSERT INTO attendance_codes VALUES (4, 2017, 1, 'Excused Absence', 'E', 'offici
 --
 
 INSERT INTO config VALUES (0, 'LOGIN', 'No');
-INSERT INTO config VALUES (0, 'VERSION', '3.4');
+INSERT INTO config VALUES (0, 'VERSION', '3.4.1');
 INSERT INTO config VALUES (0, 'TITLE', 'Rosario Student Information System');
 INSERT INTO config VALUES (0, 'NAME', 'RosarioSIS');
 INSERT INTO config VALUES (0, 'MODULES', 'a:13:{s:12:"School_Setup";b:1;s:8:"Students";b:1;s:5:"Users";b:1;s:10:"Scheduling";b:1;s:6:"Grades";b:1;s:10:"Attendance";b:1;s:11:"Eligibility";b:1;s:10:"Discipline";b:1;s:10:"Accounting";b:1;s:15:"Student_Billing";b:1;s:12:"Food_Service";b:1;s:9:"Resources";b:1;s:6:"Custom";b:1;}');
