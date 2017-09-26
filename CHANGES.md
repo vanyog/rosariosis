@@ -1,10 +1,28 @@
 # CHANGES
 ## RosarioSIS Student Information System
 
+Changes in 3.5.1
+----------------
+- Add Course Period column to Edit Student Grades program in EditReportCardGrades.php, sponsored by Aptiris
+- Update Arabic translation & flag in locale/ar_AE.utf8, thanks to Ali Al-Hassan
+
+Changes in 3.5
+--------------
+- #199 Add failed login ban if >= X failed attempts within 10 minutes in index.php & AccessLog.php
+- #199 Add FAILED_LOGIN_LIMIT Config option in rosariosis.sql & Update.fnc.php & Configuration.php
+- Add Help for FAILED_LOGIN_LIMIT Config option in Help_en.php, Help_fr.php & Help_es.php
+- #199 Add Captcha jQuery plugin in assets/js/jquery-captcha/
+- #199 Add CaptchaInput() & CheckCaptcha() functions in Inputs.php
+- #199 Add Captcha to Create User / Student Account forms in User.php, Student.php & General_Info.inc.php
+- #201 Delete Student in Student.php
+- #202 Fix shared hosting: permission 755 for directories in FileUpload.fnc.php
+- Fix List save / export in ListOutput.fnc.php
+
 Changes in 3.4.3
 ----------------
 - Fix #198 Add error if student account inactive (today < Attendance start date) in index.php
 - Optimization Remove $schools_RET & $calendars_RET ID index in Widgets.fnc.php
+- Fix JS addHTML so inline Javascript gets evaluated in warehouse.js
 
 Changes in 3.4.2
 ----------------

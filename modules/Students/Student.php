@@ -14,9 +14,15 @@ if (User('PROFILE')!='admin' && User('PROFILE')!='teacher' && ! empty($_REQUEST[
 	exit;
 }
 
-$categories = array('1' => 'General_Info', '2' => 'Medical', '3' => 'Address', '4' => 'Comments', 'Other_Info' => 'Other_Info');
+$categories = array(
+	'1' => 'General_Info',
+	'2' => 'Medical',
+	'3' => 'Address',
+	'4' => 'Comments',
+	'Other_Info' => 'Other_Info',
+);
 
-if ( !isset($_REQUEST['category_id']))
+if ( ! isset( $_REQUEST['category_id'] ) )
 {
 	$category_id = '1';
 	$include = 'General_Info';
@@ -31,14 +37,18 @@ else
 	}
 	else
 	{
-		$category_include = DBGet(DBQuery("SELECT INCLUDE FROM STUDENT_FIELD_CATEGORIES WHERE ID='".$_REQUEST['category_id']."'"));
+		$category_include = DBGet( DBQuery( "SELECT INCLUDE
+			FROM STUDENT_FIELD_CATEGORIES
+			WHERE ID='" . $_REQUEST['category_id'] . "'" ) );
 
-		if (count($category_include))
+		if ( count( $category_include ) )
 		{
 			$include = $category_include[1]['INCLUDE'];
 
 			if ( empty( $include ) )
+			{
 				$include = $categories['Other_Info'];
+			}
 		}
 		//FJ Prevent $_REQUEST['category_id'] hacking
 		else
@@ -103,30 +113,47 @@ if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'update')
 		// FJ textarea fields MarkDown sanitize.
 		$_REQUEST['students'] = FilterCustomFieldsMarkdown( 'CUSTOM_FIELDS', 'students' );
 
-		//FJ create account
-		if (basename($_SERVER['PHP_SELF'])=='index.php')
+		// FJ create account.
+		if ( basename( $_SERVER['PHP_SELF'] ) === 'index.php' )
 		{
-			//username & password required
-			if (empty($_REQUEST['students']['USERNAME']) || empty($_REQUEST['students']['PASSWORD']))
-				$required_error = true;
+			// Check Captcha.
+			if ( ! CheckCaptcha() )
+			{
+				$error[] = _( 'Captcha' );
+			}
 
-			//check if trying to hack enrollment
-			if (isset($_REQUEST['month_values']['STUDENT_ENROLLMENT']) || count($_REQUEST['values']['STUDENT_ENROLLMENT'])>1)
+			// Username & password required.
+			if ( empty( $_REQUEST['students']['USERNAME'] )
+				|| empty( $_REQUEST['students']['PASSWORD'] ) )
+			{
+				$required_error = true;
+			}
+
+			// Check if trying to hack enrollment.
+			if ( isset( $_REQUEST['month_values']['STUDENT_ENROLLMENT'] )
+				|| count( $_REQUEST['values']['STUDENT_ENROLLMENT'] ) > 1 )
 			{
 				require_once 'ProgramFunctions/HackingLog.fnc.php';
+
 				HackingLog();
 			}
 		}
 
-		if ( $required_error)
-			$error[] = _('Please fill in the required fields');
+		if ( $required_error )
+		{
+			$error[] = _( 'Please fill in the required fields' );
+		}
 
 		//check username unicity
-		$existing_username = DBGet(DBQuery("SELECT 'exists' FROM STAFF WHERE USERNAME='".
-		                     ( isset($_REQUEST['students']['USERNAME']) ? $_REQUEST['students']['USERNAME'] : '' ).
-				     "' AND SYEAR='".UserSyear()."' UNION SELECT 'exists' FROM STUDENTS WHERE USERNAME='".
-				     ( isset($_REQUEST['students']['USERNAME']) ? $_REQUEST['students']['USERNAME'] : '' ).
-				     "' AND STUDENT_ID!='".UserStudentID()."'"));
+		$existing_username = DBGet( DBQuery( "SELECT 'exists'
+		        FROM STAFF
+			WHERE USERNAME='" . ( isset($_REQUEST['students']['USERNAME']) ? $_REQUEST['students']['USERNAME'] : '' ) . "'
+			AND SYEAR='" . UserSyear() . "'
+			UNION SELECT 'exists'
+			FROM STUDENTS
+			WHERE USERNAME='" . ( isset($_REQUEST['students']['USERNAME']) ? $_REQUEST['students']['USERNAME'] : '' ) . "'
+			AND STUDENT_ID!='" . UserStudentID() . "'" ) );
+
 		if (count($existing_username))
 		{
 			$error[] = _('A user with that username already exists. Choose a different username and try again.');
@@ -371,26 +398,33 @@ if ( isset($_REQUEST['modfunc']) && ($_REQUEST['modfunc'] === 'update')
 	unset( $_SESSION['_REQUEST_vars']['values'] );*/
 }
 
-if (basename($_SERVER['PHP_SELF'])!='index.php')
+if ( basename( $_SERVER['PHP_SELF'] ) !== 'index.php' )
 {
-        if ( isset($_REQUEST['student_id']) && ($_REQUEST['student_id']=='new') )
+        if ( isset($_REQUEST['student_id']) && ($_REQUEST['student_id'] === 'new') )
 	{
 		$_ROSARIO['HeaderIcon'] = 'modules/Students/icon.png';
-		DrawHeader(_('Add a Student'));
+
+		DrawHeader( _( 'Add a Student' ) );
 	}
 	else
-		DrawHeader(ProgramTitle());
+	{
+		DrawHeader( ProgramTitle() );
+	}
 }
-//FJ create account
-elseif ( !UserStudentID())
+elseif ( ! UserStudentID() )
 {
+	// FJ create account.
 	$_ROSARIO['HeaderIcon'] = 'modules/Students/icon.png';
-	DrawHeader(_('Create Student Account'));
+
+	DrawHeader( _( 'Create Student Account' ) );
 }
-//account created, return to index
 else
 {
+	// Account created.
+	// Hook.
 	do_action( 'Students/Student.php|account_created' );
+
+	// Return to index.
 ?>
 	<script>window.location.href = "index.php?modfunc=logout&reason=account_created";</script>
 <?php
@@ -398,12 +432,47 @@ else
 }
 
 
+if ( $_REQUEST['modfunc'] === 'delete'
+	&& basename( $_SERVER['PHP_SELF'] ) !== 'index.php'
+	&& User( 'PROFILE' ) === 'admin'
+	&& AllowEdit() )
+{
+	if ( DeletePrompt( _( 'Student' ) ) )
+	{
+		// Do not try to delete Grades, Attendance, or Schedule records
+		// in case records exist, we must keep them.
+		DBQuery( "DELETE FROM STUDENTS_JOIN_ADDRESS
+			WHERE STUDENT_ID='" . UserStudentID() . "'" );
+
+		DBQuery( "DELETE FROM STUDENTS_JOIN_PEOPLE
+			WHERE STUDENT_ID='" . UserStudentID() . "'" );
+
+		DBQuery( "DELETE FROM STUDENTS_JOIN_USERS
+			WHERE STUDENT_ID='" . UserStudentID() . "'" );
+
+		DBQuery( "DELETE FROM STUDENT_ENROLLMENT
+			WHERE STUDENT_ID='" . UserStudentID() . "'" );
+
+		DBQuery( "DELETE FROM STUDENTS
+			WHERE STUDENT_ID='" . UserStudentID() . "'" );
+
+		// Hook.
+		do_action( 'Students/Student.php|delete_student' );
+
+		unset( $_SESSION['student_id'] );
+
+		// Unset modfunc & student_id & redirect URL.
+		RedirectURL( array( 'modfunc', 'student_id' ) );
+	}
+}
+
 echo ErrorMessage( $error );
 
 Search( 'student_id' );
 
-if ( UserStudentID()
-        || isset($_REQUEST['student_id']) && ($_REQUEST['student_id'] === 'new') )
+if ( ( UserStudentID()
+                || ( isset($_REQUEST['student_id']) && ($_REQUEST['student_id'] === 'new') ) )
+	&& $_REQUEST['modfunc'] !== 'delete' )
 {
 	// MODNAME LIKE 'Students/Student.php%'.
 	if ( User( 'PROFILE_ID' )
@@ -451,10 +520,39 @@ if ( UserStudentID()
 			$school = DBGet(DBQuery("SELECT SCHOOL_ID,GRADE_ID FROM STUDENT_ENROLLMENT WHERE STUDENT_ID='".UserStudentID()."' AND SYEAR='".UserSyear()."' AND ('".DBDate()."' BETWEEN START_DATE AND END_DATE OR END_DATE IS NULL)"));
 		}
 
+		$delete_button = '';
+
 		if ( basename( $_SERVER['PHP_SELF'] ) !== 'index.php' )
 		{
 			$form_action = 'Modules.php?modname=' . $_REQUEST['modname'] .
 				'&category_id=' . $category_id . '&student_id=' . UserStudentID() . '&modfunc=update';
+
+			if ( UserStudentID()
+				&& User( 'PROFILE' ) === 'admin'
+				&& AllowEdit() )
+			{
+				// Can't delete Student if has Schedule, Attendance, or Grades records.
+				$student_records_RET = DBGet( DBQuery( "SELECT (SELECT 1
+						FROM SCHEDULE
+						WHERE STUDENT_ID='" . UserStudentID() . "' LIMIT 1) AS HAS_SCHEDULE,
+					(SELECT 1
+						FROM ATTENDANCE_PERIOD
+						WHERE STUDENT_ID='" . UserStudentID() . "' LIMIT 1) AS HAS_ATTENDANCE,
+					(SELECT 1
+						FROM STUDENT_REPORT_CARD_GRADES
+						WHERE STUDENT_ID='" . UserStudentID() . "' LIMIT 1) AS HAS_GRADES" ) );
+
+				if ( ! $student_records_RET
+					|| ( ! $student_records_RET[1]['HAS_SCHEDULE']
+						&& ! $student_records_RET[1]['HAS_ATTENDANCE']
+						&& ! $student_records_RET[1]['HAS_GRADES'] ) )
+				{
+					$delete_URL = "'Modules.php?modname=" . $_REQUEST['modname'] .
+						"&modfunc=delete'";
+
+					$delete_button = '<input type="button" value="' . _( 'Delete' ) . '" onClick="javascript:ajaxLink(' . $delete_URL . ');" />';
+				}
+			}
 		}
 		else
 		{
@@ -466,17 +564,21 @@ if ( UserStudentID()
 			method="POST" enctype="multipart/form-data">';
 
                 $name = '';
-                if ( !isset($_REQUEST['student_id'])||($_REQUEST['student_id']!='new') )
-			$name = $student['FIRST_NAME'].' '.$student['MIDDLE_NAME'].' '.$student['LAST_NAME'].' '.$student['NAME_SUFFIX'].' - '.$student['STUDENT_ID'];
+                if ( !isset($_REQUEST['student_id'])||($_REQUEST['student_id'] !== 'new') )
+                {
+                        $name = $student['FIRST_NAME'] . ' ' . $student['MIDDLE_NAME'] . ' ' .
+                                $student['LAST_NAME'] . ' ' . $student['NAME_SUFFIX'] . ' - ' .
+                                $student['STUDENT_ID'];
+		}
 
-		DrawHeader($name,SubmitButton(_('Save')));
+		DrawHeader( $name, $delete_button . SubmitButton( _( 'Save' ) ) );
 
-		//hook
-		do_action('Students/Student.php|header');
+		// Hook.
+		do_action( 'Students/Student.php|header' );
 
-		foreach ( (array) $categories_RET as $category)
+		foreach ( (array) $categories_RET as $category )
 		{
-		        if ( ! empty($can_use_RET['Students/Student.php&category_id='.$category['ID']]) )
+		        if ( ! empty($can_use_RET['Students/Student.php&category_id=' . $category['ID']]) )
 			{
 				//FJ Remove $_REQUEST['include']
 				/*if ( $category['ID']=='1')

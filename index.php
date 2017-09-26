@@ -72,7 +72,8 @@ elseif ( isset( $_POST['USERNAME'] )
 	if ( ! $login_RET )
 	{
 		// Lookup for student $username in DB.
-		$student_RET = DBGet( DBQuery( "SELECT s.USERNAME,s.STUDENT_ID,s.LAST_LOGIN,s.FAILED_LOGIN,s.PASSWORD
+		$student_RET = DBGet( DBQuery( "SELECT s.USERNAME,s.STUDENT_ID,s.LAST_LOGIN,
+			s.FAILED_LOGIN,s.PASSWORD,se.START_DATE
 			FROM STUDENTS s,STUDENT_ENROLLMENT se
 			WHERE se.STUDENT_ID=s.STUDENT_ID
 			AND se.SYEAR='" . Config( 'SYEAR' ) . "'
@@ -105,6 +106,33 @@ elseif ( isset( $_POST['USERNAME'] )
 	}
 
 	$login_status = '';
+
+	$is_banned = false;
+
+	if ( Config( 'FAILED_LOGIN_LIMIT' ) )
+	{
+		// Failed login ban if >= X failed attempts within 10 minutes.
+		$failed_login_RET = DBGet( DBQuery( "SELECT
+			COUNT(CASE WHEN STATUS IS NULL OR STATUS='B' THEN 1 END) AS FAILED_COUNT,
+			COUNT(CASE WHEN STATUS='B' THEN 1 END) AS BANNED_COUNT
+			FROM ACCESS_LOG
+			WHERE LOGIN_TIME > (CURRENT_TIMESTAMP - INTERVAL '10 minutes')
+			AND USER_AGENT='" . DBEscapeString( $_SERVER['HTTP_USER_AGENT'] ) . "'
+			AND IP_ADDRESS='" . ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ?
+				$_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'] ) . "'" ) );
+
+		if ( $failed_login_RET[1]['BANNED_COUNT']
+			|| $failed_login_RET[1]['FAILED_COUNT'] >= Config( 'FAILED_LOGIN_LIMIT' ) )
+		{
+			// Ban in every case.
+			$is_banned = true;
+
+			$login_RET = $student_RET = false;
+
+			// Banned status code: B.
+			$login_status = 'B';
+		}
+	}
 
 	// Admin, teacher or parent: initiate session.
 	$login_status = '';
@@ -219,14 +247,22 @@ elseif ( isset( $_POST['USERNAME'] )
 		DBQuery( "UPDATE STAFF
 			SET FAILED_LOGIN=" . db_case( array( 'FAILED_LOGIN', "''", '1', 'FAILED_LOGIN+1' ) ) . "
 			WHERE UPPER(USERNAME)=UPPER('" . $username . "')
-			AND SYEAR='" . Config( 'SYEAR' ) . "'" );
-
-		DBQuery( "UPDATE STUDENTS
+			AND SYEAR='" . Config( 'SYEAR' ) . "';
+			UPDATE STUDENTS
 			SET FAILED_LOGIN=" . db_case( array( 'FAILED_LOGIN', "''", '1', 'FAILED_LOGIN+1' ) ) . "
 			WHERE UPPER(USERNAME)=UPPER('" . $username . "')" );
 
-		$error[] = _( 'Incorrect username or password.' ) . '&nbsp;'
-			. _( 'Please try logging in again.' );
+		if ( $is_banned )
+		{
+			// Failed login: ban because >= 6 attempts within 10 minutes.
+			$error[] = _( 'Too many Failed Login Attempts.' ) . '&nbsp;'
+				. _( 'Please try logging in later.' );
+		}
+		else
+		{
+			$error[] = _( 'Incorrect username or password.' ) . '&nbsp;'
+				. _( 'Please try logging in again.' );
+		}
 	}
 
 	// Access Log.

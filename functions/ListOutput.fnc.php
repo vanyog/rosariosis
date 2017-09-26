@@ -380,7 +380,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
 
 	// HANDLE SAVING THE LIST ---.
 	if ( $options['save']
-		&& $LO_save === $options['save']
+		&& (int) $LO_save === (int) $options['save']
 		&& ! headers_sent() )
 	{
 		_listSave( $result, $column_names, $singular, $plural, Preferences( 'DELIMITER' ) );
@@ -561,7 +561,7 @@ function ListOutput( $result, $column_names, $singular = '.', $plural = '.', $li
                         if( ! isset($_REQUEST['LO_search']) ) $_REQUEST['LO_search'] = '';
 
 			echo '<input type="text" id="LO_search" name="LO_search" value="' .
-				htmlspecialchars( $LO_search, ENT_QUOTES ) .
+				htmlspecialchars( str_replace( "''", "'", $LO_search ), ENT_QUOTES ) .
 				'" placeholder="' . _( 'Search' ) . '" onkeypress="LOSearch(event, this.value, \'' .
 					$search_URL . '\');" /><input type="button" value="' . _( 'Go' ) .
 				'" onclick="LOSearch(event, $(\'#LO_search\').val(), \'' .
