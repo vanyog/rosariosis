@@ -1,27 +1,25 @@
 <?php
 
 require_once 'ProgramFunctions/MarkDownHTML.fnc.php';
+require_once 'ProgramFunctions/Template.fnc.php';
 
 if ( $_REQUEST['modfunc'] === 'save' )
 {
-	if (count($_REQUEST['st_arr']))
+	if ( count( $_REQUEST['st_arr'] ) )
 	{
-		//FJ bypass strip_tags on the $_REQUEST vars
+		// FJ bypass strip_tags on the $_REQUEST vars.
 		$REQUEST_honor_roll_text = SanitizeHTML( $_POST['honor_roll_text'] );
 
-		//FJ add Template
-		$template_update = DBGet(DBQuery("SELECT 1 FROM TEMPLATES WHERE MODNAME = '".$_REQUEST['modname']."' AND STAFF_ID = '".User('STAFF_ID')."'"));
+		SaveTemplate( $REQUEST_honor_roll_text );
 
-		if ( ! $template_update)
-			DBQuery("INSERT INTO TEMPLATES (MODNAME, STAFF_ID, TEMPLATE) VALUES ('".$_REQUEST['modname']."', '".User('STAFF_ID')."', '".$REQUEST_honor_roll_text."')");
-		else
-			DBQuery("UPDATE TEMPLATES SET TEMPLATE = '".$REQUEST_honor_roll_text."' WHERE MODNAME = '".$_REQUEST['modname']."' AND STAFF_ID = '".User('STAFF_ID')."'");
+		$st_list = "'" . implode( "','", $_REQUEST['st_arr'] ) . "'";
 
-		$st_list = '\''.implode('\',\'',$_REQUEST['st_arr']).'\'';
+		$extra['WHERE'] = " AND s.STUDENT_ID IN (" . $st_list . ")";
 
-		$extra['WHERE'] = " AND s.STUDENT_ID IN (".$st_list.")";
-
-		$mp_RET = DBGet(DBQuery("SELECT TITLE,END_DATE FROM SCHOOL_MARKING_PERIODS WHERE MP='QTR' AND MARKING_PERIOD_ID='".UserMP()."'"));
+		$mp_RET = DBGet( DBQuery( "SELECT TITLE,END_DATE
+			FROM SCHOOL_MARKING_PERIODS
+			WHERE MP='QTR'
+			AND MARKING_PERIOD_ID='" . UserMP() . "'" ) );
 
 		$extra['SELECT'] .= ",(SELECT SORT_ORDER FROM SCHOOL_GRADELEVELS WHERE ID=ssm.GRADE_ID) AS SORT_ORDER";
 
@@ -68,29 +66,31 @@ if ( $_REQUEST['modfunc'] === 'save' )
 		{
 			echo '<table style="margin:auto auto;">';
 
-			//FJ Bugfix wkhtmltopdf ContentOperationNotPermittedError
-			$clipart_html = ( $_REQUEST['clipart'] ? '<img src="assets/ClipArts/'.$_REQUEST['clipart'].'" height="200" />' : '' );
-
 			$honor_roll_text = $REQUEST_honor_roll_text;
 
-			$honor_roll_text = str_replace(array('__CLIPART__',
-			'__FULL_NAME__',
-			'__FIRST_NAME__',
-			'__LAST_NAME__',
-			'__MIDDLE_NAME__',
-			'__GRADE_ID__',
-			'__SCHOOL_ID__',
-			'__SUBJECT__'),
-			array($clipart_html,
-			$student['FULL_NAME'],
-			$student['FIRST_NAME'],
-			$student['LAST_NAME'],
-			$student['MIDDLE_NAME'],
-			$student['GRADE_ID'],
-			SchoolInfo( 'TITLE' ),
-			$_REQUEST['subject']),$honor_roll_text);
+			$honor_roll_text = str_replace(
+				array(
+					'__FULL_NAME__',
+					'__FIRST_NAME__',
+					'__LAST_NAME__',
+					'__MIDDLE_NAME__',
+					'__GRADE_ID__',
+					'__SCHOOL_ID__',
+					'__SUBJECT__',
+				),
+				array(
+					$student['FULL_NAME'],
+					$student['FIRST_NAME'],
+					$student['LAST_NAME'],
+					$student['MIDDLE_NAME'],
+					$student['GRADE_ID'],
+					SchoolInfo( 'TITLE' ),
+					$_REQUEST['subject'],
+				),
+				$honor_roll_text
+			);
 
-			echo '<tr><td>'.$honor_roll_text.'</td></tr></table>';
+			echo '<tr><td>' . $honor_roll_text . '</td></tr></table>';
 
 			echo '<br /><table style="margin:auto auto; width:80%;">';
 			echo '<tr><td><span style="font-size:x-large;">'.$student['TEACHER'].'</span><br /><span style="font-size:medium;">'._('Teacher').'</span></td>';
@@ -125,18 +125,11 @@ if ( ! $_REQUEST['modfunc'] )
 		      ( isset($_REQUEST['include_inactive']) ? $_REQUEST['include_inactive'] : '' ).'&_ROSARIO_PDF=true" method="POST">';
 		$extra['header_right'] = SubmitButton(_('Create Honor Roll by Subject for Selected Students'));
 
-		//FJ add Template
-		$templates = DBGet( DBQuery( "SELECT TEMPLATE, STAFF_ID
-			FROM TEMPLATES WHERE MODNAME = '" . $_REQUEST['modname'] . "'
-			AND STAFF_ID IN (0,'" . User( 'STAFF_ID' ) . "')" ), array(), array( 'STAFF_ID' ) );
-
 		$extra['extra_header_left'] = '<table><tr class="st">
 		<td class="valign-top">' . _( 'Text' ) . '</td>
 		<td class="width-100p">' .
 		TinyMCEInput(
-			( isset( $templates[ User( 'STAFF_ID' ) ] ) ?
-				$templates[ User( 'STAFF_ID' ) ][1]['TEMPLATE'] :
-				$templates[0][1]['TEMPLATE'] ),
+			GetTemplate(),
 			'honor_roll_text',
 			'',
 			'class="tinymce-horizontal"'
@@ -152,8 +145,7 @@ if ( ! $_REQUEST['modfunc'] )
 		$extra['extra_header_left'] .= '<tr class="st"><td>__SCHOOL_ID__</td><td>= '._('School').'</td><td>&nbsp;</td>';
 		$extra['extra_header_left'] .= '<td>__GRADE_ID__</td><td>= '._('Grade Level').'</td></tr>';
 
-		$extra['extra_header_left'] .= '<tr class="st"><td>__CLIPART__</td><td>= '._('ClipArt').'</td><td colspan="3">&nbsp;</td>';
-		$extra['extra_header_left'] .= '</tr></table></td></tr>';
+		$extra['extra_header_left'] .= '</table></td></tr>';
 
 		//FJ add frames choice
 		$frames = array();
@@ -179,35 +171,9 @@ if ( ! $_REQUEST['modfunc'] )
 			}
 		}
 
-		$extra['extra_header_left'] .= '</tr></table></div></td></tr><tr><td colspan="2">&nbsp;</td></tr>';
-
-		//FJ add clipart choice
-		$cliparts = array();
-		if (is_dir('assets/ClipArts/'))
-			$cliparts = scandir('assets/ClipArts/');
-
-		//no clipart first and checked
-		$extra['extra_header_left'] .= '<tr class="st">
-		<td style="vertical-align:top;">'._('ClipArt').'</td>
-		<td><div style="overflow-x:auto; height:160px;" id="clipartsList">
-			<table class="cellspacing-0"><tr>
-			<td class="image-radio-list" style="height: auto;"><label class="image-radio-list"><input type="radio" name="clipart" value="" checked /> '._('No ClipArt').'</label></td>';
-
-		//create radio list with thumbnails
-		$i = 1;
-		foreach ($cliparts as $clipart)
-		{
-			//filter images
-			if ( in_array( mb_strtolower(mb_strrchr($clipart, '.')), array('.jpg', '.jpeg', '.png', '.gif') ) )
-			{
-				$extra['extra_header_left'] .= '<td class="image-radio-list"><label class="image-radio-list"><input type="radio" name="clipart" value="'.$clipart.'"> <img src="assets/ClipArts/'.$clipart.'" class="image-radio-list" title="'.UCWords(str_replace(array('_', '.jpg', '.jpeg', '.png', '.gif'),array(' ', ''), $clipart)).'" /></label></td>';
-				$i++;
-			}
-		}
-
 		$extra['extra_header_left'] .= '</tr></table></div></td></tr></table>';
 
-		$extra['extra_header_left'] .= '<script>if (isTouchDevice()) {touchScroll(document.getElementById(\'framesList\')); touchScroll(document.getElementById(\'clipartsList\'));}</script>';
+		$extra['extra_header_left'] .= '<script>if (isTouchDevice()) {touchScroll(document.getElementById(\'framesList\'));}</script>';
 	}
 
 	$extra['new'] = true;

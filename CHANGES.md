@@ -1,10 +1,33 @@
 # CHANGES
 ## RosarioSIS Student Information System
 
+Changes in 3.6
+--------------
+- Add menuMP JS var to update current MP in side menu in Side.php & Warehouse.php
+- Add link to Take Attendance program from the Missing Attendance listing in Portal.php
+- Fix UTF8 Excel file and non English characters in ListOutput.fnc.php
+- Add GetTemplate() & SaveTemplate() functions to ProgramFunctions/Template.fnc.php
+- Remove Honor Roll ClipArts in HonorRollSubject.php & assets/ClipArts/
+
+Changes in 3.5.3
+----------------
+- Fix AJAX error display in warehouse.js
+- Fix #177 Get Gradebook Grades' Percentage rounding issue in InputFinalGrades.php, thanks to @lkozloff
+- Hide School column in Missing Attendance listing if only 1 school in Portal.php
+- Fix #206 No Missing Attendance warning if course period has no students in Portal.php
+
+Changes in 3.5.2
+----------------
+- Fix pg_connect() error in database.inc.php
+- Fix DB error with REPORTING_GP_SCALE field numeric(10,3) type in Schools.php
+- Fix SQL error when course has no periods in MassCreateAssignments.php
+- Add Exif imagetype function in ImageResizeGD.php
+
 Changes in 3.5.1
 ----------------
 - Add Course Period column to Edit Student Grades program in EditReportCardGrades.php, sponsored by Aptiris
 - Update Arabic translation & flag in locale/ar_AE.utf8, thanks to Ali Al-Hassan
+- Fix "Please enter valide numeric data error" in Configuration.php, thanks to @vanyog
 
 Changes in 3.5
 --------------

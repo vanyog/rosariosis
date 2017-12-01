@@ -3559,7 +3559,7 @@ INSERT INTO attendance_codes VALUES (4, 2017, 1, 'Excused Absence', 'E', 'offici
 --
 
 INSERT INTO config VALUES (0, 'LOGIN', 'No');
-INSERT INTO config VALUES (0, 'VERSION', '3.');
+INSERT INTO config VALUES (0, 'VERSION', '3.6-beta');
 INSERT INTO config VALUES (0, 'TITLE', 'Rosario Student Information System');
 INSERT INTO config VALUES (0, 'NAME', 'RosarioSIS');
 INSERT INTO config VALUES (0, 'MODULES', 'a:13:{s:12:"School_Setup";b:1;s:8:"Students";b:1;s:5:"Users";b:1;s:10:"Scheduling";b:1;s:6:"Grades";b:1;s:10:"Attendance";b:1;s:11:"Eligibility";b:1;s:10:"Discipline";b:1;s:10:"Accounting";b:1;s:15:"Student_Billing";b:1;s:12:"Food_Service";b:1;s:9:"Resources";b:1;s:6:"Custom";b:1;}');
@@ -4441,7 +4441,7 @@ INSERT INTO templates VALUES ('Grades/HonorRoll.php', 0, '<br /><br /><br />
 <div style="text-align: center;"><span style="font-size: xx-large;"><strong>__SCHOOL_ID__</strong><br /></span><br /><span style="font-size: xx-large;">We hereby recognize<br /><br /></span></div>
 <div style="text-align: center;"><span style="font-size: xx-large;"><strong>__FIRST_NAME__ __LAST_NAME__</strong><br /><br /></span></div>
 <div style="text-align: center;"><span style="font-size: xx-large;">Who has completed all the academic requirements for <br />Honor Roll</span></div>');
-INSERT INTO templates VALUES ('Grades/HonorRollSubject.php', 0, '<div style="text-align: center;">__CLIPART__<br /><br /><strong><span style="font-size: xx-large;">__SCHOOL_ID__<br /></span></strong><br /><span style="font-size: xx-large;">We hereby recognize<br /><br /></span></div>
+INSERT INTO templates VALUES ('Grades/HonorRollSubject.php', 0, '<div style="text-align: center;"><br /><br /><strong><span style="font-size: xx-large;">__SCHOOL_ID__<br /></span></strong><br /><span style="font-size: xx-large;">We hereby recognize<br /><br /></span></div>
 <div style="text-align: center;"><strong><span style="font-size: xx-large;">__FIRST_NAME__ __LAST_NAME__<br /><br /></span></strong></div>
 <div style="text-align: center;"><span style="font-size: xx-large;">Who has completed all the academic requirements for Academic Excellence in <br />__SUBJECT__</span></div>');
 INSERT INTO templates VALUES ('Grades/Transcripts.php', 0, 'The Principal undersigned certify:

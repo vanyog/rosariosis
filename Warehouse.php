@@ -17,7 +17,7 @@
  * @package RosarioSIS
  */
 
-define( 'ROSARIO_VERSION', '3.5' );
+define( 'ROSARIO_VERSION', '3.6-beta' );
 
 /**
  * Include config.inc.php file.
@@ -469,6 +469,7 @@ function Warehouse( $mode )
 		&& (menuStudentID != "<?php echo UserStudentID(); ?>"
 			|| menuStaffID != "<?php echo UserStaffID(); ?>"
 			|| menuSchool != "<?php echo UserSchool(); ?>"
+			|| menuMP != "<?php echo UserMP(); ?>"
 			|| menuCoursePeriod != "<?php echo UserCoursePeriod(); ?>")) {
 		ajaxLink( 'Side.php?sidefunc=update' );
 	}
